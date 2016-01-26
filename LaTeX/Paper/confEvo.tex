@@ -1,0 +1,163 @@
+\documentclass[12pt,onesided]{amsart} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% PREAMBLE %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% -------------------- defaults -------------------- %
+% load lots o' packages
+
+% layout control
+\usepackage{geometry}
+\geometry{verbose,tmargin=1.25in,bmargin=1.25in,lmargin=1.1in,rmargin=1.1in}
+\usepackage[figuresright]{rotating}
+\newenvironment{amssidewaysfigure}
+  {\begin{sidewaysfigure}\vspace*{.8\textwidth}\begin{minipage}{\textheight}\centering}
+  {\end{minipage}\end{sidewaysfigure}}
+\usepackage{parallel}
+\usepackage{parcolumns}
+
+% math typesetting
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\usepackage[%
+decimalsymbol=.,
+digitsep=fullstop
+]{siunitx}
+
+% to adapt caption style
+\usepackage[font={small},labelfont=bf]{caption}
+
+% references
+\usepackage{natbib}
+% \usepackage[natbib=true, style=authoryear]{biblatex}
+% \bibliography{master.bib}
+
+% footnotes at bottom
+\usepackage[bottom]{footmisc}
+
+% to change enumeration symbols begin{enumerate}[(a)]
+\usepackage{enumerate}
+
+% to make enumerations and itemizations within paragraphs or
+% lines. f.i. begin{inparaenum} for (a) is (b) and (c)
+\usepackage{paralist}
+
+% to colorize links in document. See color specification below
+\usepackage[x11names]{xcolor}
+
+% load the hyper-references package and set document info
+\usepackage[pdftex]{hyperref}
+
+% graphics stuff
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage[space]{grffile} % allows us to specify directories that have spaces
+\usepackage[section]{placeins} % prevents floats from moving past a \FloatBarrier or section
+\usepackage{tikz}
+
+% Spacing
+\usepackage{setspace}
+
+% define clickable links and their colors
+\hypersetup{
+	unicode=false,          % non-Latin characters in Acrobat's bookmarks
+	pdftoolbar=true,        % show Acrobat's toolbar?
+	pdfmenubar=true,        % show Acrobat's menu?
+	pdffitwindow=false,     % window fit to page when opened
+	pdfstartview={FitH},    % fits the width of the page to the window
+	pdfnewwindow=true,%
+	pdfauthor={xxAuthorsLastxx},%
+	pdftitle={xxTitleShortxx},%
+	colorlinks,%
+	citecolor=black,%
+	filecolor=black,%
+	linkcolor=black,%
+	urlcolor=RoyalBlue4%
+	}
+% -------------------------------------------------- %
+
+
+% -------------------- title -------------------- %
+
+\title[Conflict Evolution]{Conflict Evolution: Grabbing Stuff by the Horns}
+\date{\today}
+
+\author[Dorff]{Cassy Dorff}
+\address{Cassy Dorff: Department of Political Science}
+\curraddr{University of Colorado-Boulder, Denver, CO}
+\email{cassy.dorff@duke.edu}
+
+\author[Minhas]{Shahryar Minhas}
+\address{Shahryar Minhas: Department of Political Science}
+\curraddr{Duke University, Durham, NC, 27708, USA}
+\email{shahryar.minhas@duke.edu}
+
+\thanks{I am thankful for people. }
+
+% ----------------------------------------------- %
+
+
+% -------------------- customizations -------------------- %
+
+% references to graphics
+\makeatletter
+\def\input@path{{/Users/janus829/Dropbox/Research/conflictEvolution/Graphics/}, {/Users/cassydorff/Dropbox/Research/conflictEvolution/Graphics/}, {/Users/s7m/Dropbox/Research/conflictEvolution/Graphics/}}
+\makeatother
+\graphicspath{{/Users/janus829/Dropbox/Research/conflictEvolution/Graphics/}, {/Users/cassydorff/Dropbox/Research/conflictEvolution/Graphics/}, {/Users/s7m/Dropbox/Research/conflictEvolution/Graphics/}}
+
+% -------------------------------------------------------- %
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% DOCUMENT %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\singlespacing
+\input{Abstract}
+\end{abstract}
+Wordcount: XXXX
+
+\newpage
+\newpage\setcounter{page}{1} 
+\doublespacing
+
+%%%%%%%% INTRO %%%%%%%%
+\input{1_intro}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Lit Review %%%%%
+\input{2_lit}
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Theory %%%%%
+\input{3_theory}
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Empirics %%%%%
+\input{4_emp}
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Conclusion %%%%%
+\input{5_concl}
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Appendix %%%%%
+\input{6_appendix}
+%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+% \bibliographystyle{elsarticle-harv} 
+\bibliographystyle{jpr}
+\bibliography{confEvo.bib}
+
+\end{document} 
