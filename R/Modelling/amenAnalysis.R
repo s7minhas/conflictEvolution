@@ -77,7 +77,7 @@ fitOrd<-ame_rep(yOrd, Xdyad=NULL, Xnode, model="ord", symmetric=TRUE,
                 burn=1000,nscan=70000, odens=100)
 
 summary(fitOrd)
-
+setwd('~/Desktop/cevoResultsDesktop')
 save(fitBin, file="fitBin.rda")
 save(fitOrd, file="fitOrd.rda")
 
