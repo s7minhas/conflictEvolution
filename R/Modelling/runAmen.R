@@ -29,8 +29,8 @@ dvMatsOrd<-array(unlist(matListCrimeOrd), dim=c(nrow(matListCrimeOrd[[1]]), ncol
 # Transform Y so that events only occur between dto-gov and dto-dto
 govActors = dimnames(dvMats)[[1]][c(1:3,6:9)]
 dtoActors = dimnames(dvMats)[[1]][c(4:5,10:17)]
-# dvMats[govActors,govActors,] = 0
-# dvMatsOrd[govActors,govActors,] = 0
+dvMats[govActors,govActors,] = 0
+dvMatsOrd[govActors,govActors,] = 0
 
 #load nodal covariates 
 Xnode = allNodal[,,as.character(2007:2013)]
