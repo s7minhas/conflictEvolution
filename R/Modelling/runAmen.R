@@ -29,8 +29,8 @@ dvMatsOrd<-array(unlist(matListCrimeOrd), dim=c(nrow(matListCrimeOrd[[1]]), ncol
 # Transform Y so that events only occur between dto-gov and dto-dto
 govActors = dimnames(dvMats)[[1]][c(1:3,6:9)]
 dtoActors = dimnames(dvMats)[[1]][c(4:5,10:17)]
-dvMats[govActors,govActors,] = 0
-dvMatsOrd[govActors,govActors,] = 0
+# dvMats[govActors,govActors,] = 0
+# dvMatsOrd[govActors,govActors,] = 0
 
 #load nodal covariates 
 Xnode = allNodal[,,as.character(2007:2013)]
@@ -58,10 +58,10 @@ modList = list(
     # dtoF = list(yBin=yBin, yOrd=yOrd, Xnode=Xnodev2[,c('dto'),,drop=FALSE], Xdyad=NULL, intM=FALSE, name='dtoF'),
     # dtoF_net = list(yBin=yBin, yOrd=yOrd, Xnode=Xnodev2[,c('dto', 'centrality', 'betweeness'),,drop=FALSE], Xdyad=NULL, intM=FALSE, name='dtoF_net'),    
     # dtoF_protest = list(yBin=yBin, yOrd=yOrd, Xnode=Xnodev2[,c('dto','protestLagCount'),], Xdyad=NULL, intM=FALSE, name='dtoF_protest'),    
-    # dtoF_protest_net = list(yBin=yBin, yOrd=yOrd, Xnode=Xnodev2[,c('dto', 'centrality', 'betweeness', 'protestLagCount'),,drop=FALSE], Xdyad=NULL, intM=FALSE, name='dtoF_protest_net') 
     protest = list(yBin=yBin, yOrd=yOrd, Xnode=Xnodev2[,c('protestLagCount'),,drop=FALSE], Xdyad=NULL, intM=TRUE, name='protest'),            
     protest_net = list(yBin=yBin, yOrd=yOrd, Xnode=Xnodev2[,c('centrality', 'betweeness', 'protestLagCount'),,drop=FALSE], Xdyad=NULL, intM=TRUE, name='protest_net'),
-    protest_net_dto = list(yBin=yBin, yOrd=yOrd, Xnode=Xnodev2[,c('centrality', 'betweeness', 'protestLagCount','dto'),,drop=FALSE], Xdyad=NULL, intM=TRUE, name='protest_net_dto')         
+    protest_net_dto = list(yBin=yBin, yOrd=yOrd, Xnode=Xnodev2[,c('centrality', 'betweeness', 'protestLagCount','dto'),,drop=FALSE], Xdyad=NULL, intM=TRUE, name='protest_net_dto'),
+    dtoF_protest_net = list(yBin=yBin, yOrd=yOrd, Xnode=Xnodev2[,c('dto', 'centrality', 'betweeness', 'protestLagCount'),,drop=FALSE], Xdyad=NULL, intM=FALSE, name='dtoF_protest_net')     
     )
 save(modList, file=paste0(pathResults, 'modList.rda'))
 
