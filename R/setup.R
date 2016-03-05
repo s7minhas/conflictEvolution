@@ -8,6 +8,7 @@ if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){
 	gpth='~/Research/conflictEvolution/';
 	pathData=paste0(dpth, 'data/');
 	pathGraphics=paste0(dpth, 'graphics/')
+	pathResults = paste0(dpth, 'results/')
 }
 
 if(Sys.info()["user"]=="cassydorff"){
@@ -21,17 +22,13 @@ if(Sys.info()["user"]=="cassydorff"){
 ####################################
 # Load helpful libraries
 loadPkg=function(toLoad){
-	for(lib in toLoad){
-	  if(!(lib %in% installed.packages()[,1])){ 
-	    install.packages(lib, repos='http://cran.rstudio.com/') }
-	  library(lib, character.only=TRUE)
-	} }
+    for(lib in toLoad){
+      if(!(lib %in% installed.packages()[,1])){ 
+        install.packages(lib, repos='http://cran.rstudio.com/') }
+      library(lib, character.only=TRUE) } }
 
-toLoad=c(
-	'network','amen', 'MASS', 'ggplot2',
-	'plyr', 'xtable', 'abind'
-	)
-
+toLoad = c('amen', 'magrittr', 'foreach', 'doParallel', 
+	'network', 'igraph', 'ggplot2', 'reshape2')
 loadPkg(toLoad)
 
 ## gg theme
@@ -40,9 +37,65 @@ theme_set(theme_bw())
 
 ####################################
 # Helpful functions
+pasteVec = function(x,y){ as.vector( outer( x, y, paste0 ) ) }
 char = function(x) { as.character(x) }
 num = function(x) { as.numeric(char(x)) }
 cname = function(x) { countrycode(x, 'country.name', 'country.name') }
 trim = function (x) { gsub("^\\s+|\\s+$", "", x) }
 substrRight = function(x, n){ substr(x, nchar(x)-n+1, nchar(x)) }
+summStats = function(x){
+	mu=mean(x)
+	qts=quantile(x, probs=c(0.025, 0.975, 0.05, 0.95))
+	return( c(mu, qts) ) }
+
+# Trace plot
+getTracePlot = function(mod){
+	beta = mod$'BETA' %>% data.frame()
+	beta$iter = 1:nrow(beta)
+	ggData = melt(beta, id='iter')
+	tracePlot = ggplot(ggData, aes(x=iter, y=value)) + geom_line() + facet_wrap(~variable, scales='free_y', ncol=1)	
+	return(tracePlot) }
+
+# coef data
+getCoefData = function(ii, mods, modSpec){
+	# Generate data for coefficient plot
+	mod = mods[[ii]]
+	beta = mod$'BETA' %>% data.frame()
+	beta = beta[-(1:((toBurn-1)/odes)),,drop=FALSE]
+	betaSumm = t ( apply(beta, 2, function(x){
+		c( mean(x), quantile(x, probs=c(0.025, 0.975, 0.05, 0.95) ) ) }) )
+	ggData = data.frame( betaSumm, row.names = NULL )
+	names(ggData) = c('mean', pasteVec(c('lo','hi'), c('95','90')) )
+	ggData$var = rownames( betaSumm )
+	ggData$mod = modSpec[[ii]]$'name'
+	# Generate colors
+	ggData$sig = NA
+	ggData$sig[ggData$lo90 > 0 & ggData$lo95 < 0] = "Positive at 90"
+	ggData$sig[ggData$lo95 > 0] = "Positive"
+	ggData$sig[ggData$hi90 < 0 & ggData$hi95 > 0] = "Negative at 90"
+	ggData$sig[ggData$hi95 < 0] = "Negative"
+	ggData$sig[ggData$lo90 < 0 & ggData$hi90 > 0] = "Insig"
+	return(ggData) }
+
+# coef plot
+getCoefPlot = function(ggData){
+	coefCols = c("Positive"=rgb(54, 144, 192, maxColorValue=255), 
+	                "Negative"= rgb(222, 45, 38, maxColorValue=255),
+	                "Positive at 90"=rgb(158, 202, 225, maxColorValue=255), 
+	                "Negative at 90"= rgb(252, 146, 114, maxColorValue=255),
+	                "Insig" = rgb(150, 150, 150, maxColorValue=255))	
+	# make plot
+	ggCoef=ggplot(ggData, aes(x=var, y=mean, color=sig)) + geom_point()
+	ggCoef = ggCoef + geom_linerange(aes(ymin=lo95, ymax=hi95), alpha = .5, size = 0.7)
+	ggCoef = ggCoef + geom_linerange(aes(ymin=lo90, ymax=hi90),alpha = 1, size = 1)
+	ggCoef=ggCoef + geom_hline(yintercept=0, color='red', linetype='dashed')
+	ggCoef=ggCoef + ylab('') + scale_colour_manual(values = coefCols)
+	ggCoef=ggCoef + theme(
+		axis.ticks=element_blank(),
+		panel.background = element_blank(),
+		legend.position='none',
+		panel.grid.major=element_blank(),
+		panel.grid.minor=element_blank() )
+	ggCoef = ggCoef + coord_flip() + facet_wrap(~mod, nrow=1)
+	return(ggCoef) }
 ####################################
