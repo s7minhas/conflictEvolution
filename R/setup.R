@@ -78,17 +78,24 @@ getCoefData = function(ii, mods, modSpec){
 	return(ggData) }
 
 # coef plot
-getCoefPlot = function(ggData){
+getCoefPlot = function(
+	ggData, dropIntercept=TRUE, 
+	replaceNodeName = 'protestLagCount.node', 
+	modOrder=c('protest','net','protest_net','protest_net_dto') ){
 	coefCols = c("Positive"=rgb(54, 144, 192, maxColorValue=255), 
 	                "Negative"= rgb(222, 45, 38, maxColorValue=255),
 	                "Positive at 90"=rgb(158, 202, 225, maxColorValue=255), 
 	                "Negative at 90"= rgb(252, 146, 114, maxColorValue=255),
 	                "Insig" = rgb(150, 150, 150, maxColorValue=255))	
 	# make plot
-	ggCoef=ggplot(ggData, aes(x=var, y=mean, color=sig)) + geom_point()
+	if(dropIntercept){ ggData = ggData[ggData$var!='intercept',] }
+	ggData$var = char( ggData$var )
+	ggData$var[ggData$var=='.node'] = replaceNodeName
+	ggData$mod = factor(ggData$mod, levels=modOrder)
+	ggCoef=ggplot(ggData, aes(x=var, y=mean, color=sig)) 
+	ggCoef=ggCoef + geom_hline(yintercept=0, color='red', linetype='dashed')	
 	ggCoef = ggCoef + geom_linerange(aes(ymin=lo95, ymax=hi95), alpha = .5, size = 0.7)
-	ggCoef = ggCoef + geom_linerange(aes(ymin=lo90, ymax=hi90),alpha = 1, size = 1)
-	ggCoef=ggCoef + geom_hline(yintercept=0, color='red', linetype='dashed')
+	ggCoef = ggCoef + geom_linerange(aes(ymin=lo90, ymax=hi90),alpha = 1, size = 1) + geom_point(size=2)
 	ggCoef=ggCoef + ylab('') + scale_colour_manual(values = coefCols)
 	ggCoef=ggCoef + theme(
 		axis.ticks=element_blank(),
