@@ -29,8 +29,8 @@ dvMatsOrd<-array(unlist(matListCrimeOrd), dim=c(nrow(matListCrimeOrd[[1]]), ncol
 # Transform Y so that events only occur between dto-gov and dto-dto
 govActors = dimnames(dvMats)[[1]][c(1:3,6:9)]
 dtoActors = dimnames(dvMats)[[1]][c(4:5,10:17)]
-dvMats[govActors,govActors,] = 0
-dvMatsOrd[govActors,govActors,] = 0
+# dvMats[govActors,govActors,] = 0
+# dvMatsOrd[govActors,govActors,] = 0
 
 #load nodal covariates 
 Xnode = allNodal[,,as.character(2007:2013)]
@@ -52,6 +52,7 @@ for(ii in 1:dim(Xnodev2)[3]){
 }
 
 # Set up model specs
+pathResults ='~/Dropbox/Research/conflictEvolution/results/all_interactions/'
 modList = list(
     null = list(yBin=yBin, yOrd=yOrd, Xnode=NULL, Xdyad=NULL, intM=TRUE, name='null'),
     net = list(yBin=yBin, yOrd=yOrd, Xnode=Xnodev2[,c('centrality', 'betweeness'),], Xdyad=NULL, intM=TRUE, name='net'),
