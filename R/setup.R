@@ -81,9 +81,13 @@ getCoefData = function(ii, mods, modSpec){
 getCoefPlot = function(
 	ggData, dropIntercept=TRUE, 
 	replaceNodeName = 'protestLagCount.node', 
-	vars=c('protestLagCount.node', 'dto.node', 'centrality.node', 'betweeness.node'),
-	varLabels=c('Protest', 'DTO', 'Centrality', 'Betweeness'),
-	modOrder=c('protest','net','protest_net','protest_net_dto', 'dtoF_protest_net') ){
+	vars=c('dto.node', 'centrality.node', 'betweeness.node', 'protestLagCount.node'),
+	varLabels=c('DTO', 'Centrality', 'Betweeness', 'Protest'),
+	mods=c('protest','net','protest_net','protest_net_dto', 'dtoF_protest_net'),
+	modsToKeep=c('protest','net','protest_net','protest_net_dto', 'dtoF_protest_net'),
+	modLabels=c('Protest', 'Network', 'Protest + Net', 'Protest + Net + DTO', 'Protest + Net + I(DTO)'),
+	facetRows=1
+	 ){
 
 	# Colors for coef plot
 	coefCols = c("Positive"=rgb(54, 144, 192, maxColorValue=255), 
@@ -97,8 +101,11 @@ getCoefPlot = function(
 	ggData$var = char( ggData$var )
 	ggData$var[ggData$var=='.node'] = replaceNodeName
 	for(ii in 1:length(vars)){ ggData$var[ggData$var==vars[ii]] = varLabels[ii] }
+	ggData$mod = char(ggData$mod)
+	ggData = ggData[which(ggData$mod %in% modsToKeep),]
+	for(ii in 1:length(mods)){ ggData$mod[ggData$mod==mods[ii]] = modLabels[ii] }
 	ggData$var = factor(ggData$var, levels=varLabels)
-	ggData$mod = factor(ggData$mod, levels=modOrder)
+	ggData$mod = factor(ggData$mod, levels=modLabels)
 
 	# make plot
 	ggCoef=ggplot(ggData, aes(x=var, y=mean, color=sig)) 
@@ -112,6 +119,6 @@ getCoefPlot = function(
 		legend.position='none',
 		panel.grid.major=element_blank(),
 		panel.grid.minor=element_blank() )
-	ggCoef = ggCoef + coord_flip() + facet_wrap(~mod, nrow=1)
+	ggCoef = ggCoef + coord_flip() + facet_wrap(~mod, nrow=facetRows)
 	return(ggCoef) }
 ####################################
