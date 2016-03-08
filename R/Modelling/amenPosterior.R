@@ -4,8 +4,7 @@ source('~/Research/conflictEvolution/R/setup.R')
 # Modify pathResults based on dv
 # pathResults ='~/Dropbox/Research/conflictEvolution/results/' # use for dv where gov-gov = 0
 pathResults ='~/Dropbox/Research/conflictEvolution/results/all_interactions/' # use for dv where gov-gov!=0
-if(grepl('all_interactions',pathResults)){
-	pname = 'all_' } else { pname = 'noGov_gov_' }
+if(grepl('all_interactions',pathResults)){ pname = 'all_' } else { pname = 'noGov_gov_' }
 
 
 # Load output files into list
@@ -22,7 +21,7 @@ binCoef = getCoefPlot(
 	facetRows=2 )	
 ggsave(filename=paste0(pathResults, pname, 'bin.pdf'), height=6, width=8)
 
-ordMods = lapply(names(modList), function(mod){ load( paste0(pathResults,mod,'_ord.rda') ) ; return(fit) }); names(ordMods) = names(ordMods)
+ordMods = lapply(names(modList), function(mod){ load( paste0(pathResults,mod,'_ord.rda') ) ; return(fit) }); names(ordMods) = names(modList)
 tracePlotsOrd = lapply(ordMods, getTracePlot)
 coefDataOrd = lapply(1:length(ordMods), function(ii){ getCoefData(ii, ordMods, modList) } ) %>% do.call('rbind', .)
 
