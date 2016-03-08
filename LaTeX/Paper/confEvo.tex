@@ -54,7 +54,7 @@ digitsep=fullstop
 \usepackage[pdftex]{hyperref}
 
 % graphics stuff
-\usepackage{subfig}
+\usepackage{subcaption}
 \usepackage{graphicx}
 \usepackage[space]{grffile} % allows us to specify directories that have spaces
 \usepackage[section]{placeins} % prevents floats from moving past a \FloatBarrier or section
@@ -84,7 +84,7 @@ digitsep=fullstop
 
 % -------------------- title -------------------- %
 
-\title[Dynamic Networks of Violence]{Dynamic Networks of Violence: People Power and the Mexican Criminal Conflict}
+\title[]{Dynamic Networks of Violence: People Power and the Mexican Criminal Conflict}
 \date{\today}
 
 \author[Dorff]{Cassy Dorff}
@@ -106,7 +106,7 @@ digitsep=fullstop
 
 % references to graphics
 \makeatletter
-\def\input@path{{/Users/janus829/Dropbox/Research/conflictEvolution/Graphics/}, {/Users/cassydorff/Dropbox/Research/conflictEvolution/Graphics/}, {/Users/s7m/Dropbox/Research/conflictEvolution/Graphics/}}
+\def\input@path{{/Users/janus829/Dropbox/Research/conflictEvolution/Graphics/}, {/Users/cassydorff/Dropbox/Research/conflictEvolution/graphics/}, {/Users/s7m/Dropbox/Research/conflictEvolution/Graphics/}}
 \makeatother
 \graphicspath{{/Users/janus829/Dropbox/Research/conflictEvolution/Graphics/}, {/Users/cassydorff/Dropbox/Research/conflictEvolution/Graphics/}, {/Users/s7m/Dropbox/Research/conflictEvolution/Graphics/}}
 
@@ -139,12 +139,14 @@ Wordcount: XXXX
 %%%%%%%%%%%%%%%%%%%%%%
 
 %%%%% Theory %%%%%
-\input{3_theory}
+% \input{3_theory}
 %%%%%%%%%%%%%%%%%%%%%%
 
 %%%%% Empirics %%%%%
 \input{4_emp}
 %%%%%%%%%%%%%%%%%%%%%%
+\input{4_results}
+
 
 %%%%% Conclusion %%%%%
 \input{5_concl}

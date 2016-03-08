@@ -1,6 +1,5 @@
-\section*{Empirics}
+\section*{The Mexican Criminal Conflict}
 
-\subsection*{The Mexican Case}
 The Mexican case is the key country case for this study. The internal war in Mexico is a criminal conflict, driven by territorial disputes over trafficking routes and land and collusion between government officials and Drug Trafficking Organizations (DTOs). Drug trafficking is not a new phenomenon but over the last decade it has has been at the root of a complex conflict affecting all levels of Mexican society.  After the fall of the Colombian cartels in the 1990s, the landscape of violence related to drug trafficking completely shifted in Mexico as cartels gained new territorial control. Since this time, Mexican drug cartels have become the largest foreign supplier of methamphetamine and marijuana to the United States, effectively dominating the drug market. In fact, estimates claim that the drug trade employs over half a million people and generates roughly 4\% of Mexico's annual GDP.\footnote{\cite{shirk2011drug}} 
 
 Although Mexican drug cartels have controlled the drug trade for decades, it was not until the 2006 election of Felipe Calder\'{o}n that drug-related violence began to soar and civilians found themselves under fire. In 2006, Calder\'{o}n became president and ushered in a new policy against the cartels. With support from the United States, the Mexican government initiated a massive campaign to combat drug-related violence.  Violence soared and between 2006 and 2011 and homicides nearly tripled from 10,452 to 27,213.\footnote{According to Mexico's National Statistics Institute (INEGI).} Sending armed actors into an already armed, violent, and competitive situation, Calderon's strategy became known as a failure. It did not address the fundamental needs of civilians or establish trusted local institutions where citizens could seek support in the realms of justice and security.  Instead, these policies complicated the security situation even more and created an unstable environment for reporters, government officials, and civilians.
@@ -9,7 +8,7 @@ The failure of ``Calder\'{o}n's War'' is partially attributable to the fact that
 
 Because of the cartels' brutal methods of punishment and gain, journalists and other forms of citizen representatives have been hesitant to report on these events. Journalists have not only been afraid to report out of fear that they \textit{might} be punished; in fact, they have been targeted and killed numerous times. In 2010, Carlos Santiago, an intern photographer for the Mexican newspaper El Diario, based in Ciudad Juarez, was shot and killed.  This was the second journalist from El Diario to be targeted.  The other was Armando Rodríguez, a writer who worked the police beat and was killed in front of his own home. Following these deaths, the newspaper's editor drafted a plea to drug traffickers asking why they were being targeted. The article was published on the front page of the paper.\footnote{For a full interview with the editor see \cite{eldiario}.} Then, on April 28, 2012, Regina Mart\'{i}nez, a journalist for the national news outlet Proceso, was found dead in her home in Xalapa, Veracruz. This series of murders is indicative of a larger phenomenon across Mexico. According to the International Press Institute and the Mexican journalists' group ``Periodistas de a Pie,'' 103 journalists have been killed between 2000-2015 and 25 have disappeared. Since 2010, Mexico has been considered as deadly for journalists as Iraq; yet, these crimes continue with impunity. The Mexican case thus presents a relevant, timely, and difficult case for measuring the evolution of nuanced relationships between different violent actors. This study describes how the investigation of these relationships is possible. 
 
-\subsection*{Data Challenges in The Mexican Case}
+\section*{Data Challenges in The Mexican Case}
 The quality of data on the Mexican criminal conflict remains mixed and generally suffers from underreporting. We know that there have been several key actors in this conflict over the years, including the Gulf Cartel, Juarez Cartel, La Familia Michoacana, Los Zetas, Sinaloa Cartel, and the Tijuana Cartel. However, because Mexican drug cartels are often in conflict with one another and infiltrated by government officials, it is difficult to attribute responsibility for homicides or other violent events to one cartel or actor versus another. Although the noisiness of this data might seem daunting, it presents an opportunity for researchers to explore how they may improve data and knowledge about violent situations in contexts where it is often dangerous to do the costly on-the-ground ``legwork'' that is generally necessary to accrue such information. 
 
 At present, the majority of data on violence in Mexico is based on homicide rates. Homicide data is produced from four main sources: Mexico's National Institute of Statistics and Geography (INEGI), the National System of Public Security (SNSP), the Mexican Federal Government, and La Reforma. In the beginning of the conflict (typically demarcated by Calder\'{o}n's assumption of the Presidency), national newspapers carried death counts related to drug violence.  \textit{La Reforma}  continues to maintain drug-related homicide data; however, transparency behind the methodology of this data collection remains uncertain. It is not known, for example, how the newspaper decides whether a homicide is drug-related or not. Mexico's INEGI has data based on death certificates, which allows one to acknowledge the manner of death (such as bullet wound). This data, however, is unable to attribute which homicides are linked to crime and which are unrelated. The National System of Public Security also has crime data based on local prosecutor reports, but its reliability is questionable due to the mixed incentives for governments to accurately report information. Finally, the federal government also has released data known as the ``Database of Alleged Homicides Related to Organized Crime.'' This database has information on executions and violence against authorities. Altogether, these data present several difficulties: first, they are not updated in real-time. To better understand the heterogenous evolution of civil conflict, researchers need to be able to describe conflict dynamics as they unfold. A further, major criticism is that these data do not further our understanding about who is directly or indirectly responsible for these crimes.\footnote{This information summarizes an article will fuller details on the subject in \textit{Letras Libras}. See \cite{ley2012}. Melissa Dell uses this government data to assess whether or not PAN victories divert drug traffic to alternative routes predicted by the shortest paths in a networked trafficking model. The aim of \cite{dell2011}, however, is not to create actor-based event networks.} 
@@ -92,7 +91,9 @@ The trajectory of the data between 2008 and 2009, however, differs significantly
 
  \newpage
 \section*{Creating a Conflict Network in Mexico}
-In the final stage of the analysis, I create sociomatrices for each year of the cleaned data.  These sociomatrices can be thought of as a summary of interactions between all actors involved in conflictual events within a year. Given that there are $n$ actors in a year I construct an $n$ x $n$ sociomatrix $Y$. The number of conflictual dyadic interactions for any actor $i$ and $j$ is simply the number of events between those two actors during each given year. The resulting matrix is an undirected, symmetric matrix, as represented below.
+Next, we demonstrate how networks can capture the behavior of armed groups within the Mexican conflict. These networks, discussed below, reveal important relationships between actors, relationships that are otherwise missed by traditional dyadic frameworks. In a simple, descriptive and systematic way, we are able to show which DTOs were involved in the most conflict relevant to one another. We show that the Sinaloa cartel engages in violence against the highest number of competitors as well as against the federal government's armed forces. After walking through these connections and the ways in which they evolve over time, we turn to relationships  \textit{unobserved} in the raw data: i.e reciprocity and clustering.  
+
+To begin, we create sociomatrices for each year of the cleaned data.  These sociomatrices can be thought of as a summary of interactions between all actors involved in conflictual events within a year. Given that there are $n$ actors in a year I construct an $n$ x $n$ sociomatrix $Y$. The number of conflictual dyadic interactions for any actor $i$ and $j$ is simply the number of events between those two actors during each given year. The resulting matrix is an undirected, symmetric matrix, as represented below.
  
 \[
 \left[
@@ -124,38 +125,35 @@ actor_{m} & 0 & 1 & 4  & 4 &  0 \\
 %\]
 % 
  
-\noindent These matrices reveal a variety of interesting dynamics in the data, as shown in the network graphs of Figure~\ref{fig:2004}, Figure~\ref{fig:2006}, and Figure~\ref{fig:2008}. First, Figure~\ref{fig:2004} shows the network graph for the first two years of the data. Beginning as early as 2004 to 2005, there is a substantial increase in the number of actors in the network. We observe that ``Citizens" has a high degree in both networks or, rather, that the Citizen node is linked to a high number of other nodes within the group. In both of these networks we also see that the municipal police are the most heavily involved in these conflictual events, whereas other levels of government, such as the federal police, play a minor role in this time period. 
+\noindent These matrices reveal a variety of interesting dynamics in the data, as shown in the network graphs of Figure~\ref{fig:2005}, Figure~\ref{fig:2007}, and Figure~\ref{fig:2009}. First, Figure~\ref{fig:2005} shows the network graph for the first year of the data. Beginning as early as 2005 to 2007, there is a substantial increase in the number of actors in the network. We observe that 
 
-\textcolor{red}{NETWORK PICTURE HERE}
-%\begin{figure}[h!]
-%\raggedright
-%\includegraphics[scale=.55]{}
-%\caption{The evolution of the Mexican criminal conflict, 2004-2005. Orange nodes are government actors, blue represents civilian actors and green corresponds to criminal organizations. The links (grey lines) are weighted by the number of conflictual events for that year. }
-%\label{fig:2004}
-%\end{figure}
+\begin{figure}[h!]
+\includegraphics[scale=.4]{20052006}
+\caption{The evolution of the Mexican criminal conflict, 2005. Orange nodes are government actors, teal corresponds to criminal organizations. The links (grey lines) are weighted by the number of conflictual events for that year. }
+\label{fig:2005}
+\end{figure}
 
 
-These dynamics shift in 2006 and 2007, shown in Figure~\ref{fig:2006}. Here we see that both federal agencies and municipal forces are active in the conflict. Citizens are also entangled in these events, and the number of total actors increases from 12 in 2005 to 16 in 2006. There is a strong triad forming between citizens, federal police, and municipal police. We also observe a jump in the number of cartels involved in the network, as new actors such as La Familia Micho\'acana, the Mexican Mafia, and the military begin to take part in the conflict. Notably, this network also shows that the federal police and municipal police are now both highly active. This reflects a change in the government policy at that time. By 2006 Calder\'{o}n was elected president and implemented a militarized strategy, sending federal police and  troops into the most contested regions. By 2007, the network has 18 actors  and we see that the relationships become more complex as cartels begin to interact with one another. This sufficiently reflects what we now know to be true: following Calder\'{o}n's 2006 efforts, violence increased due to grueling competition between newly fragmented cartels. 
+These dynamics shift in 2007 and 2008, shown in Figure~\ref{fig:2007}. Here we see that both federal agencies and municipal forces are active in the conflict. Citizens are also entangled in these events, and the number of total actors increases from 12 in 2005 to 16 in 2006. There is a strong triad forming between citizens, federal police, and municipal police. We also observe a jump in the number of cartels involved in the network, as new actors such as La Familia Micho\'acana, the Mexican Mafia, and the military begin to take part in the conflict. Notably, this network also shows that the federal police and municipal police are now both highly active. This reflects a change in the government policy at that time. By 2006 Calder\'{o}n was elected president and implemented a militarized strategy, sending federal police and  troops into the most contested regions. By 2007, the network has 18 actors  and we see that the relationships become more complex as cartels begin to interact with one another. This sufficiently reflects what we now know to be true: following Calder\'{o}n's 2006 efforts, violence increased due to grueling competition between newly fragmented cartels. 
 
-\textcolor{red}{2nd NET PIC HERE}
-%\begin{figure}[h!]
-%\raggedright
-%\includegraphics[scale=.45]{20062007}
-%\caption{The evolution of the Mexican criminal conflict, 2006-2007. Orange nodes are government actors, blue represents civilian actors and green corresponds to criminal organizations. The links (grey lines) are weighted by the number of conflictual events for that year. }
-%\label{fig:2006}
-%\end{figure}
+
+\begin{figure}[h!]
+\includegraphics[scale=.4]{20072008}
+\caption{The evolution of the Mexican criminal conflict, 2006-2007. Orange nodes are government actors, blue represents civilian actors and green corresponds to criminal organizations. The links (grey lines) are weighted by the number of conflictual events for that year. }
+\label{fig:2007}
+\end{figure}
 
  In 2008, similar dynamics are in motion, but it is difficult to decipher the various roles played by the different levels of government. Earlier, both federal and municipal governments seem similarly involved, but by 2008 and 2009 the municipal government has a broader connectivity to diverse actors while the federal police seems to become more limitedly engaged with the Sinaloa Cartel. Overall, density increases across these networks overtime.  Finally, the years 2008 and 2009 demonstrate how often citizens are caught in the mix of the violence. A consistent link across networks is that of civilians who seem to be caught in the crosshairs of much of the violence. 
 
 To further assess how different levels of government change their role in the network over time, Figure~\ref{fig:eigen} presents the eigenvalue centrality for each actor. Eigenvector centrality is calculated by assessing how well connected an actor is to the other actors of the network. Specifically, those with the highest eigenvector centrality are well-connected to other actors who are also well-connected across the network.  In this case we can consider an actor with high eigenvector centrality to be a key player in the conflict.  
 
-\textcolor{red}{final net pic here}
-%\begin{figure}[h!]
-%\raggedright
-%\includegraphics[scale=.43]{20082009}
-%\caption{The evolution of the Mexican criminal conflict, 2008-2009. Orange nodes are government actors, blue represents civilian actors and green corresponds to criminal organizations. The links (grey lines) are weighted by the number of conflictual events for that year. }
-%\label{fig:2008}
-%\end{figure}
+
+\begin{figure}[h!]
+
+\includegraphics[scale=.4]{20092011}
+\caption{The evolution of the Mexican criminal conflict, 2009-2011. Orange nodes are government actors, teal corresponds to criminal organizations. The links (grey lines) are weighted by the number of conflictual events for that year. }
+\label{fig:2009}
+\end{figure}
 
 
 Figure \ref{fig:eigen} reveals an interesting story of coordination between different levels of government. In 2004 both the municipal police and the federal police have similar levels of eigen centrality. In 2005 they both decrease, with a larger decrease for the municipal police. In 2006 we see that both actors have very high centrality, indicating a deep involvement in the conflict. This reflects the Calder\'{o}n strategy: sending federal forces into local areas to help bolster security enforcement and combat the cartels. We then see these two actors diverge. Federal police stay highly central in the network in 2007 while the municipal forces seem to back down. At this year these two actors experience the biggest gap in centrality, signaling that coordination between the two levels of governments decreases as federal forces take over combat operations relative to municipal security forces. 
@@ -222,6 +220,8 @@ Following \cite{hoff2005bilinear}, we can define the unobserved, K-dimensional v
 \begin{eqnarray}
 \epsilon_{ij} = a_{i} + b_{j} + \gamma_{i,j} + z'_{i}z_{j}.
 \end{eqnarray}
+
+\subsection*{Key Variables}
 
 
 
