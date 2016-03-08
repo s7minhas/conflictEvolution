@@ -83,9 +83,9 @@ getCoefPlot = function(
 	replaceNodeName = 'protestLagCount.node', 
 	vars=c('dto.node', 'centrality.node', 'betweeness.node', 'protestLagCount.node'),
 	varLabels=c('DTO', 'Centrality', 'Betweeness', 'Protest'),
-	mods=c('protest','net','protest_net','protest_net_dto', 'dtoF_protest_net'),
-	modsToKeep=c('protest','net','protest_net','protest_net_dto', 'dtoF_protest_net'),
-	modLabels=c('Protest', 'Network', 'Protest + Net', 'Protest + Net + DTO', 'Protest + Net + I(DTO)'),
+	mods=c('protest','net','protest_net','protest_net_dto'),
+	modsToKeep=c('protest','net','protest_net','protest_net_dto'),
+	modLabels=c('Protest', 'Network', 'Protest + Net', 'Protest + Net + DTO'),
 	facetRows=1
 	 ){
 
