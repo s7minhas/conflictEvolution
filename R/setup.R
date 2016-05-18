@@ -12,7 +12,7 @@ if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){
 }
 
 if(Sys.info()["user"]=="cassydorff"){
-	dpth='~/Dropbox/Research/conflictEvolution/'
+	dpth='~/Dropbox/Research/nothingbutnet/conflictEvolution/'
 	gpth='~/ProjectsGit/conflictEvolution/'
 	pathData=paste0(dpth, 'data/');
 	pathGraphics=paste0(dpth, 'graphics/')

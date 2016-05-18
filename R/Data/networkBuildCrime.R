@@ -5,28 +5,26 @@
 ## Cassy Dorff
 ################################################################
 
-# setup & load all data
-rm(list=ls())
-setwd("/Users/cassydorff/Dropbox/Research/conflictEvolutionMex/data/")  
+# setup & load all data  
 library(plyr)
 library(ggplot2)
 library(xtable)
 library(amen)
 
 # event data
-cleanData<-read.csv("mexicoVioStoriesFinal.csv")
+cleanData<-read.csv(paste0(pathData, "mexicoVioStoriesFinal.csv"))
 
 # now load panel data
-panel<-read.csv("violentActors.csv") #updated actor list
+panel<-read.csv(paste0(pathData,"violentActors.csv")) #updated actor list
 uniqueNames<-as.character(unique(panel$Actor.Name))
 years<-seq(2005, 2013, 1)
 actorYr=lapply(years, function(x) FUN=uniqueNames)
 actorIDs=c("senderGroup1", "senderGroup2", "senderGroup3", "TargetGroup1", "TargetGroup2", "TargetGroup3")
-keep<-c(actorIDs, "mexicanState", "year", "drop1", "directionality")
+keep<-c(actorIDs, "mexicanState", "year", "drop1", "directional")
 cleanData<-subset(cleanData, select=c(keep))
 cleanData<-cleanData[cleanData$drop1==0,] #~250 dropped
 cleanData$event<-1
-save(cleanData,file="cleanDataSubset.rda")
+#save(cleanData,file="cleanDataSubset0516.rda")
 
 ## Aggregate
 matListCrime=list()
@@ -77,9 +75,9 @@ for (i in 1:length(years)){
       if(matListCrime[[i]][row,col]==6){matListCrimeOrd[[i]][row,col]<-3}
     }}}
 
-save(matListCrime, file="matListCrime.rda")
-save(matListCrimeOrd, file="matListCrimeOrd.rda")
-save(matListCrimeBin, file="matListCrimeBin.rda")
+save(matListCrime, file="matListCrime0516.rda")
+save(matListCrimeOrd, file="matListCrimeOrd0516.rda")
+save(matListCrimeBin, file="matListCrimeBin0516.rda")
 
 
 # PLOT EVENT COUNT DATA
