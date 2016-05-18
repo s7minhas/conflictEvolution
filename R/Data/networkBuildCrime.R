@@ -22,7 +22,7 @@ uniqueNames<-as.character(unique(panel$Actor.Name))
 years<-seq(2005, 2013, 1)
 actorYr=lapply(years, function(x) FUN=uniqueNames)
 actorIDs=c("senderGroup1", "senderGroup2", "senderGroup3", "TargetGroup1", "TargetGroup2", "TargetGroup3")
-keep<-c(actorIDs, "mexicanState", "year", "drop1")
+keep<-c(actorIDs, "mexicanState", "year", "drop1", "directionality")
 cleanData<-subset(cleanData, select=c(keep))
 cleanData<-cleanData[cleanData$drop1==0,] #~250 dropped
 cleanData$event<-1
