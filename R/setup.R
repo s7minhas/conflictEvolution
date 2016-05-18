@@ -28,7 +28,7 @@ loadPkg=function(toLoad){
       library(lib, character.only=TRUE) } }
 
 toLoad = c('amen', 'magrittr', 'foreach', 'doParallel', 
-	'network', 'igraph', 'ggplot2', 'reshape2')
+	'network', 'igraph', 'ggplot2', 'reshape2', 'plyr')
 loadPkg(toLoad)
 
 ## gg theme
