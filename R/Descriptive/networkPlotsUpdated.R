@@ -4,31 +4,17 @@
 ## Cassy Dorff
 ################################################################
 
-# setup & load all data
-rm(list=ls())
-setwd("/Users/cassydorff/Dropbox/Research/Dissertation/Paper 3/analysis/data/")  
-library(plyr)
-library(ggplot2)
-library(xtable)
-library(amen)
-library(abind)
-library(amen)
-library(network)
-library(igraph)
-library(animation)
-
 #data for DV
-load("matListCrime.rda")
-load("matListCrimeBin.rda")
-load("matListCrimeOrd.rda")
-load("allNodal.rda")
+load(paste0(pathData,"matListCrime.rda"))
+load(paste0(pathData,"matListCrimeBin.rda"))
+load(paste0(pathData,"matListCrimeOrd.rda"))
+load(paste0(pathData,"allNodal.rda"))
 
 #presets
 delete.isolates <- function(graph, mode = 'all') {
   isolates <- which(degree(graph, mode = mode) == 0) - 1
   delete.vertices(graph, isolates)
 }
-
 
 color<-c("cadetblue4", "cadetblue4", "cadetblue4", "blue", "blue", "cadetblue4", 
          "cadetblue4", "cadetblue4", "cadetblue4", 

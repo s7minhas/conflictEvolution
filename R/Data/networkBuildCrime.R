@@ -2,17 +2,10 @@
 ## analysis paper 3 - building the networks for each year
 ## produces a yearly network with equal actors CRIME & GOV only
 ## updated data code (fall 2015)
-## Cassy Dorff
 ################################################################
 
-# setup & load all data  
-library(plyr)
-library(ggplot2)
-library(xtable)
-library(amen)
-
 # event data
-cleanData<-read.csv(paste0(pathData, "mexicoVioStoriesFinal.csv"))
+cleanData<-read.csv(paste0(pathData, "mexicoVioStoriesFinal.csv")) #1051 obs
 
 # now load panel data
 panel<-read.csv(paste0(pathData,"violentActors.csv")) #updated actor list
@@ -22,7 +15,8 @@ actorYr=lapply(years, function(x) FUN=uniqueNames)
 actorIDs=c("senderGroup1", "senderGroup2", "senderGroup3", "TargetGroup1", "TargetGroup2", "TargetGroup3")
 keep<-c(actorIDs, "mexicanState", "year", "drop1", "directional")
 cleanData<-subset(cleanData, select=c(keep))
-cleanData<-cleanData[cleanData$drop1==0,] #~250 dropped
+cleanData<-cleanData[cleanData$drop1==0,] #808 obs
+cleanData<-cleanData[cleanData$directional==1,] #673 obs
 cleanData$event<-1
 #save(cleanData,file="cleanDataSubset0516.rda")
 
