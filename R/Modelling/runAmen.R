@@ -2,7 +2,7 @@
 source('~/Research/conflictEvolution/R/setup.R')
 
 #data for DV
-load(paste0(pathData, "matListCrime.rda"))
+load(paste0(pathData, "matListCrime.rda")) #change to matListCrime0516.rda
 load(paste0(pathData, "matListCrimeBin.rda"))
 load(paste0(pathData, "matListCrimeOrd.rda"))
 
