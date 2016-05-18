@@ -75,7 +75,7 @@ for (i in 1:length(years)){
       if(matListCrime[[i]][row,col]==6){matListCrimeOrd[[i]][row,col]<-3}
     }}}
 
-save(matListCrime, file="matListCrime0516.rda")
+save(matListCrime, file="matListCrime0516.rda") #these capture direction
 save(matListCrimeOrd, file="matListCrimeOrd0516.rda")
 save(matListCrimeBin, file="matListCrimeBin0516.rda")
 
