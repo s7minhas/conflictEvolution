@@ -5,6 +5,7 @@
 ################################################################
 
 # event data
+if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){ source('~/Research/conflictEvolution/R/setup.R')  }
 cleanData<-read.csv(paste0(pathData, "mexicoVioStoriesFinal.csv")) #1051 obs
 
 # now load panel data
