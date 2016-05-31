@@ -75,8 +75,8 @@ cleanData = cleanData[which(cleanData$tarCnt != 0), ]
 senders = apply(cleanData[,grep('sender',actorIDs)], 1, function(x){ x = unlist(x) %>% .[!is.na(.)] ; names(x) = NULL ; return(x) }) %>% unlist()
 targets = apply(cleanData[,grep('Target',actorIDs)], 1, function(x){ x = unlist(x) %>% .[!is.na(.)] ; names(x) = NULL ; return(x) }) %>% unlist()
 
-table(senders) %>% .[.>1] %>% .[order(.)]
-table(targets) %>% .[.>1] %>% .[order(.)]
+table(senders) %>% .[order(.)] %>% cbind(.)
+table(targets) %>% .[order(.)] %>% cbind(.)
 #################
 
 #################
