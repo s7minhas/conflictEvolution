@@ -19,6 +19,13 @@ if(Sys.info()["user"]=="cassydorff"){
 	pathGraphics=paste0(dpth, 'graphics/')
 }
 ####################################
+if(Sys.info()["user"]=="maxgallop"){
+	dpth='~/Dropbox/conflictEvolutionMex/'
+	gpth='~/Documents/conflictEvolution/'
+	pathData=paste0(dpth, 'data/');
+	pathGraphics=paste0(dpth, 'graphics/')
+}
+####################################
 
 ####################################
 # Load helpful libraries
