@@ -15,6 +15,7 @@ cbind(theta, ses_theta, theta/ses_theta)
 
 #################
 # AB plot
+actors = rownames(A)
 colorMat = matrix(cbind(actors, 1, 'black'), ncol=3)
 colorMat[1:3,2] = brewer.pal(9,'Blues')[c(3,6,9)]
 colorMat[4:nrow(colorMat),2] = brewer.pal(length(4:nrow(colorMat))+2,'OrRd')[3:(nrow(colorMat)-1)]
@@ -50,8 +51,8 @@ abPlot = function( Infl, pThresh,
 	# Other graph params
 	set.seed(seed)
 	g = graph.adjacency(relBin, mode='directed', diag=FALSE)
-	g$labSize = rescale(degree(g), c(.5, .9))
-	g$vSize = rescale(degree(g), c(6, 12))
+	g$labSize = rescale(igraph::degree(g), c(.5, .9))
+	g$vSize = rescale(igraph::degree(g), c(6, 12))
 	gLayout = layout.circle(g)
 
 	if(save){ pdf(file=fName, width=pWidth, height=pHeight) }
@@ -70,6 +71,6 @@ abPlot = function( Infl, pThresh,
 	if(save){ system(paste('pdfcrop', fName, fName, sep=' ')) }
 }
 
-abPlot(Infl=A, pThresh=.2, save=FALSE)
-abPlot(Infl=B, pThresh=.2, save=FALSE)
+abPlot(Infl=A, pThresh=.33, save=FALSE)
+abPlot(Infl=B, pThresh=.33, save=FALSE)
 #################
