@@ -1,11 +1,13 @@
 #################
 # workspace
 if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){ source('~/Research/conflictEvolution/R/setup.R')  }
+
+if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){ source('~/ProjectsGit/conflictEvolution/R/setup.R')  }
 #################
 
 #################
 # Some parameters for network data
-timeLevel = 'quarterly' # yearly, quarterly, monthly
+timeLevel = 'quarterly' # yearly, quarterly
 #################
 
 #################
@@ -15,15 +17,8 @@ cleanData = read.csv(paste0(pathData, "mexicoVioStoriesFinal.csv")) #1051 obs
 cleanData = cleanData[which(cleanData$drop1==0 & cleanData$directional==1 ),]
 # Add var to count
 cleanData$event = 1
-
-panel = read.csv(paste0(pathData,"violentActors.csv")) #updated actor list
-# Pull out actor list for adj matrices
-actors = panel$Actor.Name %>% unique() %>% char()
-actorList = lapply(unique(panel$Year), function(x){
-	actors = char( panel$Actor.Name[panel$Year==x] )
-	actors = trim( actors )
-	actors = tolower( actors )
-	return( actors ) })
+# Subset to relev year
+cleanData = cleanData[cleanData$year>=2005,]
 #################
 
 #################
@@ -36,22 +31,18 @@ cleanData$qtr = 1
 cleanData$qtr[cleanData$month>3 & cleanData$month<7] = 2
 cleanData$qtr[cleanData$month>6 & cleanData$month<10] = 3
 cleanData$qtr[cleanData$month>9] = 4
+cleanData$qYr = as.Date(paste(1, cleanData$qtr, cleanData$year, sep='/'), '%d/%m/%Y')
 
 # Choose a date var
-if(timeLevel == 'yearly'){ cleanData$time = char(cleanData$year) }
-if(timeLevel == 'quarterly'){ cleanData$time = paste(cleanData$qtr, cleanData$year, sep='_') } 
-if(timeLevel == 'monthly'){ cleanData$time = char(cleanData$mYr) }
-#################
-
-#################
-# Subset to relvars
-actorIDs=c( "senderGroup1", "senderGroup2", "senderGroup3", "TargetGroup1", "TargetGroup2", "TargetGroup3" )
-keep = c( actorIDs, "mexicanState", "time" )
-cleanData = cleanData[,c(keep)]
+if(timeLevel == 'yearly'){ cleanData$time = cleanData$year }
+if(timeLevel == 'quarterly'){ cleanData$time = cleanData$qYr } 
 #################
 
 #################
 # Clean up sender and target vars
+actorIDs=c( "senderGroup1", "senderGroup2", "senderGroup3", "TargetGroup1", "TargetGroup2", "TargetGroup3" )
+keep = c( actorIDs, "mexicanState", 'time' )
+cleanData = cleanData[,c(keep)]
 ugh = c('n/a','na', '')
 for(var in actorIDs){
 	cleanData[,var] = char( cleanData[,var]  )
@@ -59,6 +50,11 @@ for(var in actorIDs){
 	cleanData[,var] = tolower(cleanData[,var])
 	cleanData[,var][ which(cleanData[,var] %in% ugh)  ] = NA	
 }
+
+# clean up actor names in cleanData
+panel = read.csv(paste0(pathData,"mexicanActorListMonth.csv"))
+panel = panel[!is.na(panel$startYear),]
+for(var in actorIDs){ cleanData[,var] = panel$lab[ match( cleanData[,var], panel$labOld ) ] }
 
 # Determine number of cases in which all sender or all target vars are NA
 cleanData$senCnt = apply(cleanData[,grep('sender',actorIDs)], 1, function(x){ sum(!is.na(x)) } )
@@ -68,36 +64,68 @@ table(cleanData$senCnt) ; table(cleanData$tarCnt)
 # Drop 6 sender all NA cases and 1 target all NA cases
 cleanData = cleanData[which(cleanData$senCnt != 0), ]
 cleanData = cleanData[which(cleanData$tarCnt != 0), ]
+dim(cleanData)
 #################
 
 #################
-# Count up actor groupings
-senders = apply(cleanData[,grep('sender',actorIDs)], 1, function(x){ x = unlist(x) %>% .[!is.na(.)] ; names(x) = NULL ; return(x) }) %>% unlist()
-targets = apply(cleanData[,grep('Target',actorIDs)], 1, function(x){ x = unlist(x) %>% .[!is.na(.)] ; names(x) = NULL ; return(x) }) %>% unlist()
+# Finalize actor list
+pds = cleanData$time %>% unique() %>% sort()
 
-table(senders) %>% .[order(.)] %>% cbind(.)
-table(targets) %>% .[order(.)] %>% cbind(.)
+if(timeLevel=='quarterly'){
+	panel$qtr = 1
+	panel$qtr[panel$startMonth=='September'] = 3
+	panel$time = paste( panel$qtr, panel$startYear, sep='_')
+	panel$qYr = as.Date(paste(1, panel$qtr, panel$startYear, sep='/'), '%d/%m/%Y')
+	actorList = lapply(pds, function(t){ unique( char( panel[which(panel$qYr<=t),'lab'] ) ) }) }
+
+if(timeLevel=='yearly'){
+	actorList = lapply(pds, function(t){ unique( char( panel[which(panel$startYear<=t),'lab'] ) ) }) }
+
+names(actorList) = char(pds)
 #################
 
 #################
 # Create adj matrices
 adjList = list()
-pds = cleanData$time %>% unique() %>% sort()
-# for(t in 1:length(pds)){
-	t=5
+for(t in 1:length(pds)){
 	actors = actorList[[t]]
 	adj = matrix(0, nrow=length(actors),ncol=length(actors),dimnames=list(actors,actors))
-	dataT = cleanData[cleanData$time == pds[t],]
-	dataT$senMatch = apply(dataT[,grep('sender',actorIDs)], 1, function(x){ ifelse(sum( unlist(x) %in% actors )>0, 1, 0)  })
-	dataT$tarMatch = apply(dataT[,grep('Target',actorIDs)], 1, function(x){ ifelse(sum( unlist(x) %in% actors )>0, 1, 0)  })
-	dataT$match = dataT$senMatch + dataT$tarMatch
-	# Drop of if actor from actorList[[t]] not in both sender and receiver
-	dataT = dataT[dataT$match>1,]
-	# for(ii in 1:nrow(dataT)){
-		ii=1
+	dataT = cleanData[cleanData$time == pds[t],actorIDs]
+	for(ii in 1:nrow(dataT)){
 		senders = dataT[ii,grep('sender', actorIDs)] %>% .[!is.na(.)]
 		targets = dataT[ii,grep('Target', actorIDs)] %>% .[!is.na(.)]
-		sum( senders %in% actors ) + sum( targets %in% actors )
-	# }
-# }
+		adj[senders,targets] = adj[senders,targets] + 1 } # count
+		# adj[senders,targets] = 1 } # binomial
+	adjList[[t]] = adj }
+names(adjList) = char( pds )
+#################
+
+#################
+# Add in some other network measures?
+#################
+
+#################
+# Create array
+actors = rownames(adjList[[1]])
+adjList = lapply(adjList, function(x)x[actors,actors])
+adjArr = array(unlist(adjList), 
+	dim=c(length(actors), length(actors), length(adjList)), 
+	dimnames=list(actors,actors,names(adjList)))
+#################
+
+#################
+# Create covariates
+source(paste0(fPth, 'mltrHelpers.R'))
+arrCovar = createRelCovar(arr=adjArr, var='conflict', incMain=TRUE, incRecip=TRUE, incTrans=TRUE)
+
+# Lag
+Z = arrCovar[,,,-dim(adjArr)[3]]
+Y = adjArr[,,-1]
+X = Z[,,'conflict',]
+W = array(dim=c(dim(Y)[1:2], 3), dimnames=list(actors,actors,c('int', 'rand', 'rand2')) )
+W[,,1] = array(1, dim(Y)[1:2])
+W[,,2] = array(rnorm(length(Y[,,1])), dim(Y)[1:2])
+W[,,3] = array(rnorm(length(Y[,,1])), dim(Y)[1:2])
+
+save(Y, X, Z, W, file=paste0(pathData, 'barData.rda'))
 #################
