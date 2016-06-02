@@ -105,6 +105,14 @@ names(adjList) = char( pds )
 #################
 
 #################
+# Add in protest data
+protestData = read.csv(paste0(pathData, 'baseProtest.csv'))
+
+actors[4]
+actSub = cleanData[apply(cleanData[,actorIDs], 1, function(x) actors[4] %in% x),]
+#################
+
+#################
 # Create array
 actors = rownames(adjList[[1]])
 adjList = lapply(adjList, function(x)x[actors,actors])
@@ -118,14 +126,17 @@ adjArr = array(unlist(adjList),
 source(paste0(fPth, 'mltrHelpers.R'))
 arrCovar = createRelCovar(arr=adjArr, var='conflict', incMain=TRUE, incRecip=TRUE, incTrans=TRUE)
 
-# Lag
-Z = arrCovar[,,,-dim(adjArr)[3]]
-Y = adjArr[,,-1]
+# exog predictors
+Z = arrCovar[,,,-dim(adjArr)[3]] # lag
+# DV
+Y = adjArr[,,-1] # lag
+# Necessary for AB calc
 X = Z[,,'conflict',]
+# Rand vectors for infl
 W = array(dim=c(dim(Y)[1:2], 3), dimnames=list(actors,actors,c('int', 'rand', 'rand2')) )
 W[,,1] = array(1, dim(Y)[1:2])
-W[,,2] = array(rnorm(length(Y[,,1])), dim(Y)[1:2])
-W[,,3] = array(rnorm(length(Y[,,1])), dim(Y)[1:2])
+set.seed(43543) ; W[,,2] = array(rnorm(length(Y[,,1])), dim(Y)[1:2])
+set.seed(98798) ; W[,,3] = array(rnorm(length(Y[,,1])), dim(Y)[1:2])
 
 save(Y, X, Z, W, file=paste0(pathData, 'barData.rda'))
 #################
