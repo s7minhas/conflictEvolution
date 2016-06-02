@@ -6,6 +6,7 @@ rm(list=ls())
 if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){
 	dpth='~/Dropbox/Research/conflictEvolution/';
 	gpth='~/Research/conflictEvolution/';
+	fPth=paste0(gpth, 'R/Funcs/');
 	pathData=paste0(dpth, 'data/');
 	pathGraphics=paste0(dpth, 'graphics/')
 	pathResults = paste0(dpth, 'results/')
@@ -27,8 +28,12 @@ loadPkg=function(toLoad){
         install.packages(lib, repos='http://cran.rstudio.com/') }
       library(lib, character.only=TRUE) } }
 
-toLoad = c('amen', 'magrittr', 'foreach', 'doParallel', 
-	'network', 'igraph', 'ggplot2', 'reshape2', 'plyr')
+toLoad = c(
+	'foreach', 'doParallel', 
+	'network', 'igraph', 'ggplot2', 'RColorBrewer',
+	'reshape2', 'plyr', 'magrittr',
+	'speedglm', 'amen'
+	)
 loadPkg(toLoad)
 
 ## gg theme
@@ -47,6 +52,25 @@ summStats = function(x){
 	mu=mean(x)
 	qts=quantile(x, probs=c(0.025, 0.975, 0.05, 0.95))
 	return( c(mu, qts) ) }
+# https://cran.r-project.org/doc/contrib/Lemon-kickstart/rescale.R
+rescale<-function(x,newrange) {
+ if(nargs() > 1 && is.numeric(x) && is.numeric(newrange)) {
+  # if newrange has max first, reverse it
+  if(newrange[1] > newrange[2]) {
+   newmin<-newrange[2]
+   newrange[2]<-newrange[1]
+   newrange[1]<-newmin
+  }
+  xrange<-range(x)
+  if(xrange[1] == xrange[2]) stop("can't rescale a constant vector!")
+  mfac<-(newrange[2]-newrange[1])/(xrange[2]-xrange[1])
+  invisible(newrange[1]+(x-xrange[1])*mfac)
+ }
+ else {
+  cat("Usage: rescale(x,newrange)\n")
+  cat("\twhere x is a numeric object and newrange is the min and max of the new range\n")
+ }
+}	
 
 # Trace plot
 getTracePlot = function(mod){
