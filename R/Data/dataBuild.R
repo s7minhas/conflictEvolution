@@ -102,6 +102,29 @@ names(adjList) = char( pds )
 #################
 
 #################
+# Adding in some network covariates
+loadPkg('sna')
+cent = lapply(adjList, function(adj){
+	actors=rownames(adjList[[1]])
+	deg = degree(adj, gmode="graph")
+	degSub = deg[which(rownames(adj) %in% actors)]
+	degSub = matrix(degSub, nrow=length(actors), ncol=length(actors), byrow=FALSE)
+	return(degSub) } )
+info = lapply(adjList, function(adj){
+	actors=rownames(adjList[[1]])	
+	iCent = infocent(adj, gmode="graph")
+	iCentSub = iCent[which(rownames(adj) %in% actors)]	
+	iCentSub = matrix(iCentSub, nrow=length(actors), ncol=length(actors), byrow=FALSE)	
+	return(iCentSub) } )
+be = lapply(adjList, function(adj){
+	actors=rownames(adjList[[1]])	
+	betw = betweenness(adj, gmode="graph")
+	betwSub = betw[which(rownames(adj) %in% actors)]	
+	betwSub = matrix(betwSub, nrow=length(actors), ncol=length(actors), byrow=FALSE)	
+	return(betwSub) } )
+#################
+
+#################
 # Add in dto control data
 dtoCntrl = read.csv(paste0(pathData, 'dtoControl.csv'), stringsAsFactors=FALSE)
 
@@ -158,6 +181,13 @@ for(t in 1:dim(protArr)[4]){
 # Create array for DTO id
 dtoArr = array(c(rep(0,3),rep(1,6)), dim=c(length(actors), length(actors), 1, length(adjList)),
 	dimnames=list(actors,actors,'dto',names(adjList)))
+
+# Create array for network params
+netArr = array(0, dim=c(length(actors), length(actors), 3, length(adjList)),
+	dimnames=list(actors,actors,c('degree','infoCent','betweenness'),names(adjList)))
+netArr[,,'degree',] = array(unlist(cent), dim=c(length(actors),length(actors),length(adjList)))
+netArr[,,'infoCent',] = array(unlist(info), dim=c(length(actors),length(actors),length(adjList)))
+netArr[,,'betweenness',] = array(unlist(be), dim=c(length(actors),length(actors),length(adjList)))
 #################
 
 #################
@@ -167,13 +197,21 @@ arrCovar = createRelCovar(arr=adjArr, var='conflict', incMain=TRUE, incRecip=TRU
 
 # exog predictors
 Z = array(0, 
-	dim=append(dim(arrCovar)[c(1,2,4)], dim(arrCovar)[3] + dim(protArr)[3] + dim(dtoArr)[3], after=2),
-	dimnames=list(actors,actors,c(dimnames(arrCovar)[[3]], dimnames(protArr)[[3]], dimnames(dtoArr)[[3]]),names(adjList)) )
+	dim=append(
+		dim(arrCovar)[c(1,2,4)], 
+		dim(arrCovar)[3] + dim(protArr)[3] + dim(dtoArr)[3] + dim(netArr)[3], 
+		after=2),
+	dimnames=list(actors,actors,
+		c(dimnames(arrCovar)[[3]], dimnames(protArr)[[3]], dimnames(dtoArr)[[3]], dimnames(netArr)[[3]]),
+		names(adjList)) )
 Z[,,1:3,] = arrCovar
 Z[,,4:5,] = protArr
+Z[,,6,] = dtoArr
+Z[,,7:9,] = netArr
 Z = Z[,,,-dim(adjArr)[3]] # lag
 # remove protest col
-Z = Z[,,-c(5:6),]
+toRemove = match(c('protestCol','degree'), dimnames(Z)[[3]])
+Z = Z[,,-toRemove,]
 
 # DV
 Y = adjArr[,,-1] # lag
