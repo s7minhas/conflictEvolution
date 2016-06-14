@@ -167,11 +167,16 @@ Z = array(0,
 	dimnames=list(actors,actors,c(dimnames(arrCovar)[[3]], dimnames(protArr)[[3]]),names(adjList)) )
 Z[,,1:3,] = arrCovar
 Z[,,4:5,] = protArr
-Z = arrCovar[,,,-dim(adjArr)[3]] # lag
+Z = Z[,,,-dim(adjArr)[3]] # lag
+# remove protest col
+Z = Z[,,-5,]
+
 # DV
 Y = adjArr[,,-1] # lag
+
 # Necessary for AB calc
 X = Z[,,'conflict',]
+
 # Rand vectors for infl
 W = array(dim=c(dim(Y)[1:2], 3), dimnames=list(actors,actors,c('int', 'rand', 'rand2')) )
 W[,,1] = array(1, dim(Y)[1:2])
