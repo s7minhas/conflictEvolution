@@ -20,7 +20,7 @@ cleanData = cleanData[which(cleanData$drop1==0 & cleanData$directional==1 ),]
 # Add var to count
 cleanData$event = 1
 # Subset to relev year
-cleanData = cleanData[cleanData$year>=2005,]
+cleanData = cleanData[cleanData$year>2005 & cleanData$year<2013,]
 #################
 
 #################
@@ -68,14 +68,6 @@ cleanData = cleanData[which(cleanData$senCnt != 0), ]
 cleanData = cleanData[which(cleanData$tarCnt != 0), ]
 #################
 
-head(cleanData)
-govActors = c('federal','state','municipal')
-cleanData$tmp = apply(cleanData[,actorIDs], 1, function(x){
-	ugh = x[!is.na(x)]
-	ret=ifelse(sum(govActors %in% ugh)>0, 1, 0)
-	return(ret)
-	})
-
 #################
 # Finalize actor list
 pds = cleanData$time %>% unique() %>% sort()
@@ -110,37 +102,58 @@ names(adjList) = char( pds )
 #################
 
 #################
-# Add in protest data
-protestData = read.csv(paste0(pathData, 'dtoControl.csv'), stringsAsFactors=FALSE)
+# Add in dto control data
+dtoCntrl = read.csv(paste0(pathData, 'dtoControl.csv'), stringsAsFactors=FALSE)
 
 # Remove extraneous columns
-protestData = protestData[,-c(1, ncol(protestData)-1, ncol(protestData))]
+dtoCntrl = dtoCntrl[,-c(1, ncol(dtoCntrl)-1, ncol(dtoCntrl))]
 
 # Clean muni data
 replValCol = function(col, old, new){ col[which(col == old)] = new; return(col) }
-for(ii in c(3:ncol(protestData))){
-	protestData[,ii] = trim(protestData[,ii])
-	protestData[,ii] = replValCol(protestData[,ii], '', 'N/A')
-	protestData[,ii] = replValCol(protestData[,ii], 'Aquascalientes', 'Aguascalientes')
-	protestData[,ii] = replValCol(protestData[,ii], 'Quintanan Roo', 'Quintana Roo')
-	protestData[,ii] = replValCol(protestData[,ii], 'San Luis Potisi', 'San Luis Potosi')
-	protestData[,ii] = replValCol(protestData[,ii], 'Tamauilpas', 'Tamaulipas')
-	protestData[,ii] = replValCol(protestData[,ii], 'Mexico', 'Estado de Mexico')
+dtoCntrl[,3:ncol(dtoCntrl)] = apply(dtoCntrl[,3:ncol(dtoCntrl)], 2, function(colSlice){
+	colSlice = trim(colSlice)
+	colSlice = replValCol(colSlice, '', 'N/A')
+	colSlice = replValCol(colSlice, 'Aquascalientes', 'Aguascalientes')
+	colSlice = replValCol(colSlice, 'Quintanan Roo', 'Quintana Roo')
+	colSlice = replValCol(colSlice, 'San Luis Potisi', 'San Luis Potosi')
+	colSlice = replValCol(colSlice, 'Tamauilpas', 'Tamaulipas')
+	colSlice = replValCol(colSlice, 'Mexico', 'Estado de Mexico')
+	return(colSlice)
+})
+
+# load protest data
+protestData = read.csv(paste0(pathData, 'baseProtest.csv'))
+
+# merge in protest cnts to actor level
+dtoCntrl = dtoCntrl[dtoCntrl$year>2005 & dtoCntrl$year<2013,]
+dtoCntrl$protest = 0
+for(ii in 1:nrow(dtoCntrl)){
+	slice = dtoCntrl[ii,]
+	states = slice[3:(length(slice)-1)] %>% .[which(!. == 'N/A')] %>% unlist()
+	if(is.null(states)){ val = 0 } else {
+		val = protestData$protest[which(protestData$year == slice$year & protestData$state %in% states)] %>% sum(.)
+	}
+	dtoCntrl$protest[ii] = val
 }
-
-# Check to make sure all states listed are in cleanData
-check = unique(unlist(protestData[,3:ncol(protestData)]))
-cbind( sort(check) )
-cbind( sort(unique(char(cleanData$mexicanState))) )
 #################
 
 #################
-# Create array
+# Create array for DV
 actors = rownames(adjList[[1]])
 adjList = lapply(adjList, function(x)x[actors,actors])
 adjArr = array(unlist(adjList), 
 	dim=c(length(actors), length(actors), length(adjList)), 
 	dimnames=list(actors,actors,names(adjList)))
+
+# Create array for monadic protest data
+protArr = array(0, dim=c(length(actors), length(actors), 2, length(adjList)), 
+	dimnames=list(actors,actors,c('protestRow', 'protestCol'),names(adjList)))
+for(t in 1:dim(protArr)[4]){
+	yr=strsplit(dimnames(protArr)[[4]][t], '-') %>% lapply(., function(x){ x[1] }) %>% unlist() %>% num()
+	dtoProt = dtoCntrl[dtoCntrl$year==yr,c('actor','year','protest')] %>% .[match(.[,'actor'], actors),] %>% na.omit(.)
+	protArr[,,1,t] = matrix(dtoProt$protest, nrow=length(actors), ncol=length(actors), byrow=FALSE)
+	protArr[,,2,t] = matrix(dtoProt$protest, nrow=length(actors), ncol=length(actors), byrow=FALSE)
+}
 #################
 
 #################
@@ -149,6 +162,11 @@ source(paste0(fPth, 'mltrHelpers.R'))
 arrCovar = createRelCovar(arr=adjArr, var='conflict', incMain=TRUE, incRecip=TRUE, incTrans=TRUE)
 
 # exog predictors
+Z = array(0, 
+	dim=append(dim(arrCovar)[c(1,2,4)], dim(arrCovar)[3] + dim(protArr)[3], after=2),
+	dimnames=list(actors,actors,c(dimnames(arrCovar)[[3]], dimnames(protArr)[[3]]),names(adjList)) )
+Z[,,1:3,] = arrCovar
+Z[,,4:5,] = protArr
 Z = arrCovar[,,,-dim(adjArr)[3]] # lag
 # DV
 Y = adjArr[,,-1] # lag
