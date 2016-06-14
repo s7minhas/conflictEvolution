@@ -110,30 +110,28 @@ names(adjList) = char( pds )
 #################
 
 #################
-# Add in government info as covariates
-govActors = c('federal','state','municipal')
-govIntRow = lapply(adjList, function(adj){ adj[,govActors] })
-govIntCol = lapply(adjList, function(adj){ t( adj[govActors,] ) })
-#################
-
-#################
-# Add in some other network measures?
-betweenCalc = lapply(adjList, function(adj){
-	adj[which(!rownames(adj) %in% govActors),which(!rownames(adj) %in% govActors)]
-	# g = igraph::graph.adjacency(adj, mode='directed')
-	# print(plot(g))
-	})
-
-library(RSiena)
-
-#################
-
-#################
 # Add in protest data
-protestData = read.csv(paste0(pathData, 'baseProtest.csv'))
+protestData = read.csv(paste0(pathData, 'dtoControl.csv'), stringsAsFactors=FALSE)
 
-actors[4]
-actSub = cleanData[apply(cleanData[,actorIDs], 1, function(x) actors[4] %in% x),]
+# Remove extraneous columns
+protestData = protestData[,-c(1, ncol(protestData)-1, ncol(protestData))]
+
+# Clean muni data
+replValCol = function(col, old, new){ col[which(col == old)] = new; return(col) }
+for(ii in c(3:ncol(protestData))){
+	protestData[,ii] = trim(protestData[,ii])
+	protestData[,ii] = replValCol(protestData[,ii], '', 'N/A')
+	protestData[,ii] = replValCol(protestData[,ii], 'Aquascalientes', 'Aguascalientes')
+	protestData[,ii] = replValCol(protestData[,ii], 'Quintanan Roo', 'Quintana Roo')
+	protestData[,ii] = replValCol(protestData[,ii], 'San Luis Potisi', 'San Luis Potosi')
+	protestData[,ii] = replValCol(protestData[,ii], 'Tamauilpas', 'Tamaulipas')
+	protestData[,ii] = replValCol(protestData[,ii], 'Mexico', 'Estado de Mexico')
+}
+
+# Check to make sure all states listed are in cleanData
+check = unique(unlist(protestData[,3:ncol(protestData)]))
+cbind( sort(check) )
+cbind( sort(unique(char(cleanData$mexicanState))) )
 #################
 
 #################
