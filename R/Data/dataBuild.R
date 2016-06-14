@@ -154,6 +154,10 @@ for(t in 1:dim(protArr)[4]){
 	protArr[,,1,t] = matrix(dtoProt$protest, nrow=length(actors), ncol=length(actors), byrow=FALSE)
 	protArr[,,2,t] = matrix(dtoProt$protest, nrow=length(actors), ncol=length(actors), byrow=FALSE)
 }
+
+# Create array for DTO id
+dtoArr = array(c(rep(0,3),rep(1,6)), dim=c(length(actors), length(actors), 1, length(adjList)),
+	dimnames=list(actors,actors,'dto',names(adjList)))
 #################
 
 #################
@@ -163,13 +167,13 @@ arrCovar = createRelCovar(arr=adjArr, var='conflict', incMain=TRUE, incRecip=TRU
 
 # exog predictors
 Z = array(0, 
-	dim=append(dim(arrCovar)[c(1,2,4)], dim(arrCovar)[3] + dim(protArr)[3], after=2),
-	dimnames=list(actors,actors,c(dimnames(arrCovar)[[3]], dimnames(protArr)[[3]]),names(adjList)) )
+	dim=append(dim(arrCovar)[c(1,2,4)], dim(arrCovar)[3] + dim(protArr)[3] + dim(dtoArr)[3], after=2),
+	dimnames=list(actors,actors,c(dimnames(arrCovar)[[3]], dimnames(protArr)[[3]], dimnames(dtoArr)[[3]]),names(adjList)) )
 Z[,,1:3,] = arrCovar
 Z[,,4:5,] = protArr
 Z = Z[,,,-dim(adjArr)[3]] # lag
 # remove protest col
-Z = Z[,,-5,]
+Z = Z[,,-c(5:6),]
 
 # DV
 Y = adjArr[,,-1] # lag
