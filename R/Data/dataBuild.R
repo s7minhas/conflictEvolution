@@ -210,7 +210,7 @@ Z[,,6,] = dtoArr
 Z[,,7:9,] = netArr
 Z = Z[,,,-dim(adjArr)[3]] # lag
 # remove protest col
-toRemove = match(c('protestCol','degree'), dimnames(Z)[[3]])
+toRemove = match(c('protestCol','betweenness'), dimnames(Z)[[3]])
 Z = Z[,,-toRemove,]
 
 # DV
