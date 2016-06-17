@@ -160,32 +160,32 @@ for(ii in 1:nrow(dtoCntrl)){
 }
 #################
 
-#################
-# Make descriptive plot for protests
-dtoSub = c('sinaloa cartel', 'la familia michoacana', 'gulf cartel', 'tijuana cartel')
-protSub = dtoCntrl[which(dtoCntrl$actor %in% dtoSub), c('actor','year','protest')]
+# #################
+# # Make descriptive plot for protests
+# dtoSub = c('sinaloa cartel', 'la familia michoacana', 'gulf cartel', 'tijuana cartel')
+# protSub = dtoCntrl[which(dtoCntrl$actor %in% dtoSub), c('actor','year','protest')]
 
 
-simpleCap <- function(x) {
-  s <- strsplit(x, " ")[[1]]
-  paste(toupper(substring(s, 1,1)), substring(s, 2),
-      sep="", collapse=" ")
-}
-protSub$actor = sapply(protSub$actor, simpleCap)
+# simpleCap <- function(x) {
+#   s <- strsplit(x, " ")[[1]]
+#   paste(toupper(substring(s, 1,1)), substring(s, 2),
+#       sep="", collapse=" ")
+# }
+# protSub$actor = sapply(protSub$actor, simpleCap)
 
-ggProtDTO = ggplot(protSub, aes(x=year, color=actor)) +
-	geom_segment(aes(xend=year, y=0, yend=protest)) +
-	geom_point(aes(y=protest)) +
-	facet_wrap(~actor, nrow=2) +
-	xlab('') + ylab('') +
-	theme(
-		legend.position='none',
-		panel.border=element_blank(),
-		axis.ticks=element_blank()
-		)
+# ggProtDTO = ggplot(protSub, aes(x=year, color=actor)) +
+# 	geom_segment(aes(xend=year, y=0, yend=protest)) +
+# 	geom_point(aes(y=protest)) +
+# 	facet_wrap(~actor, nrow=2) +
+# 	xlab('') + ylab('') +
+# 	theme(
+# 		legend.position='none',
+# 		panel.border=element_blank(),
+# 		axis.ticks=element_blank()
+# 		)
 
-ggsave(paste0(pathGraphics, 'protestCountDTO.pdf'))
-#################
+# ggsave(paste0(pathGraphics, 'protestCountDTO.pdf'))
+# #################
 
 #################
 # Create array for DV
@@ -252,5 +252,6 @@ W[,,1] = array(1, dim(Y)[1:2])
 set.seed(43543) ; W[,,2] = array(rnorm(length(Y[,,1])), dim(Y)[1:2])
 set.seed(98798) ; W[,,3] = array(rnorm(length(Y[,,1])), dim(Y)[1:2])
 
-save(Y, X, Z, W, file=paste0(pathData, 'barData.rda'))
+if(timeLevel=='quarterly'){ save(Y, X, Z, W, file=paste0(pathData, 'barData.rda')) }
+if(timeLevel=='yearly'){ save(Y, X, Z, W, file=paste0(pathData, 'barDataYearly.rda')) }
 #################
