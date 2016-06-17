@@ -41,9 +41,8 @@ The end result is a collection of 1,052 actor-coded violent events from 2004-201
 
  \newpage
 \section*{Creating a Conflict Network in Mexico}
-	%quarterly level
-	%consolidated government actors, or say to discuss the nets we look at the dissaggreated nets
-Next, we demonstrate how networks can capture the behavior of armed groups within the Mexican conflict. These networks, discussed below, reveal important relationships between actors, relationships that are otherwise missed by traditional dyadic frameworks. In a simple, descriptive and systematic way, we are able to show which DTOs were involved in the most conflict relevant to one another. We show that the Sinaloa cartel engages in violence against the highest number of competitors as well as against the federal government's armed forces. After walking through these connections and the ways in which they evolve over time, we turn to relationships  \textit{unobserved} in the raw data: i.e reciprocity and clustering.  
+Next, we demonstrate how networks can capture the behavior of armed groups within the Mexican conflict. We focus our description on network graphs representing the behavior of disaggregated actors at the yearly level.\footnote{Due to sparsity issues in the current stage of our modeling we aggregate different state actors (such as federal government and federal police) into a general "federal government" category. We are, however, able to investigate changes overtime in the network at the quarterly level of analysis} These networks, discussed below, reveal important relationships between actors, relationships that are otherwise missed by traditional dyadic frameworks. In a simple, descriptive and systematic way, we are able to show which DTOs were involved in the most conflict relevant to one another. We also show that the Sinaloa cartel engages in violence against the highest number of competitors as well as against the federal government's armed forces. 
+%After walking through these connections and the ways in which they evolve over time, we turn to relationships  \textit{unobserved} in the raw data: i.e reciprocity and clustering.  
 
 To begin, we create sociomatrices for each year of the cleaned data.  These sociomatrices can be thought of as a summary of interactions between all actors involved in conflictual events within a year. Given that there are $n$ actors in a year we construct an $n$ x $n$ sociomatrix $Y$. The number of conflictual dyadic interactions for any actor $i$ and $j$ is simply the number of events between those two actors during each given year. The resulting matrix is an undirected, symmetric matrix, as represented below.
  
@@ -61,14 +60,7 @@ actor_{m} & 0 & 1 & 4  & 4 &  0 \\
 \right]
 \]
 
-\noindent These matrices reveal a variety of interesting dynamics in the data, as shown in the network graphs of Figure~\ref{fig:2005}, Figure~\ref{fig:2007}, and Figure~\ref{fig:2009}. First, Figure~\ref{fig:2005} shows the network graph for the first year of the data. Beginning as early as 2005 to 2007, there is a substantial increase in the number of actors in the network. For simplicity, the actors are simply coded as DTO or Government actors. Government actors include different branches of the armed forces and government.
-
-\begin{figure}[h!]
-\includegraphics[scale=.4]{20052006}
-\caption{The evolution of the Mexican criminal conflict, 2005. Orange nodes are government actors, teal corresponds to criminal organizations. The links (grey lines) are weighted by the number of conflictual events for that year. }
-\label{fig:2005}
-\end{figure}
-
+\noindent These matrices reveal a variety of interesting dynamics in the data, as shown in the network graphs of Figure~\ref{fig:2007}, and Figure~\ref{fig:2009}. For simplicity, the actors are simply coded as DTO or Government actors. Government actors include different branches of the armed forces and government.
 
 In 2006 and 2007, shown in Figure~\ref{fig:2007}, the number of conflictual events increase. Both federal agencies and municipal forces are more active in the conflict.  We also observe a jump in the number of cartels involved in the network, as new actors such as La Familia Micho\'acana, the Mexican Mafia, and the military begin to take part in the conflict. In the period between 2007-2009, the networks reflect a change in the government policy at that time. By 2006 Calder\'{o}n was elected president and implemented a militarized strategy, sending federal police and  troops into the most contested regions. By 2007, we see that the relationships become more complex as cartels begin to interact with one another. This sufficiently reflects what we now know to be true: following Calder\'{o}n's 2006 efforts, violence increased due to grueling competition between newly fragmented cartels. 
 
