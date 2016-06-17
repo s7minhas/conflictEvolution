@@ -25,12 +25,12 @@ The models create each data point by obtaining three components of the news stor
 To begin to understand how to leverage the ICEWS data for country-level network analysis, we have taken a subset of data from the larger ICEWS corpus.  We constructed a SQL query to gain data subsetted according to all four ``violent" cameo codes as well as any actions related to all armed actors such as rebels, insurgents, government, and the police. Through the process of reviewing and cleaning the ICEWS data in preparation for my analysis, we encountered two key problems with the data. The first problem relates to the vague nature of the actor names in the data, which we improve upon via manual re-coding. The second problem we identify incentivizes ICEWS programmers to improve the parsing algorithm used in the creation of the original data.  While there are many unique actor names, the bulk of these descriptions are likely too vague for network construction. For example, the majority of cases relating to criminal violence use descriptors such as: ``Armed Gang,"  ``Armed Opposition,"  ``Attacker," ``Hitman," ``Drug Gang,'' ``Armed Band,'' and ``Criminal." A number of other cases have actor names such as ``Men'' or ``Citizens" as well as Military descriptors. 
 
 
-To improve on these issues, we subset the data to include the raw text available from the larger ICEWS  database. Then, using a subset of cases from 2004-2013, we reviewed each individual case. This task includes two main goals: to label events as they relate to specific drug cartel actors in the area and to address aggregation problems in the data. In addition, we coded for duplicate cases.  We identified that this data has fewer duplication issues than previously found in other ICEWS data (such as protests) but has a number of complex aggregation and parsing problems. 
+To improve on these issues, we subset the data to include the raw text available from the larger ICEWS  database. Then, using a subset of cases from 2006-2012, we reviewed each individual case. This task includes two main goals: to label events as they relate to specific drug cartel actors in the area and to address aggregation problems in the data. In addition, we coded for duplicate cases.  We identified that this data has fewer duplication issues than previously found in other ICEWS data (such as protests) but has a number of complex aggregation and parsing problems. 
 
-The end result is a collection of 1,052 actor-coded violent events from 2004-2012. The general trend of this data fits the pattern we observe in other data based on homicide rates. 
-
+The end result is a collection of 1,052 actor-coded violent events from 2006-2012. The general trend of this data fits the pattern we observe in other data based on homicide rates. 
 	%remake graphic?
 	%discuss directionality (decreases # of  events) 
+	
 \newpage
 \begin{figure}[h!]
 \centering
@@ -42,7 +42,8 @@ The end result is a collection of 1,052 actor-coded violent events from 2004-201
  \newpage
 \section*{Creating a Conflict Network in Mexico}
 Next, we demonstrate how networks can capture the behavior of armed groups within the Mexican conflict. We focus our description on network graphs representing the behavior of disaggregated actors at the yearly level.\footnote{Due to sparsity issues in the current stage of our modeling we aggregate different state actors (such as federal government and federal police) into a general "federal government" category. We are, however, able to investigate changes overtime in the network at the quarterly level of analysis} These networks, discussed below, reveal important relationships between actors, relationships that are otherwise missed by traditional dyadic frameworks. In a simple, descriptive and systematic way, we are able to show which DTOs were involved in the most conflict relevant to one another. We also show that the Sinaloa cartel engages in violence against the highest number of competitors as well as against the federal government's armed forces. 
-%After walking through these connections and the ways in which they evolve over time, we turn to relationships  \textit{unobserved} in the raw data: i.e reciprocity and clustering.  
+
+%Add back in later: After walking through these connections and the ways in which they evolve over time, we turn to relationships  \textit{unobserved} in the raw data: i.e reciprocity and clustering.  
 
 To begin, we create sociomatrices for each year of the cleaned data.  These sociomatrices can be thought of as a summary of interactions between all actors involved in conflictual events within a year. Given that there are $n$ actors in a year we construct an $n$ x $n$ sociomatrix $Y$. The number of conflictual dyadic interactions for any actor $i$ and $j$ is simply the number of events between those two actors during each given year. The resulting matrix is an undirected, symmetric matrix, as represented below.
  
@@ -60,41 +61,33 @@ actor_{m} & 0 & 1 & 4  & 4 &  0 \\
 \right]
 \]
 
-\noindent These matrices reveal a variety of interesting dynamics in the data, as shown in the network graphs of Figure~\ref{fig:2007}, and Figure~\ref{fig:2009}. For simplicity, the actors are simply coded as DTO or Government actors. Government actors include different branches of the armed forces and government.
+\noindent These matrices reveal a variety of interesting dynamics in the data, as shown in the network graphs of Figure~\ref{fig:all}. For simplicity, the actors are simply coded as DTO or Government actors. Government actors include different branches of the armed forces and government.
 
-In 2006 and 2007, shown in Figure~\ref{fig:2007}, the number of conflictual events increase. Both federal agencies and municipal forces are more active in the conflict.  We also observe a jump in the number of cartels involved in the network, as new actors such as La Familia Micho\'acana, the Mexican Mafia, and the military begin to take part in the conflict. In the period between 2007-2009, the networks reflect a change in the government policy at that time. By 2006 Calder\'{o}n was elected president and implemented a militarized strategy, sending federal police and  troops into the most contested regions. By 2007, we see that the relationships become more complex as cartels begin to interact with one another. This sufficiently reflects what we now know to be true: following Calder\'{o}n's 2006 efforts, violence increased due to grueling competition between newly fragmented cartels. 
+In 2007 to 2008, shown in Figure~\ref{fig:all}, the number of conflictual events increase. Both federal agencies and municipal forces are more active in the conflict.  We also observe a jump in the number of cartels involved in the network, as new actors such as the inclusion of the Juarez Cartel and the increase in events associated with La Familia Micho\'acana.
 
-
-\begin{figure}[h!]
-\includegraphics[scale=.4]{20072008}
-\caption{The evolution of the Mexican criminal conflict, 2006-2007. Orange nodes are government actors, teal corresponds to criminal organizations. The links (grey lines) are weighted by the number of conflictual events for that year. }
-\label{fig:2007}
-\end{figure}
-
- In 2008, similar dynamics are in motion, but it is difficult to decipher the various roles played by the different levels of government. Earlier, both federal and municipal governments seem similarly involved, but by 2008 and 2009 the municipal government has a broader connectivity to diverse actors while the federal police seems to become more limitedly engaged with the Sinaloa Cartel. Overall, density increases across these networks overtime.  
-
-To further assess how different levels of government change their role in the network over time, Figure~\ref{fig:eigen} presents the eigenvalue centrality for each actor. Eigenvector centrality is calculated by assessing how well connected an actor is to the other actors of the network. Specifically, those with the highest eigenvector centrality are well-connected to other actors who are also well-connected across the network.  In this case we can consider an actor with high eigenvector centrality to be a key player in the conflict.  
-
+In the 2008 period, the networks reflect a change in the government policy at that time. By 2006 Calder\'{o}n was elected president and implemented a militarized strategy, sending federal police and  troops into the most contested regions. 
 
 \begin{figure}[h!]
-
-\includegraphics[scale=.4]{20092011}
-\caption{The evolution of the Mexican criminal conflict, 2009-2011. Orange nodes are government actors, teal corresponds to criminal organizations. The links (grey lines) are weighted by the number of conflictual events for that year. }
-\label{fig:2009}
+\includegraphics[scale=.45]{graphsAll}
+\caption{
+The evolution of the Mexican criminal conflict, 2007-2008. Orange nodes are government actors, teal corresponds to criminal organizations. The links (grey lines) are weighted by the number of conflictual events for that year. 
+}
+\label{fig:all}
 \end{figure}
 
+Overall, density increases across these networks overtime.  
 
-Figure \ref{fig:eigen} reveals an interesting story of coordination between different levels of government. In 2004 both the municipal police and the federal police have similar levels of eigen centrality. In 2005 they both decrease, with a larger decrease for the municipal police. In 2006 we see that both actors have very high centrality, indicating a deep involvement in the conflict. This reflects the Calder\'{o}n strategy: sending federal forces into local areas to help bolster security enforcement and combat the cartels. We then see these two actors diverge. Federal police stay highly central in the network in 2007 while the municipal forces seem to back down. At this year these two actors experience the biggest gap in centrality, signaling that coordination between the two levels of governments decreases as federal forces take over combat operations relative to municipal security forces. 
-
-\begin{figure}[h!]
-\raggedright
-\includegraphics[scale=.4]{EigenCent}
-\caption{Eigen centrality at the yearly level (2004-2009) for both municipal police and federal police }
-\label{fig:eigen}
-\end{figure}
-
-By 2008, we see a stark shift as municipal forces are once again involved in the conflict while federal forces seem to back down. This is particularly interesting because at this time it becomes well known to the public and to the government that Calder\'{o}n's strategy has largely failed, causing more violence rather than stemming it. Figure~\ref{fig:eigen} shows that after federal forces are very active from 2006-2007, in 2008 they then recede and the municipal police become more active in the network. Finally, the year 2009 shows closer centrality scores than 2008 and 2007, signaling that perhaps these two levels of government begin to cooperate again. 
-
+%Figure \ref{fig:eigen} reveals an interesting story of coordination between different levels of government. In 2004 both the municipal police and the federal police have similar levels of eigen centrality. In 2005 they both decrease, with a larger decrease for the municipal police. In 2006 we see that both actors have very high centrality, indicating a deep involvement in the conflict. This reflects the Calder\'{o}n strategy: sending federal forces into local areas to help bolster security enforcement and combat the cartels. We then see these two actors diverge. Federal police stay highly central in the network in 2007 while the municipal forces seem to back down. At this year these two actors experience the biggest gap in centrality, signaling that coordination between the two levels of governments decreases as federal forces take over combat operations relative to municipal security forces. 
+%
+%\begin{figure}[h!]
+%\raggedright
+%\includegraphics[scale=.4]{EigenCent}
+%\caption{Eigen centrality at the yearly level (2004-2009) for both municipal police and federal police }
+%\label{fig:eigen}
+%\end{figure}
+%
+%By 2008, we see a stark shift as municipal forces are once again involved in the conflict while federal forces seem to back down. This is particularly interesting because at this time it becomes well known to the public and to the government that Calder\'{o}n's strategy has largely failed, causing more violence rather than stemming it. Figure~\ref{fig:eigen} shows that after federal forces are very active from 2006-2007, in 2008 they then recede and the municipal police become more active in the network. Finally, the year 2009 shows closer centrality scores than 2008 and 2007, signaling that perhaps these two levels of government begin to cooperate again. 
+%
 Without the re-structuring of the event data into networks we would not be able to see the ways in which different levels of governments interact over time. This approach offers a more complete picture of these dynamics than has previously been possible and enables future research to examine what factors influence government coordination within the network.
 
 \section*{\textcolor{red}{SM's modeling section}}
