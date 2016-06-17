@@ -161,6 +161,33 @@ for(ii in 1:nrow(dtoCntrl)){
 #################
 
 #################
+# Make descriptive plot for protests
+dtoSub = c('sinaloa cartel', 'la familia michoacana', 'gulf cartel', 'tijuana cartel')
+protSub = dtoCntrl[which(dtoCntrl$actor %in% dtoSub), c('actor','year','protest')]
+
+
+simpleCap <- function(x) {
+  s <- strsplit(x, " ")[[1]]
+  paste(toupper(substring(s, 1,1)), substring(s, 2),
+      sep="", collapse=" ")
+}
+protSub$actor = sapply(protSub$actor, simpleCap)
+
+ggProtDTO = ggplot(protSub, aes(x=year, color=actor)) +
+	geom_segment(aes(xend=year, y=0, yend=protest)) +
+	geom_point(aes(y=protest)) +
+	facet_wrap(~actor, nrow=2) +
+	xlab('') + ylab('') +
+	theme(
+		legend.position='none',
+		panel.border=element_blank(),
+		axis.ticks=element_blank()
+		)
+
+ggsave(paste0(pathGraphics, 'protestCountDTO.pdf'))
+#################
+
+#################
 # Create array for DV
 actors = rownames(adjList[[1]])
 adjList = lapply(adjList, function(x)x[actors,actors])
