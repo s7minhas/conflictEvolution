@@ -25,23 +25,23 @@ The models create each data point by obtaining three components of the news stor
 To begin to understand how to leverage the ICEWS data for country-level network analysis, we have taken a subset of data from the larger ICEWS corpus.  We constructed a SQL query to gain data subsetted according to all four ``violent" cameo codes as well as any actions related to all armed actors such as rebels, insurgents, government, and the police. Through the process of reviewing and cleaning the ICEWS data in preparation for my analysis, we encountered two key problems with the data. The first problem relates to the vague nature of the actor names in the data, which we improve upon via manual re-coding. The second problem we identify incentivizes ICEWS programmers to improve the parsing algorithm used in the creation of the original data.  While there are many unique actor names, the bulk of these descriptions are likely too vague for network construction. For example, the majority of cases relating to criminal violence use descriptors such as: ``Armed Gang,"  ``Armed Opposition,"  ``Attacker," ``Hitman," ``Drug Gang,'' ``Armed Band,'' and ``Criminal." A number of other cases have actor names such as ``Men'' or ``Citizens" as well as Military descriptors. 
 
 
-To improve on these issues, we subset the data to include the raw text available from the larger ICEWS  database. Then, using a subset of cases from 2006-2012, we reviewed each individual case. This task includes two main goals: to label events as they relate to specific drug cartel actors in the area and to address aggregation problems in the data. In addition, we coded for duplicate cases.  We identified that this data has fewer duplication issues than previously found in other ICEWS data (such as protests) but has a number of complex aggregation and parsing problems. 
+To improve on these issues, we subset the data to include the raw text available from the larger ICEWS  database. Then, using a subset of cases from 2004-2012, two human coders reviewed each individual case. This task includes two main goals: to label events as they relate to specific drug cartel actors in the area and to address aggregation problems in the data. In addition, we coded for duplicate cases.  We identified that this data has fewer duplication issues than previously found in other ICEWS data (such as protests) but has a number of complex aggregation and parsing problems. 
 
 The end result is a collection of 1,052 actor-coded violent events from 2006-2012. The general trend of this data fits the pattern we observe in other data based on homicide rates. 
 	%remake graphic?
 	%discuss directionality (decreases # of  events) 
 	
-\newpage
+
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=.4]{Figure1Final}
+\includegraphics[scale=.43]{Figure1Final}
 \caption{Counts of conflictual events over time in Mexico 2004-2012.}
 \label{fig:counts}
 \end{figure}
 
- \newpage
+ 
 \section*{Creating a Conflict Network in Mexico}
-Next, we demonstrate how networks can capture the behavior of armed groups within the Mexican conflict. We focus our description on network graphs representing the behavior of disaggregated actors at the yearly level.\footnote{Due to sparsity issues in the current stage of our modeling we aggregate different state actors (such as federal government and federal police) into a general "federal government" category. We are, however, able to investigate changes overtime in the network at the quarterly level of analysis} These networks, discussed below, reveal important relationships between actors, relationships that are otherwise missed by traditional dyadic frameworks. In a simple, descriptive and systematic way, we are able to show which DTOs were involved in the most conflict relevant to one another. We also show that the Sinaloa cartel engages in violence against the highest number of competitors as well as against the federal government's armed forces. 
+Next, we demonstrate how networks can capture the behavior of armed groups within the Mexican conflict. We focus our description on network graphs representing the behavior of disaggregated actors at the yearly level.\footnote{Due to sparsity issues in the current stage of our modeling we aggregate different state actors (such as federal government and federal police) into a general "federal government" category. We are, however, able to investigate changes overtime in the network at the quarterly level of analysis} These networks, discussed below, reveal important relationships between actors, relationships that are otherwise missed by traditional dyadic frameworks. In a simple, descriptive and systematic way, we are able to show which DTOs were involved in the most conflict relevant to one another. We also show that both the Sinaloa Cartel and the Zetas become active players in the network at different moments in the Mexican Criminal Conflict.
 
 %Add back in later: After walking through these connections and the ways in which they evolve over time, we turn to relationships  \textit{unobserved} in the raw data: i.e reciprocity and clustering.  
 
@@ -61,21 +61,19 @@ actor_{m} & 0 & 1 & 4  & 4 &  0 \\
 \right]
 \]
 
-\noindent These matrices reveal a variety of interesting dynamics in the data, as shown in the network graphs of Figure~\ref{fig:all}. For simplicity, the actors are simply coded as DTO or Government actors. Government actors include different branches of the armed forces and government.
+\noindent These matrices reveal a variety of interesting dynamics in the data, as shown in the network graphs of Figure~\ref{fig:all}. For simplicity, the actors are simply coded as DTO or Government actors. Government actors include different branches of the armed forces and government. In the original data, we have different types of government actors such as local police, federal army and federal police. For our analysis we aggregate state actors into three levels of  government: Municipal, State, and Federal groups.
 
-In 2007 to 2008, shown in Figure~\ref{fig:all}, the number of conflictual events increase. Both federal agencies and municipal forces are more active in the conflict.  We also observe a jump in the number of cartels involved in the network, as new actors such as the inclusion of the Juarez Cartel and the increase in events associated with La Familia Micho\'acana.
-
-In the 2008 period, the networks reflect a change in the government policy at that time. By 2006 Calder\'{o}n was elected president and implemented a militarized strategy, sending federal police and  troops into the most contested regions. 
+In 2007 to 2008, shown in Figure~\ref{fig:all}, the number of conflictual events between the Sinaloa Cartel and the Federal government increase. Additionally, the federal government faces a greater number of events from the Gulf Cartel.   We also observe a jump in the number of cartels involved in the network, as new actors such as the inclusion of the Juarez Cartel. The year 2008 is a significant year in the drug war. President Felipe Calder\'{o}n, following is inauguration in 2006, cracked down on DTO's in the western region of Mexico. A major consequence of his ``mano dura" (strong hand) policy was increased volatility in the region. The Gulf and Sinaloa cartels are known to have been heavily challenged at this time and internal pressures inside the Sinaloa Cartel's rank began to build. While the networks do not capture strife internal to an actor-group, observe than in 2008 the Sinaloa Cartel is involved in many reciprocal conflictual events with all levels (municipal, state, and federal) of government.
 
 \begin{figure}[h!]
 \includegraphics[scale=.45]{graphsAll}
 \caption{
-The evolution of the Mexican criminal conflict, 2007-2008. Orange nodes are government actors, teal corresponds to criminal organizations. The links (grey lines) are weighted by the number of conflictual events for that year. 
+The evolution of the Mexican criminal conflict, 2007-2010. Orange nodes are government actors, teal corresponds to criminal organizations. The links (grey lines) are weighted by the number of conflictual events for that year. 
 }
 \label{fig:all}
 \end{figure}
 
-Overall, density increases across these networks overtime.  
+Figure~\ref{fig:all} we also see evidence that supports qualitative accounts of the Gulf Cartel. Namely, that due to the increased independence of their former violent enforcer group, the Zetas, as well as increased targeting from the Government, the Gulf Cartel weakened over time. Indeed, in these graphs the Gulf Cartel is not nearly as active in 2010 as they are in 2007. Similarly, the graphs reveal that conflict involving the Zetas increases over time, by 2010 the DTO experiences high levels of violence with federal forces. 
 
 %Figure \ref{fig:eigen} reveals an interesting story of coordination between different levels of government. In 2004 both the municipal police and the federal police have similar levels of eigen centrality. In 2005 they both decrease, with a larger decrease for the municipal police. In 2006 we see that both actors have very high centrality, indicating a deep involvement in the conflict. This reflects the Calder\'{o}n strategy: sending federal forces into local areas to help bolster security enforcement and combat the cartels. We then see these two actors diverge. Federal police stay highly central in the network in 2007 while the municipal forces seem to back down. At this year these two actors experience the biggest gap in centrality, signaling that coordination between the two levels of governments decreases as federal forces take over combat operations relative to municipal security forces. 
 %
@@ -85,24 +83,16 @@ Overall, density increases across these networks overtime.
 %\caption{Eigen centrality at the yearly level (2004-2009) for both municipal police and federal police }
 %\label{fig:eigen}
 %\end{figure}
-%
-%By 2008, we see a stark shift as municipal forces are once again involved in the conflict while federal forces seem to back down. This is particularly interesting because at this time it becomes well known to the public and to the government that Calder\'{o}n's strategy has largely failed, causing more violence rather than stemming it. Figure~\ref{fig:eigen} shows that after federal forces are very active from 2006-2007, in 2008 they then recede and the municipal police become more active in the network. Finally, the year 2009 shows closer centrality scores than 2008 and 2007, signaling that perhaps these two levels of government begin to cooperate again. 
-%
-Without the re-structuring of the event data into networks we would not be able to see the ways in which different levels of governments interact over time. This approach offers a more complete picture of these dynamics than has previously been possible and enables future research to examine what factors influence government coordination within the network.
 
 \section*{\textcolor{red}{SM's modeling section}}
 
 \textcolor{red}{STUFF HERE ON THE ACTUAL MODEL. Why we chose it, whats cool about it, how no one has used it for intrastate conflict. How it can handle counts.}
 
 
-\subsection*{Key Variables}
-The dependent variable in our study is the conflict event network. At present, we include four predictor variables.
+\subsection*{Variables}
+The dependent variable in our study is the conflict event network which results in directed, count-matrices for each time slice in our data. For our analysis we only examine the years 2006-2012, due to limitations in the protest data. Additionally we were able to disaggregate the data into quarterly periods, but at the same time aggregated state related armed actors into three main groups- municipal government, state government, and federal government. 
 
-NEW IVs HERE!
-
-%The first two are eigenvector centrality and betweeness scores. These variables are generated on the previous iteration of the network and thus act as a nodal time-varying covariate for each year in the model. The primary motivation here is to test whether actor-level effects, such as being a large ``sender" of the conflict, can best predict future conflict. Third, we include a control variable for whether or not the actor in the network is a Drug Trafficking Organization. Last, we include a protest variable. 
-
-Our protest data comes from a new data set, ``The Mexican Protest Against Crime Database" collected by Ley (2015). This data records the number of protests against violence in a municipality during each month for the time period of 2006-2014. Creating a protest variable for the network analysis is straightforward: we simply match municipalities across the protest data and the conflict event data. In doing so, we create a protest count for the number of protests in a DTO's region of operation. 
+At present, we include several covariates of interest. First we include a measure of protests which is our key independent variable. Our protest data is constructed from a new data set, ``The Mexican Protest Against Crime Database" collected by Ley (2015). This data records the number of protests against violence in each state during per year for the time period of 2006-2014. Creating a protest variable for the network analysis is straightforward: we simply match states across the protest data and the conflict event data. In doing so, we create a protest count for the number of protests in a DTO's region of operation. Figure ~\ref{fig:counts} shows Ley (2015)'s data for the whole time period. 
 
 \begin{figure}[h!]
 \centering
@@ -111,6 +101,12 @@ Our protest data comes from a new data set, ``The Mexican Protest Against Crime 
 \label{fig:counts}
 \end{figure}
 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.6]{protestCountDto}
+\caption{Counts of protest four for the Gulf Cartel, La Familia Michoacana, Sinaloa Cartel and the Tijuana Cartel from 2006-2012.}
+\label{fig:DTOprotest}
+\end{figure}
 
-
+The first two are eigenvector centrality and betweeness scores. These variables are generated on the previous iteration of the network and thus act as a nodal time-varying covariate for each year in the model. The primary motivation here is to test whether actor-level effects, such as being a large ``sender" of the conflict, can best predict future conflict. Third, we include a control variable for whether or not the actor in the network is a Drug Trafficking Organization. Last, we include a protest variable. 
 
