@@ -1,0 +1,6 @@
+PWD /Users/s7m/Research/conflictEvolution/LaTeX/Paper
+INPUT /usr/local/texlive/2015/texmf.cnf
+INPUT /usr/local/texlive/2015/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2015/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT 4_results.tex
+OUTPUT 4_results.log
