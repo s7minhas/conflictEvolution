@@ -10,20 +10,29 @@ load( paste0(pathResults, 'barResults.rda') )
 
 #################
 # Parameter effects
-cbind(theta, ses_theta, theta/ses_theta)
+coefData = cbind(theta, ses_theta, theta/ses_theta) %>% data.frame()
+names(coefData) = c('est', 'se', 't')
+vars = c( 'Conflict$_{ij,t-1}$', 'Conflict$_{ji,t-1}$', 'Conflict$_{ijk,t-1}$', 
+	'Protest_$_{i,t-1}$', 'DTO$_{i,t-1}$', 'Betweenness\nCentrality$_{i,t-1}$' ) # make sure order of vars matches rows in coefData
+coefData$var = vars
+coefData$var = factor(coefData$var, levels=rev(vars))
+
+# Construct coefficient plot
+source(paste0(fPth, 'postHelpers.R'))
+coefP=buildCoef(coefData)
+ggsave(coefP, file=paste0(pathGraphics, 'coefP.pdf'), width=6, height=4)
 #################
 
 #################
 # AB plot
 actors = rownames(A)
 colorMat = matrix(cbind(actors, 1, 'black'), ncol=3)
-colorMat[1:3,2] = brewer.pal(9,'Blues')[c(3,6,9)]
-colorMat[4:nrow(colorMat),2] = brewer.pal(length(4:nrow(colorMat))+2,'OrRd')[3:(nrow(colorMat)-1)]
-# colorMat[c(3,(nrow(colorMat)-2):nrow(colorMat)),3] = 'white'
+colorMat[1:3,2] = brewer.pal(9,'OrRd')[4]
+colorMat[4:nrow(colorMat),2] = brewer.pal(length(4:nrow(colorMat))+2,'Blues')[3:(nrow(colorMat)-1)]
 
 abPlot = function( Infl, pThresh, 
 	cAbb = NULL, includeIsolates=TRUE, seed=6886,
-	edgeArrowSize=.6, cntryCols=colorMat[,2], textCols=colorMat[,3],
+	edgeArrowSize=1.2, cntryCols=colorMat[,2], textCols=colorMat[,3],
 	fName, pWidth=12, pHeight=8, save=FALSE ){
 	
 	# conf int
@@ -60,8 +69,8 @@ abPlot = function( Infl, pThresh,
 			layout=gLayout,
 			vertex.label.color=textCols, 
 			vertex.color=cntryCols, 
-			vertex.label.cex=g$labSize,
-			vertex.label.dist=.7,
+			vertex.label.cex=1.5,
+			vertex.label.dist=.9,
 			vertex.size=g$vSize,
 			vertex.shape=vShapes,
 			edge.arrow.size=edgeArrowSize,
@@ -71,6 +80,6 @@ abPlot = function( Infl, pThresh,
 	if(save){ system(paste('pdfcrop', fName, fName, sep=' ')) }
 }
 
-abPlot(Infl=A, pThresh=.33, save=FALSE)
-abPlot(Infl=B, pThresh=.33, save=FALSE)
+abPlot(Infl=A, pThresh=.33, save=TRUE, fName=paste0(pathGraphics, 'senSpace.pdf'))
+abPlot(Infl=B, pThresh=.1, save=TRUE, fName=paste0(pathGraphics, 'recSpace.pdf'))
 #################
