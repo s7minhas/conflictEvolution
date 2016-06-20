@@ -14,8 +14,10 @@ coefData = cbind(theta, ses_theta, theta/ses_theta) %>% data.frame()
 names(coefData) = c('est', 'se', 't')
 vars = c( 'Conflict$_{ij,t-1}$', 'Conflict$_{ji,t-1}$', 'Conflict$_{ijk,t-1}$', 
 	'Protest_$_{i,t-1}$', 'DTO$_{i,t-1}$', 'Betweenness\nCentrality$_{i,t-1}$' ) # make sure order of vars matches rows in coefData
+varsLevel = rev( c( 'Conflict$_{ij,t-1}$', 'Conflict$_{ji,t-1}$', 'Conflict$_{ijk,t-1}$', 
+	'Protest_$_{i,t-1}$', 'Betweenness\nCentrality$_{i,t-1}$', 'DTO$_{i,t-1}$' ) )
 coefData$var = vars
-coefData$var = factor(coefData$var, levels=rev(vars))
+coefData$var = factor(coefData$var, levels=varsLevel)
 
 # Construct coefficient plot
 source(paste0(fPth, 'postHelpers.R'))
