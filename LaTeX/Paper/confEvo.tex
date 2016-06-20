@@ -67,6 +67,16 @@ digitsep=fullstop
 % Spacing
 \usepackage{setspace}
 
+% Watermark to indicate draft
+\usepackage[printwatermark]{xwatermark}
+
+% Extra functions
+\newcommand{\bl}[1]{{\mathbf #1}}
+\newcommand{\bs}[1]{{\boldsymbol #1}}
+\newcommand{\etr}{{\rm etr}}
+\newcommand{\tr}{\text{tr}}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
 % define clickable links and their colors
 \hypersetup{
 	unicode=false,          % non-Latin characters in Acrobat's bookmarks
@@ -125,6 +135,9 @@ digitsep=fullstop
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%% DOCUMENT %%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Draft note
+\newwatermark[pages=1,color=gray!25,angle=45,scale=2,xpos=-1cm,ypos=1cm]{DRAFT \\ Please Do Not Cite}
 
 \begin{document}
 \maketitle
