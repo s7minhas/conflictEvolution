@@ -90,3 +90,35 @@ plot(graph2010, layout=layout.circle, vertex.size=11, vertex.label.color= "black
      edge.curved=seq(.1, .1), vertex.label.dist=.7, edge.width=E(graph2010)$weight,
      vertex.label.family="Helvetica", edge.curved=seq(.1, .1), edge.arrow.size=.5)
 text(1.2,1.2, "2010", font=2)
+
+# 2011
+graph2011<-graph.adjacency(as.matrix(Y[,,5]), mode="directed", weighted=TRUE)
+V(graph2011)$size=degree(graph2011)
+
+graph2011$type=color[,2]
+V(graph2011)$color=graph2011$type
+V(graph2011)$color=gsub("c", "aquamarine3", V(graph2011)$color)
+V(graph2011)$color=gsub("gov", "burlywood", V(graph2011)$color)
+V(graph2011)$size=degree(graph2011)+1
+V(graph2011)$label.cex=.6
+
+plot(graph2011, layout=layout.circle, vertex.size=11, vertex.label.color= "black", 
+     edge.curved=seq(.1, .1), vertex.label.dist=.7, edge.width=E(graph2011)$weight,
+     vertex.label.family="Helvetica", edge.curved=seq(.1, .1), edge.arrow.size=.5)
+text(1.2,1.2, "2011", font=2)
+
+# 2012
+graph2012<-graph.adjacency(as.matrix(Y[,,6]), mode="directed", weighted=TRUE)
+V(graph2012)$size=degree(graph2012)
+
+graph2012$type=color[,2]
+V(graph2012)$color=graph2012$type
+V(graph2012)$color=gsub("c", "aquamarine3", V(graph2012)$color)
+V(graph2012)$color=gsub("gov", "burlywood", V(graph2012)$color)
+V(graph2012)$size=degree(graph2012)+1
+V(graph2012)$label.cex=.6
+
+plot(graph2012, layout=layout.circle, vertex.size=11, vertex.label.color= "black", 
+     edge.curved=seq(.1, .1), vertex.label.dist=.7, edge.width=E(graph2012)$weight,
+     vertex.label.family="Helvetica", edge.curved=seq(.1, .1), edge.arrow.size=.5)
+text(1.2,1.2, "2012", font=2)
