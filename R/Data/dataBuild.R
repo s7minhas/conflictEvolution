@@ -1,3 +1,4 @@
+rm(list = ls(all = T))
 #################
 # workspace
 if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){ source('~/Research/conflictEvolution/R/setup.R')  }
@@ -16,7 +17,7 @@ timeLevel = 'quarterly' # yearly, quarterly
 # Load data
 cleanData = read.csv(paste0(pathData, "mexicoVioStoriesFinal.csv")) #1051 obs
 # Drop desig obs in cleanData
-cleanData = cleanData[which(cleanData$drop1==0 & cleanData$directional==1 ),]
+# cleanData = cleanData[which(cleanData$drop1==0 & cleanData$directional==1 ),]
 # Add var to count
 cleanData$event = 1
 # Subset to relev year
@@ -43,7 +44,7 @@ if(timeLevel == 'quarterly'){ cleanData$time = cleanData$qYr }
 #################
 # Clean up sender and target vars
 actorIDs=c( "senderGroup1", "senderGroup2", "senderGroup3", "TargetGroup1", "TargetGroup2", "TargetGroup3" )
-keep = c( actorIDs, "mexicanState", 'time' )
+keep = c( actorIDs, "mexicanState", 'time', 'rawtext' )
 cleanData = cleanData[,c(keep)]
 ugh = c('n/a','na', '')
 for(var in actorIDs){
@@ -61,11 +62,14 @@ for(var in actorIDs){ cleanData[,var] = panel$lab[ match( cleanData[,var], panel
 # Determine number of cases in which all sender or all target vars are NA
 cleanData$senCnt = apply(cleanData[,grep('sender',actorIDs)], 1, function(x){ sum(!is.na(x)) } )
 cleanData$tarCnt = apply(cleanData[,grep('Target',actorIDs)], 1, function(x){ sum(!is.na(x)) } )
+
+
+
 table(cleanData$senCnt) ; table(cleanData$tarCnt)
 
 # Drop 6 sender all NA cases and 1 target all NA cases
-cleanData = cleanData[which(cleanData$senCnt != 0), ]
-cleanData = cleanData[which(cleanData$tarCnt != 0), ]
+# cleanData = cleanData[which(cleanData$senCnt != 0), ]
+# cleanData = cleanData[which(cleanData$tarCnt != 0), ]
 #################
 
 #################
@@ -82,7 +86,36 @@ if(timeLevel=='quarterly'){
 if(timeLevel=='yearly'){
 	actorList = lapply(pds, function(t){ unique( char( panel[which(panel$startYear<=t),'lab'] ) ) }) }
 
+##Account for cases with 2 DTOs as senders
+dto = unique(cleanData$TargetGroup1[!cleanData$TargetGroup1 %in% c("municipal", "federal", "state")])
+dto = na.omit(dto)
+cleanData$senDTO = apply(cleanData[,grep('sender',actorIDs)], 1, function(x){ sum(x %in% dto) } )
+cleanData$tarDTO = apply(cleanData[,grep('Target',actorIDs)], 1, function(x){ sum(x %in% dto) } )
+
+
+cleanData$bothDTO = cleanData$senDTO + cleanData$tarDTO >= 2
 names(actorList) = char(pds)
+
+target = cleanData[cleanData$senDTO == 2,]
+target$TargetGroup3 = target$senderGroup2
+target$senderGroup2 = "<NA>"
+recip = cleanData[cleanData$senDTO == 2,]
+recip$TargetGroup3 = target$senderGroup1
+recip$senderGroup1 = "<NA>"
+cleanData[cleanData$senDTO == 2,] = target
+cleanData = rbind(cleanData, recip)
+
+
+###Had to repeat this...
+
+ugh = c('n/a','na', '', '<na>')
+for(var in actorIDs){
+	cleanData[,var] = char( cleanData[,var]  )
+	cleanData[,var] = trim(cleanData[,var])
+	cleanData[,var] = tolower(cleanData[,var])
+	cleanData[,var][ which(cleanData[,var] %in% ugh)  ] = NA	
+}
+
 #################
 
 #################
