@@ -5,10 +5,10 @@
 ##    Andy edits
 ##
 
-setwd("/Users/cassydorff/Dropbox/Research/Dissertation/Paper3/analysis")  # change this
+setwd("/Users/maxgallop/Documents/conflictevolution/r/data/old")  # change this
 source("mysqlSetup.R")
 
-mysqlSetup(user="cassydorff", pw="5588orange")  # fill in
+mysqlSetup(user="maxg", pw="blue87lake")  # fill in
 
 library(ggmap)
 library("RMySQL")
@@ -54,7 +54,7 @@ OR description IN ('Insurgents', 'Organized Violent', 'Rebel',
 'Separatists', 'Terrorists')
 )
 )
-LIMIT 1;
+;
 "
 
 # Get data
@@ -73,18 +73,18 @@ drugWar<-mexico1[mexico1$event_date>="2006-01-02",]
 dim(drugWar)
 
 # select by event type
-allCases<-allCases[allCases$code==c("180", "181", "182","1821","1822","1823","183","184",
+allCases<-drugWar[drugWar$code %in% c("180", "181", "182","1821","1822","1823","183","184",
                                     "185","186", "190","191","192","193","194","195","202","1213"),]
 dim(allCases)
 
-mexicoStories<-mexico1[mexico1$code==c("180", "181", "182","1821","1822","1823","183","184",
+mexicoStories<-mexico1[mexico1$code %in% c("180", "181", "182","1821","1822","1823","183","184",
                                    "185","186", "190","191","192","193","194","195","202","1213"),]
 
 save(mexicoStories, file="mexicoVioSqlStories.Rda") #start date "2004-01-01" with 539 obs
 write.csv(mexicoStories, file="mexicoVioSqlStories.csv") #start date "2004-01-01"
 
 
-drugWar<-drugWar[drugWar$code==c("180", "181", "182","1821","1822","1823","183","184",
+drugWar<-drugWar[drugWar$code %in% c("180", "181", "182","1821","1822","1823","183","184",
                                  "185","186", "190","191","192","193","194","195","202","1213"),]
 dim(allCases)
 dim(drugWar)
