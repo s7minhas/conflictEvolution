@@ -22,8 +22,10 @@ if(Sys.info()["user"]=="cassydorff"){
 if(Sys.info()["user"]=="maxgallop"){
 	dpth='~/Dropbox/conflictEvolutionMex/'
 	gpth='~/Documents/conflictEvolution/'
+	fPth=paste0(gpth, 'R/Funcs/');
 	pathData=paste0(dpth, 'data/');
 	pathGraphics=paste0(dpth, 'graphics/')
+	pathResults = paste0(dpth, 'results/')
 }
 ####################################
 
