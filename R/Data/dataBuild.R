@@ -1,4 +1,3 @@
-rm(list = ls(all = T))
 #################
 # workspace
 if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){ source('~/Research/conflictEvolution/R/setup.R')  }
@@ -62,8 +61,6 @@ for(var in actorIDs){ cleanData[,var] = panel$lab[ match( cleanData[,var], panel
 # Determine number of cases in which all sender or all target vars are NA
 cleanData$senCnt = apply(cleanData[,grep('sender',actorIDs)], 1, function(x){ sum(!is.na(x)) } )
 cleanData$tarCnt = apply(cleanData[,grep('Target',actorIDs)], 1, function(x){ sum(!is.na(x)) } )
-
-
 
 table(cleanData$senCnt) ; table(cleanData$tarCnt)
 
