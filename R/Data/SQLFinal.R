@@ -5,9 +5,13 @@
 ##    Andy edits
 ##
 
-setwd("/Users/maxgallop/Documents/conflictevolution/r/data/old")  # change this
+#setwd("/Users/maxgallop/Documents/conflictevolution/r/data/old") 
+#source("mysqlSetup.R")
+
+setwd("/Users/cassydorff/ProjectsGit/conflictevolution/r/data/old") 
 source("mysqlSetup.R")
 
+mysqlSetup(user="cassydorff", pw="5588orange")  # fill in
 mysqlSetup(user="maxg", pw="blue87lake")  # fill in
 
 library(ggmap)
@@ -69,7 +73,7 @@ names(mexico1)
 # write.csv(mexico1, file="mexicoVioSqlData.csv") #start date "2004-01-01"
 
 # shorten by year if needed
-drugWar<-mexico1[mexico1$event_date>="2006-01-02",]
+drugWar<-mexico1[mexico1$event_date>="2005-01-02",]
 dim(drugWar)
 
 # select by event type
@@ -80,8 +84,8 @@ dim(allCases)
 mexicoStories<-mexico1[mexico1$code %in% c("180", "181", "182","1821","1822","1823","183","184",
                                    "185","186", "190","191","192","193","194","195","202","1213"),]
 
-save(mexicoStories, file="mexicoVioSqlStories.Rda") #start date "2004-01-01" with 539 obs
-write.csv(mexicoStories, file="mexicoVioSqlStories.csv") #start date "2004-01-01"
+save(mexicoStories, file="mexicoVioSqlStories0116.Rda") #start date "2004-01-01" with 539 obs
+write.csv(mexicoStories, file="mexicoVioSqlStories0116.csv") #start date "2004-01-01"
 
 
 drugWar<-drugWar[drugWar$code %in% c("180", "181", "182","1821","1822","1823","183","184",
