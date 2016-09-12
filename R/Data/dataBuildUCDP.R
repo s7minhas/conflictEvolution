@@ -40,7 +40,13 @@ ucdp = cbind(ucdp, breakDate(ucdp$startdate, pre='start'))
 ucdp = cbind(ucdp, breakDate(ucdp$startdate2, pre='start2'))
 ucdp = cbind(ucdp, breakDate(ucdp$ependdate, pre='end'))
 
-ucdp = ucdp[ucdp$startYear > 2005 & ucdp$startYear < 2013,]
+# ucdp = ucdp[ucdp$startYear > 2005 & ucdp$startYear < 2013,]
+#################
+
+#################
+# save actor list for cd's ra
+actors = unique( c(ucdp$sidea , ucdp$sideb) )
+
 #################
 
 #################
