@@ -46,7 +46,7 @@ ucdp = cbind(ucdp, breakDate(ucdp$ependdate, pre='end'))
 #################
 # save actor list for cd's ra
 actors = unique( c(ucdp$sidea , ucdp$sideb) )
-
+write.csv(actors, file=paste0(pathData, 'ucdpActors.csv'))
 #################
 
 #################
