@@ -18,7 +18,9 @@ write.csv(actors, file=paste0(pathData, 'actorList0116.csv'))
 
 #################
 actors = read.csv(paste0(pathData, 'actorList0116MS.csv'))
-mexActors = char( actors$X[which(actors$notMexConflict==0)] )
+ #mexActors = char( actors$X[which(actors$notMexConflict==0)] )
+mexActorsList = unique(char(actors$Group.Name[!is.na(actors$Group.Name)]))
+mexActors = char(actors$X[which(actors$Group.Name %in% mexActorsList)])
 
 mexicoStoriesSubset = mexicoStories[which(mexicoStories$sender %in% mexActors),]
 mexicoStoriesSubset = mexicoStoriesSubset[which(mexicoStoriesSubset$target %in% mexActors),]
