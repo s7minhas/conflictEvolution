@@ -24,6 +24,10 @@ mexActors = char(actors$X[which(actors$Group.Name %in% mexActorsList)])
 
 mexicoStoriesSubset = mexicoStories[which(mexicoStories$sender %in% mexActors),]
 mexicoStoriesSubset = mexicoStoriesSubset[which(mexicoStoriesSubset$target %in% mexActors),]
+
+# add in group names
+mexicoStoriesSubset$cleanSender = actors$Group.Name[match(mexicoStoriesSubset$sender, actors$X)]
+mexicoStoriesSubset$cleanTarget = actors$Group.Name[match(mexicoStoriesSubset$target, actors$X)]
 #################
 
 #################
