@@ -21,5 +21,38 @@ summ = function(x) {
   return(result)}
 
 summaryAf = tapply(acledAf$ACTOR2, acledAf$COUNTRY, summ ) 
-summaryAf[order(summaryAf, decreasing=TRUE)]
-range(acledAf$YEAR)  
+ctyOrder<-summaryAf[order(summaryAf, decreasing=TRUE)]
+top5<-names(ctyOrder[1:5])
+
+actCount = function(x) {
+  sp=unique(x)
+  total=length(sp)
+  result=c(total)
+  return(result)
+  }
+  
+som<-subset(acledAf, COUNTRY=="Somalia")
+somActYr = tapply(som$ACTOR1, som$YEAR, actCount ) 
+plot(names(somActYr), somActYr, ylab="Number of Unique Senders", xlab="Years",
+     type="p",main="Somalia 1997-2015", pch=16)
+
+DRC<-subset(acledAf, COUNTRY=="Democratic Republic of Congo")
+drcActYr = tapply(DRC$ACTOR1, DRC$YEAR, actCount ) 
+plot(names(drcActYr), drcActYr, ylab="Number of Unique Senders", xlab="Years",
+     type="p",main="DRC 1997-2015", pch=16)
+
+sudan<-subset(acledAf, COUNTRY=="Sudan")
+sudanActYr = tapply(sudan$ACTOR1, sudan$YEAR, actCount ) 
+plot(names(sudanActYr), sudanActYr, ylab="Number of Unique Senders", xlab="Years",
+     type="p",main="Sudan 1997-2015", pch=16)
+
+nigeria<-subset(acledAf, COUNTRY=="Nigeria")
+nigeriaActYr = tapply(nigeria$ACTOR1, nigeria$YEAR, actCount ) 
+plot(names(nigeriaActYr), nigeriaActYr, ylab="Number of Unique Senders", xlab="Years",
+     type="p",main="Nigeria 1997-2015", pch=16)
+
+zim<-subset(acledAf, COUNTRY=="Zimbabwe")
+zimActYr = tapply(zim$ACTOR1, zim$YEAR, actCount ) 
+plot(names(zimActYr), zimActYr, ylab="Number of Unique Senders", xlab="Years",
+     type="p",main="Zimbabwe 1997-2015", pch=16)
+
