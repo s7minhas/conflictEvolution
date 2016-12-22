@@ -8,8 +8,8 @@ if(Sys.info()['user']=='maxgallop'){ source('~/Documents/conflictEvolution/R/set
 #################
 
 #load data
-acledAsia<-read.csv(paste0(pathData,"ACLED-Asia-Running-file-January-to-December-2015-V2.csv"), na.strings="")
-acledAf<-read.csv(paste0(pathData,"ACLED Version 6 All Africa 1997-2015_csv_dyadic.csv"), na.strings="")
+acledAsia<-read.csv(paste0(pathData,"ACLED-Asia-Running-file-January-to-December-2015-V2.csv"), na.strings="", stringsAsFactors=FALSE)
+acledAf<-read.csv(paste0(pathData,"ACLED Version 6 All Africa 1997-2015_csv_dyadic.csv"), na.strings="", stringsAsFactors=FALSE)
 #################
 
 summ = function(x) {
