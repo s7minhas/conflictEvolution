@@ -10,10 +10,13 @@ if(Sys.info()['user']=='maxgallop'){ source('~/Documents/conflictEvolution/R/set
 #load data
 acledAsia<-read.csv(paste0(pathData,"ACLED-Asia-Running-file-January-to-December-2015-V2.csv"), na.strings="", stringsAsFactors=FALSE)
 acledAf<-read.csv(paste0(pathData,"ACLED Version 6 All Africa 1997-2015_csv_dyadic.csv"), na.strings="", stringsAsFactors=FALSE)
+acledAfMon<-read.csv(paste0(pathData,"ACLED Version 6 All Africa 1997-2015_csv_monadic.csv"), na.strings="", stringsAsFactors=FALSE)
+somData<-read.csv(paste0(pathData,"Somalia-file.csv"), na.strings="", stringsAsFactors=FALSE)
+
 #################
 
 summ = function(x) {
-  total=length(x)
+  total=length(x) 
   numNA = sum(is.na(x))
   leftovers = length(x) - numNA # also could this just be sum(!is.na(x))
   #result = c(total=total, numNA = numNA, leftovers = leftovers)
