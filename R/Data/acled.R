@@ -1,4 +1,4 @@
-#################
+################
 # workspace
 if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){ source('~/Research/conflictEvolution/R/setup.R')  }
 
@@ -12,7 +12,8 @@ acledAsia<-read.csv(paste0(pathData,"ACLED-Asia-Running-file-January-to-December
 acledAf<-read.csv(paste0(pathData,"ACLED Version 6 All Africa 1997-2015_csv_dyadic.csv"), na.strings="", stringsAsFactors=FALSE)
 acledAfMon<-read.csv(paste0(pathData,"ACLED Version 6 All Africa 1997-2015_csv_monadic.csv"), na.strings="", stringsAsFactors=FALSE)
 somData<-read.csv(paste0(pathData,"Somalia-file.csv"), na.strings="", stringsAsFactors=FALSE)
-
+rebelData<-read.csv(paste0(pathData,"ACLED-Version-5-All-Africa-1997-2014_rebel-forces.csv"), na.strings="", stringsAsFactors=FALSE)
+battleData<-read.csv(paste0(pathData,"ACLED-Version-5-All-Africa-1997-2014_battles.csv"), na.strings="", stringsAsFactors=FALSE)
 #################
 
 summ = function(x) {

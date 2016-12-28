@@ -1,0 +1,30 @@
+################
+# workspace
+if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){ source('~/Research/conflictEvolution/R/setup.R')  }
+
+if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){ source('~/ProjectsGit/conflictEvolution/R/setup.R')  }
+
+if(Sys.info()['user']=='maxgallop'){ source('~/Documents/conflictEvolution/R/setup.R')  }
+#################
+
+battleData<-read.csv(paste0(pathData,"ACLED-Version-5-All-Africa-1997-2014_battles.csv"), na.strings="", stringsAsFactors=FALSE)
+
+
+summaryBatt = tapply(battleData$ACTOR2, battleData$COUNTRY, summ ) 
+ctyOrderB<-summaryBatt[order(summaryBatt, decreasing=TRUE)]
+top5B<-names(ctyOrderB[1:5])
+
+actCount = function(x) {
+  sp=unique(x)
+  total=length(sp)
+  result=c(total)
+  return(result)
+  }
+  
+som<-subset(battleData, COUNTRY=="Somalia")
+somActYr = tapply(som$ACTOR1, som$YEAR, actCount ) 
+plot(names(somActYr), somActYr, ylab="Number of Unique Senders", xlab="Years",
+     type="p",main="Somalia Battles 1997-2015", pch=16)
+
+d<-som$ACTOR1[grep("Unidentified", som$ACTOR1)]
+newdata = som[which(som$ACTOR1!=d),]
