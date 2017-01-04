@@ -9,6 +9,13 @@ if(Sys.info()['user']=='maxgallop'){ source('~/Documents/conflictEvolution/R/set
 
 battleData<-read.csv(paste0(pathData,"ACLED-Version-5-All-Africa-1997-2014_battles.csv"), na.strings="", stringsAsFactors=FALSE)
 
+summ = function(x) {
+  total=length(x) 
+  numNA = sum(is.na(x))
+  leftovers = length(x) - numNA # also could this just be sum(!is.na(x))
+  #result = c(total=total, numNA = numNA, leftovers = leftovers)
+  result = c(leftovers = leftovers)
+  return(result)}
 
 summaryBatt = tapply(battleData$ACTOR2, battleData$COUNTRY, summ ) 
 ctyOrderB<-summaryBatt[order(summaryBatt, decreasing=TRUE)]
@@ -27,4 +34,5 @@ plot(names(somActYr), somActYr, ylab="Number of Unique Senders", xlab="Years",
      type="p",main="Somalia Battles 1997-2015", pch=16)
 
 d<-som$ACTOR1[grep("Unidentified", som$ACTOR1)]
-newdata = som[which(som$ACTOR1!=d),]
+newdata = som[!som$ACTOR1 %in% d,]
+write.csv(newdata, file=paste0(pathData, "SomClean.csv")) 
