@@ -34,5 +34,23 @@ plot(names(somActYr), somActYr, ylab="Number of Unique Senders", xlab="Years",
      type="p",main="Somalia Battles 1997-2015", pch=16)
 
 d<-som$ACTOR1[grep("Unidentified", som$ACTOR1)]
+gsub("'", "", newdata$ACTOR1)
 newdata = som[!som$ACTOR1 %in% d,]
-write.csv(newdata, file=paste0(pathData, "SomClean.csv")) 
+write.csv(newdata, file=paste0(pathData, "SomClean.csv"))
+
+#sampling frame
+orig = newdata
+revOrig = orig ; revOrig$ACTOR2 = orig$ACTOR1 ; revOrig$ACTOR1 = orig$ACTOR2
+tmp = rbind(orig, revOrig)
+
+library(doBy)
+actorDates = summaryBy(YEAR ~ ACTOR1, data=tmp, FUN=c(min, max) )
+actorsT = lapply( yrs, 
+  function(t){
+  actors = NULL
+  for( ii in 1:nrow(actorDates)){
+     if( t %in% actorDates$YEAR.min[ii]:actorDates$YEAR.max[ii] )
+     {actors = append(actors, actorDates$ACTOR1[ii]) }
+return(actors)
+}
+})
