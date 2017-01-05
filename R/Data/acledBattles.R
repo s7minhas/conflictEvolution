@@ -53,3 +53,5 @@ nigeria<-subset(battleData, COUNTRY=="Nigeria")
 nigeraActYr = tapply(nigeria$ACTOR1, nigeria$YEAR, actCount ) 
 plot(names(nigeraActYr), nigeraActYr, ylab="Number of Unique Senders", xlab="Years",
      type="p",main="Nigeria Battle Actors 1997-2015", pch=16)
+
+
