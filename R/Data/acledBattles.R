@@ -44,6 +44,7 @@ gsub("'", "", newdata$ACTOR1)
 write.csv(newdata, file=paste0(pathData, "SomClean.csv"))
 
 #sampling frame
+newdata = read.csv(paste0(pathData, "SomClean.csv"))
 orig = newdata
 revOrig = orig ; revOrig$ACTOR2 = orig$ACTOR1 ; revOrig$ACTOR1 = orig$ACTOR2
 tmp = rbind(orig, revOrig)
@@ -51,12 +52,10 @@ yrs=seq(min(newdata$YEAR), max(newdata$YEAR), by=1)
 
 library(doBy)
 actorDates = summaryBy(YEAR ~ ACTOR1, data=tmp, FUN=c(min, max) )
-actorsT = lapply( yrs, 
-  function(t){
+actorsT = lapply( yrs, function(t){
   actors = NULL
   for( ii in 1:nrow(actorDates)){
-     if( t %in% actorDates$YEAR.min[ii]:actorDates$YEAR.max[ii] )
-     {actors = append(actors, actorDates$ACTOR1[[ii]]) }
-return(actors)
-}
+     if( t %in% actorDates$YEAR.min[ii]:actorDates$YEAR.max[ii] ) { 
+      actors = append(actors, actorDates$ACTOR1[[ii]]) } }
+  return(actors)
 })
