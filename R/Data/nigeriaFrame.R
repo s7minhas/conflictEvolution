@@ -18,6 +18,20 @@ gsub("'", "", ndata$ACTOR1)
 ndata$a1=char(ndata$ACTOR1) %>% trim()
 ndata$a2=char(ndata$ACTOR2) %>% trim()
 
+ndata[ndata$a1=="Military Forces of Nigeria (1993-1998)",]$a1<-"Military Forces of Nigeria"
+ndata[ndata$a1=="Military Forces of Nigeria (1993-1999)",]$a1<-"Military Forces of Nigeria"
+ndata[ndata$a2=="Military Forces of Nigeria (1993-1999)",]$a2<-"Military Forces of Nigeria"
+ndata[ndata$a1=="Military Forces of Nigeria (1999-2007)",]$a1<-"Military Forces of Nigeria"
+ndata[ndata$a2=="Military Forces of Nigeria (1999-2007)",]$a2<-"Military Forces of Nigeria"
+ndata[ndata$a1=="Military Forces of Nigeria (2010-)",]$a1<-"Military Forces of Nigeria"
+ndata[ndata$a1=="Police Forces of Nigeria (1993-1998)",]$a1<-"Police Forces of Nigeria"
+ndata[ndata$a2=="Police Forces of Nigeria (1993-1998)",]$a2<-"Police Forces of Nigeria"
+ndata[ndata$a2=="Police Forces of Nigeria (1998-1999)",]$a2<-"Police Forces of Nigeria"
+ndata[ndata$a1=="Police Forces of Nigeria (1999-2007)",]$a1<-"Police Forces of Nigeria"
+ndata[ndata$a2=="Police Forces of Nigeria (1999-2007)",]$a2<-"Police Forces of Nigeria"
+ndata[ndata$a1=="Police Forces of Nigeria (2010-)",]$a1<-"Police Forces of Nigeria"
+ndata[ndata$a1=="AD: Alliance for Democracy",]$a1<-"AD: Alliance For Democracy"
+
 #write.csv(ndata, file=paste0(pathData, "nigeriaClean.csv"))
 #ndata = read.csv(paste0(pathData, "nigericaClean.csv"))
 
@@ -30,7 +44,7 @@ yrs=seq(min(ndata$YEAR), max(ndata$YEAR), by=1)
 loadPkg('doBy')
 actorDates = summaryBy(YEAR ~ a1, data=tmp, FUN=c(min, max))
 
-# should we only look at actors involved for at least a span of five years?
+# length of years active
 actorDates$yrsActive = actorDates$YEAR.max - actorDates$YEAR.min
 
 # get rid of some remaining Unidentified actors
@@ -47,7 +61,7 @@ actorsT = lapply( yrs, function(t){
 
 # adj mats
 ndata$dv = 1 ; yVar = 'dv'
-yList = lapply(1997:2014, function(ii){ # 2006 is when we have +100 actors
+yList = lapply(1997:2014, function(ii){ 
   actorSlice = actorsT[[char(ii)]]
   slice = ndata[ which( 
       ndata$YEAR==ii & 
