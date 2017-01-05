@@ -19,7 +19,7 @@ summ = function(x) {
 
 summaryBatt = tapply(battleData$ACTOR2, battleData$COUNTRY, summ ) 
 ctyOrderB<-summaryBatt[order(summaryBatt, decreasing=TRUE)]
-top5B<-names(ctyOrderB[1:5])
+top5B<-names(ctyOrderB[1:5]) #somalia, DRC, Sudan, Angola, Nigeria
 
 actCount = function(x) {
   sp=unique(x)
@@ -27,69 +27,29 @@ actCount = function(x) {
   result=c(total)
   return(result)
   }
-  
+ 
+#look at individual countries 
 som<-subset(battleData, COUNTRY=="Somalia")
 somActYr = tapply(som$ACTOR1, som$YEAR, actCount ) 
 plot(names(somActYr), somActYr, ylab="Number of Unique Senders", xlab="Years",
-     type="p",main="Somalia Battles 1997-2015", pch=16)
+     type="p",main="Somalia Battle Actors 1997-2015", pch=16)
+
+drc<-subset(battleData, COUNTRY=="Democratic Republic of Congo")
+drcActYr = tapply(drc$ACTOR1, drc$YEAR, actCount ) 
+plot(names(drcActYr), drcActYr, ylab="Number of Unique Senders", xlab="Years",
+     type="p",main="DRC Battle Actors 1997-2015", pch=16)
+
+sudan<-subset(battleData, COUNTRY=="Sudan")
+sudActYr = tapply(sudan$ACTOR1, sudan$YEAR, actCount ) 
+plot(names(sudActYr), sudActYr, ylab="Number of Unique Senders", xlab="Years",
+     type="p",main="Sudan Battle Actors 1997-2015", pch=16)
+
+angola<-subset(battleData, COUNTRY=="Angola")
+angActYr = tapply(angola$ACTOR1, angola$YEAR, actCount ) 
+plot(names(angActYr), angActYr, ylab="Number of Unique Senders", xlab="Years",
+     type="p",main="Angola Battle Actors 1997-2015", pch=16)
 
 nigeria<-subset(battleData, COUNTRY=="Nigeria")
 nigeraActYr = tapply(nigeria$ACTOR1, nigeria$YEAR, actCount ) 
 plot(names(nigeraActYr), nigeraActYr, ylab="Number of Unique Senders", xlab="Years",
-     type="p",main="Nigeria Battles 1997-2015", pch=16)
-
-d<-som$ACTOR1[grep("Unidentified", som$ACTOR1)]
-newdata = som[!som$ACTOR1 %in% d,]
-gsub("'", "", newdata$ACTOR1)
-write.csv(newdata, file=paste0(pathData, "SomClean.csv"))
-
-#sampling frame
-newdata = read.csv(paste0(pathData, "SomClean.csv"))
-
-# some cleanup
-newdata$a1=char(newdata$ACTOR1) %>% trim()
-newdata$a2=char(newdata$ACTOR2) %>% trim()
-
-##### from SM can we clean these names a bit? 
-########## seems like we can combine some of the subclans into clans
-########## somali government related forces
-
-# flip over dataset
-orig = newdata
-revOrig = orig ; revOrig$a2 = orig$a1 ; revOrig$a1 = orig$a2
-tmp = rbind(orig, revOrig)
-yrs=seq(min(newdata$YEAR), max(newdata$YEAR), by=1)
-
-loadPkg('doBy')
-actorDates = summaryBy(YEAR ~ a1, data=tmp, FUN=c(min, max))
-
-# should we only look at actors involved for at least a span of five years?
-actorDates$yrsActive = actorDates$YEAR.max - actorDates$YEAR.min
-
-# get rid of some remaining Unidentified actors
-actorDates = actorDates[!grepl('Unidentified', actorDates$a1),]
-
-# list of actors by year
-actorsT = lapply( yrs, function(t){
-  actors = NULL
-  for( ii in 1:nrow(actorDates)){
-     if( t %in% actorDates$YEAR.min[ii]:actorDates$YEAR.max[ii] ) { 
-      actors = append(actors, actorDates$a1[[ii]]) } }
-  return(actors)
-}) ; names(actorsT) = yrs
-
-# adj mats
-newdata$dv = 1 ; yVar = 'dv'
-yList = lapply(2006:2014, function(ii){ # 2006 is when we have +100 actors
-  actorSlice = actorsT[[char(ii)]]
-  slice = newdata[ which( 
-      newdata$YEAR==ii & 
-      newdata$a1 %in% actorSlice &
-      newdata$a2 %in% actorSlice
-      ), c('a1', 'a2', yVar) ]
-  adjMat = matrix(0, 
-    nrow=length(actorSlice), ncol=length(actorSlice),
-    dimnames=list(actorSlice,actorSlice) )
-  for(r in 1:nrow(slice)){ adjMat[slice$a1[r],slice$a2[r]]=1  }
-  return(adjMat)
-}) ; names(yList) = yrs
+     type="p",main="Nigeria Battle Actors 1997-2015", pch=16)
