@@ -79,3 +79,55 @@ yList = lapply(1997:2014, function(ii){
   for(r in 1:nrow(slice)){ adjMat[slice$a1[r],slice$a2[r]]=1  }
   return(adjMat)
 }) ; names(yList) = yrs
+
+#graph
+library(igraph)
+
+#plot style from igraph- easier to interpret overtime
+#1997
+diag(yList[[1]])<-0
+graph1997<-graph.adjacency(as.matrix(yList[[1]]), mode="directed", weighted=TRUE)
+ind<-c(1,1,1, 2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1, 2,1,1,1,1,2,1,1)
+color<-cbind(names,ind)
+names<-dimnames(yList[[1]])
+color<-cbind(names[[1]],ind)
+
+graph1997$type=color[,2]
+V(graph1997)$color=graph1997$type
+V(graph1997)$color=gsub("c", "aquamarine3", V(graph1997)$color)
+V(graph1997)$color=gsub("gov", "burlywood", V(graph1997)$color)
+V(graph1997)$size=degree(graph1997)+1
+V(graph1997)$label.cex=.6
+
+plot(graph1997, vertex.size=3, vertex.label.color= "black", 
+     edge.curved=seq(.1, .1), vertex.label.dist=.2, edge.width=E(graph1997)$weight,
+     vertex.label.family="Helvetica", edge.arrow.size=.5,
+     layout=layout.fruchterman.reingold(graph1997, niter=10000))
+text(1.2,1.2, "1997", font=2)
+
+plot.igraph(graph1997,vertex.size=5,vertex.label=NA,
+     edge.curved=seq(.1, .1),edge.arrow.size=.5,
+    layout=layout.fruchterman.reingold(graph1997, niter=10000))
+
+#1998
+diag(yList[[2]])<-0
+graph1998<-graph.adjacency(as.matrix(yList[[2]]), mode="directed", weighted=TRUE)
+ind<-c(3,3,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,3,2,1,1,1,1,1)
+names<-dimnames(yList[[2]])
+color<-cbind(names[[2]],ind)
+
+graph1998$type=color[,2]
+V(graph1998)$color=graph1998$type
+V(graph1998)$color=gsub("c", "aquamarine3", V(graph1998)$color)
+V(graph1998)$color=gsub("mil", "burlywood", V(graph1998)$color)
+V(graph1998)$color=gsub("party", "green", V(graph1998)$color)
+
+V(graph1998)$size=degree(graph1998)+1
+V(graph1998)$label.cex=.6
+
+plot(graph1998, vertex.size=3, vertex.label.color= "black", 
+     edge.curved=seq(.1, .1), vertex.label.dist=.2, edge.width=E(graph1998)$weight,
+     vertex.label.family="Helvetica", edge.arrow.size=.5,
+     layout=layout.fruchterman.reingold(graph1998, niter=10000))
+text(1.2,1.2, "1998", font=2)
+
