@@ -24,10 +24,12 @@ ndata[ndata$a1=="Military Forces of Nigeria (1993-1999)",]$a1<-"Military Forces 
 ndata[ndata$a2=="Military Forces of Nigeria (1993-1999)",]$a2<-"Military Forces of Nigeria"
 ndata[ndata$a1=="Military Forces of Nigeria (1999-2007)",]$a1<-"Military Forces of Nigeria"
 ndata[ndata$a2=="Military Forces of Nigeria (1999-2007)",]$a2<-"Military Forces of Nigeria"
+ndata[ndata$a1=="Military Forces of Nigeria (2007-2010)",]$a1<-"Military Forces of Nigeria"
+ndata[ndata$a1=="Military Forces of Nigeria (2010-)",$a1<-"Military Forces of Nigeria"
 ndata[ndata$a1=="Military Forces of Nigeria (2010-)",]$a1<-"Military Forces of Nigeria"
 ndata[ndata$a1=="Military Forces of Nigeria (1999-2007) Joint Task Force",]$a1<-"Military Forces of Nigeria"
 ndata[ndata$a1=="Military Forces of Nigeria (2007-2010) Joint Task Force",]$a1<-"Military Forces of Nigeria"
-ndata[ndata$a1=="Police Forces of Nigeria (1993-1998)",]$a1<-"Police Forces of Nigeria"
+#ndata[ndata$a1=="Police Forces of Nigeria (1993-1998)",]$a1<-"Police Forces of Nigeria"
 ndata[ndata$a2=="Police Forces of Nigeria (1993-1998)",]$a2<-"Police Forces of Nigeria"
 ndata[ndata$a2=="Police Forces of Nigeria (1998-1999)",]$a2<-"Police Forces of Nigeria"
 ndata[ndata$a1=="Police Forces of Nigeria (1999-2007)",]$a1<-"Police Forces of Nigeria"
@@ -35,7 +37,10 @@ ndata[ndata$a2=="Police Forces of Nigeria (1999-2007)",]$a2<-"Police Forces of N
 ndata[ndata$a1=="Police Forces of Nigeria (2007-2010)",]$a1<-"Police Forces of Nigeria"
 ndata[ndata$a2=="Police Forces of Nigeria (2007-2010)",]$a2<-"Police Forces of Nigeria"
 ndata[ndata$a1=="Police Forces of Nigeria (2010-)",]$a1<-"Police Forces of Nigeria"
+ndata[ndata$a2=="Police Forces of Nigeria (2010-)",]$a2<-"Police Forces of Nigeria"
 ndata[ndata$a1=="AD: Alliance for Democracy",]$a1<-"AD: Alliance For Democracy"
+
+
 
 #write.csv(ndata, file=paste0(pathData, "nigeriaClean.csv"))
 #ndata = read.csv(paste0(pathData, "nigericaClean.csv"))
@@ -54,7 +59,7 @@ actorDates$yrsActive = actorDates$YEAR.max - actorDates$YEAR.min
 
 # get rid of some remaining Unidentified actors
 actorDates = actorDates[!grepl('Unidentified', actorDates$a1),]
-
+actorDates = actorDates[actorDates$yrsActive > 3,]
 # list of actors by year
 actorsT = lapply( yrs, function(t){
   actors = NULL
