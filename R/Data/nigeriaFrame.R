@@ -10,11 +10,13 @@ if(Sys.info()['user']=='maxgallop'){ source('~/Documents/conflictEvolution/R/set
 
 battleData<-read.csv(paste0(pathData,"ACLED-Version-5-All-Africa-1997-2014_battles.csv"), na.strings="", stringsAsFactors=FALSE)
 nigeria<-subset(battleData, COUNTRY=="Nigeria")
-
+badnames = c("Viking 22 Student Militia")
+ndata = ndata[(!ndata$a1 %in% badnames) & (!ndata$a2 %in% badnames),]
 #Nigerian Sample Frame
 #clean
 d<-nigeria$ACTOR1[grep("Unidentified", nigeria$ACTOR1)]
 ndata = nigeria[!nigeria$ACTOR1 %in% d,]
+
 gsub("'", "", ndata$ACTOR1)
 ndata$a1=char(ndata$ACTOR1) %>% trim()
 ndata$a2=char(ndata$ACTOR2) %>% trim()
@@ -85,6 +87,7 @@ yList = lapply(1997:2014, function(ii){
   return(adjMat)
 }) ; names(yList) = yrs
 
+save(yList, file="nigeriaMatList.rda")
 #graph
 library(igraph)
 
