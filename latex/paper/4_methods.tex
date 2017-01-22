@@ -1,0 +1,38 @@
+\section*{The Conflict[s] in Nigeria}
+
+
+\subsection*{ACLED Data}
+
+
+ 
+\section*{Creating a Conflict Network in Nigeria}
+
+%Figure \ref{fig:eigen} reveals an interesting story of coordination between different levels of government. In 2004 both the municipal police and the federal police have similar levels of eigen centrality. In 2005 they both decrease, with a larger decrease for the municipal police. In 2006 we see that both actors have very high centrality, indicating a deep involvement in the conflict. This reflects the Calder\'{o}n strategy: sending federal forces into local areas to help bolster security enforcement and combat the cartels. We then see these two actors diverge. Federal police stay highly central in the network in 2007 while the municipal forces seem to back down. At this year these two actors experience the biggest gap in centrality, signaling that coordination between the two levels of governments decreases as federal forces take over combat operations relative to municipal security forces. 
+%
+%\begin{figure}[h!]
+%\raggedright
+%\includegraphics[scale=.4]{EigenCent}
+%\caption{Eigen centrality at the yearly level (2004-2009) for both municipal police and federal police }
+%\label{fig:eigen}
+%\end{figure}
+
+\section*{Modelling Approach}
+To model and predict intra-state conflict in Nigeria, we rely on an Additive and Multiplicative Effects (AME) model. This is a model that can account for many of the interdependencies in relational data. The particular estimator is:
+
+\begin{equation}
+Y_{ijt} = g(\mathbf{X_{ijt}^T} \beta + a_{i} + b_{j} +\mathbf{u_{i}} \delta \mathbf{v_{j}} + \epsilon_{ijt})
+\end{equation}
+
+where $Y_{ijt}$ represents the amount of conflict between actor $i$ and actor $j$ at time $t$. The additive part of the model is derived from \citet{kenny:lavoie:year}'s Social Relations Regression Model, and is composed of the fixed effects $\mathbf{X_{ijt}^T} \beta$ which account for (potentially time varying) covariates in the model, as well as the sender and receiver effects $a_{i}$ and $b_{j}.$ The random effects account for one source of interdependency in relational data: the tendency for certain actors to be disproportionately involved in conflict. The stochastic error $\epsilon_{ijt}$ is defined as:
+\begin{eqnarray}
+e_{ijt} \text +{iid} \sim N(0, \Sigma_{\epsilon})\\
+\Sigma_{\epsilon} = \sigma_{\epsilon} \left(\begin{array}{cc} 1 \rho \\ \rho 1 \end{array} \right)
+\end{eqnarray}
+where $\rho$ is a measure of reciprocity in the data. These factors allow us to take into account the similarity between $ij$ interactions and $ji$ interactions. However, while additive effects can deal with first (differing popularity and activity of actors) and second order interdependencies (reciprocity), the multiplicative effects are needed to deal with third order dependencies. Two third-order dependencies worth considering here are homophily -- the tendency of actors with similar characteristics are more likely to form strong relationships than those with differing characteristics -- and stochastic equivalence, the possibility that two actors $i$ and $j$ will have similar relationships with every other actor in the network. An AME model accounts for these third order effects using the multiplicative term $\mathbf{u_{i}} \delta \mathbf{v_{j}}$. This model posits a latent vector of characteristics $\mathbf{u_{i}}$ and $\mathbf{v_{j}}$ for each sender $i$ and receiver $j$. The similarity or dissimilarity of these vectors will then influence the likelihood of activity, and therefore account for these third order interdepencies \citep{minhas:hoff:ward:2016}.
+
+\subsection{Latent Factors} 
+An important thing to understand the latent factor model here is that it is different than a latent space model as traditionally used. Even though, in the models discussed, the latent factor has two dimensions, and we can thus plot it, the Euclidian distance between the different actors is not easily interpretable. Rather that looking at distance, we should look at the direction of the factors for the actors. If we represent the latent factors as vectors, than actors who have these vectors in the same direction will exhibit more stochastic equivalence, and those with actors in opposite directions will exhibit little such equivalence. In other words, if the factors point in the same direction, we should expect to see the actors having similar types and amounts of interactions with similar third parties. 
+
+We can get a sense of the direction of these factors by placing each actor on a unit circle based on direction of this vector in comparison to the center of each actor's positions. Then, we can get a measure of this stochastic equivalence by comparing the difference in angles between these two actors. We do this in section \ref{whatever} to examine the effect of violence against civilians on the shape of the latent group network.
+\subsection*{Variables}
+
