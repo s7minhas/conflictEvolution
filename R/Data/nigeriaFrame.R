@@ -87,7 +87,7 @@ yList = lapply(1997:2014, function(ii){
   return(adjMat)
 }) ; names(yList) = yrs
 
-save(yList, file="nigeriaMatList.rda")
+save(yList, file=(paste0(pathData,"nigeriaMatList.rda"))
 #graph
 library(igraph)
 
