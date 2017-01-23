@@ -1,4 +1,3 @@
-
 ################
 # workspace
 if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){ source('~/Research/conflictEvolution/R/setup.R')  }
@@ -27,9 +26,14 @@ ndata[ndata$a2=="Military Forces of Nigeria (1993-1999)",]$a2<-"Military Forces 
 ndata[ndata$a1=="Military Forces of Nigeria (1999-2007)",]$a1<-"Military Forces of Nigeria"
 ndata[ndata$a2=="Military Forces of Nigeria (1999-2007)",]$a2<-"Military Forces of Nigeria"
 ndata[ndata$a1=="Military Forces of Nigeria (2007-2010)",]$a1<-"Military Forces of Nigeria"
+<<<<<<< HEAD
+ndata[ndata$a1=="Military Forces of Nigeria (2010-)",$a1<-"Military Forces of Nigeria"
+ndata[ndata$a2=="Military Forces of Nigeria (2010-)",]$a2<-"Military Forces of Nigeria"
+=======
 ndata[ndata$a1=="Military Forces of Nigeria (2010-)",]$a1<-"Military Forces of Nigeria"
+>>>>>>> origin/master
 ndata[ndata$a1=="Military Forces of Nigeria (1999-2007) Joint Task Force",]$a1<-"Military Forces of Nigeria"
-ndata[ndata$a1=="Military Forces of Nigeria (2007-2010) Joint Task Force",]$a1<-"Military Forces of Nigeria"
+ndata[ndata$a2=="Military Forces of Nigeria (2007-2010) Joint Task Force",]$a2<-"Military Forces of Nigeria"
 #ndata[ndata$a1=="Police Forces of Nigeria (1993-1998)",]$a1<-"Police Forces of Nigeria"
 ndata[ndata$a2=="Police Forces of Nigeria (1993-1998)",]$a2<-"Police Forces of Nigeria"
 ndata[ndata$a2=="Police Forces of Nigeria (1998-1999)",]$a2<-"Police Forces of Nigeria"
@@ -96,7 +100,11 @@ yList = lapply(1997:2014, function(ii){
   return(adjMat)
 }) ; names(yList) = yrs
 
+<<<<<<< HEAD
+save(yList, file=(paste0(pathData,"nigeriaMatList.rda")))
+=======
 save(yList, file=paste0(pathData,"nigeriaMatList.rda"))
+>>>>>>> origin/master
 #graph
 library(igraph)
 
