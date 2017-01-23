@@ -8,9 +8,70 @@ if(Sys.info()['user']=='maxgallop'){ source('~/Documents/conflictEvolution/R/set
 ################
 # load data
 load(paste0(pathData, 'nigeriaMatList.rda')) # loads yList object
+load(paste0(pathResults, 'ameResults.rda')) # load AME mod results
 ################
 
 ################
-# add missingness
+# divide dataset into folds
+set.seed(6886) ; folds=20
+yListFolds = lapply(yList, function(y){
+	yFold=matrix(sample(1:folds, length(y), replace=TRUE),
+		nrow=nrow(y),ncol=ncol(y), dimnames=dimnames(y))
+	diag(yFold) = NA
+	return(yFold) })
+################
 
+################
+# run models by fold
+yCrossValTrain = lapply(1:folds, function(f){
+	yListMiss = lapply(1:length(yList), function(t){
+		foldID = yListFolds[[t]] ; y = yList[[t]]
+		foldID[foldID==f]=NA ; y=y*foldID
+		return(y)
+	})
+	names(yListMiss) = names(yList)
+	return(yListMiss) }) ; names(yCrossValTrain) = char(1:folds)
+
+# run ame by fold
+fitCrossVal = lapply(yCrossValTrain, function(yCV){
+	fit=ame_repL(
+		Y=yCV, Xdyad=NULL, Xrow=NULL, Xcol=NULL, 
+		symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
+		model='bin', intercept=TRUE, seed=6886,
+		burn=10000, nscan=2000, odens=25, 
+		plot=FALSE, gof=TRUE, periodicSave=FALSE
+		)
+	return(fit) })
+
+# get preds
+outPerf = do.call('rbind', lapply(1:folds, function(f){
+	fitFoldPred = fitCrossVal[[f]]$'EZ'
+	do.call('rbind', lapply(1:length(fitFoldPred), function(t){
+		predT = fitFoldPred[[t]]
+		foldID = yListFolds[[t]] ; y = yList[[t]]
+		foldID[foldID!=f]=NA ; foldID[!is.na(foldID)] = 1
+		y=y*foldID ; predT=predT*foldID
+		res=na.omit(data.frame(actual=c(y), pred=c(predT), fold=f, stringsAsFactors=FALSE))
+		res$pred = 1/(1+exp(-res$pred))
+		return(res) }) ) }) )
+
+# get binperfhelpers
+loadPkg(c('ROCR', 'RColorBrewer', 'caTools'))
+source(paste0(fPth, 'binPerfHelpers.R'))
+
+# get perf stats
+aucByFold=do.call('rbind', lapply(1:folds, function(f){
+	slice = outPerf[outPerf$fold==f,]
+	perf=cbind(fold=f,
+		aucROC=getAUC(slice$pred, slice$actual),
+		aucPR=auc_pr(slice$actual, slice$pred)
+		)
+	return(perf) }))
+aucROC=getAUC(outPerf$pred, outPerf$actual)
+aucPR=auc_pr(outPerf$actual, outPerf$pred)
+
+save(
+	yCrossValTrain, fitCrossVal, outPerf, 
+	aucByFold, aucROC, aucPR, 
+	file=paste0(pathResults, 'ameCrossValResults.rda'))
 ################
