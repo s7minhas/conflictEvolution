@@ -23,7 +23,7 @@ fit=ame_repL(
 	Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL, 
 	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 	model='bin', intercept=TRUE, seed=6886,
-	burn=3000, nscan=5000, odens=25, 
+	burn=5000, nscan=10000, odens=25, 
 	plot=FALSE, gof=TRUE, periodicSave=FALSE
 	)
 
@@ -31,7 +31,7 @@ fitPreBH=ame_repL(
 	Y=yListPreBH, Xdyad=NULL, Xrow=NULL, Xcol=NULL, 
 	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 	model='bin', intercept=TRUE, seed=6886,
-	burn=3000, nscan=5000, odens=25, 
+	burn=5000, nscan=10000, odens=25, 
 	plot=FALSE, gof=TRUE, periodicSave=FALSE
 	)
 
@@ -39,7 +39,7 @@ fitPostBH=ame_repL(
 	Y=yListPostBH, Xdyad=NULL, Xrow=NULL, Xcol=NULL, 
 	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 	model='bin', intercept=TRUE, seed=6886,
-	burn=3000, nscan=5000, odens=25, 
+	burn=5000, nscan=10000, odens=25, 
 	plot=FALSE, gof=TRUE, periodicSave=FALSE
 	)
 ################
