@@ -6,6 +6,28 @@ if(Sys.info()['user']=='maxgallop'){ source('~/Documents/conflictEvolution/R/set
 ################
 
 ################
+# some helper fns
+plotAddEff = function(fit, row=TRUE){
+	if(row){addEffData = data.frame(addEff=fit$APM, stringsAsFactors = FALSE) ; yLabel='Sender Effects'}
+	if(!row){addEffData = data.frame(addEff=fit$BPM, stringsAsFactors = FALSE) ; yLabel='Receiver Effects'}
+	addEffData$actor = rownames(addEffData) ; rownames(addEffData) = NULL
+	addEffData$actor = factor(addEffData$actor, levels=addEffData[order(addEffData$addEff),'actor'])
+	addEffData$max = ifelse(addEffData$addEff>=0,addEffData$addEff,0)
+	addEffData$min = ifelse(addEffData$addEff<0,addEffData$addEff,0) 
+	gg = ggplot(addEffData, aes(x=actor, y=addEff)) +
+		geom_point() + geom_linerange(aes(ymax=max,ymin=min)) +
+		ylab(yLabel) + xlab('') + 
+		geom_hline(yintercept=0,color='red') + 
+		theme(
+			panel.border=element_blank(), axis.ticks=element_blank(),
+			# axis.text.x=element_text(angle=45, hjust=1, size=4)
+			axis.text.x=element_text(angle=90, hjust=1, size=6)
+			)
+	return(gg)
+}
+################
+
+################
 # load data
 load(paste0(pathResults, 'ameResults.rda')) # load AME mod results
 ################
@@ -27,22 +49,14 @@ gofPlot(fitPostBH$GOF, FALSE)
 
 ################
 # additive effects
-addEffData = data.frame(APM=fit$APM, BPM=fit$BPM, stringsAsFactors = FALSE)
-addEffData$actor = rownames(addEffData) ; rownames(addEffData) = NULL
-addEffData$actor = factor(addEffData$actor, levels=addEffData[order(addEffData$BPM),'actor'])
-ggplot(addEffData, aes(x=actor, y=BPM)) +
-	geom_point() +
-	ylab('Additive Sender Effects') + xlab('')
-	theme(
-		panel.border=element_blank(), axis.ticks=element_blank(),
-		axis.text.x=element_text(angle=45, hjust=1, size=4)
-		)
+plotAddEff(fit, TRUE)
+plotAddEff(fit, FALSE)
 
-addEffData_preBH = data.frame(APM=fitPreBH$APM, BPM=fitPreBH$BPM, stringsAsFactors = FALSE)
-addEffData_preBH$actor = rownames(addEffData_preBH) ; rownames(addEffData_preBH) = NULL
+plotAddEff(fitPreBH, TRUE)
+plotAddEff(fitPreBH, FALSE)
 
-addEffData_postBH = data.frame(APM=fitPostBH$APM, BPM=fitPostBH$BPM, stringsAsFactors = FALSE)
-addEffData_postBH$actor = rownames(addEffData_postBH) ; rownames(addEffData_postBH) = NULL
+plotAddEff(fitPostBH, TRUE)
+plotAddEff(fitPostBH, FALSE)
 ################
 
 ################
@@ -50,4 +64,12 @@ addEffData_postBH$actor = rownames(addEffData_postBH) ; rownames(addEffData_post
 yArr = listToArray(actors=sort(unique(unlist(lapply(yList,rownames)))), Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL)$Y
 yArrSumm = apply(yArr, c(1,2), sum, na.rm=TRUE)
 circplot(Y=yArrSumm, U=fit$U, V=fit$V, pscale=.7)
+
+yArr = listToArray(actors=sort(unique(unlist(lapply(yListPreBH,rownames)))), Y=yListPreBH, Xdyad=NULL, Xrow=NULL, Xcol=NULL)$Y
+yArrSumm = apply(yArr, c(1,2), sum, na.rm=TRUE)
+circplot(Y=yArrSumm, U=fitPreBH$U, V=fitPreBH$V, pscale=.7)
+
+yArr = listToArray(actors=sort(unique(unlist(lapply(yListPostBH,rownames)))), Y=yListPostBH, Xdyad=NULL, Xrow=NULL, Xcol=NULL)$Y
+yArrSumm = apply(yArr, c(1,2), sum, na.rm=TRUE)
+circplot(Y=yArrSumm, U=fitPostBH$U, V=fitPostBH$V, pscale=.7)
 ################
