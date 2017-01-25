@@ -13,7 +13,7 @@ load(paste0(pathResults, 'ameResults.rda')) # load AME mod results
 
 ################
 # divide dataset into folds
-set.seed(6886) ; folds=20
+set.seed(6886) ; folds=30
 yListFolds = lapply(yList, function(y){
 	yFold=matrix(sample(1:folds, length(y), replace=TRUE),
 		nrow=nrow(y),ncol=ncol(y), dimnames=dimnames(y))
@@ -27,8 +27,7 @@ yCrossValTrain = lapply(1:folds, function(f){
 	yListMiss = lapply(1:length(yList), function(t){
 		foldID = yListFolds[[t]] ; y = yList[[t]]
 		foldID[foldID==f]=NA ; y=y*foldID
-		return(y)
-	})
+		return(y) })
 	names(yListMiss) = names(yList)
 	return(yListMiss) }) ; names(yCrossValTrain) = char(1:folds)
 
@@ -62,16 +61,17 @@ source(paste0(fPth, 'binPerfHelpers.R'))
 # get perf stats
 aucByFold=do.call('rbind', lapply(1:folds, function(f){
 	slice = outPerf[outPerf$fold==f,]
+	if(length(unique(slice$actual))==1){ return(NULL) }
 	perf=cbind(fold=f,
 		aucROC=getAUC(slice$pred, slice$actual),
 		aucPR=auc_pr(slice$actual, slice$pred)
 		)
-	return(perf) }))
+	return(perf) } ))
 aucROC=getAUC(outPerf$pred, outPerf$actual)
 aucPR=auc_pr(outPerf$actual, outPerf$pred)
 
 save(
 	yCrossValTrain, fitCrossVal, outPerf, 
 	aucByFold, aucROC, aucPR, 
-	file=paste0(pathResults, 'ameCrossValResults.rda'))
+	file=paste0(pathResults, 'ameCrossValResults_NULL.rda'))
 ################
