@@ -23,7 +23,7 @@ fit=ame_repL(
 	Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL, 
 	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 	model='bin', intercept=TRUE, seed=6886,
-	burn=50000, nscan=100000, odens=25, 
+	burn=50000, nscan=25000, odens=25, 
 	plot=FALSE, gof=TRUE, periodicSave=FALSE
 	)
 
@@ -31,7 +31,7 @@ fitPreBH=ame_repL(
 	Y=yListPreBH, Xdyad=NULL, Xrow=NULL, Xcol=NULL, 
 	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 	model='bin', intercept=TRUE, seed=6886,
-	burn=50000, nscan=100000, odens=25, 
+	burn=50000, nscan=25000, odens=25, 
 	plot=FALSE, gof=TRUE, periodicSave=FALSE
 	)
 
@@ -39,7 +39,32 @@ fitPostBH=ame_repL(
 	Y=yListPostBH, Xdyad=NULL, Xrow=NULL, Xcol=NULL, 
 	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 	model='bin', intercept=TRUE, seed=6886,
-	burn=50000, nscan=100000, odens=25, 
+	burn=50000, nscan=25000, odens=25, 
+	plot=FALSE, gof=TRUE, periodicSave=FALSE
+	)
+################
+
+################
+# run ame with covars
+
+# create a simple design array
+actors=unique(unlist(lapply(yList, rownames)))
+actorInfo = matrix(0, nrow=length(actors),ncol=1,dimnames=list(actors,c('gov')))
+govActors=c('Military Forces of Nigeria','Police Forces of Nigeria')
+xNodeL = lapply(1:length(yList), function(t){
+	actors = rownames( yList[[t]] )
+	yr = num(names(yList)[t])
+	xMat = matrix(0,nrow=length(actors),ncol=2,dimnames=list(actors,c('govActor','postBoko')))
+	xMat[which(rownames(xMat) %in% govActors),'govActor'] = 1
+	if(yr>2008){xMat[,'postBoko']=1} # boko enters network in 2009
+	return(xMat)
+}) ; names(xNodeL) = names(yList)
+
+fitCovar=ame_repL(
+	Y=yList, Xdyad=NULL, Xrow=xNodeL, Xcol=xNodeL, 
+	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
+	model='bin', intercept=TRUE, seed=6886,
+	burn=50000, nscan=25000, odens=25, 
 	plot=FALSE, gof=TRUE, periodicSave=FALSE
 	)
 ################
@@ -47,7 +72,8 @@ fitPostBH=ame_repL(
 ################
 # save
 save(
-	fit, fitPreBH, fitPostBH, yList, yListPreBH, yListPostBH, 
+	fit, fitPreBH, fitPostBH, fitCovar, 
+	yList, yListPreBH, yListPostBH, xNodeL,
 	file=paste0(pathResults, 'ameResults.rda')
 	)
 ################
