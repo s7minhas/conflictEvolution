@@ -95,7 +95,20 @@ yList = lapply(1997:2014, function(ii){
   return(adjMat)
 }) ; names(yList) = yrs
 
+# cleanup
+other=c('NURTW: National Union of Road Transport Workers',
+  'RTEAN: Road Transport Employers Association of Nigeria',
+  'Private Security Forces (Nigeria)')
+polParties=c('AD: Alliance For Democracy',
+  "PDP: People's Democratic Party",
+  "ANPP: All Nigeria People's Party",
+  "AP: Action Party",
+  "AC: Action Congress")
+drop = c(other, polParties)
+yList=lapply(yList, function(y){ toKeep = setdiff(rownames(y), drop); return(y[toKeep,toKeep]) })
+
 save(yList, file=paste0(pathData,"nigeriaMatList.rda"))
+
 #graph
 library(igraph)
 
