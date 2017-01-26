@@ -34,6 +34,10 @@ load(paste0(pathResults, 'ameResults.rda')) # load AME mod results
 
 ################
 # some quick viz checks
+paramPlot(fitDyadCovar$BETA)
+paramPlot(fitDyadCovar$VC[,-ncol(fitDyadCovar$VC)])
+gofPlot(fitDyadCovar$GOF, FALSE)
+
 paramPlot(fit$BETA)
 paramPlot(fit$VC[,-ncol(fit$VC)])
 gofPlot(fit$GOF, FALSE)
@@ -49,6 +53,9 @@ gofPlot(fitPostBH$GOF, FALSE)
 
 ################
 # additive effects
+plotAddEff(fitDyadCovar, TRUE)
+plotAddEff(fitDyadCovar, FALSE)
+
 plotAddEff(fit, TRUE)
 plotAddEff(fit, FALSE)
 
@@ -63,13 +70,16 @@ plotAddEff(fitPostBH, FALSE)
 # multiplicative effects
 yArr = listToArray(actors=sort(unique(unlist(lapply(yList,rownames)))), Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL)$Y
 yArrSumm = apply(yArr, c(1,2), sum, na.rm=TRUE)
+
+circplot(Y=yArrSumm, U=fitDyadCovar$U, V=fitDyadCovar$V, pscale=.7)
+circplot(Y=yArrSumm, U=fitDyadCovar$U, V=NULL, pscale=.7)
+circplot(Y=yArrSumm, U=fitDyadCovar$V, V=NULL, pscale=.7)
+
 circplot(Y=yArrSumm, U=fit$U, V=fit$V, pscale=.7)
 
-yArr = listToArray(actors=sort(unique(unlist(lapply(yListPreBH,rownames)))), Y=yListPreBH, Xdyad=NULL, Xrow=NULL, Xcol=NULL)$Y
-yArrSumm = apply(yArr, c(1,2), sum, na.rm=TRUE)
+circplot(Y=yArrSumm, U=fit$U, V=fit$V, pscale=.7)
+
 circplot(Y=yArrSumm, U=fitPreBH$U, V=fitPreBH$V, pscale=.7)
 
-yArr = listToArray(actors=sort(unique(unlist(lapply(yListPostBH,rownames)))), Y=yListPostBH, Xdyad=NULL, Xrow=NULL, Xcol=NULL)$Y
-yArrSumm = apply(yArr, c(1,2), sum, na.rm=TRUE)
 circplot(Y=yArrSumm, U=fitPostBH$U, V=fitPostBH$V, pscale=.7)
 ################
