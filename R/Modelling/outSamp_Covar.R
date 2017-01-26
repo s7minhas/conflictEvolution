@@ -34,11 +34,12 @@ yCrossValTrain = lapply(1:folds, function(f){
 # run ame by fold
 fitCrossVal = lapply(yCrossValTrain, function(yCV){
 	fit=ame_repL(
-		Y=yCV, Xdyad=NULL, Xrow=xNodeL, Xcol=xNodeL, 
+		Y=yCV, Xdyad=xDyadL, Xrow=NULL, Xcol=NULL,
 		symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 		model='bin', intercept=TRUE, seed=6886,
 		burn=10000, nscan=2000, odens=25, 
-		plot=FALSE, gof=TRUE, periodicSave=FALSE
+		plot=FALSE, gof=TRUE, periodicSave=FALSE,
+		startVals=fitDyadCovar$startVals
 		)
 	return(fit) })
 
@@ -73,5 +74,5 @@ aucPR=auc_pr(outPerf$actual, outPerf$pred)
 save(
 	yCrossValTrain, fitCrossVal, outPerf, 
 	aucByFold, aucROC, aucPR, 
-	file=paste0(pathResults, 'ameCrossValResults_wCovar.rda'))
+	file=paste0(pathResults, 'ameCrossValResults_wDyadCovar.rda'))
 ################
