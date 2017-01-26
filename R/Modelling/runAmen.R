@@ -78,12 +78,12 @@ fitCovar=ame_repL(
 	plot=FALSE, gof=TRUE, periodicSave=FALSE
 	)
 
-fitDyadCovar=ame_repL(
+fitDyadCovar2=ame_repL(
 	Y=yList, Xdyad=xDyadL, Xrow=NULL, Xcol=NULL, 
 	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 	model='bin', intercept=TRUE, seed=6886,
-	burn=50000, nscan=25000, odens=25, 
-	plot=FALSE, gof=TRUE, periodicSave=FALSE,
+	burn=25000, nscan=100000, odens=25, 
+	plot=FALSE, gof=TRUE, periodicSave=FALSE
 	)
 ################
 
