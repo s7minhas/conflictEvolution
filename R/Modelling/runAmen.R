@@ -60,6 +60,16 @@ xNodeL = lapply(1:length(yList), function(t){
 	return(xMat)
 }) ; names(xNodeL) = names(yList)
 
+xDyadL = lapply(1:length(yList), function(t){
+	actors = rownames( yList[[t]] )
+	yr = num(names(yList)[t])
+	xArr = array(0,dim=c(length(actors),length(actors),2),dimnames=list(actors,actors,c('govActor','postBoko')))
+	xArr[which(rownames(xArr) %in% govActors),which(colnames(xArr) %in% govActors),'govActor'] = 1
+	if(yr>2008){xArr[,,'postBoko']=1} # boko enters network in 2009
+	for(p in 1:dim(xArr)[3]){ diag(xArr[,,p])=NA }
+	return(xArr)
+}) ; names(xDyadL) = names(yList)
+
 fitCovar=ame_repL(
 	Y=yList, Xdyad=NULL, Xrow=xNodeL, Xcol=xNodeL, 
 	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
@@ -67,13 +77,23 @@ fitCovar=ame_repL(
 	burn=50000, nscan=25000, odens=25, 
 	plot=FALSE, gof=TRUE, periodicSave=FALSE
 	)
+
+fitDyadCovar=ame_repL(
+	Y=yList, Xdyad=xDyadL, Xrow=NULL, Xcol=NULL, 
+	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
+	model='bin', intercept=TRUE, seed=6886,
+	burn=50000, nscan=25000, odens=25, 
+	plot=FALSE, gof=TRUE, periodicSave=FALSE,
+	)
 ################
 
 ################
 # save
 save(
-	fit, fitPreBH, fitPostBH, fitCovar, 
-	yList, yListPreBH, yListPostBH, xNodeL,
+	fit, fitPreBH, fitPostBH, 
+	fitCovar, fitDyadCovar,
+	yList, yListPreBH, yListPostBH, 
+	xNodeL, xDyadL,
 	file=paste0(pathResults, 'ameResults.rda')
 	)
 ################
