@@ -1,0 +1,187 @@
+\documentclass[12pt,onesided]{amsart} 
+
+%CD other small to dos
+	%double check all dates (the conflict time period and data time period are slightly off throughout (we look at 2006-2012)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% PREAMBLE %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% -------------------- defaults -------------------- %
+% load lots o' packages
+
+% layout control
+\usepackage{geometry}
+\geometry{verbose,tmargin=1.25in,bmargin=1.25in,lmargin=1.1in,rmargin=1.1in}
+\usepackage[figuresright]{rotating}
+\newenvironment{amssidewaysfigure}
+  {\begin{sidewaysfigure}\vspace*{.8\textwidth}\begin{minipage}{\textheight}\centering}
+  {\end{minipage}\end{sidewaysfigure}}
+\usepackage{parallel}
+\usepackage{parcolumns}
+
+% math typesetting
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\usepackage[%
+decimalsymbol=.,
+digitsep=fullstop
+]{siunitx}
+
+% to adapt caption style
+\usepackage[font={small},labelfont=bf]{caption}
+
+% references
+\usepackage{natbib}
+% \usepackage[natbib=true, style=authoryear]{biblatex}
+% \bibliography{master.bib}
+
+% footnotes at bottom
+\usepackage[bottom]{footmisc}
+
+% to change enumeration symbols begin{enumerate}[(a)]
+\usepackage{enumerate}
+
+% to make enumerations and itemizations within paragraphs or
+% lines. f.i. begin{inparaenum} for (a) is (b) and (c)
+\usepackage{paralist}
+
+% to colorize links in document. See color specification below
+\usepackage[x11names]{xcolor}
+
+% load the hyper-references package and set document info
+\usepackage[pdftex]{hyperref}
+
+% graphics stuff
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage[space]{grffile} % allows us to specify directories that have spaces
+\usepackage[section]{placeins} % prevents floats from moving past a \FloatBarrier or section
+\usepackage{tikz}
+
+% Spacing
+\usepackage{setspace}
+
+% Watermark to indicate draft
+\usepackage[printwatermark]{xwatermark}
+
+% Extra functions
+\newcommand{\bl}[1]{{\mathbf #1}}
+\newcommand{\bs}[1]{{\boldsymbol #1}}
+\newcommand{\etr}{{\rm etr}}
+\newcommand{\tr}{\text{tr}}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+% define clickable links and their colors
+\hypersetup{
+	unicode=false,          % non-Latin characters in Acrobat's bookmarks
+	pdftoolbar=true,        % show Acrobat's toolbar?
+	pdfmenubar=true,        % show Acrobat's menu?
+	pdffitwindow=false,     % window fit to page when opened
+	pdfstartview={FitH},    % fits the width of the page to the window
+	pdfnewwindow=true,%
+	pdfauthor={xxAuthorsLastxx},%
+	pdftitle={xxTitleShortxx},%
+	colorlinks,%
+	citecolor=black,%
+	filecolor=black,%
+	linkcolor=black,%
+	urlcolor=RoyalBlue4%
+	}
+% -------------------------------------------------- %
+
+
+% -------------------- title -------------------- %
+
+\title[]{Dynamic Networks of Violence: People Power and the Mexican Criminal Conflict}
+\date{\today}
+
+\author[Dorff]{Cassy Dorff}
+\address{Cassy Dorff: Korbel School of International Studies}
+\curraddr{University of Denver, Denver, CO}
+\email{cassy.dorff@du.edu}
+
+\author[Minhas]{Shahryar Minhas}
+\address{Shahryar Minhas: Department of Political Science}
+\curraddr{Duke University, Durham, NC, 27708, USA}
+\email{shahryar.minhas@duke.edu}
+
+\author[Gallop]{Max Gallop}
+\address{Max Gallop: Department of Government and Public Policy}
+\curraddr{University of Strathclyde, Glasgow, 16 Richmond St., Glasgow, UK G1 1XQ}
+\email{max.gallop@strath.ac.uk}
+
+%\thanks{I am thankful for people. }
+
+% ----------------------------------------------- %
+
+
+% -------------------- customizations -------------------- %
+
+% references to graphics
+\makeatletter
+\def\input@path{{/Users/janus829/Dropbox/Research/conflictEvolution/Graphics/}, {/Users/cassydorff/Dropbox/Research/nothingbutnet/conflictEvolution/graphics/}, {/Users/s7m/Dropbox/Research/conflictEvolution/Graphics/}}
+\makeatother
+\graphicspath{{/Users/janus829/Dropbox/Research/conflictEvolution/Graphics/}, {/Users/cassydorff/Dropbox/Research/nothingbutnet/conflictEvolution/Graphics/}, {/Users/s7m/Dropbox/Research/conflictEvolution/Graphics/}}
+
+% -------------------------------------------------------- %
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% DOCUMENT %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Draft note
+\newwatermark[pages=1,color=gray!25,angle=45,scale=2,xpos=-1cm,ypos=1cm]{DRAFT \\ Please Do Not Cite or Share}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\singlespacing
+\input{Abstract}
+\end{abstract}
+%Wordcount: XXXX
+
+\newpage
+\newpage\setcounter{page}{1} 
+\doublespacing
+
+%%%%%%%% INTRO %%%%%%%%
+\input{1_intro}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Lit Review %%%%%
+\input{2_lit}
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Theory %%%%%
+ \input{3_theory2}
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Empirics %%%%%
+\input{4_emp}
+%%%%%%%%%%%%%%%%%%%%%%
+\input{4_results}
+
+
+%%%%% Conclusion %%%%%
+\input{5_concl}
+%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Appendix %%%%%
+% \input{6_appendix}
+%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+% \bibliographystyle{elsarticle-harv} 
+\bibliographystyle{jpr}
+\bibliography{mybib.bib}
+
+\end{document} 
