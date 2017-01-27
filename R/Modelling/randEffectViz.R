@@ -7,11 +7,28 @@ if(Sys.info()['user']=='maxgallop'){ source('~/Documents/conflictEvolution/R/set
 
 ################
 # some helper fns
-plotAddEff = function(fit, row=TRUE){
+plotAddEff = function(fit, row=TRUE, addDegree=FALSE, yList=NULL, orderByDegree=FALSE){
 	if(row){addEffData = data.frame(addEff=fit$APM, stringsAsFactors = FALSE) ; yLabel='Sender Effects'}
 	if(!row){addEffData = data.frame(addEff=fit$BPM, stringsAsFactors = FALSE) ; yLabel='Receiver Effects'}
 	addEffData$actor = rownames(addEffData) ; rownames(addEffData) = NULL
-	addEffData$actor = factor(addEffData$actor, levels=addEffData[order(addEffData$addEff),'actor'])
+	if(!orderByDegree){
+		addEffData$actor = factor(addEffData$actor, 
+			levels=addEffData[order(addEffData$addEff),'actor'])
+	}
+	if(addDegree){
+		yArr = listToArray(
+			actors=sort(unique(unlist(lapply(yList,rownames)))), 
+			Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL)$Y
+		if(row){ degree = sort(apply(yArr, 1, mean, na.rm=TRUE)) }
+		if(!row){ degree = sort(apply(yArr, 2, mean, na.rm=TRUE)) }
+		if(orderByDegree){ 
+			addEffData$actor = factor(addEffData$actor, 
+				levels=names(degree) )
+		}
+		addEffData$var = 'Additive Effect'
+		tmp = addEffData ; tmp$addEff = degree[match(tmp$actor,names(degree))] ; tmp$var=' Avg. Degree'
+		addEffData = rbind(addEffData, tmp) ; rm(tmp)
+	}
 	addEffData$max = ifelse(addEffData$addEff>=0,addEffData$addEff,0)
 	addEffData$min = ifelse(addEffData$addEff<0,addEffData$addEff,0) 
 	gg = ggplot(addEffData, aes(x=actor, y=addEff)) +
@@ -23,6 +40,9 @@ plotAddEff = function(fit, row=TRUE){
 			# axis.text.x=element_text(angle=45, hjust=1, size=4)
 			axis.text.x=element_text(angle=90, hjust=1, size=6)
 			)
+	if(addDegree){
+		gg = gg + facet_wrap(~var, nrow=2, scales='free_y')
+	}
 	return(gg)
 }
 ################
@@ -30,56 +50,27 @@ plotAddEff = function(fit, row=TRUE){
 ################
 # load data
 load(paste0(pathResults, 'ameResults.rda')) # load AME mod results
+yArr = listToArray(actors=sort(unique(unlist(lapply(yList,rownames)))), 
+	Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL)$Y
 ################
 
 ################
 # some quick viz checks
 paramPlot(fitDyadCovar$BETA)
 paramPlot(fitDyadCovar$VC[,-ncol(fitDyadCovar$VC)])
-gofPlot(fitDyadCovar$GOF, FALSE)
-
-paramPlot(fit$BETA)
-paramPlot(fit$VC[,-ncol(fit$VC)])
-gofPlot(fit$GOF, FALSE)
-
-paramPlot(fitPreBH$BETA)
-paramPlot(fitPreBH$VC[,-ncol(fitPreBH$VC)])
-gofPlot(fitPreBH$GOF, FALSE)
-
-paramPlot(fitPostBH$BETA)
-paramPlot(fitPostBH$VC[,-ncol(fitPostBH$VC)])
-gofPlot(fitPostBH$GOF, FALSE)
-################
-
-################
-# additive effects
-plotAddEff(fitDyadCovar, TRUE)
-plotAddEff(fitDyadCovar, FALSE)
-
-plotAddEff(fit, TRUE)
-plotAddEff(fit, FALSE)
-
-plotAddEff(fitPreBH, TRUE)
-plotAddEff(fitPreBH, FALSE)
-
-plotAddEff(fitPostBH, TRUE)
-plotAddEff(fitPostBH, FALSE)
+gofPlot(fitDyadCovar$GOF[,3:4], FALSE)
 ################
 
 ################
 # multiplicative effects
-yArr = listToArray(actors=sort(unique(unlist(lapply(yList,rownames)))), Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL)$Y
 yArrSumm = apply(yArr, c(1,2), sum, na.rm=TRUE)
-
 circplot(Y=yArrSumm, U=fitDyadCovar$U, V=fitDyadCovar$V, pscale=.7)
 circplot(Y=yArrSumm, U=fitDyadCovar$U, V=NULL, pscale=.7)
 circplot(Y=yArrSumm, U=fitDyadCovar$V, V=NULL, pscale=.7)
+################
 
-circplot(Y=yArrSumm, U=fit$U, V=fit$V, pscale=.7)
-
-circplot(Y=yArrSumm, U=fit$U, V=fit$V, pscale=.7)
-
-circplot(Y=yArrSumm, U=fitPreBH$U, V=fitPreBH$V, pscale=.7)
-
-circplot(Y=yArrSumm, U=fitPostBH$U, V=fitPostBH$V, pscale=.7)
+################
+# additive effects
+plotAddEff(fitDyadCovar, row=TRUE, addDegree=TRUE, yList, orderByDegree=FALSE)
+plotAddEff(fitDyadCovar, row=FALSE, addDegree=TRUE, yList, orderByDegree=FALSE)
 ################
