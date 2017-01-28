@@ -7,7 +7,8 @@ if(Sys.info()['user']=='maxgallop'){ source('~/Documents/conflictEvolution/R/set
 
 ################
 # load data
-load(paste0(pathData, 'nigeriaMatList.rda')) # loads yList object
+load(paste0(pathData, 'nigeriaMatList_acled_v7.rda')) # loads yList object
+load(paste0(pathData, 'exoVars.rda')) # load xNodeL, xDyadL
 ###############
 
 ################
@@ -46,39 +47,7 @@ fitPostBH=ame_repL(
 
 ################
 # run ame with covars
-
-# create a simple design array
-actors=unique(unlist(lapply(yList, rownames)))
-actorInfo = matrix(0, nrow=length(actors),ncol=1,dimnames=list(actors,c('gov')))
-govActors=c('Military Forces of Nigeria','Police Forces of Nigeria')
-xNodeL = lapply(1:length(yList), function(t){
-	actors = rownames( yList[[t]] )
-	yr = num(names(yList)[t])
-	xMat = matrix(0,nrow=length(actors),ncol=2,dimnames=list(actors,c('govActor','postBoko')))
-	xMat[which(rownames(xMat) %in% govActors),'govActor'] = 1
-	if(yr>2008){xMat[,'postBoko']=1} # boko enters network in 2009
-	return(xMat)
-}) ; names(xNodeL) = names(yList)
-
-xDyadL = lapply(1:length(yList), function(t){
-	actors = rownames( yList[[t]] )
-	yr = num(names(yList)[t])
-	xArr = array(0,dim=c(length(actors),length(actors),2),dimnames=list(actors,actors,c('govActor','postBoko')))
-	xArr[which(rownames(xArr) %in% govActors),which(colnames(xArr) %in% govActors),'govActor'] = 1
-	if(yr>2008){xArr[,,'postBoko']=1} # boko enters network in 2009
-	for(p in 1:dim(xArr)[3]){ diag(xArr[,,p])=NA }
-	return(xArr)
-}) ; names(xDyadL) = names(yList)
-
-fitCovar=ame_repL(
-	Y=yList, Xdyad=NULL, Xrow=xNodeL, Xcol=xNodeL, 
-	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
-	model='bin', intercept=TRUE, seed=6886,
-	burn=50000, nscan=25000, odens=25, 
-	plot=FALSE, gof=TRUE, periodicSave=FALSE
-	)
-
-fitDyadCovar2=ame_repL(
+fitDyadCovar=ame_repL(
 	Y=yList, Xdyad=xDyadL, Xrow=NULL, Xcol=NULL, 
 	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 	model='bin', intercept=TRUE, seed=6886,
@@ -91,7 +60,7 @@ fitDyadCovar2=ame_repL(
 # save
 save(
 	fit, fitPreBH, fitPostBH, 
-	fitCovar, fitDyadCovar,
+	fitDyadCovar,
 	yList, yListPreBH, yListPostBH, 
 	xNodeL, xDyadL,
 	file=paste0(pathResults, 'ameResults.rda')
