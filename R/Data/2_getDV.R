@@ -8,11 +8,17 @@ if(Sys.info()['user']=='maxgallop'){ source('~/Documents/conflictEvolution/R/set
 #################
 # read in data
 load(paste0(pathData, 'nData.rda')) # loads nData object
+#################
 
+#################
 # subset to battles
 battles = c("Battle-Government regains territory", 
   "Battle-No change of territory", "Battle-Non-state actor overtakes territory")
 nData = nData[which(nData$EVENT_TYPE %in% battles),]
+#################
+
+#################
+# get dates actors were active
 
 # flip over dataset to get actor dates
 orig = nData ; revOrig = orig ; revOrig$a2 = orig$a1 ; revOrig$a1 = orig$a2 ; tmp = rbind(orig, revOrig)
@@ -29,7 +35,10 @@ actorsT = lapply( yrs, function(t){
       actors = append(actors, actorDates$a1[[ii]]) } }
   return(actors)
 }) ; names(actorsT) = yrs
+#################
 
+#################
+# create list of adj mats
 # adj mats
 nData$dv = 1 ; yVar = 'dv'
 yList = lapply(1997:2016, function(ii){ 
@@ -45,8 +54,10 @@ yList = lapply(1997:2016, function(ii){
   for(r in 1:nrow(slice)){ adjMat[slice$a1[r],slice$a2[r]]=1  }
   return(adjMat)
 }) ; names(yList) = yrs
+#################
 
-# cleanup
+#################
+# cleanup some irrelev or no interaction actors
 other=c('NURTW: National Union of Road Transport Workers',
   'RTEAN: Road Transport Employers Association of Nigeria',
   'Private Security Forces (Nigeria)',"Viking 22 Student Militia",
@@ -56,9 +67,15 @@ other=c('NURTW: National Union of Road Transport Workers',
 polParties=c(
   "PDP: People's Democratic Party", "PDP: Peoples Democratic Party",
   "ANPP: All Nigeria People's Party", "ANPP: All Nigeria Peoples Party",
-  "AP: Action Party", "AC: Action Congress"
+  "AP: Action Party", "AC: Action Congress", "AD: Alliance for Democracy"
   )
 drop = c(other, polParties)
 yList=lapply(yList, function(y){ toKeep = setdiff(rownames(y), drop); return(y[toKeep,toKeep]) })
+#################
 
-save(yList, file=paste0(pathData,"nigeriaMatList.rda"))
+#################
+# save
+save(yList, 
+  file=paste0(pathData,"nigeriaMatList_acled_v7.rda") # label with acled number
+  )
+#################
