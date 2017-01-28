@@ -32,9 +32,11 @@ rioContraActor = summaryBy(x~YEAR+a2,
 xNodeL = lapply(1:length(yList), function(t){
 	# subset y to pull in relev info
 	y = yList[[t]]
+	actors = rownames(y) ; n=nrow(y)
+
 	# create blank nodeMat
-	nodeMat = matrix(0, nrow=nrow(y), ncol=3, 
-		dimnames=list(rownames(y), 
+	nodeMat = matrix(0, nrow=n, ncol=3, 
+		dimnames=list(actors, 
 			c('vioCivEvents','vioCivFatals', 'riotsAgainst')))
 	
 	# add in civ vio data
@@ -50,10 +52,27 @@ xNodeL = lapply(1:length(yList), function(t){
 
 	# 
 	return(nodeMat)
-}) ; names(xNodeL) = yList
+}) ; names(xNodeL) = names(yList)
+#################
+
+#################
+# designate nigeria gov actors 
+actors=unique(unlist(lapply(yList, rownames)))
+govActors=c('Military Forces of Nigeria','Police Forces of Nigeria')
+
+# Dyadic covar
+xDyadL = lapply(1:length(yList), function(t){
+	actors = rownames( yList[[t]] )
+	yr = num(names(yList)[t])
+	xArr = array(0,dim=c(length(actors),length(actors),2),dimnames=list(actors,actors,c('govActor','postBoko')))
+	xArr[which(rownames(xArr) %in% govActors),which(colnames(xArr) %in% govActors),'govActor'] = 1
+	if(yr>2008){xArr[,,'postBoko']=1} # boko enters network in 2009
+	for(p in 1:dim(xArr)[3]){ diag(xArr[,,p])=NA }
+	return(xArr)
+}) ; names(xDyadL) = names(yList)
 #################
 
 #################
 # save
-save(xNodeL, file=paste0(pathData,'nodalVars_fromACLED.rda'))
+save(xNodeL, xDyadL, file=paste0(pathData,'exoVars.rda'))
 #################
