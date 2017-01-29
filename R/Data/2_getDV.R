@@ -25,7 +25,8 @@ orig = nData ; revOrig = orig ; revOrig$a2 = orig$a1 ; revOrig$a1 = orig$a2 ; tm
 yrs=seq(min(nData$YEAR), max(nData$YEAR), by=1)
 loadPkg('doBy') ; actorDates = doBy::summaryBy(YEAR ~ a1, data=tmp, FUN=c(min, max))
 actorDates$yrsActive = actorDates$YEAR.max - actorDates$YEAR.min # length of years active
-actorDates = actorDates[actorDates$yrsActive > 3,] # only keep actors involved in 4 yrs of conflict
+# actorDates = actorDates[actorDates$yrsActive > 2,] # only keep actors involved in 3 yrs of conflict
+actorDates = actorDates[actorDates$yrsActive > 4,] 
 
 # list of actors by year
 actorsT = lapply( yrs, function(t){
@@ -62,12 +63,16 @@ other=c('NURTW: National Union of Road Transport Workers',
   'RTEAN: Road Transport Employers Association of Nigeria',
   'Private Security Forces (Nigeria)',"Viking 22 Student Militia",
   "Aguleri Ethnic Militia (Nigeria)", "Black Axe Student Militia", # 0 interactions
-  "Egbas Ethnic Militia (Nigeria)", "Shuwa Ethnic Militia (Nigeria)" # 0 interactions
+  "Egbas Ethnic Militia (Nigeria)", "Shuwa Ethnic Militia (Nigeria)", # 0 interactions
+  "Ife Ethnic Militia (Nigeria)", "Modakeke Ethnic Militia (Nigeria)", #drops out pre 2000
+  "Dadiya Ethnic Militia (Nigeria)"
   )
 polParties=c(
   "PDP: People's Democratic Party", "PDP: Peoples Democratic Party",
   "ANPP: All Nigeria People's Party", "ANPP: All Nigeria Peoples Party",
-  "AP: Action Party", "AC: Action Congress", "AD: Alliance for Democracy"
+  "AP: Action Party", "AC: Action Congress", "AD: Alliance for Democracy",
+  "APC: All Progressives Congress", "APP: All Peoples Party",
+  "CPC: Congress for Progressive Change"
   )
 drop = c(other, polParties)
 yList=lapply(yList, function(y){ toKeep = setdiff(rownames(y), drop); return(y[toKeep,toKeep]) })

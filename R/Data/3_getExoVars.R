@@ -18,6 +18,7 @@ loadPkg('doBy') ; nData$x = 1
 vioContraCiv = summaryBy(x+FATALITIES~YEAR+a1,
 	data=nData[nData$EVENT_TYPE=='Violence against civilians',],
 	FUN=sum)
+vioContraCiv$YEAR = vioContraCiv$YEAR + 1 # use lagged x
 
 rioData = nData[nData$EVENT_TYPE=='Riots/Protests',c('x','YEAR','a2','aa2')]
 tmp1 = na.omit(rioData[,-4]) ; tmp2 = na.omit(rioData[,-3])
@@ -25,6 +26,12 @@ names(tmp2) = names(tmp1) ; rioData=rbind(tmp1,tmp2)
 rioContraActor = summaryBy(x~YEAR+a2,
 	data=rioData,
 	FUN=sum)
+rioContraActor$YEAR = rioContraActor$YEAR + 1 # use lagged x
+#################
+
+#################
+# chop off first element in Y due to lag
+yList = yList[-1]
 #################
 
 #################
@@ -60,6 +67,7 @@ xNodeL = lapply(1:length(yList), function(t){
 actors=unique(unlist(lapply(yList, rownames)))
 govActors=c('Military Forces of Nigeria','Police Forces of Nigeria')
 
+## no lags necessary here since each of these vars is time invariant
 # Dyadic covar
 xDyadL = lapply(1:length(yList), function(t){
 	actors = rownames( yList[[t]] )
