@@ -40,8 +40,8 @@ loadPkg=function(toLoad){
 toLoad = c(
 	'foreach', 'doParallel', 
 	'network', 'igraph', 'ggplot2', 'RColorBrewer',
-	'reshape2', 'plyr', 'magrittr', 'latex2exp',
-	'speedglm', 'amen'
+	'reshape2', 'plyr', 'magrittr', 'latex2exp', 'Cairo',
+	'speedglm', 'amen', 'xtable'
 	)
 loadPkg(toLoad)
 
