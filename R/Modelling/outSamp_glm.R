@@ -81,6 +81,7 @@ glmOutSamp = function(glmForm){
 			}))
 		if(length(actual)!=length(prob)){stop('shit went wrong.')}
 		res = data.frame(actual=actual, pred=prob, fold=f, stringsAsFactors = FALSE)
+		if(any(grepl('lagDV',glmForm))){res=na.omit(res)}
 		return(res)
 	}))
 		
@@ -122,12 +123,17 @@ glmOutSamp_wFullSpec=glmOutSamp(
 		riotsAgainst.row + vioCivEvents.row + 
 		riotsAgainst.col + vioCivEvents.col) )
 
-glmOutSamp_wLagDV$aucROC ; glmOutSamp_wLagDV$aucPR
-glmOutSamp_wFullSpec$aucROC ; glmOutSamp_wFullSpec$aucPR
+# ame full spec + lag DV
+glmOutSamp_wFullSpecLagDV=glmOutSamp(
+	glmForm=formula(value ~ lagDV + 
+		govActor + postBoko + 
+		riotsAgainst.row + vioCivEvents.row + 
+		riotsAgainst.col + vioCivEvents.col) )
 
 # save
 save(
 	glmOutSamp_wFullSpec, glmOutSamp_wLagDV,
+	glmOutSamp_wFullSpecLagDV,
 	file=paste0(pathResults, 'glmCrossValResults.rda')
 	)
 ################
