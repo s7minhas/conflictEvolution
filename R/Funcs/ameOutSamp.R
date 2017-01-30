@@ -1,3 +1,5 @@
+# function to run k-fold cross validation analysis using ame
+
 ameOutSamp = function(
 	yList, xDyadL=NULL, xRowL=NULL, xColL=NULL, startVals,
 	seed=6886, folds=30, 

@@ -28,17 +28,6 @@ fit=ame_repL(
 ################
 
 ################
-# run ame with covars
-fitDyadCovar=ame_repL(
-	Y=yList, Xdyad=xDyadL, Xrow=NULL, Xcol=NULL, 
-	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
-	model='bin', intercept=TRUE, seed=6886,
-	burn=25000, nscan=100000, odens=25, 
-	plot=FALSE, gof=TRUE, periodicSave=FALSE
-	)
-################
-
-################
 # Set up fitFullSpec model
 # separate nodal into row and col [unnecessary in this case]
 xRowL = lapply(xNodeL, function(x){
@@ -63,7 +52,7 @@ fitFullSpec=ame_repL(
 ################
 # save
 save(
-	fit, fitDyadCovar, fitFullSpec,
+	fit, fitFullSpec,
 	yList, xNodeL, xDyadL, xRowL, xColL,
 	file=paste0(pathResults, 'ameResults.rda')
 	)

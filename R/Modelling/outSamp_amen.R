@@ -19,19 +19,14 @@ ameOutSamp_NULL = ameOutSamp(
 	startVals=fit$startVals
 	)
 
-ameOutSamp_wDyadCovar = ameOutSamp(
-	yList=yList, xDyadL=xDyadL, xRowL=NULL, xColL=NULL, 
-	startVals=fitDyadCovar$startVals
-	)
-
 ameOutSamp_wFullSpec = ameOutSamp(
-	Y=yList, Xdyad=xDyadL, Xrow=xRowL, Xcol=xColL,
+	yList=yList, xDyadL=xDyadL, xRowL=xRowL, xColL=xColL,
 	startVals=fitFullSpec$startVals
 	)
 
 # save
 save(
-	ameOutSamp_NULL, ameOutSamp_wDyadCovar, ameOutSamp_wFullSpec, 
+	ameOutSamp_NULL, ameOutSamp_wFullSpec, 
 	file=paste0(pathResults, 'ameCrossValResults.rda')
 	)
 ################
