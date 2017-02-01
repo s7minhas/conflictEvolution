@@ -14,9 +14,11 @@ if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){
 
 if(Sys.info()["user"]=="cassydorff"){
 	dpth='~/Dropbox/Research/nothingbutnet/conflictEvolution/'
-	gpth='~/ProjectsGit/conflictEvolution/'
+	gpth='~/ProjectsGit/conflictEvolution/';
+	fPth=paste0(gpth, 'R/Funcs/');
 	pathData=paste0(dpth, 'data/');
 	pathGraphics=paste0(dpth, 'graphics/')
+	pathResults = paste0(dpth, 'results/')
 }
 
 if(Sys.info()["user"]=="maxgallop"){
