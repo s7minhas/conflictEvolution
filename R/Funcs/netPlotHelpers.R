@@ -84,6 +84,7 @@ plotGraph = function(
 	vLabCol=V(g)$vLabCol,	
 	vLabCex=g$labSize,
 	vShape=g$vShape,
+	vCol=V(g)$col,
 	eCurve=TRUE,
 	aspLogic=FALSE,
 	...
@@ -95,7 +96,7 @@ plotGraph = function(
 		vertex.label.color=vLabCol,
 		vertex.label.cex=vLabCex,
 		vertex.frame.color=vFrameCol,	
-		vertex.color=V(g)$vCol,
+		vertex.color=vCol,
 		# vertex.color='white',
 		# vertex.size=g$vSize, 
 		# could fix see stackoverflow, eqarrowPlot, for start
