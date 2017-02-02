@@ -53,11 +53,34 @@ plotGraph(gArrSumPreBH, gArrPosPreBH,
 	main='Nigerian Intra-State Conflict Pre-Boko Haram\n(2000-2008)', vLabCex=.7, vertex.size=9)
 dev.off() ; system(paste('pdfcrop',fName,fName, sep=' '))
 
+# define edge colors by pre post boko interactions
+edgePreBH = data.frame( edge=attributes(E(gArrSumPreBH))$vnames,
+	edgeWgt=E(gArrSumPreBH)$weight, stringsAsFactors = FALSE )
+edgePostBH = data.frame( edge=attributes(E(gArrSumPostBH))$vnames,
+	edgeWgt=E(gArrSumPostBH)$weight, stringsAsFactors = FALSE )
+edgePostBH$wgtPreBH = edgePreBH$edgeWgt[match(edgePostBH$edge,edgePreBH$edge)]
+edgePostBH$wgtPreBH[is.na(edgePostBH$wgtPreBH)] = 0
+edgePal = brewer.pal(11,'RdBu')[c(4,8)]
+edgePal = brewer.pal(7,'Paired')[c(5,1,3)]
+edgePostBH$edgeCol = ifelse(edgePostBH$edgeWgt>edgePostBH$wgtPreBH, 
+	edgePal[2],edgePal[1])
+edgePostBH$edgeCol[edgePostBH$edgeWgt==edgePostBH$wgtPreBH]=edgePal[3]
+
+# define v cols by actor type
+vCol = ifelse(names(V(gArrSumPostBH)) %in% c('Military\n(Nigeria)','Police\n(Nigeria)'),
+	'black', 'gray95')
+vLabCol = ifelse(names(V(gArrSumPostBH)) %in% c('Military\n(Nigeria)','Police\n(Nigeria)'),
+	'white', 'black')	
+
 fName = paste0(pathGraphics, 'nigeria_postBK.pdf') ; pdf(file=fName, width=13,height=9)
 plotGraph(gArrSumPostBH, gArrPosPostBH, 
-	main='Nigerian Intra-State Conflict Post-Boko Haram\n(2009-2016)', vLabCex=.7, vertex.size=9)
+	# main='Nigerian Intra-State Conflict Post-Boko Haram\n(2009-2016)', 
+	# vLabCex=.7, vertex.size=9,
+	edge.color=edgePostBH$edgeCol, vShape='circle', vLabCex=gArrSumPostBH$labSize+.3, vLabCol=vLabCol, 
+	vertex.label.font=1, vertex.size=gArrSumPostBH$vSize, vFrameCol=vCol, vCol=vCol, vertex.label.family="Helvetica")
+title('Nigerian Intra-State Conflict Post-Boko Haram\n(2009-2016)', family='Helvetica')
 dev.off() ; system(paste('pdfcrop',fName,fName, sep=' '))
-
+system(paste0('open ', fName))
 # plot by t
 selT = rep(FALSE, dim(yArr)[3])
 lapply(1:length(yList), function(t){
