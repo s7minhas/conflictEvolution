@@ -1,5 +1,5 @@
+*.pdf
 *.aux
-*.bbl
 *.blg
 *.cb
 *.cb2
@@ -28,3 +28,7 @@
 *.toc
 *.snm
 *.nav
+*.fls
+*.xwm
+*.html
+*.spl
