@@ -1,0 +1,29 @@
+\begin{thebibliography}{5}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Cederman et~al.(2010)Cederman, Wimmer, and Min}]{cederman10b}
+Cederman, L.-E., Wimmer, A., Min, B., 2010. Why do ethnic groups rebel? new
+  data and analysis. World Politics 62~(1), 87--119.
+
+\bibitem[{Celestino and Gleditsch(2013)}]{celestino2013}
+Celestino, M.~R., Gleditsch, K.~S., 2013. Fresh carnations or all thorn, no
+  rose? nonviolent campaigns and transitions in autocracies. Journal of Peace
+  Research 50~(3), 385--400.
+
+\bibitem[{Chenoweth and Stephan(2011)}]{chenoweth2011}
+Chenoweth, E., Stephan, M.~J., 2011. Why civil resistance works: The strategic
+  logic of nonviolent conflict. Columbia University Press.
+
+\bibitem[{Collier and Hoeffler(2004)}]{collier04b}
+Collier, P., Hoeffler, A., 2004. Greed and grievance in civil war. Oxford
+  Economic Papers 56, 563--595.
+
+\bibitem[{Humphreys and Weinstein(2008)}]{humphreys08}
+Humphreys, M., Weinstein, J., 2008. Who fights? the determinants of
+  participation in civil war. American Journal of Political Science 52~(2),
+  436--455.
+
+\end{thebibliography}
