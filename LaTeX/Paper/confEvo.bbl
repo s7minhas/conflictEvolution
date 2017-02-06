@@ -1,4 +1,4 @@
-\begin{thebibliography}{5}
+\begin{thebibliography}{7}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -25,5 +25,16 @@ Collier, P., Hoeffler, A., 2004. Greed and grievance in civil war. Oxford
 Humphreys, M., Weinstein, J., 2008. Who fights? the determinants of
   participation in civil war. American Journal of Political Science 52~(2),
   436--455.
+
+\bibitem[{Metternich et~al.(2013)Metternich, Dorff, Gallop, Weschle, and
+  Ward}]{metternich2013}
+Metternich, N.~W., Dorff, C., Gallop, M., Weschle, S., Ward, M.~D., 2013.
+  Antigovernment networks in civil conflicts: How network structures affect
+  conflictual behavior. American Journal of Political Science 57~(4), 892--911.
+
+\bibitem[{Minhas et~al.(2016)Minhas, Hoff, and Ward}]{minhas2016new}
+Minhas, S., Hoff, P.~D., Ward, M.~D., 2016. A new approach to analyzing
+  coevolving longitudinal networks in international relations. Journal of Peace
+  Research, 0022343316630783.
 
 \end{thebibliography}
