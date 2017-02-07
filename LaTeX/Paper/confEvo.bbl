@@ -1,40 +1,71 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{14}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
 
-\bibitem[{Cederman et~al.(2010)Cederman, Wimmer, and Min}]{cederman10b}
+\bibitem[{Cederman et~al.(2010)Cederman, Wimmer, and Min}]{cederman:etal:2010a}
 Cederman, L.-E., Wimmer, A., Min, B., 2010. Why do ethnic groups rebel? new
   data and analysis. World Politics 62~(1), 87--119.
 
-\bibitem[{Celestino and Gleditsch(2013)}]{celestino2013}
+\bibitem[{Celestino and Gleditsch(2013)}]{celestino:gleditsch:2013}
 Celestino, M.~R., Gleditsch, K.~S., 2013. Fresh carnations or all thorn, no
   rose? nonviolent campaigns and transitions in autocracies. Journal of Peace
   Research 50~(3), 385--400.
 
-\bibitem[{Chenoweth and Stephan(2011)}]{chenoweth2011}
+\bibitem[{Chenoweth and Stephan(2011)}]{chenoweth:stephan:2011}
 Chenoweth, E., Stephan, M.~J., 2011. Why civil resistance works: The strategic
   logic of nonviolent conflict. Columbia University Press.
 
-\bibitem[{Collier and Hoeffler(2004)}]{collier04b}
+\bibitem[{Collier and Hoeffler(2004)}]{collier:hoeffler:2004}
 Collier, P., Hoeffler, A., 2004. Greed and grievance in civil war. Oxford
   Economic Papers 56, 563--595.
 
-\bibitem[{Humphreys and Weinstein(2008)}]{humphreys08}
+\bibitem[{Greenhill et~al.(2011)Greenhill, Ward, and
+  Sacks}]{greenhill:etal:2011}
+Greenhill, B., Ward, M.~D., Sacks, A., 2011. The separation plot: A new visual
+  method for evaluating the fit of binary data. American Journal of Political
+  Science 55~(4), 991--1002.
+
+\bibitem[{Gurr(1970)}]{gurr:1970}
+Gurr, T.~R., 1970. {Why Men Rebel}. Princeton University Press, Princeton, NJ.
+
+\bibitem[{Humphreys and Weinstein(2008)}]{humphreys:weinstein:2008}
 Humphreys, M., Weinstein, J., 2008. Who fights? the determinants of
   participation in civil war. American Journal of Political Science 52~(2),
   436--455.
 
+\bibitem[{Kenny and La~Voie(1984)}]{kenny:1984}
+Kenny, D.~A., La~Voie, L., 1984. The social relations model. Advances in
+  experimental social psychology 18, 142--182.
+
 \bibitem[{Metternich et~al.(2013)Metternich, Dorff, Gallop, Weschle, and
-  Ward}]{metternich2013}
+  Ward}]{metternich:etal:2013}
 Metternich, N.~W., Dorff, C., Gallop, M., Weschle, S., Ward, M.~D., 2013.
   Antigovernment networks in civil conflicts: How network structures affect
   conflictual behavior. American Journal of Political Science 57~(4), 892--911.
 
-\bibitem[{Minhas et~al.(2016)Minhas, Hoff, and Ward}]{minhas2016new}
-Minhas, S., Hoff, P.~D., Ward, M.~D., 2016. A new approach to analyzing
-  coevolving longitudinal networks in international relations. Journal of Peace
-  Research, 0022343316630783.
+\bibitem[{Minhas et~al.(2016{\natexlab{a}})Minhas, Hoff, and
+  Ward}]{minhas:etal:2016:arxiv}
+Minhas, S., Hoff, P.~D., Ward, M.~D., October 2016{\natexlab{a}}. {Let's Say
+  Amen for Latent Factor Models}, working paper.
+
+\bibitem[{Minhas et~al.(2016{\natexlab{b}})Minhas, Hoff, and
+  Ward}]{minhas:etal:2016}
+Minhas, S., Hoff, P.~D., Ward, M.~D., May 2016{\natexlab{b}}. A new approach to
+  analyzing coevolving longitudinal networks in international relations.
+  Journal of Peace Research 53~(3), 491--505.
+
+\bibitem[{Opp(1988)}]{opp:1988}
+Opp, K.-D., 12 1988. Grievances and participation in social movements. American
+  Sociological Review 53~(6), 853.
+
+\bibitem[{Tarrow(1994)}]{tarrow:1994}
+Tarrow, S., 1994. Power in Movement: Social Movements, Collective Action and
+  Politics. Cambridge University Press, Cambridge and New York.
+
+\bibitem[{Tucker(2007)}]{tucker:2007}
+Tucker, J.~A., 2007. Enough! {E}lectoral fraud, collective action problems, and
+  post-communist colored revolutions. Perspectives on Politics 5~(3), 535--551.
 
 \end{thebibliography}
