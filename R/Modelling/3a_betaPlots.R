@@ -6,14 +6,13 @@ if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){
 	source('~/ProjectsGit/conflictEvolution/R/setup.R')  }
 if(Sys.info()['user']=='maxgallop'){
 	source('~/Documents/conflictEvolution/R/setup.R')  }
+source(paste0(fPth, 'postHelpers.R'))
 ################
 
 ################
 # load data
 load(paste0(pathResults, 'ameResults.rda')) # load AME mod results
 load(paste0(pathResults, 'glmResults.rda')) # load GLM mod results
-yArr = listToArray(actors=sort(unique(unlist(lapply(yList,rownames)))), 
-	Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL)$Y
 
 # quick trace plot
 ggsave(paramPlot(fitFullSpec$BETA[,c(2:5,7)]), file=paste0(pathGraphics, 'betaTrace.pdf'), width=8,height=6)
@@ -27,7 +26,7 @@ sdX = apply(gfitFullSpec$data[,xVars], 2, sd)
 
 #
 tmp=fitFullSpec$BETA[,2:ncol(fitFullSpec$BETA)]
-for(i in 1:ncol(tmp)){ tmp[,i] = tmp[,i] * sdX[i]}
+for(i in 1:ncol(tmp)){ tmp[,i] = tmp[,i] * (sdX[i]/sdY)}
 fitFullSpec$BETA[,2:ncol(fitFullSpec$BETA)] = tmp
 ################
 
@@ -55,36 +54,45 @@ ameBETA$varClean=NA; for(i in 1:length(dirtyVars)){ameBETA$varClean[ameBETA$var=
 ameBETA$varClean = factor(ameBETA$varClean, levels=rev(cleanVars))
 
 # add sig info
-ameBETA$sig = NA
-ameBETA$sig[ameBETA$lo90 > 0 & ameBETA$lo95 < 0] = "Positive at 90"
-ameBETA$sig[ameBETA$lo95 > 0] = "Positive"
-ameBETA$sig[ameBETA$hi90 < 0 & ameBETA$hi95 > 0] = "Negative at 90"
-ameBETA$sig[ameBETA$hi95 < 0] = "Negative"
-ameBETA$sig[ameBETA$lo90 < 0 & ameBETA$hi90 > 0] = "Insignificant"
-coefp_colors = c("Positive"=rgb(54, 144, 192, maxColorValue=255),
-	"Negative"= rgb(222, 45, 38, maxColorValue=255),
-	"Positive at 90"=rgb(158, 202, 225, maxColorValue=255),
-	"Negative at 90"= rgb(252, 146, 114, maxColorValue=255),
-	"Insignificant" = rgb(150, 150, 150, maxColorValue=255))
+ameBETA = getSigVec(ameBETA)
 ################
 
 ################
+# create plot including glmBETA estimates as well
+glmBETA = data.frame(mean=coef(gfitFullSpec),sd=sqrt(diag(vcov(gfitFullSpec))))
+# drop extras and unnecessary params
+glmBETA$var = rownames(glmBETA) ; rownames(glmBETA) = NULL
+glmBETA = glmBETA[-which(glmBETA$var %in% c('(Intercept)','govActor')),]
+sdX2 = sdX[-5] ; glmBETA = glmBETA[match(names(sdX2), glmBETA$var),]
+glmBETA$mean = glmBETA$mean*(sdX2/sdY) ; glmBETA$sd = glmBETA$sd*(sdX2/sdY)
+
+# get cis & add sig info
+glmBETA = getCIVecs(glmBETA) ; glmBETA = getSigVec(glmBETA)
+
+# combine with ame
+glmBETA$mod = 'GLM' ; glmBETA = glmBETA[,-which('sd' == names(glmBETA))]
+glmBETA$varClean = ameBETA$varClean[match(glmBETA$var, ameBETA$var)]
+ameBETA$mod = 'AME   ' ; glmBETA = glmBETA[,names(ameBETA)]
+beta = rbind(ameBETA, glmBETA)
+
 # plot
-ggCoef=ggplot(ameBETA, aes(x=varClean, y=mean, color=sig)) + 
+posDodge = .75
+ggCoef=ggplot(beta, aes(x=varClean, y=mean, color=sig, group=mod)) + 
 	geom_hline(aes(yintercept=0), linetype=2, color = "black") + 
-	geom_point(size=2.5) + 
-	geom_linerange(aes(ymin=lo90, ymax=hi90),alpha = 1, size = 1.5) + 
-	geom_linerange(aes(ymin=lo95,ymax=hi95),alpha = 1, size = .5) +	
+	geom_point(aes(shape=mod), size=4, position=position_dodge(width = posDodge)) + 
+	geom_linerange(aes(ymin=lo90, ymax=hi90),alpha = 1, size = 1.5, position=position_dodge(width = posDodge)) + 
+	geom_linerange(aes(ymin=lo95,ymax=hi95),alpha = 1, size = .5, position=position_dodge(width = posDodge)) +	
 	scale_colour_manual(values = coefp_colors, guide=FALSE) +
 	scale_x_discrete('', labels=TeX(rev(cleanVars))) +	
 	ylab(TeX('$\\beta_{p} \\times \\frac{\\sigma_{x_{p}}}{\\sigma_{y}}$')) +
 	coord_flip() + 
 	theme(
-		legend.position='none',
+		legend.position='top', legend.title=element_blank(),
+		legend.text=element_text(family="Source Sans Pro Light"),
 		panel.border=element_blank(),
 		axis.ticks=element_blank(),
 		axis.text.x=element_text(family="Source Sans Pro Light"),
 		axis.text.y=element_text(family="Source Sans Pro Light", hjust=0)
 	)
-ggsave(ggCoef, file=paste0(pathGraphics,'betaEst.pdf'), width=7, height=5, device=cairo_pdf)
+ggsave(ggCoef, file=paste0(pathGraphics,'betaEst.pdf'), width=7, height=6, device=cairo_pdf)
 ################
