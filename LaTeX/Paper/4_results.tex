@@ -6,8 +6,8 @@ In examining the results of both a traditional GLM and an AME model, reported in
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=.8\textwidth]{betaEst}
-\caption{Exogenous parameter estimates from GLM and AME.}
+\includegraphics[width=1\textwidth]{betaEst}
+\caption{Exogenous parameter estimates from AME.}
 \label{betaEst}
 \end{figure}
 \FloatBarrier
@@ -28,6 +28,7 @@ What could be driving these results is that the entrance of Boko Haram has incen
 \centering
 \includegraphics[width=.8\textwidth]{nigeria_preBK}
 \caption{Pre Boko Haram conflict network}
+\label{nigeria_preBK}
 \end{figure}
 \FloatBarrier
 
@@ -35,6 +36,7 @@ What could be driving these results is that the entrance of Boko Haram has incen
 \centering
 \includegraphics[width=.8\textwidth]{nigeria_postBK}
 \caption{Post Boko Haram conflict network}
+\label{nigeria_postBK}
 \end{figure}
 \FloatBarrier
 
@@ -44,7 +46,21 @@ What we can say is that the effect of Boko Haram's entrance on conflict demonstr
 
 We prefer to use a network model to understand intrastate conflict in Nigeria not just because it can give more precise parameter estimates for our fixed effects, but also because it can help us to understand the interdependencies among conflict in Nigeria. We plot the different variance parameters in figure \ref{varEsts}. These show that conflict in Nigeria has moderate levels of reciprocity, and significant amounts of correlation in the error structure that would violate the normal GLM assumptions.
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.8\textwidth]{{vcEst}}
+	\caption{AME Network Variance Estimates}
+	\label{varEsts}
+\end{figure}
+
 Figure \ref{circplot} shots the directions of actors' latent factors for both sending and receiving violence. Here actors who's factors point in the same position are more stochastically equivalent -- they are likely to target (in \textcolor{red}) and be targeted (in \textcolor{blue}) by the same third party. What appears to be the case in Nigeria, is that groups that are stochastically equivalent are not just more likely to fight common third parties; they are also more likely to fight \emph{each other}. This is most notable in the cluster in the plot involving the government forces, the vigilante Militia, Boko Haram, and MASSOB.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{{circPlot}}
+	\caption{Latent Factor Visualization}
+	\label{circplot}
+\end{figure}
 
 \subsection*{Out of Sample Performance Analysis}
 
