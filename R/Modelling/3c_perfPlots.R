@@ -50,29 +50,34 @@ loadPkg(c('png','grid'))
 sepPngList = lapply(1:length(predDfs), function(ii){
 	fSepPath = paste0(pathGraphics,'sep_',names(predDfs)[ii],'_outSample.png')
 	# save as pngs for potential use outside of roc
-	tmp = data.frame(act=predDfs[[ii]]$actual, proba=predDfs[[ii]]$'pred')
-	ggSep(actual=tmp$act, proba=tmp$proba, 
-		color=ggCols[ii], lty=ggLty[ii], fPath=fSepPath, save=TRUE )
+	# tmp = data.frame(act=predDfs[[ii]]$actual, proba=predDfs[[ii]]$'pred')
+	# ggSep(actual=tmp$act, proba=tmp$proba, 
+	# 	color=ggCols[ii], lty=ggLty[ii], fPath=fSepPath, save=TRUE )
 	sepG = rasterGrob(readPNG(fSepPath), interpolate=TRUE)
 	return(sepG)
 })
+
+# get rid of null model
+rocData = rocData[rocData$model!='AME (NULL)',] ; rocData$model = factor(rocData$model, levels=levels(rocData$model)[-4])
+rocPrData = rocPrData[rocPrData$model!='AME (NULL)',] ; rocPrData$model = factor(rocPrData$model, levels=levels(rocPrData$model)[-4])
+rownames(aucSumm)[3]="GLM (Lag DV\n  + Covars)"
+ggCols = ggCols[-4] ; ggLty = ggLty[-4] ; sepPngList = sepPngList[-4] ; aucSumm = aucSumm[-2,]
 
 tmp = rocPlot(rocData, linetypes=ggLty, colorManual=ggCols)+guides(linetype = FALSE, color = FALSE) ; yLo = -.04 ; yHi = .14
 for(ii in 1:length(sepPngList)){
 	tmp = tmp + annotation_custom(sepPngList[[ii]], xmin=.5, xmax=1.05, ymin=yLo, ymax=yHi)
 	yLo = yLo + .1 ; yHi = yHi + .1 }
-tmp = tmp + annotate('text', hjust=0, x=.51, y=seq(0.05,0.45,.1), label=names(predDfs), family="Source Sans Pro Light")
+tmp = tmp + annotate('text', hjust=0, x=.51, y=seq(0.05,0.35,.1), label=names(predDfs)[-4], family="Source Sans Pro Light")
 ggsave(tmp, file=paste0(pathGraphics, 'roc_outSample.pdf'), width=5, height=5, device=cairo_pdf)
 
-rownames(aucSumm)[3]="GLM (Lag DV\n  + Covars)"
 tmp=rocPlot(rocPrData, type='pr', legText=12, legPos=c(.25,.35), legSpace=2, linetypes=ggLty, colorManual=ggCols) +
 	guides(linetype=FALSE, color=FALSE) + 
 	# geom_rect(xmin=-.05, ymin=.01, xmax=.45, ymax=.55, color='white', fill='white', size=.5) + 
 	annotate('text', hjust=0, x=c(.4, .69, .88), y=1, 
 		label=c('  ', ' AUC\n(ROC)', 'AUC\n(PR)'), family='Source Sans Pro Black', size=4) + 
-	annotate('text', hjust=0, x=.4, y=seq(.5,.9,.1), 
+	annotate('text', hjust=0, x=.4, y=seq(.5,.9,.13), 
 		label=rev(rownames(aucSumm)), family='Source Sans Pro Light') + 
-	annotate('text', hjust=0, x=.7, y=seq(.5,.9,.1), 
+	annotate('text', hjust=0, x=.7, y=seq(.5,.9,.13), 
 		label=rev(apply(aucSumm, 1, function(x){paste(x, collapse='     ')})),
 		family='Source Sans Pro Light')
 ggsave(tmp, file=paste0(pathGraphics, 'rocPr_outSample.pdf'), width=5, height=5, device=cairo_pdf)
