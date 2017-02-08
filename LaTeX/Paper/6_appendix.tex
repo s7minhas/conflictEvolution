@@ -1,0 +1,34 @@
+\clearpage
+
+\renewcommand{\thefigure}{A\arabic{figure}}
+\setcounter{figure}{0}
+\renewcommand{\thetable}{A.\arabic{table}}
+\setcounter{table}{0}
+\renewcommand{\thesection}{A.\arabic{section}}
+\setcounter{section}{0}
+
+\section{\textbf{Appendix}}
+
+\subsection{Trace plots for parameter estimates}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{betaTrace}
+	\caption{Trace plots for exogenous parameters.}
+	\label{betaTrace}
+	\end{figure}
+\FloatBarrier
+\newpage
+
+\subsection{Sender and Receiver Random Effects}
+
+\begin{figure}[ht]
+	\centering
+	\begin{tabular}{c}
+	\includegraphics[width=1\textwidth]{aEst} \\
+	\includegraphics[width=1\textwidth]{bEst}
+	\end{tabular}
+	\caption{Sender and receiver random effect estimates.}
+	\label{abEst}
+\end{figure}
+\FloatBarrier
