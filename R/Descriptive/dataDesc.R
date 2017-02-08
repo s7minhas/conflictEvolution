@@ -6,6 +6,7 @@ if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){
 	source('~/ProjectsGit/conflictEvolution/R/setup.R')  }
 if(Sys.info()['user']=='maxgallop'){
 	source('~/Documents/conflictEvolution/R/setup.R')  }
+source(paste0(fPth, 'actorInfo.R'))
 ################
 
 ################

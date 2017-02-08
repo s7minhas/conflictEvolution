@@ -9,6 +9,7 @@ if(Sys.info()['user']=='maxgallop'){
 
 # load fns from helper file
 source(paste0(fPth, 'netPlotHelpers.R'))
+source(paste0(fPth, 'actorInfo.R'))
 ################
 
 ################
