@@ -14,6 +14,9 @@ load(paste0(pathResults, 'ameResults.rda')) # load AME mod results
 load(paste0(pathResults, 'glmResults.rda')) # load GLM mod results
 yArr = listToArray(actors=sort(unique(unlist(lapply(yList,rownames)))), 
 	Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL)$Y
+
+# quick trace plot
+ggsave(paramPlot(fitFullSpec$BETA[,c(2:5,7)]), file=paste0(pathGraphics, 'betaTrace.pdf'), width=8,height=6)
 ################
 
 ################
