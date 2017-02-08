@@ -6,7 +6,8 @@ if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){
 	source('~/ProjectsGit/conflictEvolution/R/setup.R')  }
 if(Sys.info()['user']=='maxgallop'){
 	source('~/Documents/conflictEvolution/R/setup.R')  }
-source(paste0(fPth, 'netPlotHelpers.R'))
+source(paste0(fPth, 'ggCirc.R'))
+source(paste0(fPth, 'actorInfo.R'))
 ################
 
 ################
@@ -15,6 +16,7 @@ load(paste0(pathResults, 'ameResults.rda')) # load AME mod results
 yArr = listToArray(actors=sort(unique(unlist(lapply(yList,rownames)))), 
 	Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL)$Y
 yArrSumm = apply(yArr, c(1,2), sum, na.rm=TRUE)
+diag(yArrSumm) = 0
 
 # adjust actor names
 vNameKey = getNameKey(yList)
@@ -25,19 +27,11 @@ rownames(fitFullSpec$V) = vNameKey$clean[match(rownames(fitFullSpec$V), vNameKey
 ################
 
 ################
-# multiplicative effects
-circplot(Y=yArrSumm, U=fitFullSpec$U, V=fitFullSpec$V,
-	pscale=1, 
-	rcol='black', ccol='black', jitter=.2,
-	lcol='gray80')
-################
-
-################
 uvCols = brewer.pal(11, 'RdBu')[c(11-2, 3)]
 circPlot=ggCirc(
-	Y=yArrSumm, U=fitFullSpec$U, V=fitFullSpec$V,
-	vscale=.6, family="Source Sans Pro Light",
-	lcol='gray90', lsize=.1) +
+	Y=yArrSumm, U=fitFullSpec$U, V=fitFullSpec$V, vscale=.6, 
+	family="Source Sans Pro Light", force=3, 
+	lcol='gray92', lsize=.05) +
 	scale_color_manual(values=uvCols)
-ggsave(circPlot, file=paste0(pathGraphics,'circPlot.pdf'), width=10, height=8, device=cairo_pdf)
+ggsave(circPlot, file=paste0(pathGraphics,'circPlot.pdf'), width=12, height=10, device=cairo_pdf)
 ################

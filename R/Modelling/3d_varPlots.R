@@ -58,6 +58,7 @@ source(paste0(fPth, 'netPlotHelpers.R'))
 vNameKey = getNameKey(yList)
 vNameKey$clean[vNameKey$clean=="Kalo\nKato\nMilitia"]="Kalo\nMilitia"
 vNameKey$clean[vNameKey$clean=="Area\nBoys\nMilitia"]="Area\nBoys"
+vNameKey$clean = gsub('\n',' ', vNameKey$clean, fixed=TRUE)
 names(fitFullSpec$APM) = vNameKey$clean[match(names(fitFullSpec$APM), vNameKey$dirty)]
 names(fitFullSpec$BPM) = vNameKey$clean[match(names(fitFullSpec$BPM), vNameKey$dirty)]
 yList = lapply(yList, function(y){
@@ -69,7 +70,7 @@ sendEff=addEffPlot(
 	fitFullSpec, 
 	row=TRUE, addDegree=FALSE, yList=yList, orderByDegree=FALSE) + 
 	theme(
-		axis.text.x=element_text(angle=45, size=7, family='Source Sans Pro Light'),
+		axis.text.x=element_text(angle=80, size=9, family='Source Sans Pro Light'),
 		axis.text.y=element_text(family='Source Sans Pro Light'),
 		axis.title.y=element_text(family='Source Sans Pro Light')
 		)
@@ -78,11 +79,11 @@ recEff=addEffPlot(
 	fitFullSpec, 
 	row=FALSE, addDegree=FALSE, yList=yList, orderByDegree=FALSE) + 
 	theme(
-		axis.text.x=element_text(angle=45, size=7, family='Source Sans Pro Light'),
+		axis.text.x=element_text(angle=80, size=9, family='Source Sans Pro Light'),
 		axis.text.y=element_text(family='Source Sans Pro Light'),
 		axis.title.y=element_text(family='Source Sans Pro Light')
 		)
 
-ggsave(sendEff, file=paste0(pathGraphics, 'aEst.pdf'), width=12, height=5, device=cairo_pdf)
-ggsave(recEff, file=paste0(pathGraphics, 'bEst.pdf'), width=12, height=5, device=cairo_pdf)
+ggsave(sendEff, file=paste0(pathGraphics, 'aEst.pdf'), width=9, height=4, device=cairo_pdf)
+ggsave(recEff, file=paste0(pathGraphics, 'bEst.pdf'), width=9, height=4, device=cairo_pdf)
 ################
