@@ -1,8 +1,13 @@
-\begin{thebibliography}{14}
+\begin{thebibliography}{25}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Anderson et~al.(1992)Anderson, Wasserman, and
+  Faust}]{anderson:etal:1992}
+Anderson, C.~J., Wasserman, S., Faust, K., 1992. Building stochastic
+  blockmodels. Social Networks 14~(1), 137--161.
 
 \bibitem[{Cederman et~al.(2010)Cederman, Wimmer, and Min}]{cederman:etal:2010a}
 Cederman, L.-E., Wimmer, A., Min, B., 2010. Why do ethnic groups rebel? new
@@ -21,6 +26,15 @@ Chenoweth, E., Stephan, M.~J., 2011. Why civil resistance works: The strategic
 Collier, P., Hoeffler, A., 2004. Greed and grievance in civil war. Oxford
   Economic Papers 56, 563--595.
 
+\bibitem[{Cranmer and Desmarais(2011)}]{cranmer:desmarais:2011}
+Cranmer, S., Desmarais, B.~A., 2011. {Inferential Network Analysis with
+  Exponental Random Graph Models}. Political Analysis 19~(1), 66--86.
+
+\bibitem[{Erikson et~al.(2014)Erikson, Pinto, and Rader}]{erikson:pinto:2014}
+Erikson, R.~S., Pinto, P.~M., Rader, K.~T., 2014. Dyadic analysis in
+  international relations: {A} cautionary tale. Political Analysis 22~(4),
+  457--463.
+
 \bibitem[{Greenhill et~al.(2011)Greenhill, Ward, and
   Sacks}]{greenhill:etal:2011}
 Greenhill, B., Ward, M.~D., Sacks, A., 2011. The separation plot: A new visual
@@ -30,14 +44,30 @@ Greenhill, B., Ward, M.~D., Sacks, A., 2011. The separation plot: A new visual
 \bibitem[{Gurr(1970)}]{gurr:1970}
 Gurr, T.~R., 1970. {Why Men Rebel}. Princeton University Press, Princeton, NJ.
 
+\bibitem[{Hoff(2009)}]{hoff:2009}
+Hoff, P., 2009. Multiplicative latent factor models for description and
+  prediction of social networks. Computational and Mathematical Organization
+  Theory 15~(4), 261--272.
+
+\bibitem[{Hoff(2008)}]{hoff:2008}
+Hoff, P.~D., 2008. Modeling homophily and stochastic equivalence in symmetric
+  relational data. In: Platt, J.~C., Koller, D., Singer, Y., Roweis, S.~T.
+  (Eds.), Advances in Neural Information Processing Systems 20. Processing
+  Systems 21. MIT Press, Cambridge, MA, USA, pp. 657--664.
+
+\bibitem[{Hoff and Ward(2004)}]{hoff:ward:2004}
+Hoff, P.~D., Ward, M.~D., 2004. {Modeling Dependencies in International
+  Relations Networks}. Political Analysis 12~(2), 160--175.
+
 \bibitem[{Humphreys and Weinstein(2008)}]{humphreys:weinstein:2008}
 Humphreys, M., Weinstein, J., 2008. Who fights? the determinants of
   participation in civil war. American Journal of Political Science 52~(2),
   436--455.
 
-\bibitem[{Kenny and La~Voie(1984)}]{kenny:1984}
-Kenny, D.~A., La~Voie, L., 1984. The social relations model. Advances in
-  experimental social psychology 18, 142--182.
+\bibitem[{Li and Loken(2002)}]{li:loken:2002}
+Li, H., Loken, E., 2002. A unified theory of statistical analysis and inference
+  for variance component models for dyadic data. Statistica Sinica 12~(2),
+  519--535.
 
 \bibitem[{Metternich et~al.(2013)Metternich, Dorff, Gallop, Weschle, and
   Ward}]{metternich:etal:2013}
@@ -60,6 +90,16 @@ Minhas, S., Hoff, P.~D., Ward, M.~D., May 2016{\natexlab{b}}. A new approach to
 Opp, K.-D., 12 1988. Grievances and participation in social movements. American
   Sociological Review 53~(6), 853.
 
+\bibitem[{Raleigh et~al.(2010)Raleigh, Linke, Hegre, and
+  Karlsen}]{raleigh:etal:2010}
+Raleigh, C., Linke, A., Hegre, H., Karlsen, J., 2010. Introducing acled: An
+  armed conflict location and event dataset special data feature. Journal of
+  Peace Research 47~(5), 651--660.
+
+\bibitem[{Snijders(1996)}]{snijders:1996}
+Snijders, T.~A., 1996. Stochastic actor-oriented models for network change.
+  Journal of Mathematical Sociology 21~(1-2), 149--172.
+
 \bibitem[{Tarrow(1994)}]{tarrow:1994}
 Tarrow, S., 1994. Power in Movement: Social Movements, Collective Action and
   Politics. Cambridge University Press, Cambridge and New York.
@@ -67,5 +107,18 @@ Tarrow, S., 1994. Power in Movement: Social Movements, Collective Action and
 \bibitem[{Tucker(2007)}]{tucker:2007}
 Tucker, J.~A., 2007. Enough! {E}lectoral fraud, collective action problems, and
   post-communist colored revolutions. Perspectives on Politics 5~(3), 535--551.
+
+\bibitem[{Warner et~al.(1979)Warner, Kenny, and Stoto}]{warner:etal:1979}
+Warner, R., Kenny, D., Stoto, M., 1979. A new round robin analysis of variance
+  for social interaction data. Journal of Personality and Social Psychology 37,
+  1742--1757.
+
+\bibitem[{Wasserman and Faust(1994)}]{wasserman:faust:1994}
+Wasserman, S., Faust, K., 1994. Social Network Analysis: Methods and
+  Applications. Cambridge University Press, Cambridge.
+
+\bibitem[{Wong(1982)}]{wong:1982}
+Wong, G.~Y., 1982. Round robin analysis of variance via maximum likelihood.
+  Journal of the American Statistical Association 77~(380), 714--724.
 
 \end{thebibliography}
