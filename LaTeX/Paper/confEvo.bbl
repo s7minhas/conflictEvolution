@@ -1,4 +1,4 @@
-\begin{thebibliography}{34}
+\begin{thebibliography}{37}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -25,6 +25,10 @@ Chenoweth, E., Stephan, M.~J., 2011. Why civil resistance works: The strategic
 \bibitem[{Collier and Hoeffler(2004)}]{collier:hoeffler:2004}
 Collier, P., Hoeffler, A., 2004. Greed and grievance in civil war. Oxford
   Economic Papers 56, 563--595.
+
+\bibitem[{Condra and Shapiro(2012)}]{condra:shapiro:2012}
+Condra, L.~N., Shapiro, J.~N., 2012. Who takes the blame? the strategic effects
+  of collateral damage. American Journal of Political Science 56~(1), 167--187.
 
 \bibitem[{Cranmer and Desmarais(2011)}]{cranmer:desmarais:2011}
 Cranmer, S., Desmarais, B.~A., 2011. {Inferential Network Analysis with
@@ -72,6 +76,10 @@ Humphreys, M., Weinstein, J., 2008. Who fights? the determinants of
   participation in civil war. American Journal of Political Science 52~(2),
   436--455.
 
+\bibitem[{Humphreys and Weinstein(2006)}]{humphreys:weinstein:2006}
+Humphreys, M., Weinstein, J.~M., 2006. Handling and manhandling civilians in
+  civil war. American Political Science Review 100~(3), 429--447.
+
 \bibitem[{Kinne(2012)}]{kinne:2012}
 Kinne, B.~J., 2012. Multilateral trade and militarized conflict: Centrality,
   asymmetry, and openness in the global trade network. The Journal of Politics
@@ -81,6 +89,10 @@ Kinne, B.~J., 2012. Multilateral trade and militarized conflict: Centrality,
 Li, H., Loken, E., 2002. A unified theory of statistical analysis and inference
   for variance component models for dyadic data. Statistica Sinica 12~(2),
   519--535.
+
+\bibitem[{Lyall(2009)}]{lyall:2009}
+Lyall, J., 2009. Does indiscriminate violence incite insurgent attacks? Journal
+  of Conflict Resolution 53~(3), 331--362.
 
 \bibitem[{Maiangwa and Agbiboa(2014)}]{maiangwa:agbiboa:2014}
 Maiangwa, B., Agbiboa, D., 2014. Why {B}oko {H}aram kidnaps women and young
