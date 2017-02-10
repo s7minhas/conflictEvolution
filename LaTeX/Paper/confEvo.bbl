@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{33}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -81,6 +81,10 @@ Kinne, B.~J., 2012. Multilateral trade and militarized conflict: Centrality,
 Li, H., Loken, E., 2002. A unified theory of statistical analysis and inference
   for variance component models for dyadic data. Statistica Sinica 12~(2),
   519--535.
+
+\bibitem[{Maiangwa and Agbiboa(2014)}]{maiangwa:agbiboa:2014}
+Maiangwa, B., Agbiboa, D., 2014. Why boko haram kidnaps women and young girls
+  in north-eastern nigeria. Conflict Trends 2014~(3), 51--56.
 
 \bibitem[{Metternich et~al.(2013)Metternich, Dorff, Gallop, Weschle, and
   Ward}]{metternich:etal:2013}
