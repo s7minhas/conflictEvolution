@@ -34,9 +34,9 @@ Condra, L.~N., Shapiro, J.~N., 2012. Who takes the blame? the strategic effects
 Cranmer, S., Desmarais, B.~A., 2011. {Inferential Network Analysis with
   Exponental Random Graph Models}. Political Analysis 19~(1), 66--86.
 
-\bibitem[{Dorff and Ward(2013)}]{dorff:ward:2013}
-Dorff, C., Ward, M.~D., 2013. Networks, dyads, and the social relations model.
-  Political Science Research and Methods 1~(02), 159--178.
+\bibitem[{Dorff and Minhas(2016)}]{dorff:minhas:2016}
+Dorff, C., Minhas, S., 2016. When do states say uncle? {Network} dependence and
+  sanction compliance. International Interactions In press.
 
 \bibitem[{Erikson et~al.(2014)Erikson, Pinto, and Rader}]{erikson:pinto:2014}
 Erikson, R.~S., Pinto, P.~M., Rader, K.~T., 2014. Dyadic analysis in
@@ -98,11 +98,11 @@ Lyall, J., 2009. Does indiscriminate violence incite insurgent attacks? Journal
 Maiangwa, B., Agbiboa, D., 2014. Why {B}oko {H}aram kidnaps women and young
   girls in north-eastern {N}igeria. Conflict Trends 2014~(3), 51--56.
 
-\bibitem[{Metternich et~al.(2013)Metternich, Dorff, Gallop, Weschle, and
-  Ward}]{metternich:etal:2013}
-Metternich, N.~W., Dorff, C., Gallop, M., Weschle, S., Ward, M.~D., 2013.
-  Antigovernment networks in civil conflicts: How network structures affect
-  conflictual behavior. American Journal of Political Science 57~(4), 892--911.
+\bibitem[{Metternich et~al.(2015)Metternich, Minhas, and
+  Ward}]{metternich:etal:2015}
+Metternich, N., Minhas, S., Ward, M., 2015. Firewall? or wall on fire? {A}
+  unified framework of conflict contagion and the role of ethnic exclusion.
+  Journal of Conflict Resolution Online version~(doi:10.1177/0022002715603452).
 
 \bibitem[{Minhas et~al.(2016{\natexlab{a}})Minhas, Hoff, and
   Ward}]{minhas:etal:2016:arxiv}
@@ -114,6 +114,10 @@ Minhas, S., Hoff, P.~D., Ward, M.~D., October 2016{\natexlab{a}}. {Let's Say
 Minhas, S., Hoff, P.~D., Ward, M.~D., May 2016{\natexlab{b}}. A new approach to
   analyzing coevolving longitudinal networks in international relations.
   Journal of Peace Research 53~(3), 491--505.
+
+\bibitem[{Minhas and Radford(2016)}]{minhas:radford:2016}
+Minhas, S., Radford, B.~J., 2016. Enemy at the gates variation in economic
+  growth from civil conflict. Journal of Conflict Resolution.
 
 \bibitem[{Nemeth et~al.(2014)Nemeth, Mauslein, and Stapley}]{nemeth:etal:2014}
 Nemeth, S.~C., Mauslein, J.~A., Stapley, C., 2014. The primacy of the local:
@@ -171,9 +175,5 @@ Wasserman, S., Faust, K., 1994. Social Network Analysis: Methods and
 \bibitem[{Wellman(1982)}]{wellman:1982}
 Wellman, B., 1982. {Studying personal communities}. Social Structure and
   Network Analysis, 61--80.
-
-\bibitem[{Wong(1982)}]{wong:1982}
-Wong, G.~Y., 1982. Round robin analysis of variance via maximum likelihood.
-  Journal of the American Statistical Association 77~(380), 714--724.
 
 \end{thebibliography}
