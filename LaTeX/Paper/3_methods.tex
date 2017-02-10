@@ -26,7 +26,7 @@ Additionally, we add two dyadic level covariates to the model. First, we create 
 
 \section*{Modelling Approach}
 
-To estimate conflict in this system in a way that accounts for interdependencies between actors, we rely on a network based approach that combines the social relations regression model (SRM) -- for details on this model see \citet{warner:etal:1979,wong:1982,li:loken:2002, dorff:ward:2013} -- and the latent factor model developed by \citet{hoff:2009}. Together the SRM provides a set of additive effects that we can use to capture first and second order dependencies, and the latent factor model provides a set of multiplicative effects that we use to model third order dependencies. We refer to this estimator as the additive and multiplicative effects (AME) model:
+To estimate conflict in this system in a way that accounts for interdependencies between actors, we rely on a network based approach that combines the social relations regression model (SRRM) -- for details on this model see \citet{warner:etal:1979,li:loken:2002,hoff:ward:2004,dorff:minhas:2016} -- and the latent factor model developed by \citet{hoff:2009}. Together the SRRM provides a set of additive effects that we can use to capture first and second order dependencies, and the latent factor model provides a set of multiplicative effects that we use to model third order dependencies. We refer to this estimator as the additive and multiplicative effects (AME) model:
 
 \begin{align}
 	\begin{aligned}
@@ -37,7 +37,8 @@ To estimate conflict in this system in a way that accounts for interdependencies
 	\label{eqn:ame}
 	\end{aligned}
 \end{align}
-where $y_{ij,t}$ represents whether or not conflict occurred between actor $i$ and actor $j$ at time $t$. To model our binary dependent variable we employ a latent variable representation of a probit regression model, in which we model a latent variable, $\theta_{ij}$, using a set of time varying dyadic, sender, and receiver covariates, $\bm\beta_{d}^{T} \mathbf{X}_{ij,t}$, $\bm\beta_{s}^{T} \mathbf{X}_{i,t}$, and $\bm\beta_{r}^{T} \mathbf{X}_{j,t}$. Then we model the error using the SRM and latent factor model. $a_{i}$ and $b_{j}$ represent sender and receiver random effects that we incorporate from the SRM framework:
+
+where $y_{ij,t}$ represents whether or not conflict occurred between actor $i$ and actor $j$ at time $t$. To model our binary dependent variable we employ a latent variable representation of a probit regression model, in which we model a latent variable, $\theta_{ij}$, using a set of time varying dyadic, sender, and receiver covariates, $\bm\beta_{d}^{T} \mathbf{X}_{ij,t}$, $\bm\beta_{s}^{T} \mathbf{X}_{i,t}$, and $\bm\beta_{r}^{T} \mathbf{X}_{j,t}$. Then we model the error using the SRRM and latent factor model. $a_{i}$ and $b_{j}$ represent sender and receiver random effects that we incorporate from the SRM framework:
 
 \begin{align}
 	\begin{aligned}
