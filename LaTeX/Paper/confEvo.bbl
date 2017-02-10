@@ -1,4 +1,4 @@
-\begin{thebibliography}{37}
+\begin{thebibliography}{38}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -42,6 +42,10 @@ Dorff, C., Minhas, S., 2016. When do states say uncle? {Network} dependence and
 Erikson, R.~S., Pinto, P.~M., Rader, K.~T., 2014. Dyadic analysis in
   international relations: {A} cautionary tale. Political Analysis 22~(4),
   457--463.
+
+\bibitem[{Gallop(2017)}]{gallop:2017}
+Gallop, M., 2017. More dangerous than dyads: How a third party enables
+  rationalist explanations for war. Journal of Theoretical Politics.
 
 \bibitem[{Granovetter(1973)}]{granovetter:1973}
 Granovetter, M.~S., May 1973. {The Strength of Weak Ties}. American Journal of
