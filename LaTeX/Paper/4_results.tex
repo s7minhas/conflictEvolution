@@ -2,19 +2,19 @@
 
 \subsection*{Parameter Estimates}
 
-In examining the results of both a traditional GLM and an AME model, reported in figure \ref{betaEst}, we find interesting substantive results.\footnote{Excluded from these results is the dyadic variable for ``both are government actors." This is included and has a negative effect in both models, but is not substantively interesting.} First notably, we see a non-trivial relationship between the exercise of violence against civilians and participation in a greater number of battles. The effect is larger in the GLM because that model does not account for the differing tendencies for certain groups to engage in different levels of conflict, and likely the groups that commit violence against civilians are generally more conflict prone, but the relationship still holds even in a model with sender and receiver effects. Targeting of civilians is linked both to a higher likelihood of engaging in violence against other military groups, and a higher likelihood of being targeted by other military groups. We cannot conclusively say that these are the results of violence against civilians, but the fact that the relationship holds even in a mixed-effects model (and one that controls for network dependencies) is suggestive. 
+We report the results for the sender, receiver, and dyadic covariates we included in the AME model in figure \ref{betaEst}.\footnote{Excluded from these results is the dyadic variable for ``both are government actors." This is included and has a negative effect in both models, which simply indicates that government actors are unlikely to fight one another. Trace plots for each of these parameter estimates can be found in figure~\ref{betaTrace} of the Appendix.} First notably, we see a non-trivial relationship between the exercise of violence against civilians and participation in a greater number of battles. Targeting of civilians is linked both to a higher likelihood of engaging in violence against other military groups, and a higher likelihood of being targeted by other military groups. We cannot conclusively say that these are the results of violence against civilians, but the fact that the relationship holds even in a mixed-effects model (and one that controls for network dependencies) is suggestive. 
+
+In the case of this Nigerian conflict network, there is no evidence of a link between protest and participation in battles. There are a number of possible reasons for the null finding here: the protest data we use might have some uncertainty about the targets of the protest, some protests might agitate towards greater military involvement--``Save Our Girls" protests pushing for the government to confront Boko Haram for example--while other protests might be against violence, or different actors might respond to protest in differing ways. We see no consistent effect of protest, whether we focus only on anti-government protest, only on protests against non-government groups, or when we look at all protests.
+
+Finally, we look at the effect of Boko Haram's entry on the level of conflict in the system and find a clear increase in violence in the years that follow. Again this is not just the effect of Boko Haram's propensity to target and be targeted in battles, as those first order effects are accounted for in the AME model (though that does explain much of the difference between AME and GLM effects). Boko Haram's entry is associated with an increase in conflicts even in the dyads that do not contain Boko Haram. 
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1\textwidth]{betaEst}
-	\caption{Standardized parameter estimates from AME and equivalent GLM model.}
+	\caption{Standardized parameter estimates from AME model. Points represent average value of parameters, thicker line represents the 90\% credible interval, and thinner line the 95\%.}
 	\label{betaEst}
 \end{figure}
 \FloatBarrier
-
-In the case of this Nigerian conflict network, there is no evidence of a link between protest and participation in battles. There are a number of possible reasons for the null finding here: the protest data we use might have some uncertainty about the targets of the protest,  some protests might agitate towards greater military involvement--``Save Our Girls" protests pushing for the government to confront Boko Haram for example--while other protests might be against violence, or different actors might respond to protest in differing ways. We see no consistent effect of protest, whether we focus only on anti-government protest, only on protests against non-government groups, or when we look at all protests.
-
-Finally, we look at the effect of Boko Haram's entry on the level of conflict in the system and find a clear increase in violence in the years that follow. Again this is not just the effect of Boko Haram's propensity to target and be targeted in battles, as those first order effects are accounted for in the AME model (though that does explain much of the difference between AME and GLM effects). Boko Haram's entry is associated with an increase in conflicts even in the dyads that do not contain Boko Haram. 
 
 \subsection*{Boko Haram's Entrance}
 
@@ -22,40 +22,44 @@ In figures \ref{nigeria_preBK} and \ref{nigeria_postBK}, we show that there is b
 
 Our initial intuition was that Boko Haram's conflict with the government weakened the Nigerian state's ability to monopolize violence and deter other violent actors. That the government would be so busy fighting Boko Haram that other militias would be able to run amok. If this were the case, we would expect to see the Police and Military involved in fewer conflicts with other groups in the later period. We do not observe this: not only are the government groups involved in \emph{more} battles on average in the second period, but there level of conflict with nearly every group has increased.
 
-What could be driving these results is that the entrance of Boko Haram has incentivized other militias to ramp up their levels of violence. This could be because they need to increase military strength to defend against Boko Haram, and this leads to security dilemmas and spirals of escalation. Alternatively, it could be because Boko Haram, in searching for a stable base of operations has dislocated groups and strained resources leading to more violence. We need more study and more finely grained data if we want to adjudicate between these, or potential alternative explanations.
+What could be driving these results is that the entrance of Boko Haram has incentivized other militias to ramp up their levels of violence. This may be because these groups increase their military strength to defend against Boko Haram, and this leads to security dilemmas and spirals of escalation. Alternatively, it could be because Boko Haram, in searching for a stable base of operations has dislocated groups and strained resources leading to more violence. We need more study and more finely grained data if we want to adjudicate between these, or potential alternative explanations.
 
-\begin{figure}[ht]
+
+\begin{landscape}
+	\begin{figure}
 	\centering
-	\includegraphics[width=1\textwidth]{nigeria_preBK}
+	\includegraphics[width=1.3\textwidth]{nigeria_preBK}
 	\caption{Conflict network 2000-2008. Pairs with more conflict have larger links. Government groups are in black, all other groups are in grey.}
 	\label{nigeria_preBK}
-\end{figure}
+	\end{figure}
+\end{landscape}
 \FloatBarrier
 
-\begin{figure}[ht]
+\begin{landscape}
+	\begin{figure}
 	\centering
-	\includegraphics[width=1\textwidth]{nigeria_postBK}
+	\includegraphics[width=1.3\textwidth]{nigeria_postBK}
 	\caption{Conflict network 2009-2016. Pairs with more conflict have larger links. Government groups are in black, all other groups are in grey. Blue links indicate more interactions in the 2009-2016 period than in the 2000-2008 period, red indicates less, green is the same.}
 	\label{nigeria_postBK}
 	\end{figure}
+\end{landscape}
 \FloatBarrier
 
 What we can say is that the effect of Boko Haram's entrance on conflict demonstrates is the need for a networked approach to interstate conflict. A standard approach to interstate conflict, which focuses on the government-rebel dyads, or in particularly ambitious cases, also looks at rebel-rebel dyads, would catch Boko Haram's direct effect on conflict, but it would miss this indirect effect. We see the entrance of a group to a network increasing the levels of activities in uninvolved dyads. So a traditional dyadic approach would underestimate the effect of Boko Haram, and would underpredict violence in the system.
 
 \subsection*{Network Dependencies}
 
-%%note from sm this could use some more description
-We prefer to use a network model to understand intrastate conflict in Nigeria not just because it can give more precise parameter estimates for our fixed effects, but also because it can help us to understand the interdependencies among conflict actors in Nigeria. We plot the different variance parameters in figure \ref{varEsts}. By looking at the sender and receiver heterogeneity estimates ($\sigma_{a^2}, \sigma_{b^2}$) we see significant first order effects--different actors not only have different baseline levels of conflict, but the variance changes too. We also see a moderate value for $\sigma_{ab}$ indicating the link between sending and receiving conflict. The moderate value for $\rho$ indicates that the conflict in Nigeria has moderate levels of reciprocity. Finally the significant correlation in the error structure would violate the normal GLM assumptions.
+We prefer to use a network model to understand intrastate conflict in Nigeria not just because it can give more precise parameter estimates, but also because it can help us to understand the interdependencies among conflict actors in Nigeria. We plot the different variance parameters in figure \ref{varEsts}. By looking at the sender and receiver heterogeneity estimates ($\sigma_{a^2}, \sigma_{b^2}$) we see significant first order effects--different actors not only have different baseline levels of conflict, but the variance changes too.\footnote{In figure~\ref{aEst} and \ref{bEst} of the Appendix, we show the sender and receiver random effect estimates for each actor in our model.} We also see a moderate value for $\sigma_{ab}$ indicating that actors whom initiate more conflictual links also receive more conflictual links in return. Relatedly, the positive value for $\rho$ indicates that actors whom receive a conflict from a particular sender reciprocate that conflictual behavior. The fact that each of these variance parameters is positive and significantly greater than zero indicates that the assumption of observational independence relied on by standard generalized linear models (GLM) are violated in this dyadic conflict dataset.
 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=.8\textwidth]{{vcEst}}
-	\caption{AME network variance estimates.}
+	\caption{AME network variance estimates. Points represent average value of parameters, thicker line represents the 90\% credible interval, and thinner line the 95\%.}
 	\label{varEsts}
 \end{figure}
 \FloatBarrier
 
-Figure \ref{circplot} shows the directions of actors' latent factors for both sending and receiving violence. The directions of $\hat{u}_{i}$'s (for receiving conflict) and $\hat{v}_{i}$'s (for sending conflict) are noted in blue and red, respectively. The size of the label assigned to the points is a function of the magnitude of the vectors, and dashed lines between actors indicate whether or not there was a conflictual interaction between the two at any point from 2000 to 2016. Here actors who's factors point in the same direction are stochastically equivalent -- they are likely to target (in \textcolor{red}) and be targeted (in \textcolor{blue}) by the same third party. What appears to be the case in Nigeria, is that groups that are stochastically equivalent are not just more likely to fight common third parties; they are also more likely to fight \emph{each other}. This is most notable in the cluster in the plot involving the government forces, the Vigilante Militia, Boko Haram, and MASSOB.
+Figure \ref{circplot} shows the directions of actors' latent factors for both sending and receiving violence. The directions of $\hat{u}_{i}$'s (for receiving conflict) and $\hat{v}_{i}$'s (for sending conflict) are noted in blue and red, respectively. The size of the label assigned to the points is a function of the magnitude of the vectors, and dashed lines between actors indicate whether or not there was a conflictual interaction between the two at any point from 2000 to 2016.\footnote{Figure \ref{netGOF} in the appendix summarizes how well we capture first, second, and third order dependencies using our model.} Here actors who's factors point in the same direction are stochastically equivalent -- they are likely to target (in \textcolor{red}) and be targeted (in \textcolor{blue}) by the same third party. What appears to be the case in Nigeria, is that groups that are stochastically equivalent are not just more likely to fight common third parties; they are also more likely to fight \emph{each other}. This is most notable in the cluster in the plot involving the government forces, the Vigilante Militia, Boko Haram, and MASSOB.
 
 \begin{figure}[ht]
 	\centering
@@ -67,13 +71,22 @@ Figure \ref{circplot} shows the directions of actors' latent factors for both se
 
 \subsection*{Out of Sample Performance Analysis}
 
-One of the most important reasons to employ a network model is to help us to better predict and explain conflict. To evaluate our model, we randomly treat approximately 3\% of observations as missing, and estimate the network imputing both the covariates and the presence or absence of a battle -- this is equivalent to a 30-fold cross-validation. We then look at the performance of the model on those deleted observations.
+One of the most important reasons for employing a network based approach is that it aids in better accounting for the data generating process underlying relational data structures. Thus, in this case, our approach should help us to actually better predict conflict in an out of sample context. To evaluate our model, we randomly divide the $\binom n 2 \times T$ data values into $k=30$ sets, letting $s_{ij}$ be the set to which pair $ij$ is assigned. Then for each $s \in \{1,\ldots,k\}$, we:
 
-We set a number of benchmarks for comparison. First we compare the AME model to a GLM trained using the same covariates, as discussed above to show the effect of accounting for network dependencies on predicting conflict. We supplement this with an alternative GLM that simply has a lagged dependent variable: the equivalent of saying that conflict and peace are relatively likely to persist between dyads, as well as a GLM with all of our covariates and a lagged dependent variable. 
+\begin{enumerate}
+	\item estimate model parameters with $\{y_{ij}: s_{ij} \neq s\}$, the data not in set $s$,
+	\item and predict $\{y_{ij}: s_{ij} = s\}$ from these estimated parameters. 
+\end{enumerate}
 
-To evaluate the performance of the models, we rely on three factors: Receiver Operator Characteristic (ROC) curves, Precision Recall (PR) curves, and separation plots. ROC curves look at the tradeoff between true positive rates and false positive rates at different thresholds of classification. An issue with an ROC Curve when looking at conflict, is that it is relatively rare at the dyadic level: in most years only 3\% of possible dyads are in conflict with one another. If peace is common, even a poor model will have a very low False Positive Rate. To get a better sense of which models predict the presence of conflict, not just its absense, we look at Precision Recall Curves. These examine the tradeoffs between the percentage of conflicts a model predicts, and the percentage of predicted conflicts which occur. Lastly, we examine separation plots \citep{greenhill:etal:2011}. These provide an intuitive visualization of the accuracy of our predictions by juxtaposing a line showing the predicted probability of conflict with whether conflict actually occurs for all cases (where the cases are sorted by the predicted probability and then colored to indicate the outcome). Here a perfect model would have all cases where conflict actually exists on the right with a predicted probability of $1$, and would predict $0$ in all other cases. All of the models' performance out of sample by these metrics are displayed in figure \ref{fig:roc_ame}.
+\noindent The result of this procedure is a sociomatrix $\bm \hat Y$, in which each entry $\hat y_{ij}$ is a predicted value obtained from using a subset of the data that does not include $y_{ij}$. 
 
-The AME model with covariates is the best performing model out of sample in all cases. This model outperforms each of the GLM variants by a notable margin. 
+We set a number of benchmarks for comparison. First we compare the AME model to a GLM trained using the same covariates to show the effect of accounting for network dependencies on predicting conflict. We supplement this with an alternative GLM that simply has a lagged dependent variable: the equivalent of saying that conflict and peace are relatively likely to persist between dyads, as well as a GLM with all of our covariates and a lagged dependent variable. 
+
+We utilize three performance criterions to compare the models: Receiver Operator Characteristic (ROC) curves, Precision Recall (PR) curves, and separation plots. ROC curves look at the tradeoff between true positive rates and false positive rates at different thresholds of classification. An issue with an ROC Curve when looking at conflict, is that it is relatively rare at the dyadic level: in most years only 3\% of possible dyads are in conflict with one another. If peace is common, even a poor model will have a very low False Positive Rate. 
+
+To better assess which models predict the presence of conflict, not just its absence, we look at PR Curves. These examine the tradeoffs between the percentage of conflicts a model predicts, and the percentage of predicted conflicts which occur. Lastly, we examine separation plots \citep{greenhill:etal:2011}. These provide an intuitive visualization of the accuracy of our predictions by juxtaposing a line showing the predicted probability of conflict with whether conflict actually occurs for all cases (where the cases are sorted by the predicted probability and then colored to indicate the outcome). Here a perfect model would have all cases where conflict actually exists on the right with a predicted probability of $1$, and would predict $0$ in all other cases.
+
+All of the models' performance out of sample by these metrics are displayed in figure \ref{fig:roc_ame}. The AME model with covariates is the best performing model out of sample in all cases. This model outperforms each of the GLM variants by a notable margin. 
 
 \begin{figure}[ht]
 	\centering
