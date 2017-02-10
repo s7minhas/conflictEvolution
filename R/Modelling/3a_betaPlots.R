@@ -7,6 +7,7 @@ if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){
 if(Sys.info()['user']=='maxgallop'){
 	source('~/Documents/conflictEvolution/R/setup.R')  }
 source(paste0(fPth, 'postHelpers.R'))
+source(paste0(fPth, 'paramPlot2.R'))
 ################
 
 ################
@@ -15,7 +16,14 @@ load(paste0(pathResults, 'ameResults.rda')) # load AME mod results
 load(paste0(pathResults, 'glmResults.rda')) # load GLM mod results
 
 # quick trace plot
-ggsave(paramPlot(fitFullSpec$BETA[,c(2:5,7)]), file=paste0(pathGraphics, 'betaTrace.pdf'), width=8,height=6)
+mcmcData = fitFullSpec$BETA
+varKey = data.frame(dirty=colnames(mcmcData),stringsAsFactors=FALSE)
+varKey$clean = c(
+	'Intercept',
+	'Riots Against (Sender)', 'Civilian Attacks (Sender)',
+	'Riots Against (Receiver)', 'Civilian Attacks (Receiver)', 'Gov-Gov Actors','Post-Boko Haram')
+varKey = varKey[c(7,2,4,3,5,6,1),]
+ggsave(paramPlot2(mcmcData, varKey), file=paste0(pathGraphics, 'betaTrace.pdf'), width=8,height=7)
 ################
 
 ################
@@ -77,6 +85,8 @@ beta = rbind(ameBETA, glmBETA)
 
 # plot
 posDodge = .75
+beta = beta[beta$mod=='AME   ',]
+beta$mod = 'AME'
 ggCoef=ggplot(beta, aes(x=varClean, y=mean, color=sig, group=mod)) + 
 	geom_hline(aes(yintercept=0), linetype=2, color = "black") + 
 	geom_point(aes(shape=mod), size=4, position=position_dodge(width = posDodge)) + 
@@ -87,7 +97,8 @@ ggCoef=ggplot(beta, aes(x=varClean, y=mean, color=sig, group=mod)) +
 	ylab(TeX('$\\beta_{p} \\times \\frac{\\sigma_{x_{p}}}{\\sigma_{y}}$')) +
 	coord_flip() + 
 	theme(
-		legend.position='top', legend.title=element_blank(),
+		# legend.position='top', legend.title=element_blank(),
+		legend.position='none', legend.title=element_blank(),		
 		legend.text=element_text(family="Source Sans Pro Light"),
 		panel.border=element_blank(),
 		axis.ticks=element_blank(),
