@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{31}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -68,6 +68,11 @@ Humphreys, M., Weinstein, J., 2008. Who fights? the determinants of
   participation in civil war. American Journal of Political Science 52~(2),
   436--455.
 
+\bibitem[{Kinne(2012)}]{kinne:2012}
+Kinne, B.~J., 2012. Multilateral trade and militarized conflict: Centrality,
+  asymmetry, and openness in the global trade network. The Journal of Politics
+  74~(1), 308--322.
+
 \bibitem[{Li and Loken(2002)}]{li:loken:2002}
 Li, H., Loken, E., 2002. A unified theory of statistical analysis and inference
   for variance component models for dyadic data. Statistica Sinica 12~(2),
@@ -90,6 +95,11 @@ Minhas, S., Hoff, P.~D., Ward, M.~D., May 2016{\natexlab{b}}. A new approach to
   analyzing coevolving longitudinal networks in international relations.
   Journal of Peace Research 53~(3), 491--505.
 
+\bibitem[{Nemeth et~al.(2014)Nemeth, Mauslein, and Stapley}]{nemeth:etal:2014}
+Nemeth, S.~C., Mauslein, J.~A., Stapley, C., 2014. The primacy of the local:
+  {I}dentifying terrorist hot spots using geographic information systems. The
+  Journal of Politics 76~(2), 304--317.
+
 \bibitem[{Opp(1988)}]{opp:1988}
 Opp, K.-D., 12 1988. Grievances and participation in social movements. American
   Sociological Review 53~(6), 853.
@@ -99,6 +109,18 @@ Opp, K.-D., 12 1988. Grievances and participation in social movements. American
 Raleigh, C., Linke, A., Hegre, H., Karlsen, J., 2010. Introducing acled: An
   armed conflict location and event dataset special data feature. Journal of
   Peace Research 47~(5), 651--660.
+
+\bibitem[{Rustad et~al.(2011)Rustad, Buhaug, Falch, and
+  Gates}]{rustad:etal:2011}
+Rustad, S. C.~A., Buhaug, H., Falch, A., Gates, S., 2011. All conflict is
+  local: Modeling sub-national variation in civil conflict risk. Conflict
+  Management and Peace Science 28~(1), 15--40.
+
+\bibitem[{Shortland et~al.(2013)Shortland, Christopoulou, and
+  Makatsoris}]{shortland:etal:2013}
+Shortland, A., Christopoulou, K., Makatsoris, C., 2013. War and famine, peace
+  and light? {T}he economic dynamics of conflict in {S}omalia 1993--2009.
+  Journal of Peace Research 50~(5), 545--561.
 
 \bibitem[{Snijders(1996)}]{snijders:1996}
 Snijders, T.~A., 1996. Stochastic actor-oriented models for network change.
