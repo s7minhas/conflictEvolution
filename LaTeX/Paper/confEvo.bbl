@@ -1,4 +1,4 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{32}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -29,6 +29,10 @@ Collier, P., Hoeffler, A., 2004. Greed and grievance in civil war. Oxford
 \bibitem[{Cranmer and Desmarais(2011)}]{cranmer:desmarais:2011}
 Cranmer, S., Desmarais, B.~A., 2011. {Inferential Network Analysis with
   Exponental Random Graph Models}. Political Analysis 19~(1), 66--86.
+
+\bibitem[{Dorff and Ward(2013)}]{dorff:ward:2013}
+Dorff, C., Ward, M.~D., 2013. Networks, dyads, and the social relations model.
+  Political Science Research and Methods 1~(02), 159--178.
 
 \bibitem[{Erikson et~al.(2014)Erikson, Pinto, and Rader}]{erikson:pinto:2014}
 Erikson, R.~S., Pinto, P.~M., Rader, K.~T., 2014. Dyadic analysis in
