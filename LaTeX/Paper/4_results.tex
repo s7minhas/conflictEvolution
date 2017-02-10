@@ -6,8 +6,6 @@ We report the results for the sender, receiver, and dyadic covariates we include
 
 In the case of this Nigerian conflict network, there is no evidence of a link between protest and participation in battles. There are a number of possible reasons for the null finding here: the protest data we use might have some uncertainty about the targets of the protest, some protests might agitate towards greater military involvement--``Bring Back Our Girls" protests pushing for the government to confront Boko Haram for example--while other protests might be against violence, or different actors might respond to protest in differing ways. We see no consistent effect of protest, whether we focus only on anti-government protest, only on protests against non-government groups, or when we look at all protests.
 
-Finally, we examine at the effect of the beginning of the Boko Haram insurgency on the level of conflict in the system and find a clear increase in violence in the years that follow. Again this is not just the effect of Boko Haram's propensity to target and be targeted in battles, as those first order effects are accounted for in the AME model (though that does explain much of the difference between AME and GLM effects). The Boko Haram Insurgency is associated with an increase in conflicts even in the dyads that do not contain Boko Haram. 
-
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1\textwidth]{betaEst}
@@ -15,6 +13,8 @@ Finally, we examine at the effect of the beginning of the Boko Haram insurgency 
 	\label{betaEst}
 \end{figure}
 \FloatBarrier
+
+Finally, we examine at the effect of the beginning of the Boko Haram insurgency on the level of conflict in the system and find a clear increase in violence in the years that follow. Again this is not just the effect of Boko Haram's propensity to target and be targeted in battles, as those first order effects are accounted for in the AME model (though that does explain much of the difference between AME and GLM effects). The Boko Haram Insurgency is associated with an increase in conflicts even in the dyads that do not contain Boko Haram. 
 
 \subsection*{Boko Haram's Entrance}
 
@@ -58,7 +58,7 @@ We prefer to use a network model to understand intrastate conflict in Nigeria no
 \end{figure}
 \FloatBarrier
 
-Figure \ref{circplot} shows the directions of actors' latent factors for both sending and receiving violence. The directions of $\hat{u}_{i}$'s (for receiving conflict) and $\hat{v}_{i}$'s (for sending conflict) are noted in blue and red, respectively. The size of the label assigned to the points is a function of the magnitude of the vectors, and dashed lines between actors indicate whether or not there was a conflictual interaction between the two at any point from 2000 to 2016.\footnote{Figure \ref{netGOF} in the appendix summarizes how well we capture first, second, and third order dependencies using our model.} Here actors who's factors point in the same direction are stochastically equivalent -- they are likely to target (in \textcolor{red}{red}) and be targeted (in \textcolor{blue}{blue}) by the same third party. What appears to be the case in Nigeria, is that groups that are stochastically equivalent are not just more likely to fight common third parties; they are also more likely to fight \emph{each other}. This is most notable in the cluster in the plot involving the government forces, the Vigilante Militia, Boko Haram, and MEND.
+Figure \ref{circplot} shows the directions of actors' latent factors for both sending and receiving violence. The directions of $\hat{u}_{i}$'s (for sending conflict) and $\hat{v}_{i}$'s (for receiving conflict) are noted in \textcolor{blue}{blue} and \textcolor{red}{red}, respectively. The size of the label assigned to the points is a function of the magnitude of the vectors, and dashed lines between actors indicate whether or not there was a conflictual interaction between the two at any point from 2000 to 2016.\footnote{Figure \ref{netGOF} in the appendix summarizes how well we capture first, second, and third order dependencies using our model.} Here actors who's factors point in the same direction are stochastically equivalent -- they are likely to target and be targeted by the same third party. What appears to be the case in Nigeria, is that groups that are stochastically equivalent are not just more likely to fight common third parties; they are also more likely to fight \emph{each other}. This is most notable in the cluster in the plot involving the government forces, the Vigilante Militia, Boko Haram, and MEND.
 
 \begin{figure}[ht]
 	\centering
