@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{27}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -34,6 +34,10 @@ Cranmer, S., Desmarais, B.~A., 2011. {Inferential Network Analysis with
 Erikson, R.~S., Pinto, P.~M., Rader, K.~T., 2014. Dyadic analysis in
   international relations: {A} cautionary tale. Political Analysis 22~(4),
   457--463.
+
+\bibitem[{Granovetter(1973)}]{granovetter:1973}
+Granovetter, M.~S., May 1973. {The Strength of Weak Ties}. American Journal of
+  Sociology 78~(6), 1360--1380.
 
 \bibitem[{Greenhill et~al.(2011)Greenhill, Ward, and
   Sacks}]{greenhill:etal:2011}
@@ -116,6 +120,10 @@ Warner, R., Kenny, D., Stoto, M., 1979. A new round robin analysis of variance
 \bibitem[{Wasserman and Faust(1994)}]{wasserman:faust:1994}
 Wasserman, S., Faust, K., 1994. Social Network Analysis: Methods and
   Applications. Cambridge University Press, Cambridge.
+
+\bibitem[{Wellman(1982)}]{wellman:1982}
+Wellman, B., 1982. {Studying personal communities}. Social Structure and
+  Network Analysis, 61--80.
 
 \bibitem[{Wong(1982)}]{wong:1982}
 Wong, G.~Y., 1982. Round robin analysis of variance via maximum likelihood.

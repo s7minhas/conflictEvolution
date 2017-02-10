@@ -9,15 +9,29 @@ Boko Haram, a radical religious movement, forms in 2002 and is led by Mohammed Y
 
 In 2010, Vice President Goodluck Jonathan succeeds to the presidency after the death of his predecessor. Also around this time, Boko Haram's leader is killed by Nigerian police in a raid. This leads to an intensification of tactics by Boko Haram, which includes greater violence against civilians. Demonstratively, in December of 2010, Boko Haram bombs kill an estimated 80 people in the central city of Jos. This event sparks a response from opposing Christians leading to roughly 200 more deaths. %http://www.aljazeera.com/news/africa/2013/09/201397155225146644.html
 
-Attacks on civilians continue and in April of 2014 Boko Haram chooses a target that sparks international condemnation: 276 Chibok schoolgirls. Though this is not the first time that civilians organize against the insurgency's violent tactics, high levels of protests and vigilantism ensue following the children's kidnapping. This devestating attack even sparks the now internationally known ``\#bringbackourgirls'' social media hashtag. 
+Attacks on civilians continue and in April of 2014 Boko Haram chooses a target that sparks international condemnation: 276 Chibok schoolgirls. Though this is not the first time that civilians organize against the insurgency's violent tactics, high levels of protests and vigilantism ensue following the children's kidnapping. This devastating attack even sparks the now internationally known ``\#bringbackourgirls'' social media hashtag. 
 
 Battles between Boko Haram, local militant groups, and security forces continue today. While Boko Haram is the dominant armed non-state actor now operating across large subregions of Nigeria, there are also other important ethnic militias such as the Urhobo Ethnic Militia and the Movement for the Emancipation of the Niger Delta (MEND). MEND is one of the largest militant groups in the Niger Delta region. The militant organization is expressly concerned with the public and private production of oil in the region. Relatedly, citizens have protested against the federal government's energy policies in these regions.
 
 Our study enables us to analyze both the entrance of Boko Haram into development of Nigeria's conflict landscape and the role of other, smaller groups operating simultaneously. In addition, we explore whether protests against a given actor increase the probability of conflict between the actor and others in the network. To examine these processes, we focus on armed groups that are engaged in battles for at least 5 years during the 2000-2016 period, which results in a total of 34 armed groups. 
 
-
 \subsection*{ACLED Data}
-To study intra-state conflict patterns in Nigeria we turn to the Armed Conflict Location and Event Data Project (ACLED) initiated by \citet{raleigh:etal:2010}. This dataset records armed conflict and protest events in over 60 developing countries from 1997 onwards. ACLED's \textit{battles} data is used to generate our measure of conflict where $y_{ij,t} = 1$ represents that a conflict occurred between actor $i$ and actor $j$ at time $t$ ($y_{ij,t} = 0$ if no conflict occured). We also create two important nodal covariates from the ACLED data: (1) the number of protests/riots against a given sender or receiver at time $t$; and (2) the number of attacks against civilians perpetrated by a given sender or receiver at time $t$. We also create a straightforward post-Boko Haram dummy variable and control for whether both actors are a government actor.
+
+To study intra-state conflict patterns in Nigeria we turn to the Armed Conflict Location and Event Data Project (ACLED) initiated by \citet{raleigh:etal:2010}. This dataset records armed conflict and protest events in over 60 developing countries from 1997 onwards. ACLED's \textit{battles} data is used to generate our measure of conflict where $y_{ij,t} = 1$ represents that a conflict occurred between actor $i$ and actor $j$ at time $t$ ($y_{ij,t} = 0$ if no conflict occured).
+
+To understand the role that civilians play in shaping conflict within the Nigerian system we create two nodal level covariates. First, we create a count of the number of protests/riots led by civilians against a given actor at time $t$. Second, we create a count of the number of violent actions that an actor committed against civilians at time $t$. We include these nodal covariates to explain both the probability of an actor sending and receiving a conflictual tie. 
+
+Additionally, we add two dyadic level covariates to the model. First, we create a control for whether both actors are a part of the government. There are only two actors within the 34 that we study in the Nigerian system that would fall under this classification, namely, the Police and Military. We include this control to account for the fact that the probability of an interaction between these two is minimal relative to the other armed groups in this system. More importantly, to examine the affect that Boko Haram had on the level of conflict in this system we include a binary variable that is one after the entrance of this group into the system and zero beforehand. 
+
+% \begin{align}
+% 	\begin{aligned}
+% 		y_{ij,t} &= g(\theta_{ij,t}) \\ 
+% 		&\theta_{ij,t} = \bm\beta^{T} \mathbf{X}_{ij,t} + e_{ij,t} \\
+% 		&e_{ij,t} = a_{i} + b_{j}  + \epsilon_{ij} + \alpha(\textbf{u}_{i}, \textbf{v}_{j}) \text{  , where } \\
+% 		&\qquad \alpha(\textbf{u}_{i}, \textbf{v}_{j}) = \textbf{u}_{i}^{T} \textbf{D} \textbf{v}_{j} = \sum_{k \in 2} d_{k} u_{ik} v_{jk} \\ 
+% 	\label{eqn:modelSpec}
+% 	\end{aligned}
+% \end{align}
 
 \section*{Creating a Conflict Network in Nigeria}
 
@@ -26,31 +40,26 @@ To study intra-state conflict patterns in Nigeria we turn to the Armed Conflict 
 To model and predict intra-state conflict in Nigeria, we rely on a network based approach that combines the social relations regression model (SRM), for details on this model see \citet{warner:etal:1979,wong:1982,li:loken:2002}, and the latent factor model developed by \citet{hoff:2009}. Together the SRM provides a set of additive effects that we can use to capture first and second order dependencies, and the latent factor model provides a set of multiplicative effects that we use to model third order dependencies. We refer to this particular estimator as the additive and multiplicative effects (AME) model:
 
 \begin{align}
-\begin{aligned}
-	y_{ij,t} &= g(\theta_{ij,t}) \\ 
-	&\theta_{ij,t} = \bm\beta^{T} \mathbf{X}_{ij,t} + e_{ij,t} \\
-	&e_{ij,t} = a_{i} + b_{j}  + \epsilon_{ij} + \alpha(\textbf{u}_{i}, \textbf{v}_{j}) \text{  , where } \\
-	&\qquad \alpha(\textbf{u}_{i}, \textbf{v}_{j}) = \textbf{u}_{i}^{T} \textbf{D} \textbf{v}_{j} = \sum_{k \in 2} d_{k} u_{ik} v_{jk} \\ 
-\label{eqn:ame}
-\end{aligned}
+	\begin{aligned}
+		y_{ij,t} &= g(\theta_{ij,t}) \\ 
+		&\theta_{ij,t} = \bm\beta^{T} \mathbf{X}_{ij,t} + e_{ij,t} \\
+		&e_{ij,t} = a_{i} + b_{j}  + \epsilon_{ij} + \alpha(\textbf{u}_{i}, \textbf{v}_{j}) \text{  , where } \\
+		&\qquad \alpha(\textbf{u}_{i}, \textbf{v}_{j}) = \textbf{u}_{i}^{T} \textbf{D} \textbf{v}_{j} = \sum_{k \in 2} d_{k} u_{ik} v_{jk} \\ 
+	\label{eqn:ame}
+	\end{aligned}
 \end{align}
+
 where $y_{ij,t}$ represents whether or not conflict occurred between actor $i$ and actor $j$ at time $t$. To model our binary dependent variable we employ a latent variable representation of a probit regression model, in which we model a latent variable, $\theta_{ij}$, using a set of time varying exogenous covariates, $\bm\beta^{T} \mathbf{X}_{ij,t}$. Then we model the error using the SRM and latent factor model. $a_{i}$ and $b_{j}$ represent sender and receiver random effects that we incorporate from the SRM framework:
 
 \begin{align}
-\begin{aligned}
-	\{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \} &\simiid N(0,\Sigma_{ab}) \\ 
-	\{ (\epsilon_{ij}, \epsilon_{ji}) : \; i \neq j\} &\simiid N(0,\Sigma_{\epsilon}), \text{ where } \\
-	\Sigma_{ab} = \begin{pmatrix} \sigma_{a}^{2} & \sigma_{ab} \\ \sigma_{ab} & \sigma_{b}^2   \end{pmatrix} \;\;\;\;\; &\Sigma_{\epsilon} = \sigma_{\epsilon}^{2} \begin{pmatrix} 1 & \rho \\ \rho & 1  \end{pmatrix}
-\label{eqn:srm}
-\end{aligned}
+	\begin{aligned}
+		\{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \} &\simiid N(0,\Sigma_{ab}) \\ 
+		\{ (\epsilon_{ij}, \epsilon_{ji}) : \; i \neq j\} &\simiid N(0,\Sigma_{\epsilon}), \text{ where } \\
+		\Sigma_{ab} = \begin{pmatrix} \sigma_{a}^{2} & \sigma_{ab} \\ \sigma_{ab} & \sigma_{b}^2   \end{pmatrix} \;\;\;\;\; &\Sigma_{\epsilon} = \sigma_{\epsilon}^{2} \begin{pmatrix} 1 & \rho \\ \rho & 1  \end{pmatrix}
+	\label{eqn:srm}
+	\end{aligned}
 \end{align}
 
 The interpretation of these parameter is quite straightforward. The sender and receiver random effects are modeled jointly from a multivariate normal distribution to account for correlation in how active an actor is in sending and receiving ties. Heterogeneity in the the sender and receiver effects is captured by $\sigma_{a}^{2}$ and $\sigma_{b}^{2}$, respectively, and $\sigma_{ab}$ describes the linear relationship between these two effects (i.e., whether actors who send [receive] a lot of ties also receive [send] a lot of ties). Beyond these first-order dependencies, second-order dependencies are described by $\sigma_{\epsilon}^{2}$ and a within dyad correlation, or reciprocity, parameter $\rho$. 
 
 However, while the additive effects from the SRM can deal with first (differing popularity and activity of actors) and second order interdependencies (reciprocity), the multiplicative effects are needed to deal with third order dependencies. Specifically, this multiplicative effect allows us to model homophily -- the tendency of actors with similar characteristics are more likely to form strong relationships than those with differing characteristics -- and stochastic equivalence, the possibility that two actors $i$ and $j$ will have similar relationships with every other actor in the network. An AME model accounts for these third order effects using the multiplicative term: $\alpha(\textbf{u}_{i}, \textbf{v}_{j})$. This model posits a latent vector of characteristics $\mathbf{u_{i}}$ and $\mathbf{v_{j}}$ for each sender $i$ and receiver $j$. The similarity or dissimilarity of these vectors will then influence the likelihood of activity, and therefore account for these third order interdependencies \citep{hoff:2008,minhas:etal:2016:arxiv}. 
-
-% \subsection{Latent Factors} %%% from SM are we still doing this?
-
-% The multiplicative effects we use here to account for third order dependencies should not be confused with the latent distance model developed by \citet{hoff:etal:2002}. Even though, in the models discussed, the latent factor has two dimensions, and we can thus plot it, the Euclidean distance between the different actors is not interpretable in a straightforward fashion. Rather that looking at distance, we should look at the direction of the factors for the actors. If we represent the latent factors as vectors, than actors who have these vectors in the same direction will exhibit more stochastic equivalence, and those with actors in opposite directions will exhibit little such equivalence. In other words, if the factors point in the same direction, we should expect to see the actors having similar types and amounts of interactions with similar third parties. 
-
-% We can get a sense of the direction of these factors by placing each actor on a unit circle based on direction of this vector in comparison to the center of each actor's positions. Then, we can get a measure of this stochastic equivalence by comparing the difference in angles between these two actors. We do this in following section to examine the effect of violence against civilians on the shape of the latent group network.
