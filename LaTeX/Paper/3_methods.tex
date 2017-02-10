@@ -6,6 +6,7 @@ The year 2000 marks the beginning of a critically tense transition period in Nig
 President Obasanjo faces many more violent episodes during his first term. As Christian-Muslim disputes continue in the Northern regions, a tribal war in the eastern-central state of Benue foments. Thousands of people are forced to flee the region, and troops reportedly target unarmed civilians in retaliation for the abduction of nearly 20 soldiers. In April of 2003, Obasanjo is reelected, though the election's legitimacy is widely questioned. Obasanjo's second term is marked by continuing violence in the north driven by Christian-Muslim clashes and deepening violence in the Niger Delta where cities like Port Harcourt are besieged by militants vying for control of oil production centers. 
 
 Boko Haram, a radical religious movement, forms in 2002 and is led by Mohammed Yusuf. Yusuf spreads an anti-state, anti-elite ideology couched in Sunni teachings. His message is popular among the poor in many towns across the northeast. Conflict in the northern region of Nigeria continues along religious lines and by 2008 Boko Haram has grown increasingly well organized effectively operating as a mini-state with institutions, a welfare system, and religious police.  Clashes between Boko Haram and state security forces reach momentum during the 2009 uprising which spread across the states of Bauchi, Borno, Yobe, and Kano.
+% sm: some maps showing bh's reach would be nice
 
 In 2010, Vice President Goodluck Jonathan succeeds to the presidency after the death of his predecessor. Also around this time, Boko Haram's leader is killed by Nigerian police in a raid. This leads to an intensification of tactics by Boko Haram, which includes greater violence against civilians. Demonstratively, in December of 2010, Boko Haram bombs kill an estimated 80 people in the central city of Jos. This event sparks a response from opposing Christians leading to roughly 200 more deaths. %http://www.aljazeera.com/news/africa/2013/09/201397155225146644.html
 
@@ -17,39 +18,27 @@ Our study enables us to analyze both the entrance of Boko Haram into development
 
 \subsection*{ACLED Data}
 
-To study intra-state conflict patterns in Nigeria we turn to the Armed Conflict Location and Event Data Project (ACLED) initiated by \citet{raleigh:etal:2010}. This dataset records armed conflict and protest events in over 60 developing countries from 1997 onwards. ACLED's \textit{battles} data is used to generate our measure of conflict where $y_{ij,t} = 1$ represents that a conflict occurred between actor $i$ and actor $j$ at time $t$ ($y_{ij,t} = 0$ if no conflict occured).
+To study intra-state conflict patterns in Nigeria we turn to the Armed Conflict Location and Event Data Project (ACLED) initiated by \citet{raleigh:etal:2010}. This dataset records armed conflict and protest events in over 60 developing countries from 1997 onwards. ACLED's \textit{battles} data is used to generate our measure of conflict where $y_{ij,t} = 1$ represents that a conflict occurred between actor $i$ and actor $j$ at time $t$ ($y_{ij,t} = 0$ if no conflict occurred).
 
 To understand the role that civilians play in shaping conflict within the Nigerian system we create two nodal level covariates. First, we create a count of the number of protests/riots led by civilians against a given actor at time $t$. Second, we create a count of the number of violent actions that an actor committed against civilians at time $t$. We include these nodal covariates to explain both the probability of an actor sending and receiving a conflictual tie. 
 
 Additionally, we add two dyadic level covariates to the model. First, we create a control for whether both actors are a part of the government. There are only two actors within the 34 that we study in the Nigerian system that would fall under this classification, namely, the Police and Military. We include this control to account for the fact that the probability of an interaction between these two is minimal relative to the other armed groups in this system. More importantly, to examine the affect that Boko Haram had on the level of conflict in this system we include a binary variable that is one after the entrance of this group into the system and zero beforehand. 
 
-% \begin{align}
-% 	\begin{aligned}
-% 		y_{ij,t} &= g(\theta_{ij,t}) \\ 
-% 		&\theta_{ij,t} = \bm\beta^{T} \mathbf{X}_{ij,t} + e_{ij,t} \\
-% 		&e_{ij,t} = a_{i} + b_{j}  + \epsilon_{ij} + \alpha(\textbf{u}_{i}, \textbf{v}_{j}) \text{  , where } \\
-% 		&\qquad \alpha(\textbf{u}_{i}, \textbf{v}_{j}) = \textbf{u}_{i}^{T} \textbf{D} \textbf{v}_{j} = \sum_{k \in 2} d_{k} u_{ik} v_{jk} \\ 
-% 	\label{eqn:modelSpec}
-% 	\end{aligned}
-% \end{align}
-
-\section*{Creating a Conflict Network in Nigeria}
-
 \section*{Modelling Approach}
 
-To model and predict intra-state conflict in Nigeria, we rely on a network based approach that combines the social relations regression model (SRM), for details on this model see \citet{warner:etal:1979,wong:1982,li:loken:2002}, and the latent factor model developed by \citet{hoff:2009}. Together the SRM provides a set of additive effects that we can use to capture first and second order dependencies, and the latent factor model provides a set of multiplicative effects that we use to model third order dependencies. We refer to this particular estimator as the additive and multiplicative effects (AME) model:
+To estimate conflict in this system in a way that accounts for interdependencies between actors, we rely on a network based approach that combines the social relations regression model (SRM) -- for details on this model see \citet{warner:etal:1979,wong:1982,li:loken:2002} -- and the latent factor model developed by \citet{hoff:2009}. Together the SRM provides a set of additive effects that we can use to capture first and second order dependencies, and the latent factor model provides a set of multiplicative effects that we use to model third order dependencies. We refer to this estimator as the additive and multiplicative effects (AME) model:
 
 \begin{align}
 	\begin{aligned}
 		y_{ij,t} &= g(\theta_{ij,t}) \\ 
-		&\theta_{ij,t} = \bm\beta^{T} \mathbf{X}_{ij,t} + e_{ij,t} \\
+		&\theta_{ij,t} = \bm\beta_{d}^{T} \mathbf{X}_{ij,t} + \bm\beta_{s}^{T} \mathbf{X}_{i,t} + \bm\beta_{r}^{T} \mathbf{X}_{j,t} + e_{ij,t} \\
 		&e_{ij,t} = a_{i} + b_{j}  + \epsilon_{ij} + \alpha(\textbf{u}_{i}, \textbf{v}_{j}) \text{  , where } \\
 		&\qquad \alpha(\textbf{u}_{i}, \textbf{v}_{j}) = \textbf{u}_{i}^{T} \textbf{D} \textbf{v}_{j} = \sum_{k \in 2} d_{k} u_{ik} v_{jk} \\ 
 	\label{eqn:ame}
 	\end{aligned}
 \end{align}
 
-where $y_{ij,t}$ represents whether or not conflict occurred between actor $i$ and actor $j$ at time $t$. To model our binary dependent variable we employ a latent variable representation of a probit regression model, in which we model a latent variable, $\theta_{ij}$, using a set of time varying exogenous covariates, $\bm\beta^{T} \mathbf{X}_{ij,t}$. Then we model the error using the SRM and latent factor model. $a_{i}$ and $b_{j}$ represent sender and receiver random effects that we incorporate from the SRM framework:
+where $y_{ij,t}$ represents whether or not conflict occurred between actor $i$ and actor $j$ at time $t$. To model our binary dependent variable we employ a latent variable representation of a probit regression model, in which we model a latent variable, $\theta_{ij}$, using a set of time varying dyadic, sender, and receiver covariates, $\bm\beta_{d}^{T} \mathbf{X}_{ij,t}$, $\bm\beta_{s}^{T} \mathbf{X}_{i,t}$, and $\bm\beta_{r}^{T} \mathbf{X}_{j,t}$. Then we model the error using the SRM and latent factor model. $a_{i}$ and $b_{j}$ represent sender and receiver random effects that we incorporate from the SRM framework:
 
 \begin{align}
 	\begin{aligned}

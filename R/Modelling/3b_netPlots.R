@@ -31,7 +31,7 @@ uvCols = brewer.pal(11, 'RdBu')[c(11-2, 3)]
 circPlot=ggCirc(
 	Y=yArrSumm, U=fitFullSpec$U, V=fitFullSpec$V, vscale=.6, 
 	family="Source Sans Pro Light", force=3, 
-	lcol='gray92', lsize=.05) +
+	lcol='gray85', lsize=.05) +
 	scale_color_manual(values=uvCols)
 ggsave(circPlot, file=paste0(pathGraphics,'circPlot.pdf'), width=12, height=10, device=cairo_pdf)
 ################
