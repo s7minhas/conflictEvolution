@@ -111,7 +111,7 @@ lapply(1:length(yList), function(t){
 	png(filename=fName, width=1500,height=900)
 	plotGraph(g, pos, 
 		eCurve=FALSE, arrowSize=1.5,		
-		vShape='circle', vLabCex=g$labSize+.3,
+		vShape='circle', vLabCex=g$labSize+.6,
 		vertex.size=g$vSize^2.25, 
 		vertex.label.font=1, vertex.label.family="Helvetica",
 		vLabCol=vLabCol, vFrameCol=vCol, vCol=vCol,
@@ -123,5 +123,5 @@ lapply(1:length(yList), function(t){
 	dev.off()
 })
 setwd(pathGraphics)
-system("convert -delay 50 -loop 0 nigeriaT_*.png nigeriaConf.gif ; rm -rf nigeriaT_*.png")
+system("convert -delay 75 -loop 0 nigeriaT_*.png nigeriaConf.gif ; rm -rf nigeriaT_*.png")
 ################
