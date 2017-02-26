@@ -15,13 +15,14 @@ load(paste0(pathResults, 'ameResults.rda'))
 # function to run k-fold cross validation analysis using ame
 ameOutSamp = function(
 	yList, xDyadL=NULL, xRowL=NULL, xColL=NULL, startVals,
-	seed=6886, folds=30, 
+	seed=6886, 
 	R=2, model='bin', burn=10000, nscan=2000, odens=25, 
-	intercept=TRUE, rvar=TRUE, cvar=TRUE, symmetric=FALSE
+	intercept=TRUE, rvar=TRUE, cvar=TRUE, symmetric=FALSE,
+	folds=30, cores=6
 	){
 	
 	################
-	# divide dataset into folds
+	# divide dataset into folds randomly
 	set.seed(seed)
 	yListFolds = lapply(yList, function(y){
 		yFold=matrix(sample(1:folds, length(y), replace=TRUE),
@@ -41,17 +42,20 @@ ameOutSamp = function(
 		return(yListMiss) }) ; names(yCrossValTrain) = char(1:folds)
 	
 	# run ame by fold
-	fitCrossVal = lapply(yCrossValTrain, function(yCV){
+	loadPkg(c('doParallel', 'foreach'))
+	cl=makeCluster(cores) ; registerDoParallel(cl)
+	fitCrossVal <- foreach(ii=1:length(latDims), 
+		.packages=c('amen')) %dopar%{
 		fit=ame_repL(
-			Y=yCV, Xdyad=xDyadL, Xrow=xRowL, Xcol=xColL,
+			Y=yCrossValTrain[[ii]], Xdyad=xDyadL, Xrow=xRowL, Xcol=xColL,
 			symmetric=symmetric, rvar=rvar, cvar=cvar, R=R, 
 			model=model, intercept=intercept, seed=seed,
 			burn=burn, nscan=nscan, odens=odens, 
 			plot=FALSE, gof=TRUE, periodicSave=FALSE,
-			startVals=startVals
-			)
-		return(fit) })
-	
+			startVals=startVals )
+			return(fit) }
+	stopCluster(cl) ; names(fitCrossVal) = char(1:folds)
+
 	# get preds
 	outPerf = do.call('rbind', lapply(1:folds, function(f){
 		fitFoldPred = fitCrossVal[[f]]$'EZ'
