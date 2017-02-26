@@ -32,11 +32,9 @@ fit=ame_repL(
 # separate nodal into row and col [unnecessary in this case]
 xRowL = lapply(xNodeL, function(x){
 	x=x[,c('riotsAgainst','vioCivEvents'),drop=FALSE]	
-	x[c('Military Forces of Nigeria','Police Forces of Nigeria'),] = 0
 	return(x) })
 xColL = lapply(xNodeL, function(x){
 	x=x[,c('riotsAgainst','vioCivEvents'),drop=FALSE]	
-	x[c('Military Forces of Nigeria','Police Forces of Nigeria'),] = 0
 	return(x) })
 
 # run model
