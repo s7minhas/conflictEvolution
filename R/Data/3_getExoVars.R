@@ -20,13 +20,25 @@ vioContraCiv = summaryBy(x+FATALITIES~YEAR+a1,
 	FUN=sum)
 vioContraCiv$YEAR = vioContraCiv$YEAR + 1 # use lagged x
 
-rioData = nData[nData$EVENT_TYPE=='Riots/Protests',c('x','YEAR','a2','aa2')]
-tmp1 = na.omit(rioData[,-4]) ; tmp2 = na.omit(rioData[,-3])
+rioData = nData[nData$EVENT_TYPE=='Riots/Protests',c('x','YEAR','a1','a2','aa2')]
+rioData$protests = rioData$a1 == "Protesters (Nigeria)"
+rioData$riots = rioData$a1 == "Rioters (Nigeria)"
+
+tmp1 = na.omit(rioData[,-5]) ; tmp2 = na.omit(rioData[,-4])
+
 names(tmp2) = names(tmp1) ; rioData=rbind(tmp1,tmp2)
+riotData = rioData[rioData$riots == 1,]
+protData = rioData[rioData$protests == 1,]
+
 rioContraActor = summaryBy(x~YEAR+a2,
-	data=rioData,
+	data=riotData,
 	FUN=sum)
 rioContraActor$YEAR = rioContraActor$YEAR + 1 # use lagged x
+
+protContraActor = summaryBy(x~YEAR+a2,
+                            data=protData,
+                            FUN=sum)
+protContraActor$YEAR = protContraActor$YEAR + 1 # use lagged x
 #################
 
 #################
@@ -42,9 +54,9 @@ xNodeL = lapply(1:length(yList), function(t){
 	actors = rownames(y) ; n=nrow(y)
 
 	# create blank nodeMat
-	nodeMat = matrix(0, nrow=n, ncol=3, 
+	nodeMat = matrix(0, nrow=n, ncol=4, 
 		dimnames=list(actors, 
-			c('vioCivEvents','vioCivFatals', 'riotsAgainst')))
+			c('vioCivEvents','vioCivFatals', 'riotsAgainst', 'protestsAgainst')))
 	
 	# add in civ vio data
 	civSlice=vioContraCiv[vioContraCiv$YEAR==num(names(yList)[t]),]
@@ -57,6 +69,10 @@ xNodeL = lapply(1:length(yList), function(t){
 	rioSlice=rioSlice[which(rioSlice$a2 %in% rownames(nodeMat)),]
 	nodeMat[rioSlice$a2,'riotsAgainst'] = rioSlice$x.sum
 
+	protSlice=protContraActor[protContraActor$YEAR==num(names(yList)[t]),]
+	protSlice=protSlice[which(protSlice$a2 %in% rownames(nodeMat)),]
+	nodeMat[protSlice$a2,'protestsAgainst'] = protSlice$x.sum
+	
 	# 
 	return(nodeMat)
 }) ; names(xNodeL) = names(yList)
