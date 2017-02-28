@@ -20,8 +20,9 @@ mcmcData = fitFullSpec$BETA
 varKey = data.frame(dirty=colnames(mcmcData),stringsAsFactors=FALSE)
 varKey$clean = c(
 	'Intercept',
-	'Riots Against (Sender)', 'Civilian Attacks (Sender)',
-	'Riots Against (Receiver)', 'Civilian Attacks (Receiver)', 'Gov-Gov Actors','Post-Boko Haram')
+	'Riots Against (Sender)', 'Protests Against (Sender)', 'Civilian Attacks (Sender)',
+	'Riots Against (Receiver)', 'Protests Against (Receiver)', 'Civilian Attacks (Receiver)', 
+	'Gov-Gov Actors','Post-Boko Haram')
 varKey = varKey[c(7,2,4,3,5,6,1),]
 ggsave(paramPlot2(mcmcData, varKey), file=paste0(pathGraphics, 'betaTrace.pdf'), width=8,height=7)
 ################
@@ -50,11 +51,17 @@ ameBETA = ameBETA[-which(ameBETA$var %in% c('intercept','govActor.dyad')),]
 ameBETA$var[ameBETA$var=='postBoko.dyad'] = 'postBoko'
 
 # combine and cleanup
-dirtyVars=c('postBoko',paste0('riotsAgainst.',c('row','col')),paste0('vioCivEvents.',c('row','col')))
+dirtyVars=c(
+	'postBoko',
+	paste0('riotsAgainst.',c('row','col')),
+	paste0('protestsAgainst.',c('row','col')),
+	paste0('vioCivEvents.',c('row','col')))
 cleanVars=c(
 	'Post-Boko\nHaram Period$_{t}$',
-	'Number of\nRiots/Protests\nAgainst Sender$_{i,t-1}$',
-	'Number of\nRiots/Protests\nAgainst Receiver$_{j,t-1}$',
+	'Number of\nRiots\nAgainst Sender$_{i,t-1}$',
+	'Number of\nRiots\nAgainst Receiver$_{j,t-1}$',
+	'Number of\nProtests\nAgainst Sender$_{i,t-1}$',
+	'Number of\nProtests\nAgainst Receiver$_{j,t-1}$',	
 	'Number of\nViolent Events\nAgainst Civilians\nCommitted\nby Sender$_{i,t-1}$',
 	'Number of\nViolent Events\nAgainst Civilians\nCommitted\nby Receiver$_{j,t-1}$'
 	)
