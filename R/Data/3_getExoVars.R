@@ -1,8 +1,11 @@
 ################
 # workspace
-if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){ source('~/Research/conflictEvolution/R/setup.R')  }
-if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){ source('~/ProjectsGit/conflictEvolution/R/setup.R')  }
-if(Sys.info()['user']=='maxgallop'){ source('~/Documents/conflictEvolution/R/setup.R')  }
+if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){
+	source('~/Research/conflictEvolution/R/setup.R') }
+if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){
+	source('~/ProjectsGit/conflictEvolution/R/setup.R')  }
+if(Sys.info()['user']=='maxgallop'){
+	source('~/Documents/conflictEvolution/R/setup.R')  }
 #################
 
 #################
@@ -88,7 +91,9 @@ govActors=c('Military Forces of Nigeria','Police Forces of Nigeria')
 xDyadL = lapply(1:length(yList), function(t){
 	actors = rownames( yList[[t]] )
 	yr = num(names(yList)[t])
-	xArr = array(0,dim=c(length(actors),length(actors),2),dimnames=list(actors,actors,c('govActor','postBoko')))
+	xArr = array(0,
+		dim=c(length(actors),length(actors),2),
+		dimnames=list(actors,actors,c('govActor','postBoko')))
 	xArr[which(rownames(xArr) %in% govActors),which(colnames(xArr) %in% govActors),'govActor'] = 1
 	if(yr>2008){xArr[,,'postBoko']=1} # boko enters network in 2009
 	for(p in 1:dim(xArr)[3]){ diag(xArr[,,p])=NA }

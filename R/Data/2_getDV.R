@@ -1,8 +1,11 @@
 ################
 # workspace
-if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){ source('~/Research/conflictEvolution/R/setup.R')  }
-if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){ source('~/ProjectsGit/conflictEvolution/R/setup.R')  }
-if(Sys.info()['user']=='maxgallop'){ source('~/Documents/conflictEvolution/R/setup.R')  }
+if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){
+  source('~/Research/conflictEvolution/R/setup.R')  }
+if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){
+  source('~/ProjectsGit/conflictEvolution/R/setup.R')  }
+if(Sys.info()['user']=='maxgallop'){
+  source('~/Documents/conflictEvolution/R/setup.R')  }
 #################
 
 #################
@@ -21,7 +24,9 @@ nData = nData[which(nData$EVENT_TYPE %in% battles),]
 # get dates actors were active
 
 # flip over dataset to get actor dates
-orig = nData ; revOrig = orig ; revOrig$a2 = orig$a1 ; revOrig$a1 = orig$a2 ; tmp = rbind(orig, revOrig)
+orig = nData ; revOrig = orig
+revOrig$a2 = orig$a1 ; revOrig$a1 = orig$a2
+tmp = rbind(orig, revOrig)
 yrs=seq(min(nData$YEAR), max(nData$YEAR), by=1)
 loadPkg('doBy') ; actorDates = doBy::summaryBy(YEAR ~ a1, data=tmp, FUN=c(min, max))
 actorDates$yrsActive = actorDates$YEAR.max - actorDates$YEAR.min # length of years active

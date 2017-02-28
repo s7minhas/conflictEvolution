@@ -1,8 +1,11 @@
 ################
 # workspace
-if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){ source('~/Research/conflictEvolution/R/setup.R')  }
-if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){ source('~/ProjectsGit/conflictEvolution/R/setup.R')  }
-if(Sys.info()['user']=='maxgallop'){ source('~/Documents/conflictEvolution/R/setup.R')  }
+if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){
+	source('~/Research/conflictEvolution/R/setup.R') }
+if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){
+	source('~/ProjectsGit/conflictEvolution/R/setup.R') }
+if(Sys.info()['user']=='maxgallop'){
+	source('~/Documents/conflictEvolution/R/setup.R') }
 loadPkg('devtools') ; devtools::install_github('s7minhas/amen') ; library(amen)
 ################
 
@@ -31,10 +34,10 @@ fit=ame_repL(
 # Set up fitFullSpec model
 # separate nodal into row and col [unnecessary in this case]
 xRowL = lapply(xNodeL, function(x){
-	x=x[,c('riotsAgainst','vioCivEvents'),drop=FALSE]	
+	x=x[,c('riotsAgainst','protestsAgainst','vioCivEvents'),drop=FALSE]	
 	return(x) })
 xColL = lapply(xNodeL, function(x){
-	x=x[,c('riotsAgainst','vioCivEvents'),drop=FALSE]	
+	x=x[,c('riotsAgainst','protestsAgainst','vioCivEvents'),drop=FALSE]
 	return(x) })
 
 # run model
