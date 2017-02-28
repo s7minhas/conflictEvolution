@@ -42,21 +42,26 @@ glmOutSamp = function(glmForm){
 
 	# melt into glm format
 	yCrossValTrain = lapply(yCrossValTrain, function(y){
-		y = melt(y)
-		yLag = melt(yList) ; yLag$L1 = char(num(yLag$L1)-1)
-		xd = melt(xDyadL) ; xd = cbind(xd[xd$Var3=='govActor',], postBoko=xd$value[xd$Var3=='postBoko'])
+		y = melt(yList) ; yLag = melt(yList) ; yLag$L1 = char(num(yLag$L1)-1)
+		xd = melt(xDyadL)
+		xd = cbind(xd[xd$Var3=='govActor',],
+			postBoko=xd$value[xd$Var3=='postBoko'])
 		names(xd)[4]='govActor'
-		xr = melt(xRowL) ; xr = cbind(xr[xr$Var2=='riotsAgainst',], vioCivEvents=xr$value[xr$Var2=='vioCivEvents']) 
-		names(xr)[3]='riotsAgainst'
-		xc = melt(xColL) ; xc = cbind(xc[xc$Var2=='riotsAgainst',], vioCivEvents=xc$value[xc$Var2=='vioCivEvents']) 
-		names(xc)[3]='riotsAgainst'
+		xr = dcast(melt(xRowL), Var1 + L1 ~ Var2)
+		xc = dcast(melt(xColL), Var1 + L1 ~ Var2)
 		glmData = cbind(y,xd[,c('govActor','postBoko')])
-		glmData$riotsAgainst.row = xr$riotsAgainst[match(paste0(glmData$Var1,glmData$L1),paste0(xr$Var1,xr$L1))]
-		glmData$riotsAgainst.col = xc$riotsAgainst[match(paste0(glmData$Var2,glmData$L1),paste0(xc$Var1,xc$L1))]
-		glmData$vioCivEvents.row = xr$vioCivEvents[match(paste0(glmData$Var1,glmData$L1),paste0(xr$Var1,xr$L1))]
-		glmData$vioCivEvents.col = xc$vioCivEvents[match(paste0(glmData$Var2,glmData$L1),paste0(xc$Var1,xc$L1))]
+		for(v in names(xc)[c(3,5:ncol(xc))] ){
+			glmData$tmp = xr[,v][match(paste0(glmData$Var1,glmData$L1),
+				paste0(xr$Var1,xr$L1))]
+			names(glmData)[ncol(glmData)] = paste0(v, '.row')
+			glmData$tmp = xc[,v][match(paste0(glmData$Var2,glmData$L1),
+				paste0(xc$Var1,xc$L1))]
+			names(glmData)[ncol(glmData)] = paste0(v, '.col') }
 		glmData = glmData[which(glmData$Var1!=glmData$Var2),]
-		glmData$lagDV = yLag$value[match(paste0(glmData$Var1,glmData$Var2,glmData$L1), paste0(yLag$Var1,yLag$Var2,yLag$L1))]
+		glmData$lagDV = yLag$value[match(
+			paste0(glmData$Var1,glmData$Var2,glmData$L1), 
+			paste0(yLag$Var1,yLag$Var2,yLag$L1))]
+		glmData$lagDV[is.na(glmData$lagDV)] = 0
 		return(glmData)	
 	})
 
@@ -118,17 +123,15 @@ glmOutSamp_wLagDV=glmOutSamp( glmForm=formula(value ~ lagDV) )
 
 # run with ame full spec
 glmOutSamp_wFullSpec=glmOutSamp(
-	glmForm=formula(value ~ 
-		govActor + postBoko + 
-		riotsAgainst.row + vioCivEvents.row + 
-		riotsAgainst.col + vioCivEvents.col) )
+	glmForm=formula(value ~ govActor + postBoko +
+	riotsAgainst.row + protestsAgainst.row + vioCivEvents.row +
+	riotsAgainst.col + protestsAgainst.col + vioCivEvents.col) )
 
 # ame full spec + lag DV
 glmOutSamp_wFullSpecLagDV=glmOutSamp(
-	glmForm=formula(value ~ lagDV + 
-		govActor + postBoko + 
-		riotsAgainst.row + vioCivEvents.row + 
-		riotsAgainst.col + vioCivEvents.col) )
+	glmForm=formula(value ~ lagDV + govActor + postBoko +
+	riotsAgainst.row + protestsAgainst.row + vioCivEvents.row +
+	riotsAgainst.col + protestsAgainst.col + vioCivEvents.col) )
 
 # save
 save(
