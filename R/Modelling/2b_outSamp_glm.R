@@ -11,7 +11,7 @@ loadPkg('devtools') ; devtools::install_github('s7minhas/amen') ; library(amen)
 ################
 # load data
 load(paste0(pathResults, 'ameResults.rda'))
-rm(list=c('fit', 'fitDyadCovar', 'fitFullSpec'))
+rm(list=c('fit', 'fitFullSpec'))
 
 # crossval params
 seed=6886
@@ -42,7 +42,7 @@ glmOutSamp = function(glmForm){
 
 	# melt into glm format
 	yCrossValTrain = lapply(yCrossValTrain, function(y){
-		y = melt(yList) ; yLag = melt(yList) ; yLag$L1 = char(num(yLag$L1)-1)
+		y = melt(y) ; yLag = melt(yList) ; yLag$L1 = char(num(yLag$L1)-1)
 		xd = melt(xDyadL)
 		xd = cbind(xd[xd$Var3=='govActor',],
 			postBoko=xd$value[xd$Var3=='postBoko'])
@@ -50,7 +50,7 @@ glmOutSamp = function(glmForm){
 		xr = dcast(melt(xRowL), Var1 + L1 ~ Var2)
 		xc = dcast(melt(xColL), Var1 + L1 ~ Var2)
 		glmData = cbind(y,xd[,c('govActor','postBoko')])
-		for(v in names(xc)[c(3,5:ncol(xc))] ){
+		for(v in names(xc)[3:ncol(xc)] ){
 			glmData$tmp = xr[,v][match(paste0(glmData$Var1,glmData$L1),
 				paste0(xr$Var1,xr$L1))]
 			names(glmData)[ncol(glmData)] = paste0(v, '.row')
