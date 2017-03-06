@@ -5,32 +5,126 @@ if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){
   source('~/ProjectsGit/conflictEvolution/R/setup.R')  }
 if(Sys.info()['user']=='maxgallop'){
   source('~/Documents/conflictEvolution/R/setup.R')  }
-#################
 
-
+library(car)
+library(abind)
+library(spatstat)
 load(paste0(pathData, "nData.rda"))
 load(paste0(pathData,"exovars.rda"))
 
-latlong = function(actor,year, type = "LATITUDE" ){
-  return(c(nData[which((nData$YEAR == year) & (nData$a1 == actor)),type],nData[which((nData$YEAR == year) & (nData$a2 == actor)),type]))
+
+latlong = function(group, yr, type = "LATITUDE"){
+  return(c(nData[which(nData$a1 == group & nData$YEAR == yr), type], nData[which(nData$a2 == group & nData$YEAR == yr), type]))
 }
 
 
-names(xNodeL)
-sapply(rownames(xNodeL$'2000'), FUN = function(x) mean(latlong(x, year = 2000))  )
-min(nData$YEAR)
-latlong("Boko Haram", 2009, "LATITUDE")                                                                                      )
+
+
+
 for(i in 1:length(xNodeL)){
-locData[[i]] = matrix(0, nrow = dim(xNodeL[[i]])[1], ncol = 6)
-rownames(locData[[i]]) = rownames(xNodeL[[i]])
-colnames(locData[[i]]) = c("Lat.Center", "Lat.Q025", "Lat.Q975", "Long.Center", "Long.Q025", "Long.Q975")
-locData[[i]][,1] = sapply(rownames(xNodeL[[i]]), FUN = function(x) mean(latlong(x, year = names(xNodeL)[i], "LATITUDE"))  )
-locData[[i]][,2:3] = t(sapply(rownames(xNodeL[[i]]), FUN = function(x) quantile(latlong(x, year = names(xNodeL)[i], "LATITUDE"), c(0.025, 0.975))  ))
+  yr = names(xNodeL)[i]
+  
+  png(paste0(pathGraphics, "GeoPlots/GovEllipse", yr, ".png"), width = 640, height = 640)
+  groups = rownames(xNodeL[[i]])
+  locData = c() 
+  shortData = c()
+  for(j in 1:length(groups)){
+    lat = latlong(groups[j], yr, "LATITUDE")
+    lon = latlong(groups[j], yr, "LONGITUDE")
+    labels = rep(groups[j], length(lat))
+    if(length(unique(lat)) > 2 | length(unique(lon)) > 2){
+    locData = rbind(locData, cbind(lat, lon, labels))}
+    if(length(unique(lat)) <= 2 & length(unique(lon)) <= 2){
+    shortData = rbind(shortData, cbind(lat, lon, labels))
+    }
+  }
+  locData = data.frame(locData)
+  locData$lat = as.numeric(as.character(locData$lat))
+  locData$lon = as.numeric(as.character(locData$lon))
+  shortData = data.frame(shortData)
+  col = rainbow(length(levels(locData$labels)) + length(levels(shortData$labels)))
+  dataEllipse(locData$lon, locData$lat,  xlim = c(2, 14), ylim = c(4.5,14), groups = locData$labels, col = col[1:length(levels(locData$labels))])
+  shortData$lat = as.numeric(as.character(shortData$lat))
+  shortData$lon = as.numeric(as.character(shortData$lon))
+if(dim(shortData)[1] != 0){
+  latShort = summaryBy(lat~labels, data = shortData, FUN = mean)  
+  lonShort = summaryBy(lon~labels, data = shortData, FUN = mean)  
+  text(latShort$lat.mean, lonShort$lon.mean, levels(shortData$labels), col= cols[(length(levels(locData$labels)) + 1):length(cols)])}
+  dev.off()
+}
 
-locData[[i]][,4] = sapply(rownames(xNodeL[[i]]), FUN = function(x) mean(latlong(x, year = names(xNodeL)[i], "LONGITUDE"))  )
-locData[[i]][,5:6] = t(sapply(rownames(xNodeL[[i]]), FUN = function(x) quantile(latlong(x, year = names(xNodeL)[i], "LONGITUDE"), c(0.025, 0.975))  ))
-locData[[i]][which(is.nan(locData[[i]]))] = NA}
+for(i in 1:length(xNodeL)){
+  yr = names(xNodeL)[i]
+  
+  png(paste0(pathGraphics, "GeoPlots/NoGovEllipse", yr, ".png"), width = 640, height = 640)
+  groups = rownames(xNodeL[[i]])
+  locData = c() 
+  shortData = c()
+  for(j in 1:length(groups)){
+    if(!groups[j] %in% c("Military Forces of Nigeria", "Police Forces of Nigeria")){
+    lat = latlong(groups[j], yr, "LATITUDE")
+    lon = latlong(groups[j], yr, "LONGITUDE")
+    labels = rep(groups[j], length(lat))
+    if(length(unique(lat)) > 2 | length(unique(lon)) > 2){
+      locData = rbind(locData, cbind(lat, lon, labels))}
+    if(length(unique(lat)) <= 2 & length(unique(lon)) <= 2){
+      shortData = rbind(shortData, cbind(lat, lon, labels))
+    }}
+  }
+  locData = data.frame(locData)
+  locData$lat = as.numeric(as.character(locData$lat))
+  locData$lon = as.numeric(as.character(locData$lon))
+  shortData = data.frame(shortData)
+  col = rainbow(length(levels(locData$labels)) + length(levels(shortData$labels)))
+  dataEllipse(locData$lon, locData$lat, xlim = c(2, 14), ylim = c(4.5,14), groups = locData$labels, col = col[1:length(levels(locData$labels))])
+  shortData$lat = as.numeric(as.character(shortData$lat))
+  shortData$lon = as.numeric(as.character(shortData$lon))
+  if(dim(shortData)[1] != 0){
+    latShort = summaryBy(lat~labels, data = shortData, FUN = mean)  
+    lonShort = summaryBy(lon~labels, data = shortData, FUN = mean)  
+    text(latShort$lat.mean, lonShort$lon.mean, levels(shortData$labels), col= cols[(length(levels(locData$labels)) + 1):length(cols)])}
+  dev.off()
+}
 
 
-save(locData, file = paste0(pathData, "locData.rda"))
+
+for(i in 1:length(xDyadL)){
+  yr = names(xDyadL)[i]
+  groups = rownames(xDyadL[[i]])
+  coords = c()
+  for(j in 1:length(groups)){
+      lat = c()
+      lon = c()
+      for(k in 1:3){
+      lat = c(lat,latlong(groups[j], as.numeric(yr) - i , "LATITUDE"))
+      lon = c(lon, latlong(groups[j], as.numeric(yr) - i, "LONGITUDE"))}
+      coords = rbind(coords, c(median(lat), median(lon)))
+  }
+  dists = as.matrix(dist(coords, upper = T, diag = T))
+  xDyadL[[i]] = abind(xDyadL[[i]], dists, along = 3)
+  dimnames(xDyadL[[i]]) = list(groups, groups, c("govActor", "postBoko", "medianDist"))
+}
+
+
+for(i in 1:length(xNodeL)){
+  yr = names(xDyadL)[i]
+  groups = rownames(xDyadL[[i]])
+  groupspread = numeric(length(groups))
+  coords = c()
+  for(j in 1:length(groups)){
+    lat = c()
+    lon = c()
+    for(k in 1:3){
+      lat = c(lat,latlong(groups[j], as.numeric(yr) - i , "LATITUDE"))
+      lon = c(lon, latlong(groups[j], as.numeric(yr) - i, "LONGITUDE"))}
+  mean.c = c(mean(lat), mean(lon))
+  groupspread[j] = mean(as.matrix(dist(rbind(mean.c, cbind(lat, lon)), upper = T, diag = T))[,1])}
+  xNodeL[[i]] = cbind(xNodeL[[i]], groupspread)
+  dimnames(xNodeL[[i]]) = list(groups, c("vioCivEvents", "vioCivFatals", "riotsAgainst", "protestsAgainst", "groupSpread"))
+}
+
+
+save(xDyadL, xNodeL, file = "exovars.rda")
+
+
 
