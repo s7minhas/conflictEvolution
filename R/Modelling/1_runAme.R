@@ -39,10 +39,10 @@ xNodeL = lapply(xNodeL, function(x){
 })
 
 xRowL = lapply(xNodeL, function(x){
-	x=x[,c('rioProContra','vioCivEvents', 'groupSpread'),drop=FALSE]	
+	x=x[,c('rioProContra','vioCivEvents'),drop=FALSE]	
 	return(x) })
 xColL = lapply(xNodeL, function(x){
-	x=x[,c('rioProContra','vioCivEvents', 'groupSpread'),drop=FALSE]
+	x=x[,c('rioProContra','vioCivEvents'),drop=FALSE]
 	return(x) })
 
 # run model
@@ -50,7 +50,7 @@ fitFullSpec=ame_repL(
 	Y=yList, Xdyad=xDyadL, Xrow=xRowL, Xcol=xColL,
 	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 	model='bin', intercept=TRUE, seed=6886,
-	burn=25000, nscan=100000, odens=25, 
+	burn=50000, nscan=100000, odens=25, 
 	plot=FALSE, gof=TRUE, periodicSave=FALSE
 	)
 ################
