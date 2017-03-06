@@ -25,7 +25,7 @@ names(xd)[4]='govActor'
 xr = dcast(melt(xRowL), Var1 + L1 ~ Var2)
 xc = dcast(melt(xColL), Var1 + L1 ~ Var2)
 glmData = cbind(y,xd[,c('govActor','postBoko')])
-for(v in names(xc)[c(3,5:ncol(xc))] ){
+for(v in names(xc)[3:ncol(xc)] ){
 	glmData$tmp = xr[,v][match(paste0(glmData$Var1,glmData$L1),
 		paste0(xr$Var1,xr$L1))]
 	names(glmData)[ncol(glmData)] = paste0(v, '.row')
@@ -97,10 +97,10 @@ fitIn_ame = ame_repL(
 	) 
 
 # org AME results
-beta = apply(fitIn$BETA,2,mean)
-a = fitIn$APM[rownames(y_Out)]
-b = fitIn$BPM[rownames(y_Out)]
-UVPM = fitIn$UVPM[rownames(y_Out),rownames(y_Out)]
+beta = apply(fitIn_ame$BETA,2,mean)
+a = fitIn_ame$APM[rownames(y_Out)]
+b = fitIn_ame$BPM[rownames(y_Out)]
+UVPM = fitIn_ame$UVPM[rownames(y_Out),rownames(y_Out)]
 
 x_Out = array(1, 
 	dim=c(  nrow(y_Out),nrow(y_Out), length(beta) ),
