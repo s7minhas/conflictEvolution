@@ -13,12 +13,10 @@ loadPkg('devtools') ; devtools::install_github('s7minhas/amen') ; library(amen)
 # load data
 load(paste0(pathData, 'nigeriaMatList_acled_v7.rda')) # loads yList object
 load(paste0(pathData, 'exoVars.rda')) # load xNodeL, xDyadL
-load(paste0(pathData, 'locData.rda')) # load locData
-names(locData) = names(xDyadL)
 
 # focus on post 2000 data [few actors beforehand]
 yrs = char(2000:2016)
-yList = yList[yrs] ; xDyadL = xDyadL[yrs] ; xNodeL = xNodeL[yrs] ; locData = locData[yrs]
+yList = yList[yrs] ; xDyadL = xDyadL[yrs] ; xNodeL = xNodeL[yrs]
 ###############
 
 ################
@@ -35,11 +33,16 @@ fit=ame_repL(
 ################
 # Set up fitFullSpec model
 # separate nodal into row and col [unnecessary in this case]
+xNodeL = lapply(xNodeL, function(x){
+	x = cbind(x, x[,'riotsAgainst'] + x[,'protestsAgainst'])
+	colnames(x)[ncol(x)] = 'rioProContra' ; return(x)
+})
+
 xRowL = lapply(xNodeL, function(x){
-	x=x[,c('riotsAgainst','protestsAgainst','vioCivEvents'),drop=FALSE]	
+	x=x[,c('rioProContra','vioCivEvents', 'groupSpread'),drop=FALSE]	
 	return(x) })
 xColL = lapply(xNodeL, function(x){
-	x=x[,c('riotsAgainst','protestsAgainst','vioCivEvents'),drop=FALSE]
+	x=x[,c('rioProContra','vioCivEvents', 'groupSpread'),drop=FALSE]
 	return(x) })
 
 # run model
