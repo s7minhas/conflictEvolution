@@ -32,11 +32,11 @@ fit=ame_repL(
 
 ################
 # Set up fitFullSpec model
+
 # separate nodal into row and col [unnecessary in this case]
 xNodeL = lapply(xNodeL, function(x){
 	x = cbind(x, x[,'riotsAgainst'] + x[,'protestsAgainst'])
-	colnames(x)[ncol(x)] = 'rioProContra' ; return(x)
-})
+	colnames(x)[ncol(x)] = 'rioProContra' ; return(x) })
 
 xRowL = lapply(xNodeL, function(x){
 	x=x[,c('rioProContra','vioCivEvents'),drop=FALSE]	
@@ -45,21 +45,35 @@ xColL = lapply(xNodeL, function(x){
 	x=x[,c('rioProContra','vioCivEvents'),drop=FALSE]
 	return(x) })
 
-# run model
+# dyadic covar specs
+xDyadL_noDist = lapply(xDyadL, function(x){
+  x=x[,c('govActor.dyad','postBoko.dyad','medianDist.dyad'),drop=FALSE]
+  return(x) })
+
+# run models
 fitFullSpec=ame_repL(
 	Y=yList, Xdyad=xDyadL, Xrow=xRowL, Xcol=xColL,
 	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 	model='bin', intercept=TRUE, seed=6886,
-	burn=50000, nscan=100000, odens=25, 
+	burn=100000, nscan=500000, odens=25, 
 	plot=FALSE, gof=TRUE, periodicSave=FALSE
 	)
+
+fitFullSpec_noDist=ame_repL(
+  Y=yList, Xdyad=xDyadL_noDist, Xrow=xRowL, Xcol=xColL,
+  symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
+  model='bin', intercept=TRUE, seed=6886,
+  burn=50000, nscan=100000, odens=25, 
+  plot=FALSE, gof=TRUE, periodicSave=FALSE
+)
 ################
 
 ################
 # save
 save(
-	fit, fitFullSpec,
-	yList, xNodeL, xDyadL, xRowL, xColL,
+	fit, fitFullSpec, fitFullSpec_noDist,
+	yList, xNodeL, xRowL, xColL,
+	xDyadL, xDyadL_noDist,
 	file=paste0(pathResults, 'ameResults.rda')
 	)
 ################

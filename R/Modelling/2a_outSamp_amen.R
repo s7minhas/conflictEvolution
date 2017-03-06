@@ -108,9 +108,15 @@ ameOutSamp_wFullSpec = ameOutSamp(
 	startVals=fitFullSpec$startVals
 	)
 
+ameOutSamp_wFullSpec_nodist = ameOutSamp(
+  yList=yList, xDyadL=xDyadL_noDist, xRowL=xRowL, xColL=xColL,
+  startVals=fitFullSpec_noDist$startVals
+)
+
 # save
 save(
 	ameOutSamp_NULL, ameOutSamp_wFullSpec, 
+	ameOutSamp_wFullSpec_noDist,
 	file=paste0(pathResults, 'ameCrossValResults.rda')
 	)
 ################
