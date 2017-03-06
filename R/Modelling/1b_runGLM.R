@@ -19,11 +19,13 @@ rm(list=c('fit', 'fitFullSpec'))
 y = melt(yList) ; yLag = melt(yList) ; yLag$L1 = char(num(yLag$L1)-1)
 xd = melt(xDyadL)
 xd = cbind(xd[xd$Var3=='govActor',],
-	postBoko=xd$value[xd$Var3=='postBoko'])
+	postBoko=xd$value[xd$Var3=='postBoko'],
+	medianDist=xd$value[xd$Var3=='medianDist']
+	)
 names(xd)[4]='govActor'
 xr = dcast(melt(xRowL), Var1 + L1 ~ Var2)
 xc = dcast(melt(xColL), Var1 + L1 ~ Var2)
-glmData = cbind(y,xd[,c('govActor','postBoko')])
+glmData = cbind(y,xd[,c('govActor','postBoko','medianDist')])
 for(v in names(xc)[3:ncol(xc)] ){
 	glmData$tmp = xr[,v][match(paste0(glmData$Var1,glmData$L1),
 		paste0(xr$Var1,xr$L1))]
@@ -42,14 +44,16 @@ glmData$lagDV[is.na(glmData$lagDV)] = 0
 # run GLM
 gfitLagDV = glm(value ~ lagDV, data=glmData, family='binomial')
 
-gfitFullSpec = glm(value ~ govActor + postBoko +
-	riotsAgainst.row + protestsAgainst.row + vioCivEvents.row +
-	riotsAgainst.col + protestsAgainst.col + vioCivEvents.col, 
+gfitFullSpec = glm(value ~
+	govActor + postBoko + medianDist + 
+	rioProContra.row + vioCivEvents.row + groupSpread.row + 
+	rioProContra.col + vioCivEvents.col + groupSpread.col, 
 	data=glmData, family='binomial')
 
-gfitFullSpecLagDV = glm(value ~ lagDV + govActor + postBoko +
-	riotsAgainst.row + protestsAgainst.row + vioCivEvents.row +
-	riotsAgainst.col + protestsAgainst.col + vioCivEvents.col, 
+gfitFullSpecLagDV = glm(value ~ lagDV +
+	govActor + postBoko + medianDist + 
+	rioProContra.row + vioCivEvents.row + groupSpread.row + 
+	rioProContra.col + vioCivEvents.col + groupSpread.col, 
 	data=glmData, family='binomial')	
 ###############
 
