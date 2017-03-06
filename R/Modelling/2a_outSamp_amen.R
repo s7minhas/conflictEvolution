@@ -44,7 +44,7 @@ ameOutSamp = function(
 	# run ame by fold
 	loadPkg(c('doParallel', 'foreach'))
 	cl=makeCluster(cores) ; registerDoParallel(cl)
-	fitCrossVal <- foreach(ii=1:length(latDims), 
+	fitCrossVal <- foreach(ii=1:length(yCrossValTrain), 
 		.packages=c('amen')) %dopar%{
 		fit=ame_repL(
 			Y=yCrossValTrain[[ii]], Xdyad=xDyadL, Xrow=xRowL, Xcol=xColL,
