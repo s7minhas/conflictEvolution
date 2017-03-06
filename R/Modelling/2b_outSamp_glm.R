@@ -131,6 +131,13 @@ glmOutSamp_wFullSpec=glmOutSamp(
 		rioProContra.col + vioCivEvents.col
 		) )
 
+glmOutSamp_wFullSpec_noDist=glmOutSamp(
+  glmForm=formula(value ~
+    govActor + postBoko + 
+    rioProContra.row + vioCivEvents.row + 
+    rioProContra.col + vioCivEvents.col
+  ) )
+
 # ame full spec + lag DV
 glmOutSamp_wFullSpecLagDV=glmOutSamp(
 	glmForm=formula(value ~
@@ -139,10 +146,19 @@ glmOutSamp_wFullSpecLagDV=glmOutSamp(
 		rioProContra.col + vioCivEvents.col
 		) )
 
+glmOutSamp_wFullSpecLagDV_noDist=glmOutSamp(
+  glmForm=formula(value ~
+    lagDV + govActor + postBoko + 
+    rioProContra.row + vioCivEvents.row + 
+    rioProContra.col + vioCivEvents.col
+  ) )
+
 # save
 save(
 	glmOutSamp_wFullSpec, glmOutSamp_wLagDV,
+	glmOutSamp_wLagDV_noDist,
 	glmOutSamp_wFullSpecLagDV,
+	glmOutSamp_wFullSpecLagDV_noDist,
 	file=paste0(pathResults, 'glmCrossValResults.rda')
 	)
 ################
