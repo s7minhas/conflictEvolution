@@ -50,17 +50,30 @@ gfitFullSpec = glm(value ~
 	rioProContra.col + vioCivEvents.col, 
 	data=glmData, family='binomial')
 
+gfitFullSpec_noDist = glm(value ~
+  govActor + postBoko +
+  rioProContra.row + vioCivEvents.row +
+  rioProContra.col + vioCivEvents.col, 
+  data=glmData, family='binomial')
+
 gfitFullSpecLagDV = glm(value ~ lagDV +
 	govActor + postBoko + medianDist + 
 	rioProContra.row + vioCivEvents.row +
 	rioProContra.col + vioCivEvents.col, 
 	data=glmData, family='binomial')	
+
+gfitFullSpecLagDV_noDist = glm(value ~ lagDV +
+  govActor + postBoko +
+  rioProContra.row + vioCivEvents.row +
+  rioProContra.col + vioCivEvents.col, 
+  data=glmData, family='binomial')	
 ###############
 
 ###############
 # save
 save(
 	gfitLagDV, gfitFullSpec, gfitFullSpecLagDV,
+	gfitFullSpec_noDist, gfitFullSpecLagDV_noDist,
 	file=paste0(pathResults, 'glmResults.rda')
 	)
 ###############
