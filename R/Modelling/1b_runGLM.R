@@ -11,7 +11,7 @@ if(Sys.info()['user']=='maxgallop'){
 ################
 # load data
 load(paste0(pathResults, 'ameResults.rda'))
-rm(list=c('fit', 'fitDyadCovar', 'fitFullSpec'))
+rm(list=c('fit', 'fitFullSpec'))
 ###############
 
 ###############
@@ -24,7 +24,7 @@ names(xd)[4]='govActor'
 xr = dcast(melt(xRowL), Var1 + L1 ~ Var2)
 xc = dcast(melt(xColL), Var1 + L1 ~ Var2)
 glmData = cbind(y,xd[,c('govActor','postBoko')])
-for(v in names(xc)[c(3,5:ncol(xc))] ){
+for(v in names(xc)[3:ncol(xc)] ){
 	glmData$tmp = xr[,v][match(paste0(glmData$Var1,glmData$L1),
 		paste0(xr$Var1,xr$L1))]
 	names(glmData)[ncol(glmData)] = paste0(v, '.row')
