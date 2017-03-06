@@ -124,7 +124,6 @@ for(i in 1:length(xNodeL)){
 }
 
 
-save(xDyadL, xNodeL, file = "exovars.rda")
-
+save(xDyadL, xNodeL, file = paste0(pathData,"exoVars.rda"))
 
 
