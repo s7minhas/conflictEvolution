@@ -13,10 +13,12 @@ loadPkg('devtools') ; devtools::install_github('s7minhas/amen') ; library(amen)
 # load data
 load(paste0(pathData, 'nigeriaMatList_acled_v7.rda')) # loads yList object
 load(paste0(pathData, 'exoVars.rda')) # load xNodeL, xDyadL
+load(paste0(pathData, 'locData.rda')) # load locData
+names(locData) = names(xDyadL)
 
 # focus on post 2000 data [few actors beforehand]
 yrs = char(2000:2016)
-yList = yList[yrs] ; xDyadL = xDyadL[yrs] ; xNodeL = xNodeL[yrs]
+yList = yList[yrs] ; xDyadL = xDyadL[yrs] ; xNodeL = xNodeL[yrs] ; locData = locData[yrs]
 ###############
 
 ################
