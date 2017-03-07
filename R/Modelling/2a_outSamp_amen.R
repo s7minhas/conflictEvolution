@@ -16,9 +16,9 @@ load(paste0(pathResults, 'ameResults.rda'))
 ameOutSamp = function(
 	yList, xDyadL=NULL, xRowL=NULL, xColL=NULL, startVals,
 	seed=6886, 
-	R=2, model='bin', burn=10000, nscan=2000, odens=25, 
+	R=2, model='bin', burn=10000, nscan=20000, odens=25, 
 	intercept=TRUE, rvar=TRUE, cvar=TRUE, symmetric=FALSE,
-	folds=30, cores=6
+	folds=30, cores=3
 	){
 	
 	################
