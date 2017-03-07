@@ -156,8 +156,8 @@ glmOutSamp_wFullSpecLagDV_noDist=glmOutSamp(
 # save
 save(
 	glmOutSamp_wFullSpec, glmOutSamp_wLagDV,
-	glmOutSamp_wLagDV_noDist,
 	glmOutSamp_wFullSpecLagDV,
+	glmOutSamp_wFullSpec_noDist,
 	glmOutSamp_wFullSpecLagDV_noDist,
 	file=paste0(pathResults, 'glmCrossValResults.rda')
 	)
