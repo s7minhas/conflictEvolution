@@ -16,9 +16,8 @@ load(paste0(pathResults, 'ameResults.rda'))
 ameOutSamp = function(
 	yList, xDyadL=NULL, xRowL=NULL, xColL=NULL, startVals,
 	seed=6886, 
-	R=2, model='bin', burn=10000, nscan=20000, odens=25, 
-	intercept=TRUE, rvar=TRUE, cvar=TRUE, symmetric=FALSE,
-	folds=30, cores=3
+	R=2, model='bin', intercept=TRUE, rvar=TRUE, cvar=TRUE, symmetric=FALSE,
+	burn=10000, nscan=20000, odens=25, folds=30, cores=3
 	){
 	
 	################
@@ -108,7 +107,7 @@ ameOutSamp_wFullSpec = ameOutSamp(
 	startVals=fitFullSpec$startVals
 	)
 
-ameOutSamp_wFullSpec_nodist = ameOutSamp(
+ameOutSamp_wFullSpec_noDist = ameOutSamp(
   yList=yList, xDyadL=xDyadL_noDist, xRowL=xRowL, xColL=xColL,
   startVals=fitFullSpec_noDist$startVals
 )
