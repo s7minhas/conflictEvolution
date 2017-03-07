@@ -51,9 +51,9 @@ gfitFullSpec = glm(value ~
 	data=glmData, family='binomial')
 
 gfitFullSpec_noDist = glm(value ~
-  govActor + postBoko +
-  rioProContra.row + vioCivEvents.row +
-  rioProContra.col + vioCivEvents.col, 
+	govActor + postBoko +
+	rioProContra.row + vioCivEvents.row +
+	rioProContra.col + vioCivEvents.col, 
   data=glmData, family='binomial')
 
 gfitFullSpecLagDV = glm(value ~ lagDV +
@@ -63,9 +63,9 @@ gfitFullSpecLagDV = glm(value ~ lagDV +
 	data=glmData, family='binomial')	
 
 gfitFullSpecLagDV_noDist = glm(value ~ lagDV +
-  govActor + postBoko +
-  rioProContra.row + vioCivEvents.row +
-  rioProContra.col + vioCivEvents.col, 
+	govActor + postBoko +
+	rioProContra.row + vioCivEvents.row +
+	rioProContra.col + vioCivEvents.col, 
   data=glmData, family='binomial')	
 ###############
 

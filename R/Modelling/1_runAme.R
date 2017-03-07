@@ -20,17 +20,6 @@ yList = yList[yrs] ; xDyadL = xDyadL[yrs] ; xNodeL = xNodeL[yrs]
 ###############
 
 ################
-# NULL model
-fit=ame_repL(
-	Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL, 
-	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
-	model='bin', intercept=TRUE, seed=6886,
-	burn=50000, nscan=25000, odens=25, 
-	plot=FALSE, gof=TRUE, periodicSave=FALSE
-	)
-################
-
-################
 # Set up fitFullSpec model
 
 # separate nodal into row and col [unnecessary in this case]
@@ -47,10 +36,18 @@ xColL = lapply(xNodeL, function(x){
 
 # dyadic covar specs
 xDyadL_noDist = lapply(xDyadL, function(x){
-  x=x[,c('govActor.dyad','postBoko.dyad','medianDist.dyad'),drop=FALSE]
+  x=x[,,c('govActor','postBoko'),drop=FALSE]
   return(x) })
 
 # run models
+fit=ame_repL(
+	Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL, 
+	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
+	model='bin', intercept=TRUE, seed=6886,
+	burn=50000, nscan=25000, odens=25, 
+	plot=FALSE, gof=TRUE, periodicSave=FALSE
+	)
+
 fitFullSpec=ame_repL(
 	Y=yList, Xdyad=xDyadL, Xrow=xRowL, Xcol=xColL,
 	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
@@ -60,11 +57,11 @@ fitFullSpec=ame_repL(
 	)
 
 fitFullSpec_noDist=ame_repL(
-  Y=yList, Xdyad=xDyadL_noDist, Xrow=xRowL, Xcol=xColL,
-  symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
-  model='bin', intercept=TRUE, seed=6886,
-  burn=50000, nscan=100000, odens=25, 
-  plot=FALSE, gof=TRUE, periodicSave=FALSE
+	Y=yList, Xdyad=xDyadL_noDist, Xrow=xRowL, Xcol=xColL,
+	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
+	model='bin', intercept=TRUE, seed=6886,
+	burn=50000, nscan=100000, odens=25, 
+	plot=FALSE, gof=TRUE, periodicSave=FALSE
 )
 ################
 

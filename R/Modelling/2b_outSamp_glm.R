@@ -132,10 +132,10 @@ glmOutSamp_wFullSpec=glmOutSamp(
 		) )
 
 glmOutSamp_wFullSpec_noDist=glmOutSamp(
-  glmForm=formula(value ~
-    govActor + postBoko + 
-    rioProContra.row + vioCivEvents.row + 
-    rioProContra.col + vioCivEvents.col
+	glmForm=formula(value ~
+		govActor + postBoko + 
+		rioProContra.row + vioCivEvents.row + 
+		rioProContra.col + vioCivEvents.col
   ) )
 
 # ame full spec + lag DV
@@ -147,10 +147,10 @@ glmOutSamp_wFullSpecLagDV=glmOutSamp(
 		) )
 
 glmOutSamp_wFullSpecLagDV_noDist=glmOutSamp(
-  glmForm=formula(value ~
-    lagDV + govActor + postBoko + 
-    rioProContra.row + vioCivEvents.row + 
-    rioProContra.col + vioCivEvents.col
+	glmForm=formula(value ~
+		lagDV + govActor + postBoko + 
+		rioProContra.row + vioCivEvents.row + 
+		rioProContra.col + vioCivEvents.col
   ) )
 
 # save
