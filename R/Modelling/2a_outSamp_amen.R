@@ -61,8 +61,11 @@ ameOutSamp = function(
 		do.call('rbind', lapply(1:length(fitFoldPred), function(t){
 			predT = fitFoldPred[[t]]
 			foldID = yListFolds[[t]] ; y = yList[[t]]
+			covarMissInfo = design_array_listwisedel(xRowL[[t]], xColL[[t]], xDyadL[[t]], intercept, nrow(y))
+			covarMissInfo = apply(covarMissInfo, c(1,2), sum)
+			covarMissInfo[!is.na(covarMissInfo)] = 1
 			foldID[foldID!=f]=NA ; foldID[!is.na(foldID)] = 1
-			y=y*foldID ; predT=predT*foldID
+			y=y*foldID*covarMissInfo ; predT=predT*foldID
 			res=na.omit(data.frame(actual=c(y), pred=c(predT), fold=f, stringsAsFactors=FALSE))
 			res$pred = 1/(1+exp(-res$pred))
 			return(res) }) ) }) )
