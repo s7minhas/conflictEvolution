@@ -47,34 +47,37 @@ glmData$lagDV[is.na(glmData$lagDV)] = 0
 # organize data
 dropFromEnd=1
 y_In = yList[ 1:(length(yList)-dropFromEnd) ]
+# xDyadL_In = xDyadL_noDist[ 1:(length(yList)-dropFromEnd) ]
 xDyadL_In = xDyadL[ 1:(length(yList)-dropFromEnd) ]
 xRowL_In = xRowL[ 1:(length(yList)-dropFromEnd) ]
 xColL_In = xColL[ 1:(length(yList)-dropFromEnd) ]
 glmData_In = glmData[which(glmData$L1 %in% names(yList)[1:(length(yList)-dropFromEnd)]), ]
 
 y_Out = yList[[ length(yList) - (dropFromEnd - 1) ]]
+# xDyadL_Out = xDyadL_noDist[[ length(yList) - (dropFromEnd - 1) ]]
 xDyadL_Out = xDyadL[[ length(yList) - (dropFromEnd - 1) ]]
 xRowL_Out = xRowL[[ length(yList) - (dropFromEnd - 1) ]]
 xColL_Out = xColL[[ length(yList) - (dropFromEnd - 1) ]]
 glmData_Out = glmData[which(glmData$L1 %in% names(yList)[length(yList) - (dropFromEnd - 1)]), ]
 
-# glm Formulas
-# run with lag dv
-glmOutSamp_wLagDV=glmOutSamp( glmForm=formula(value ~ lagDV) )
+# # glm Formulas
+# # run with lag dv
+# glmOutSamp_wLagDV=glmOutSamp( glmForm=formula(value ~ lagDV) )
 
-# run with ame full spec
-glmOutSamp_wFullSpec=glmOutSamp(
-	glmForm=formula(value ~ govActor + postBoko + medianDist + 
-	rioProContra.row + vioCivEvents.row +
-	rioProContra.col + vioCivEvents.col) )
+# # run with ame full spec
+# glmOutSamp_wFullSpec=glmOutSamp(
+# 	glmForm=formula(value ~ govActor + postBoko + medianDist + 
+# 	rioProContra.row + vioCivEvents.row +
+# 	rioProContra.col + vioCivEvents.col) )
 
-# ame full spec + lag DV
-glmOutSamp_wFullSpecLagDV=glmOutSamp(
-	glmForm=formula(value ~ lagDV + govActor + postBoko + medianDist + 
-	rioProContra.row + vioCivEvents.row +
-	rioProContra.col + vioCivEvents.col) )
+# # ame full spec + lag DV
+# glmOutSamp_wFullSpecLagDV=glmOutSamp(
+# 	glmForm=formula(value ~ lagDV + govActor + postBoko + medianDist + 
+# 	rioProContra.row + vioCivEvents.row +
+# 	rioProContra.col + vioCivEvents.col) )
 
 # run GLM
+# glmForm=formula(value ~ lagDV + govActor + postBoko +
 glmForm=formula(value ~ lagDV + govActor + postBoko + medianDist + 
 	rioProContra.row + vioCivEvents.row +
 	rioProContra.col + vioCivEvents.col) 
@@ -86,10 +89,9 @@ glm_Prob = 1/(1+exp(-glm_Pred))
 outPerf_glm = data.frame(glmData_Out[,1:3], pred=glm_Prob)
 aucROC_glm=getAUC(outPerf_glm$pred, outPerf_glm$value)
 aucPR_glm=auc_pr(outPerf_glm$value, outPerf_glm$pred)
-aucROC_glm
-aucPR_glm
 
 # run AME mods
+# startVals = fitFullSpec_noDist$startVals
 startVals = fitFullSpec$startVals
 startVals$Z = startVals$Z[,,-dim( startVals$Z )[3] ]
 fitIn_ame = ame_repL(
@@ -119,6 +121,10 @@ outPerf = outPerf[outPerf$Var1 != outPerf$Var2,]
 
 aucROC=getAUC(outPerf$pred, outPerf$value)
 aucPR=auc_pr(outPerf$value, outPerf$pred)
+
+aucROC_glm
+aucPR_glm
+
 aucROC
 aucPR
 ################
