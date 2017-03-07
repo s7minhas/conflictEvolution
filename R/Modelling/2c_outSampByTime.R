@@ -20,11 +20,13 @@ load(paste0(pathResults, 'ameResults.rda'))
 y = melt(yList) ; yLag = melt(yList) ; yLag$L1 = char(num(yLag$L1)-1)
 xd = melt(xDyadL)
 xd = cbind(xd[xd$Var3=='govActor',],
-	postBoko=xd$value[xd$Var3=='postBoko'])
+	postBoko=xd$value[xd$Var3=='postBoko'],
+	medianDist=xd$value[xd$Var3=='medianDist']
+	)
 names(xd)[4]='govActor'
 xr = dcast(melt(xRowL), Var1 + L1 ~ Var2)
 xc = dcast(melt(xColL), Var1 + L1 ~ Var2)
-glmData = cbind(y,xd[,c('govActor','postBoko')])
+glmData = cbind(y,xd[,c('govActor','postBoko','medianDist')])
 for(v in names(xc)[3:ncol(xc)] ){
 	glmData$tmp = xr[,v][match(paste0(glmData$Var1,glmData$L1),
 		paste0(xr$Var1,xr$L1))]
@@ -62,20 +64,20 @@ glmOutSamp_wLagDV=glmOutSamp( glmForm=formula(value ~ lagDV) )
 
 # run with ame full spec
 glmOutSamp_wFullSpec=glmOutSamp(
-	glmForm=formula(value ~ govActor + postBoko +
-	riotsAgainst.row + protestsAgainst.row + vioCivEvents.row +
-	riotsAgainst.col + protestsAgainst.col + vioCivEvents.col) )
+	glmForm=formula(value ~ govActor + postBoko + medianDist + 
+	rioProContra.row + vioCivEvents.row +
+	rioProContra.col + vioCivEvents.col) )
 
 # ame full spec + lag DV
 glmOutSamp_wFullSpecLagDV=glmOutSamp(
-	glmForm=formula(value ~ lagDV + govActor + postBoko +
-	riotsAgainst.row + protestsAgainst.row + vioCivEvents.row +
-	riotsAgainst.col + protestsAgainst.col + vioCivEvents.col) )
+	glmForm=formula(value ~ lagDV + govActor + postBoko + medianDist + 
+	rioProContra.row + vioCivEvents.row +
+	rioProContra.col + vioCivEvents.col) )
 
 # run GLM
-glmForm=formula(value ~ lagDV + govActor + postBoko +
-	riotsAgainst.row + protestsAgainst.row + vioCivEvents.row +
-	riotsAgainst.col + protestsAgainst.col + vioCivEvents.col) 
+glmForm=formula(value ~ lagDV + govActor + postBoko + medianDist + 
+	rioProContra.row + vioCivEvents.row +
+	rioProContra.col + vioCivEvents.col) 
 fitIn_glm = glm(glmForm, data=glmData_In, family='binomial')
 
 # org glm results
@@ -88,12 +90,15 @@ aucROC_glm
 aucPR_glm
 
 # run AME mods
+startVals = fitFullSpec$startVals
+startVals$Z = startVals$Z[,,-dim( startVals$Z )[3] ]
 fitIn_ame = ame_repL(
 	Y=y_In, Xdyad=xDyadL_In, Xrow=xRowL_In, Xcol=xColL_In,
 	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 	model='bin', intercept=TRUE, seed=6886,
-	burn=5000, nscan=1000, odens=10, 
-	plot=FALSE, gof=TRUE, periodicSave=FALSE
+	burn=5, nscan=10, odens=1, 
+	plot=FALSE, gof=TRUE, periodicSave=FALSE,
+	startVals=startVals
 	) 
 
 # org AME results
@@ -105,7 +110,7 @@ UVPM = fitIn_ame$UVPM[rownames(y_Out),rownames(y_Out)]
 x_Out = array(1, 
 	dim=c(  nrow(y_Out),nrow(y_Out), length(beta) ),
 	dimnames=list( rownames(y_Out), rownames(y_Out), names(beta) ) )
-x_Out[,,2:dim(x_Out)[3]] = design_array(xRowL_Out, xColL_Out, xDyadL_Out, TRUE, nrow(y_Out))
+x_Out[,,2:dim(x_Out)[3]] = design_array_listwisedel(xRowL_Out, xColL_Out, xDyadL_Out, TRUE, nrow(y_Out))
 
 ez_Out = Xbeta(x_Out, beta) + outer(a,b,'+') + UVPM
 yHat_Out = 1/(1+exp(-ez_Out))
