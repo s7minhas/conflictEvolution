@@ -35,7 +35,7 @@ glmOutSamp = function(glmForm){
 	yCrossValTrain = lapply(1:folds, function(f){
 		yListMiss = lapply(1:length(yList), function(t){
 			foldID = yListFolds[[t]] ; y = yList[[t]]
-			foldID[foldID==f]=NA ; y=y*foldID
+			foldID[foldID==f]=NA ; y=y*foldID 
 			return(y) })
 		names(yListMiss) = names(yList)
 		return(yListMiss) }) ; names(yCrossValTrain) = char(1:folds)
@@ -99,6 +99,7 @@ glmOutSamp = function(glmForm){
 	# get perf stats
 	aucByFold=do.call('rbind', lapply(1:folds, function(f){
 		slice = outPerf[outPerf$fold==f,]
+		slice = na.omit(slice)
 		if(length(unique(slice$actual))==1){ return(NULL) }
 		perf=cbind(fold=f,
 			aucROC=getAUC(slice$pred, slice$actual),
