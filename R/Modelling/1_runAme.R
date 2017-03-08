@@ -36,19 +36,19 @@ xColL = lapply(xNodeL, function(x){
 
 # dyadic covar specs
 xDyadL_noDist = lapply(xDyadL, function(x){
-  x=x[,,c('govActor','postBoko'),drop=FALSE]
+  x=x[,,c('govActor','postBoko','elecYear'),drop=FALSE]
   return(x) })
 
 # run models
-fit=ame_repL(
-	Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL, 
-	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
-	model='bin', intercept=TRUE, seed=6886,
-	burn=50000, nscan=25000, odens=25, 
-	plot=FALSE, gof=TRUE, periodicSave=FALSE
-	)
+# fit=ame_repL(
+# 	Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL, 
+# 	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
+# 	model='bin', intercept=TRUE, seed=6886,
+# 	burn=50000, nscan=25000, odens=25, 
+# 	plot=FALSE, gof=TRUE, periodicSave=FALSE
+# 	)
 
-fitFullSpec=ame_repL(
+fitFullSpec_nigLevel=ame_repL(
 	Y=yList, Xdyad=xDyadL, Xrow=xRowL, Xcol=xColL,
 	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 	model='bin', intercept=TRUE, seed=6886,
@@ -56,21 +56,26 @@ fitFullSpec=ame_repL(
 	plot=FALSE, gof=TRUE, periodicSave=FALSE
 	)
 
-fitFullSpec_noDist=ame_repL(
+fitFullSpec_noDist_nigLevel=ame_repL(
 	Y=yList, Xdyad=xDyadL_noDist, Xrow=xRowL, Xcol=xColL,
 	symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 	model='bin', intercept=TRUE, seed=6886,
 	burn=50000, nscan=100000, odens=25, 
 	plot=FALSE, gof=TRUE, periodicSave=FALSE
 )
-################
+
+fitFullSpec_nigLevel = fitFullSpec
+fitFullSpec_noDist_nigLevel = fitFullSpec_noDist
+# load(paste0(pathResults, 'ameResults.rda'))
 
 ################
-# save
-save(
-	fit, fitFullSpec, fitFullSpec_noDist,
-	yList, xNodeL, xRowL, xColL,
-	xDyadL, xDyadL_noDist,
-	file=paste0(pathResults, 'ameResults.rda')
-	)
-################
+
+# ################
+# # save
+# save(
+# 	fit, fitFullSpec, fitFullSpec_noDist,
+# 	yList, xNodeL, xRowL, xColL,
+# 	xDyadL, xDyadL_noDist,
+# 	file=paste0(pathResults, 'ameResults.rda')
+# 	)
+# ################
