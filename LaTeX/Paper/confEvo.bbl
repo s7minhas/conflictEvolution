@@ -1,4 +1,4 @@
-\begin{thebibliography}{38}
+\begin{thebibliography}{44}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -8,6 +8,10 @@
   Faust}]{anderson:etal:1992}
 Anderson, C.~J., Wasserman, S., Faust, K., 1992. Building stochastic
   blockmodels. Social Networks 14~(1), 137--161.
+
+\bibitem[{Berman and Matanock(2015)}]{berman:matanock:2015}
+Berman, E., Matanock, A.~M., 2015. The empiricists' insurgency. Annual Review
+  of Political Science 18, 443--464.
 
 \bibitem[{Cederman et~al.(2010)Cederman, Wimmer, and Min}]{cederman:etal:2010a}
 Cederman, L.-E., Wimmer, A., Min, B., 2010. Why do ethnic groups rebel? new
@@ -37,6 +41,10 @@ Cranmer, S., Desmarais, B.~A., 2011. {Inferential Network Analysis with
 \bibitem[{Dorff and Minhas(2016)}]{dorff:minhas:2016}
 Dorff, C., Minhas, S., 2016. When do states say uncle? {Network} dependence and
   sanction compliance. International Interactions In press.
+
+\bibitem[{Downes(2006)}]{downes:2006}
+Downes, A., 2006. Desperate times, desperate measures: The causes of civilian
+  victimization in war. International Security 30~(4), 152--195.
 
 \bibitem[{Erikson et~al.(2014)Erikson, Pinto, and Rader}]{erikson:pinto:2014}
 Erikson, R.~S., Pinto, P.~M., Rader, K.~T., 2014. Dyadic analysis in
@@ -83,6 +91,20 @@ Humphreys, M., Weinstein, J., 2008. Who fights? the determinants of
 \bibitem[{Humphreys and Weinstein(2006)}]{humphreys:weinstein:2006}
 Humphreys, M., Weinstein, J.~M., 2006. Handling and manhandling civilians in
   civil war. American Political Science Review 100~(3), 429--447.
+
+\bibitem[{Idean~Salehyan and Wood(2015)}]{salehyan:siroky:wood:2014}
+Idean~Salehyan, D.~S., Wood, R.~M., 2015. External rebel sponsorship and
+  civilian abuse: A principal-agent analysis of wartime atrocities.
+  International Organionizat 68~(3), 633--661.
+
+\bibitem[{Kalyvas(2006)}]{kalyvas:2006}
+Kalyvas, S., 2006. The Logic of Violence in Civil War. Cambridge University
+  Press, New York.
+
+\bibitem[{Kathman and Wood(2015)}]{kathman:wood:2015}
+Kathman, J.~D., Wood, R.~M., 2015. {Competing for the crown: Inter-rebel
+  competition and civilian targeting in Civil War}. Political Research
+  Quarterly 68~(1), 167--179.
 
 \bibitem[{Kinne(2012)}]{kinne:2012}
 Kinne, B.~J., 2012. Multilateral trade and militarized conflict: Centrality,
@@ -166,6 +188,11 @@ Tarrow, S., 1994. Power in Movement: Social Movements, Collective Action and
 \bibitem[{Tucker(2007)}]{tucker:2007}
 Tucker, J.~A., 2007. Enough! {E}lectoral fraud, collective action problems, and
   post-communist colored revolutions. Perspectives on Politics 5~(3), 535--551.
+
+\bibitem[{Valentino et~al.(2004)Valentino, Huth, and
+  Balch-Lindsay}]{valentino:etal:2004}
+Valentino, B., Huth, P., Balch-Lindsay, D., 2004. `draining the sea': Mass
+  killing and guerrilla warfare. International Organization 58~(2), 375--407.
 
 \bibitem[{Warner et~al.(1979)Warner, Kenny, and Stoto}]{warner:etal:1979}
 Warner, R., Kenny, D., Stoto, M., 1979. A new round robin analysis of variance
