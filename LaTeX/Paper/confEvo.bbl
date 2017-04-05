@@ -1,4 +1,4 @@
-\begin{thebibliography}{44}
+\begin{thebibliography}{46}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -38,9 +38,17 @@ Condra, L.~N., Shapiro, J.~N., 2012. Who takes the blame? the strategic effects
 Cranmer, S., Desmarais, B.~A., 2011. {Inferential Network Analysis with
   Exponental Random Graph Models}. Political Analysis 19~(1), 66--86.
 
+\bibitem[{Cunningham(2006)}]{cunningham:2006}
+Cunningham, D.~E., 2006. Veto players and civil war duration. American Journal
+  of Political Science 50~(4), 875--892.
+
 \bibitem[{Dorff and Minhas(2016)}]{dorff:minhas:2016}
 Dorff, C., Minhas, S., 2016. When do states say uncle? {Network} dependence and
   sanction compliance. International Interactions In press.
+
+\bibitem[{Dorff and Ward(2013)}]{dorff:ward:2013}
+Dorff, C., Ward, M.~D., 2013. Networks, dyads, and the social relations model.
+  Political Science Research and Methods 1~(02), 159--178.
 
 \bibitem[{Downes(2006)}]{downes:2006}
 Downes, A., 2006. Desperate times, desperate measures: The causes of civilian
