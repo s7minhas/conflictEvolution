@@ -10,22 +10,26 @@ if(Sys.info()['user']=='maxgallop'){
 
 ################
 # load data
+load(paste0(pathData, 'nigeriaMatList_acled_v7.rda')) # loads yList object
 load(paste0(pathResults, 'ameResults.rda'))
-rm(list=c('fit', 'fitFullSpec'))
 ###############
 
 ###############
 # construct dyadic design array from list data
-y = melt(yList) ; yLag = melt(yList) ; yLag$L1 = char(num(yLag$L1)-1)
-xd = melt(xDyadL)
-xd = cbind(xd[xd$Var3=='govActor',],
-	postBoko=xd$value[xd$Var3=='postBoko'],
-	medianDist=xd$value[xd$Var3=='medianDist']
-	)
-names(xd)[4]='govActor'
+yrs = char(2000:2016) ; yList = yList[yrs]
+xDyadL = designArrays$base$dyadCovar ; dyadVars = dimnames(xDyadL[[1]])[[3]]
+xRowL = designArrays$base$senCovar ; senVars = paste0(dimnames(xRowL[[1]])[[2]],'.row')
+xColL = designArrays$base$recCovar ; recVars = paste0(dimnames(xColL[[1]])[[2]],'.col')
+
+# break out of lists/arrays
+y = melt(yList) ; yLag = melt(yList); yLag$L1 = char(num(yLag$L1)-1)
+xd = dcast(melt(xDyadL), Var1 + Var2 + L1 ~ Var3)
+xd = xd[order(xd$L1, xd$Var2, xd$Var1),]
 xr = dcast(melt(xRowL), Var1 + L1 ~ Var2)
 xc = dcast(melt(xColL), Var1 + L1 ~ Var2)
-glmData = cbind(y,xd[,c('govActor','postBoko','medianDist')])
+
+# combine into df
+glmData = cbind(y,xd)
 for(v in names(xc)[3:ncol(xc)] ){
 	glmData$tmp = xr[,v][match(paste0(glmData$Var1,glmData$L1),
 		paste0(xr$Var1,xr$L1))]
@@ -44,36 +48,19 @@ glmData$lagDV[is.na(glmData$lagDV)] = 0
 # run GLM
 gfitLagDV = glm(value ~ lagDV, data=glmData, family='binomial')
 
-gfitFullSpec = glm(value ~
-	govActor + postBoko + medianDist + 
-	rioProContra.row + vioCivEvents.row +
-	rioProContra.col + vioCivEvents.col, 
-	data=glmData, family='binomial')
+modSpecFull = formula( paste0(paste0('value ~ '), 
+	paste(c(dyadVars, senVars, recVars), collapse=' + ') ) )
+modSpecFullLagDV = formula( paste0(paste0('value ~ lagDV + '), 
+	paste(c(dyadVars, senVars, recVars), collapse=' + ') ) )
 
-gfitFullSpec_noDist = glm(value ~
-	govActor + postBoko +
-	rioProContra.row + vioCivEvents.row +
-	rioProContra.col + vioCivEvents.col, 
-  data=glmData, family='binomial')
-
-gfitFullSpecLagDV = glm(value ~ lagDV +
-	govActor + postBoko + medianDist + 
-	rioProContra.row + vioCivEvents.row +
-	rioProContra.col + vioCivEvents.col, 
-	data=glmData, family='binomial')	
-
-gfitFullSpecLagDV_noDist = glm(value ~ lagDV +
-	govActor + postBoko +
-	rioProContra.row + vioCivEvents.row +
-	rioProContra.col + vioCivEvents.col, 
-  data=glmData, family='binomial')	
+gfitFullSpec = glm(modSpecFull, data=glmData, family='binomial')
+gfitFullSpecLagDV = glm(modSpecFullLagDV, data=glmData, family='binomial')	
 ###############
 
 ###############
 # save
 save(
 	gfitLagDV, gfitFullSpec, gfitFullSpecLagDV,
-	gfitFullSpec_noDist, gfitFullSpecLagDV_noDist,
 	file=paste0(pathResults, 'glmResults.rda')
 	)
 ###############
