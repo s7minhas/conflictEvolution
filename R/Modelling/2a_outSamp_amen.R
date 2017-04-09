@@ -19,7 +19,7 @@ ameOutSamp = function(
 	xDyadL=NULL, xRowL=NULL, xColL=NULL, startVals,
 	seed=6886, 
 	R=2, model='bin', intercept=TRUE, rvar=TRUE, cvar=TRUE, symmetric=FALSE,
-	burn=10000, nscan=20000, odens=25, folds=30, cores=3
+	burn=10000, nscan=20000, odens=25, folds=30, cores=7
 	){
 	
 	################
@@ -108,7 +108,7 @@ ameOutSamp_wFullSpec = ameOutSamp(
 	Xdyad=designArrays$base$dyadCovar,
 	Xrow=designArrays$base$senCovar,
 	Xcol=designArrays$base$recCovar,
-	startVals=fitFullSpec$startVals
+	startVals=ameFits$base$startVals
 	)
 
 # save
