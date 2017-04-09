@@ -8,13 +8,15 @@ loadPkg('devtools') ; devtools::install_github('s7minhas/amen') ; library(amen)
 
 ################
 # load data
+load(paste0(pathData, 'nigeriaMatList_acled_v7.rda')) # loads yList object
 load(paste0(pathResults, 'ameResults.rda'))
 ################
 
 ################
 # function to run k-fold cross validation analysis using ame
 ameOutSamp = function(
-	yList, xDyadL=NULL, xRowL=NULL, xColL=NULL, startVals,
+	yList, 
+	xDyadL=NULL, xRowL=NULL, xColL=NULL, startVals,
 	seed=6886, 
 	R=2, model='bin', intercept=TRUE, rvar=TRUE, cvar=TRUE, symmetric=FALSE,
 	burn=10000, nscan=20000, odens=25, folds=30, cores=3
@@ -100,25 +102,18 @@ ameOutSamp = function(
 
 ################
 # run outsamp models
-ameOutSamp_NULL = ameOutSamp(
-	yList=yList, xDyadL=NULL, xRowL=NULL, xColL=NULL, 
-	startVals=fit$startVals
-	)
-
+yrs = char(2000:2016) ; yList = yList[yrs]
 ameOutSamp_wFullSpec = ameOutSamp(
-	yList=yList, xDyadL=xDyadL, xRowL=xRowL, xColL=xColL,
+	yList=yList, 
+	Xdyad=designArrays$base$dyadCovar,
+	Xrow=designArrays$base$senCovar,
+	Xcol=designArrays$base$recCovar,
 	startVals=fitFullSpec$startVals
 	)
 
-ameOutSamp_wFullSpec_noDist = ameOutSamp(
-  yList=yList, xDyadL=xDyadL_noDist, xRowL=xRowL, xColL=xColL,
-  startVals=fitFullSpec_noDist$startVals
-)
-
 # save
 save(
-	ameOutSamp_NULL, ameOutSamp_wFullSpec, 
-	ameOutSamp_wFullSpec_noDist,
+	ameOutSamp_wFullSpec, 
 	file=paste0(pathResults, 'ameCrossValResults.rda')
 	)
 ################
