@@ -17,19 +17,27 @@ yrs = char(2000:2016) ; yList = yList[yrs]
 yArr = listToArray(actors=getActor(yList), Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL)$Y
 ################
 
-################
-# get total number of conf by T
-unlist(lapply(yList, function(x){c(sum(x,na.rm=TRUE))}))
-################
 
 ################
-# calc some net stats over time
-netSummStats = data.frame(do.call('rbind', lapply(yList, gofstats)))
-netSummStats$year = rownames(netSummStats)
-ggplot(netSummStats, aes(x=year, y=triad.dep, group=1)) + geom_bar(stat='identity')
+con <- url("http://biogeo.ucdavis.edu/data/gadm2.8/rds/NGA_adm1.rds")
+print(load(con)) ; close (con)
+nigeria_map.ff <- fortify(gadm)
 
-ggplot(melt(netSummStats), aes(x=year, y=value, group=1)) +
-	geom_bar(stat='identity') +
-	facet_wrap(~variable, nrow=2, scales='free_y') +
-	theme()
+# Extract polygon corners and merge with shapefile data
+gadm@data$id <- rownames(gadm@data)
+nigeria_map.df <- merge(gadm@data, nigeria_map.ff, by = "id", all.y = TRUE)
+
+#Build up the plot
+nigeriaMap = ggplot() + 
+	geom_path(data = nigeria_map.df,
+		aes(x = long, y = lat, group = group)) + 
+	theme_bw() +
+	theme(
+		panel.border = element_blank(),
+		panel.grid.major = element_blank(),
+		panel.grid.minor = element_blank()
+		)
+
+loadPkg('maps')
+nMapData=map(regions='Nigeria', fill=TRUE, add=TRUE, exact=TRUE, col='grey')
 ################

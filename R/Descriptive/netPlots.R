@@ -14,7 +14,8 @@ source(paste0(fPth, 'actorInfo.R'))
 
 ################
 # load data
-load(paste0(pathResults, 'ameResults.rda')) # load AME mod results with yList used for modeling
+load(paste0(pathData, 'nigeriaMatList_acled_v7.rda')) # loads yList object
+yrs = char(2000:2016) ; yList = yList[yrs]
 ################
 
 ################
