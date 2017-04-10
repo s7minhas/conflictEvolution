@@ -15,7 +15,7 @@ load(paste0(pathResults, 'ameResults.rda'))
 ################
 # function to run k-fold cross validation analysis using ame
 ameOutSamp = function(
-	yList, 
+	yList=yList, 
 	xDyadL=NULL, xRowL=NULL, xColL=NULL, startVals,
 	seed=6886, 
 	R=2, model='bin', intercept=TRUE, rvar=TRUE, cvar=TRUE, symmetric=FALSE,
