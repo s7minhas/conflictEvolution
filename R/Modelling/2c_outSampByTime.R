@@ -54,7 +54,7 @@ glmPredInfo = function(fitIn_glm, glmData_Out){
 	outPerf_glm = data.frame(glmData_Out[,1:3], pred=glm_Prob)
 	aucROC_glm=getAUC(outPerf_glm$pred, outPerf_glm$value)
 	aucPR_glm=auc_pr(outPerf_glm$value, outPerf_glm$pred)
-	return(list(glm_Pred=glm_Pred, aucROC_glm=aucROC_glm, aucPR=aucPR_glm)) }
+	return(list(outPerf=glm_Pred, aucROC=aucROC_glm, aucPR=aucPR_glm)) }
 ################
 
 ################
@@ -119,9 +119,9 @@ ame_glm_outSampTime = foreach(dropFromEnd = 1:5, .packages=c('amen')) %dopar% {
 	outPerf = outPerf[outPerf$Var1 != outPerf$Var2,]
 	aucROC=getAUC(outPerf$pred, outPerf$value)
 	aucPR=auc_pr(outPerf$value, outPerf$pred)
-	ameBase = list(outPerf, aucROC, aucPR)
+	ameBase = list(outPerf=outPerf, aucROC=aucROC, aucPR=aucPR)
 
-	return(list(glmSpecFull, glmSpecFullLagDV, ameBase))
+	return(list(glmFull=glmSpecFull, glmFullLagDV=glmSpecFullLagDV, ame=ameBase))
 }
 ################
 
