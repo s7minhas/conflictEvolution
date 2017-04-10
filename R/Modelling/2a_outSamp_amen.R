@@ -105,9 +105,9 @@ ameOutSamp = function(
 yrs = char(2000:2016) ; yList = yList[yrs]
 ameOutSamp_wFullSpec = ameOutSamp(
 	yList=yList, 
-	Xdyad=designArrays$base$dyadCovar,
-	Xrow=designArrays$base$senCovar,
-	Xcol=designArrays$base$recCovar,
+	xDyadL=designArrays$base$dyadCovar,
+	xRowL=designArrays$base$senCovar,
+	xColL=designArrays$base$recCovar,
 	startVals=ameFits$base$startVals
 	)
 
