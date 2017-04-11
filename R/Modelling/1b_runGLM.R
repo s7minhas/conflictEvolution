@@ -22,14 +22,16 @@ xRowL = designArrays$base$senCovar ; senVars = paste0(dimnames(xRowL[[1]])[[2]],
 xColL = designArrays$base$recCovar ; recVars = paste0(dimnames(xColL[[1]])[[2]],'.col')
 
 # break out of lists/arrays
-y = melt(yList) ; yLag = melt(yList); yLag$L1 = char(num(yLag$L1)-1)
+y = melt(yList)
+yLag = melt(yList) ; yLag$L1 = char(num(yLag$L1)-1)
+yLagRecip = melt(lapply(yList,function(y){t(y)})); yLagRecip$L1 = char(num(yLagRecip$L1)-1)
 xd = dcast(melt(xDyadL), Var1 + Var2 + L1 ~ Var3)
 xd = xd[order(xd$L1, xd$Var2, xd$Var1),]
 xr = dcast(melt(xRowL), Var1 + L1 ~ Var2)
 xc = dcast(melt(xColL), Var1 + L1 ~ Var2)
 
 # combine into df
-glmData = cbind(y,xd)
+glmData = cbind(y,xd[,dyadVars])
 for(v in names(xc)[3:ncol(xc)] ){
 	glmData$tmp = xr[,v][match(paste0(glmData$Var1,glmData$L1),
 		paste0(xr$Var1,xr$L1))]
@@ -38,19 +40,25 @@ for(v in names(xc)[3:ncol(xc)] ){
 		paste0(xc$Var1,xc$L1))]
 	names(glmData)[ncol(glmData)] = paste0(v, '.col') }
 glmData = glmData[which(glmData$Var1!=glmData$Var2),]
+
 glmData$lagDV = yLag$value[match(
 	paste0(glmData$Var1,glmData$Var2,glmData$L1), 
 	paste0(yLag$Var1,yLag$Var2,yLag$L1))]
 glmData$lagDV[is.na(glmData$lagDV)] = 0
+
+glmData$lagRecip = yLagRecip$value[match(
+	paste0(glmData$Var1,glmData$Var2,glmData$L1), 
+	paste0(yLagRecip$Var1,yLagRecip$Var2,yLagRecip$L1))]
+glmData$lagRecip[is.na(glmData$lagRecip)] = 0
 ###############
 
 ###############
 # run GLM
-gfitLagDV = glm(value ~ lagDV, data=glmData, family='binomial')
+gfitLagDV = glm(value ~ lagDV + lagRecip, data=glmData, family='binomial')
 
 modSpecFull = formula( paste0(paste0('value ~ '), 
 	paste(c(dyadVars, senVars, recVars), collapse=' + ') ) )
-modSpecFullLagDV = formula( paste0(paste0('value ~ lagDV + '), 
+modSpecFullLagDV = formula( paste0(paste0('value ~ lagDV + lagRecip + '), 
 	paste(c(dyadVars, senVars, recVars), collapse=' + ') ) )
 
 gfitFullSpec = glm(modSpecFull, data=glmData, family='binomial')
