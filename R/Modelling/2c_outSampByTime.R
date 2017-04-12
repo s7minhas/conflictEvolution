@@ -25,6 +25,7 @@ xColL = designArrays$base$recCovar ; recVars = paste0(dimnames(xColL[[1]])[[2]],
 
 # break out of lists/arrays
 y = melt(yList) ; yLag = melt(yList); yLag$L1 = char(num(yLag$L1)-1)
+yLagRecip = melt(lapply(yList,function(y){t(y)})); yLagRecip$L1 = char(num(yLagRecip$L1)-1)
 xd = dcast(melt(xDyadL), Var1 + Var2 + L1 ~ Var3)
 xd = xd[order(xd$L1, xd$Var2, xd$Var1),]
 xr = dcast(melt(xRowL), Var1 + L1 ~ Var2)
@@ -43,6 +44,10 @@ glmData = glmData[which(glmData$Var1!=glmData$Var2),]
 glmData$lagDV = yLag$value[match(
 	paste0(glmData$Var1,glmData$Var2,glmData$L1), 
 	paste0(yLag$Var1,yLag$Var2,yLag$L1))]
+glmData$lagRecip = yLagRecip$value[match(
+	paste0(glmData$Var1,glmData$Var2,glmData$L1), 
+	paste0(yLagRecip$Var1,yLagRecip$Var2,yLagRecip$L1))]
+glmData$lagRecip[is.na(glmData$lagRecip)] = 0		
 glmData$lagDV[is.na(glmData$lagDV)] = 0
 ################
 
@@ -59,15 +64,17 @@ glmPredInfo = function(fitIn_glm, glmData_Out){
 
 ################
 # cross val by time split
+pdsToForecast = 1:5
 loadPkg(c('parallel','foreach'))
-cores=5 ; cl=makeCluster(cores) ; registerDoParallel(cl)
-ame_glm_outSampTime = foreach(dropFromEnd = 1:5, .packages=c('amen')) %dopar% {
+cores=length(pdsToForecast) ; cl=makeCluster(cores) ; registerDoParallel(cl)
+ame_glm_outSampTime = foreach(dropFromEnd = pdsToForecast, 
+	.packages=c('amen','ROCR','RColorBrewer','caTools')) %dopar% {
 
 	# 
-	modLagDV = formula('value ~ lagDV')
+	modLagDV = formula('value ~ lagDV + lagRecip')
 	modSpecFull = formula( paste0(paste0('value ~ '), 
 		paste(c(dyadVars, senVars, recVars), collapse=' + ') ) )
-	modSpecFullLagDV = formula( paste0(paste0('value ~ lagDV + '), 
+	modSpecFullLagDV = formula( paste0(paste0('value ~ lagDV + lagRecip + '), 
 		paste(c(dyadVars, senVars, recVars), collapse=' + ') ) )
 
 	# leave out some number of period
@@ -89,15 +96,16 @@ ame_glm_outSampTime = foreach(dropFromEnd = 1:5, .packages=c('amen')) %dopar% {
 
 	##########
 	# run AME base mod
-	startVals = ameFits$base$startVals
-	startVals$Z = startVals$Z[,,-dim( startVals$Z )[3] ]
+	# startVals = ameFits$base$startVals
+	# tocut = (((dim( startVals$Z )[3]-(dropFromEnd))+1):dim( startVals$Z )[3])
+	# startVals$Z = startVals$Z[,,-tocut ]
 	fitIn_ame = ame_repL(
 		Y=y_In, Xdyad=xDyadL_In, Xrow=xRowL_In, Xcol=xColL_In,
 		symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 		model='bin', intercept=TRUE, seed=6886,
 		burn=100000, nscan=500000, odens=25,
-		plot=FALSE, gof=TRUE, periodicSave=FALSE,
-		startVals=startVals
+		plot=FALSE, gof=TRUE, periodicSave=FALSE
+		# ,startVals=startVals
 		) 
 
 	# org AME results
@@ -123,12 +131,13 @@ ame_glm_outSampTime = foreach(dropFromEnd = 1:5, .packages=c('amen')) %dopar% {
 
 	return(list(glmFull=glmSpecFull, glmFullLagDV=glmSpecFullLagDV, ame=ameBase))
 }
+names(ame_glm_outSampTime) = paste0('last ', pdsToForecast, ' pd excluded')
 ################
 
 ################
 # save
 save(
 	ame_glm_outSampTime, 
-	file=paste0(pathResults, 'ameCrossValResults.rda')
+	file=paste0(pathResults, 'ameForecastResults.rda')
 	)
 ################
