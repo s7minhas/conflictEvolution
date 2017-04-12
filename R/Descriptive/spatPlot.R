@@ -11,33 +11,53 @@ source(paste0(fPth, 'actorInfo.R'))
 
 ################
 # load data
-load(paste0(pathData, 'nigeriaMatList_acled_v7.rda')) # loads yList object
-yrs = char(2000:2016) ; yList = yList[yrs]
-# pull out array
-yArr = listToArray(actors=getActor(yList), Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL)$Y
+load(paste0(pathData, "nData.rda"))
+nData = nData[
+	which(nData$YEAR %in% 2001:2016),
+	c('YEAR','a1','a2','LATITUDE','LONGITUDE')
+	]
 ################
 
-
 ################
-con <- url("http://biogeo.ucdavis.edu/data/gadm2.8/rds/NGA_adm1.rds")
-print(load(con)) ; close (con)
-nigeria_map.ff <- fortify(gadm)
+# map
+loadPkg(c('cshapes', 'ggmap','countrycode'))
 
-# Extract polygon corners and merge with shapefile data
-gadm@data$id <- rownames(gadm@data)
-nigeria_map.df <- merge(gadm@data, nigeria_map.ff, by = "id", all.y = TRUE)
+# get cntry shape from cshapes
+worldmap=cshapes::cshp(date=as.Date("2005-01-01"),useGW=F)
+cntryShape = worldmap[worldmap$COWCODE==countrycode("NIGERIA","country.name","cown"),]
+gpclibPermit() ; nigShape = fortify(cntryShape, region = "COWCODE")
 
-#Build up the plot
-nigeriaMap = ggplot() + 
-	geom_path(data = nigeria_map.df,
-		aes(x = long, y = lat, group = group)) + 
-	theme_bw() +
+# get admin lines from ggmap
+ngaLines = ggmap::get_map(location='Nigeria', source='stamen', zoom=6,
+	maptype='toner-lines' )
+
+# org features in acled data
+nData$id = as.numeric(as.character(unique(nigShape$id))	)
+nData$postBH = ifelse(nData$YEAR>=2009,1,0)
+nData$invBoko = apply(nData[,c('a1','a2')], 1, function(x){ ifelse('Boko Haram' %in% x,'Yes','No')  })
+nData$invBoko = factor(nData$invBoko, levels=c('Yes','No'))
+
+# viz
+ggNigConfMap = ggplot(nData, aes(map_id = id)) + 
+	geom_map( map=nigShape, fill='white', linetype=1, colour='grey50') +
+	inset_ggmap(ngaLines) +
+	expand_limits(x = nigShape$long, y = nigShape$lat) +
+	geom_point(aes(x=LONGITUDE,y=LATITUDE, color=factor(invBoko)),alpha=.7) + 
+	facet_wrap(~YEAR, nrow=4, ncol=4) + 
+	xlab('') + ylab('') + 
+	labs(color='Confict Involving Boko Haram?') + 
 	theme(
-		panel.border = element_blank(),
-		panel.grid.major = element_blank(),
-		panel.grid.minor = element_blank()
+		legend.position = 'bottom',
+		panel.border=element_blank(),
+		panel.grid=element_blank(),
+		axis.ticks=element_blank(),
+		axis.text=element_blank(),
+		legend.text=element_text(family='Source Sans Pro Bold'),
+		legend.title=element_text(family='Source Sans Pro Bold'),
+		strip.text.x = element_text(color='white',family="Source Sans Pro Bold"),
+		strip.background = element_rect(fill = "#525252", color='#525252')		
 		)
-
-loadPkg('maps')
-nMapData=map(regions='Nigeria', fill=TRUE, add=TRUE, exact=TRUE, col='grey')
+fName = paste0(pathGraphics,'nigConfMap.pdf')
+ggsave(ggNigConfMap, file=fName, width=8, height=8, device=cairo_pdf)
+system( paste('pdfcrop', fName, fName, sep=' ') )
 ################
