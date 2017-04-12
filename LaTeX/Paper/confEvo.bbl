@@ -1,4 +1,4 @@
-\begin{thebibliography}{50}
+\begin{thebibliography}{52}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -46,6 +46,12 @@ Cranmer, S., Desmarais, B.~A., 2011. {Inferential Network Analysis with
 Crenshaw, M., 1981. {The causes of terrorism}. Comparative Politics 13~(4),
   379--399.
 
+\bibitem[{Cunningham et~al.(2009)Cunningham, Gleditsch, and
+  Salehyan}]{cunningham:etal:2009}
+Cunningham, D., Gleditsch, K.~S., Salehyan, I., 2009. It takes two: A dyadic
+  analysis of civil war duration and outcome. Journal of Conflict Resolution
+  53~(4), 570--597.
+
 \bibitem[{Cunningham(2006)}]{cunningham:2006}
 Cunningham, D.~E., 2006. Veto players and civil war duration. American Journal
   of Political Science 50~(4), 875--892.
@@ -67,8 +73,9 @@ Erikson, R.~S., Pinto, P.~M., Rader, K.~T., 2014. Dyadic analysis in
   international relations: {A} cautionary tale. Political Analysis 22~(4),
   457--463.
 
-\bibitem[{Fjelde and Nilsson(????)}]{fjelde:nilsson:2012}
-Fjelde, H., Nilsson, D., ???? Journal of Conflict Resolution 54~(4), 604--628.
+\bibitem[{Fjelde and Nilsson(2012)}]{fjelde:nilsson:2012}
+Fjelde, H., Nilsson, D., 2012. Rebels against rebels: Explaining inter-group
+  violence. Journal of Conflict Resolution 54~(4), 604--628.
 
 \bibitem[{Gallop(2017)}]{gallop:2017}
 Gallop, M., 2017. More dangerous than dyads: How a third party enables
@@ -176,6 +183,11 @@ Nemeth, S.~C., Mauslein, J.~A., Stapley, C., 2014. The primacy of the local:
 \bibitem[{Opp(1988)}]{opp:1988}
 Opp, K.-D., 12 1988. Grievances and participation in social movements. American
   Sociological Review 53~(6), 853.
+
+\bibitem[{Prorok and Appel(2014)}]{prorok:appel:2014}
+Prorok, A.~K., Appel, B.~J., 2014. Compliance with international humanitarian
+  law: Democratic third parties and civilian targeting in interstate war.
+  Journal of Conflict Resolution 58~(4), 713--740.
 
 \bibitem[{Raleigh et~al.(2010)Raleigh, Linke, Hegre, and
   Karlsen}]{raleigh:etal:2010}
