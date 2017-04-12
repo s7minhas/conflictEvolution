@@ -12,6 +12,9 @@ source(paste0(fPth, 'actorInfo.R'))
 
 ################
 # load data
+load(paste0(pathData, 'nigeriaMatList_acled_v7.rda')) # loads yList object
+yrs = char(2000:2016) ; yList = yList[yrs]
+
 load(paste0(pathResults, 'ameResults.rda')) # load AME mod results
 yArr = listToArray(actors=sort(unique(unlist(lapply(yList,rownames)))), 
 	Y=yList, Xdyad=NULL, Xrow=NULL, Xcol=NULL)$Y
@@ -19,6 +22,7 @@ yArrSumm = apply(yArr, c(1,2), sum, na.rm=TRUE)
 diag(yArrSumm) = 0
 
 # adjust actor names
+
 vNameKey = getNameKey(yList)
 rownames(yArrSumm) = vNameKey$clean[match(rownames(yArrSumm), vNameKey$dirty)]
 colnames(yArrSumm) = vNameKey$clean[match(colnames(yArrSumm), vNameKey$dirty)]

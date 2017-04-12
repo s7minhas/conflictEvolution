@@ -40,14 +40,14 @@ designArrays = list(
 
 # parallelize model run
 loadPkg(c('parallel','foreach'))
-cores=4 ; cl=makeCluster(cores) ; registerDoParallel(cl)
+cores=length(designArrays) ; cl=makeCluster(cores) ; registerDoParallel(cl)
 ameFits = foreach(i = 1:length(designArrays), .packages=c('amen')) %dopar% {
 	fit = ame_repL(
 		Y=yList, Xdyad=designArrays[[i]]$dyadCovar,
 		Xrow=designArrays[[i]]$senCovar, Xcol=designArrays[[i]]$recCovar,
 		symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 		model='bin', intercept=TRUE, seed=6886,
-		burn=100000, nscan=500000, odens=25,
+		burn=10000, nscan=50000, odens=25,
 		plot=FALSE, gof=TRUE, periodicSave=FALSE )
 	return(fit)
 } ; stopCluster(cl)
