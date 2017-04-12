@@ -15,7 +15,7 @@ load(paste0(pathResults, 'ameResults.rda')) # load AME mod results
 ################
 
 ################
-gof = fitFullSpec$GOF
+gof = ameFits$base$GOF
 # colnames(gof) = c('rowVar','colVar','dVar','tVar')
 varKey = data.frame(dirty=colnames(gof), stringsAsFactors = FALSE)
 varKey$clean = c('Sender variation', 'Receiver variation', 
