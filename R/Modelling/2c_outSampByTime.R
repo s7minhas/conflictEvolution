@@ -64,7 +64,7 @@ glmPredInfo = function(fitIn_glm, glmData_Out){
 
 ################
 # cross val by time split
-pdsToForecast = 1:5
+pdsToForecast = c(1,5)
 loadPkg(c('parallel','foreach'))
 cores=length(pdsToForecast) ; cl=makeCluster(cores) ; registerDoParallel(cl)
 ame_glm_outSampTime = foreach(dropFromEnd = pdsToForecast, 
@@ -127,7 +127,7 @@ ame_glm_outSampTime = foreach(dropFromEnd = pdsToForecast,
 	outPerf = outPerf[outPerf$Var1 != outPerf$Var2,]
 	aucROC=getAUC(outPerf$pred, outPerf$value)
 	aucPR=auc_pr(outPerf$value, outPerf$pred)
-	ameBase = list(outPerf=outPerf, aucROC=aucROC, aucPR=aucPR)
+	ameBase = list(outPerf=outPerf$pred, aucROC=aucROC, aucPR=aucPR)
 
 	return(list(glmFull=glmSpecFull, glmFullLagDV=glmSpecFullLagDV, ame=ameBase))
 }

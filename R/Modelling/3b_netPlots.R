@@ -22,18 +22,17 @@ yArrSumm = apply(yArr, c(1,2), sum, na.rm=TRUE)
 diag(yArrSumm) = 0
 
 # adjust actor names
-
 vNameKey = getNameKey(yList)
 rownames(yArrSumm) = vNameKey$clean[match(rownames(yArrSumm), vNameKey$dirty)]
 colnames(yArrSumm) = vNameKey$clean[match(colnames(yArrSumm), vNameKey$dirty)]
-rownames(fitFullSpec$U) = vNameKey$clean[match(rownames(fitFullSpec$U), vNameKey$dirty)]
-rownames(fitFullSpec$V) = vNameKey$clean[match(rownames(fitFullSpec$V), vNameKey$dirty)]
+rownames(ameFits$base$U) = vNameKey$clean[match(rownames(ameFits$base$U), vNameKey$dirty)]
+rownames(ameFits$base$V) = vNameKey$clean[match(rownames(ameFits$base$V), vNameKey$dirty)]
 ################
 
 ################
 uvCols = brewer.pal(11, 'RdBu')[c(11-2, 3)]
 circPlot=ggCirc(
-	Y=yArrSumm, U=fitFullSpec$U, V=fitFullSpec$V, vscale=.6, 
+	Y=yArrSumm, U=ameFits$base$U, V=ameFits$base$V, vscale=.6, 
 	family="Source Sans Pro Light", force=3, 
 	lcol='gray85', lsize=.05) +
 	scale_color_manual(values=uvCols)
