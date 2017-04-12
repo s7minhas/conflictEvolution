@@ -11,11 +11,13 @@ if(Sys.info()['user']=='maxgallop'){
 ################
 # load data
 load(paste0(pathResults, 'ameResults.rda')) # load AME mod results
+load(paste0(pathData, 'nigeriaMatList_acled_v7.rda')) # loads yList object
+yrs = char(2000:2016) ; yList = yList[yrs]
 ################
 
 ################
 # labs
-vcKey = data.frame(dirty=colnames(fitFullSpec$VC)[-ncol(fitFullSpec$VC)], stringsAsFactors = FALSE) 
+vcKey = data.frame(dirty=colnames(ameFits$base$VC)[-ncol(ameFits$base$VC)], stringsAsFactors = FALSE) 
 vcKey$clean = c(
 	'Within-Sender\nCovariance\n$\\sigma_{a]^{2}$',
 	'Sender-Receiver\nCovariance\n$\\sigma_{ab]$',
@@ -26,7 +28,7 @@ vcKey$clean = c(
 
 ################
 # org data
-vc = t(apply(fitFullSpec$VC[,-ncol(fitFullSpec$VC)], 2, summStats))
+vc = t(apply(ameFits$base$VC[,-ncol(ameFits$base$VC)], 2, summStats))
 colnames(vc) = c('mean','lo95','hi95','lo90','hi90')
 vc = data.frame(vc, stringsAsFactors = FALSE)
 vc$var = rownames(vc) ; rownames(vc) = NULL
@@ -54,20 +56,20 @@ ggsave(ggVC, file=paste0(pathGraphics,'vcEst.pdf'), width=5, height=3, device=ca
 # viz s/r eff
 
 # adjust actor names
-source(paste0(fPth, 'netPlotHelpers.R'))
+source(paste0(fPth, 'actorInfo.R'))
 vNameKey = getNameKey(yList)
 vNameKey$clean[vNameKey$clean=="Kalo\nKato\nMilitia"]="Kalo\nMilitia"
 vNameKey$clean[vNameKey$clean=="Area\nBoys\nMilitia"]="Area\nBoys"
 vNameKey$clean = gsub('\n',' ', vNameKey$clean, fixed=TRUE)
-names(fitFullSpec$APM) = vNameKey$clean[match(names(fitFullSpec$APM), vNameKey$dirty)]
-names(fitFullSpec$BPM) = vNameKey$clean[match(names(fitFullSpec$BPM), vNameKey$dirty)]
+names(ameFits$base$APM) = vNameKey$clean[match(names(ameFits$base$APM), vNameKey$dirty)]
+names(ameFits$base$BPM) = vNameKey$clean[match(names(ameFits$base$BPM), vNameKey$dirty)]
 yList = lapply(yList, function(y){
 	rownames(y) = colnames(y) = vNameKey$clean[match(rownames(y), vNameKey$dirty)]
 	return(y) })
 
 source(paste0(fPth, 'postHelpers.R'))
 sendEff=addEffPlot(
-	fitFullSpec, 
+	ameFits$base, 
 	row=TRUE, addDegree=FALSE, yList=yList, orderByDegree=FALSE) + 
 	theme(
 		axis.text.x=element_text(angle=80, size=9, family='Source Sans Pro Light'),
@@ -76,7 +78,7 @@ sendEff=addEffPlot(
 		)
 
 recEff=addEffPlot(
-	fitFullSpec, 
+	ameFits$base, 
 	row=FALSE, addDegree=FALSE, yList=yList, orderByDegree=FALSE) + 
 	theme(
 		axis.text.x=element_text(angle=80, size=9, family='Source Sans Pro Light'),
