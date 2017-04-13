@@ -1,4 +1,4 @@
-\begin{thebibliography}{53}
+\begin{thebibliography}{51}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -37,10 +37,6 @@ Collier, P., Hoeffler, A., 2004. Greed and grievance in civil war. Oxford
 \bibitem[{Condra and Shapiro(2012)}]{condra:shapiro:2012}
 Condra, L.~N., Shapiro, J.~N., 2012. Who takes the blame? the strategic effects
   of collateral damage. American Journal of Political Science 56~(1), 167--187.
-
-\bibitem[{Cranmer and Desmarais(2011)}]{cranmer:desmarais:2011}
-Cranmer, S., Desmarais, B.~A., 2011. {Inferential Network Analysis with
-  Exponental Random Graph Models}. Political Analysis 19~(1), 66--86.
 
 \bibitem[{Crenshaw(1981)}]{crenshaw:1981}
 Crenshaw, M., 1981. {The causes of terrorism}. Comparative Politics 13~(4),
@@ -167,10 +163,6 @@ Minhas, S., Hoff, P.~D., Ward, M.~D., May 2016{\natexlab{b}}. A new approach to
   analyzing coevolving longitudinal networks in international relations.
   Journal of Peace Research 53~(3), 491--505.
 
-\bibitem[{Minhas and Radford(2016)}]{minhas:radford:2016}
-Minhas, S., Radford, B.~J., 2016. Enemy at the gates variation in economic
-  growth from civil conflict. Journal of Conflict Resolution.
-
 \bibitem[{Nemeth(2014)}]{nemeth:2014}
 Nemeth, S.~C., 2014. The effect of competition on terrorist group operations.
   Journal of Conflict Resolution 58~(2), 336--362.
@@ -230,9 +222,8 @@ Valentino, B., Huth, P., Balch-Lindsay, D., 2004. `draining the sea': Mass
   killing and guerrilla warfare. International Organization 58~(2), 375--407.
 
 \bibitem[{Walter(2006)}]{walter:2006}
-Walter, B.~F., 2006. Building reputation: {W}hy governments fight some
-  separatists but not others. American Journal of Political Science 50~(2),
-  313--330.
+Walter, B.~F., 2006. Information, uncertainty, and the decision to secede.
+  International Organization 60~(1), 105--135.
 
 \bibitem[{Warner et~al.(1979)Warner, Kenny, and Stoto}]{warner:etal:1979}
 Warner, R., Kenny, D., Stoto, M., 1979. A new round robin analysis of variance
