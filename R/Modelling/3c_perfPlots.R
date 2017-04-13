@@ -1,3 +1,4 @@
+############################
 if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){
 	source('~/Research/conflictEvolution/R/setup.R')  }
 if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){
@@ -12,12 +13,11 @@ source(paste0(fPth, 'binPerfHelpers.R'))
 load(paste0(pathResults, 'ameCrossValResults.rda')) # ameOutSamp_NULL, ameOutSamp_wFullSpec
 load(paste0(pathResults, 'glmCrossValResults.rda')) # glmOutSamp_wFullSpec, glmOutSamp_wLagDV, glmOutSamp_wFullSpecLagDV
 predDfs = list(
-	cbind(glmOutSamp_wLagDV$outPerf,model='GLM (Lag DV)'), 
 	cbind(glmOutSamp_wFullSpec$outPerf,model='GLM (Covars)'), 
 	cbind(glmOutSamp_wFullSpecLagDV$outPerf,model='GLM (Lag DV + Covars)'),
 	cbind(ameOutSamp_wFullSpec$outPerf,model='AME (Covars)')
 	)
-names(predDfs) = c('GLM (Lag DV)', 'GLM (Covars)', 'GLM (Lag DV + Covars)', 'AME (Covars)')
+names(predDfs) = c('GLM (Covars)', 'GLM (Lag DV + Covars)', 'AME (Covars)')
 
 # tabular data
 aucSumm=do.call('rbind', lapply(predDfs,function(x){
@@ -41,8 +41,8 @@ rocPrData=do.call('rbind',
 # plotting
 
 # model col/lty
-ggCols = brewer.pal(length(levels(rocData$model))+1, 'Set1')[-4]
-ggLty = c('dashed', 'dotted', 'dotdash', 'twodash', 'solid')[-4]
+ggCols = brewer.pal(length(levels(rocData$model)), 'Set1')[c(1,3,2)]
+ggLty = c('dashed', 'dotdash', 'solid')
 
 # Separation plots
 loadPkg(c('png','grid'))
@@ -59,13 +59,13 @@ sepPngList = lapply(1:length(predDfs), function(ii){
 # get rid of null model
 rocData$model = factor(rocData$model, levels=levels(rocData$model))
 rocPrData$model = factor(rocPrData$model, levels=levels(rocPrData$model))
-rownames(aucSumm)[2]="GLM (Lag DV\n  + Covars)"
+rownames(aucSumm)[grep('Lag DV + Covars', rownames(aucSumm), fixed=TRUE)]="GLM (Lag DV\n  + Covars)"
 
 tmp = rocPlot(rocData, linetypes=ggLty, colorManual=ggCols)+guides(linetype = FALSE, color = FALSE) ; yLo = -.04 ; yHi = .14
 for(ii in 1:length(sepPngList)){
 	tmp = tmp + annotation_custom(sepPngList[[ii]], xmin=.5, xmax=1.05, ymin=yLo, ymax=yHi)
 	yLo = yLo + .1 ; yHi = yHi + .1 }
-tmp = tmp + annotate('text', hjust=0, x=.51, y=seq(0.05,0.35,.1), label=names(predDfs)[-4], family="Source Sans Pro Light")
+tmp = tmp + annotate('text', hjust=0, x=.51, y=seq(0.05,0.25,.1), label=names(predDfs), family="Source Sans Pro Light")
 ggsave(tmp, file=paste0(pathGraphics, 'roc_outSample.pdf'), width=5, height=5, device=cairo_pdf)
 
 tmp=rocPlot(rocPrData, type='pr', legText=12, legPos=c(.25,.35), legSpace=2, linetypes=ggLty, colorManual=ggCols) +
@@ -73,31 +73,10 @@ tmp=rocPlot(rocPrData, type='pr', legText=12, legPos=c(.25,.35), legSpace=2, lin
 	# geom_rect(xmin=-.05, ymin=.01, xmax=.45, ymax=.55, color='white', fill='white', size=.5) + 
 	annotate('text', hjust=0, x=c(.4, .69, .88), y=1, 
 		label=c('  ', ' AUC\n(ROC)', 'AUC\n(PR)'), family='Source Sans Pro Black', size=4) + 
-	annotate('text', hjust=0, x=.4, y=seq(.5,.9,.13), 
+	annotate('text', hjust=0, x=.4, y=seq(.63,.9,.13), 
 		label=rev(rownames(aucSumm)), family='Source Sans Pro Light') + 
-	annotate('text', hjust=0, x=.7, y=seq(.5,.9,.13), 
+	annotate('text', hjust=0, x=.7, y=seq(.63,.9,.13), 
 		label=rev(apply(aucSumm, 1, function(x){paste(x, collapse='     ')})),
 		family='Source Sans Pro Light')
 ggsave(tmp, file=paste0(pathGraphics, 'rocPr_outSample.pdf'), width=5, height=5, device=cairo_pdf)
-################################################
-
-################################################
-# add forecast perf plots
-load(paste0(pathResults, 'ameForecastResults.rda')) # ame_glm_outSampTime
-aucSumm = melt( lapply(ame_glm_outSampTime, function(pdMod){
-	lapply(pdMod, function(stats){ stats[2:3] }) }) )
-ggplot(aucSumm, aes(x=L1, y=value, color=L2, group=L2)) + facet_wrap(~L3) + geom_line() + geom_point()
-
-dropFromEnd = 1
-predList = melt(lapply(ame_glm_outSampTime, function(pdMod){
-	lapply(pdMod, function(stats){ stats[1] }) }))
-predDF = predList[
-	predList$L1==paste0('last ',dropFromEnd,' pd excluded'),
-	-which(names(predList) %in% c('Var1','Var2','L3','variable'))]
-
-load(paste0(pathData, 'nigeriaMatList_acled_v7.rda')) # loads yList object
-yrs = char(2000:2016) ; yList = yList[yrs]
-y_Out = yList[[ length(yList) - (dropFromEnd - 1) ]]
-act = reshape2::melt(y_Out) ; act = act[act$Var1 != act$Var2,]
-predDF$value[predDF$L2=='ame']
 ################################################

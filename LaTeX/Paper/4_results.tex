@@ -97,3 +97,16 @@ All of the models' performance out of sample by these metrics are displayed in f
 	\label{fig:roc_ame}
 \end{figure}
 \FloatBarrier
+
+Typically, conflict scholars are also interested in generating forecasts from their models, and to assess the performance of their model instead of taking a cross-validation approach they often just predict out some number of years. We perform such an exercise as well by dividing up our sample into a training and test set, where the test set corresponds to the last $x$ periods in the data that we have available. We vary $x$ from two to five. For instance, when $x=5$ we are leaving the last five years of data for validation. Results for this analysis are shown in Figure~\ref{fig:roc_ameForecast} and there again we find that the social influence model has better out of sample predictive performance than the alternatives we test here.
+
+\begin{figure}[ht]
+	\centering
+	\begin{tabular}{cc}
+	\includegraphics[width=.5\textwidth]{roc_outSampleForecast_5} & 
+	\includegraphics[width=.5\textwidth]{rocPr_outSampleForecast_5}
+	\end{tabular}
+	\caption{Assessments of out-of-sample predictive performance when forecasting out the last five periods using ROC curves, separation plots, and PR curves. AUC statistics are provided as well for both curves. In each curve, the AME model is in orange, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in purple, and the GLM with a lagged DV is in red.}
+	\label{fig:roc_ameForecast}
+\end{figure}
+\FloatBarrier
