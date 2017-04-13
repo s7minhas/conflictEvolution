@@ -16,7 +16,7 @@ load(paste0(pathResults, 'ameResults.rda'))
 # function to run k-fold cross validation analysis using ame
 ameOutSamp = function(
 	yList=yList, 
-	xDyadL=NULL, xRowL=NULL, xColL=NULL, startVals,
+	xDyadL=NULL, xRowL=NULL, xColL=NULL,
 	seed=6886, 
 	R=2, model='bin', intercept=TRUE, rvar=TRUE, cvar=TRUE, symmetric=FALSE,
 	burn=10000, nscan=20000, odens=25, folds=30, cores=7
@@ -52,8 +52,7 @@ ameOutSamp = function(
 			symmetric=symmetric, rvar=rvar, cvar=cvar, R=R, 
 			model=model, intercept=intercept, seed=seed,
 			burn=burn, nscan=nscan, odens=odens, 
-			plot=FALSE, gof=TRUE, periodicSave=FALSE,
-			startVals=startVals )
+			plot=FALSE, gof=TRUE, periodicSave=FALSE )
 			return(fit) }
 	stopCluster(cl) ; names(fitCrossVal) = char(1:folds)
 
@@ -107,8 +106,7 @@ ameOutSamp_wFullSpec = ameOutSamp(
 	yList=yList, 
 	xDyadL=designArrays$base$dyadCovar,
 	xRowL=designArrays$base$senCovar,
-	xColL=designArrays$base$recCovar,
-	startVals=ameFits$base$startVals
+	xColL=designArrays$base$recCovar
 	)
 
 # save

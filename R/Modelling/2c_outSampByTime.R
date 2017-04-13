@@ -96,16 +96,12 @@ ame_glm_outSampTime = foreach(dropFromEnd = pdsToForecast,
 
 	##########
 	# run AME base mod
-	# startVals = ameFits$base$startVals
-	# tocut = (((dim( startVals$Z )[3]-(dropFromEnd))+1):dim( startVals$Z )[3])
-	# startVals$Z = startVals$Z[,,-tocut ]
 	fitIn_ame = ame_repL(
 		Y=y_In, Xdyad=xDyadL_In, Xrow=xRowL_In, Xcol=xColL_In,
 		symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
 		model='bin', intercept=TRUE, seed=6886,
 		burn=100000, nscan=500000, odens=25,
 		plot=FALSE, gof=TRUE, periodicSave=FALSE
-		# ,startVals=startVals
 		) 
 
 	# org AME results
