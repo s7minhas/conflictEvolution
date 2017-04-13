@@ -20,6 +20,7 @@ Finally, we examine at the effect of the beginning of the Boko Haram insurgency 
 
 \subsection*{Boko Haram's Entrance}
 
+\textcolor{red}{I think we need to rewrite this section a bit, to bring it more in line with our theory section. In particular, we now have an explanation for increased violence vs and by the government -- BK harms perception of the gov, leading to incentives for other groups to attack the gov (or eachother) and by the gov to show its still there.}
 In figures \ref{nigeria_preBK} and \ref{nigeria_postBK}, we show that there is both more intense and more widespread conflict with the beginning of Boko Haram's uprising. In the post-Boko Haram network plot, we shade dyadic relationships that experience more conflict after the beginning of Boko Haram's insurgency in blue, those that saw less in red, and those that stay the same in green. Interestingly, much of this conflict does not actually involve Boko Haram. Their conflict is predominantly against the Nigerian Police and Military forces, and yet after their entrance we also see increases in conflict with other groups. 
 
 Our initial intuition was that Boko Haram's conflict with the government weakened the Nigerian state's ability to monopolize violence and deter other violent actors. This suggests that the government is so busy fighting Boko Haram that other militias are able to run amok. If this were the case, we would expect to see the Police and Military involved in fewer conflicts with other groups in the later period. We do not observe this: not only are the government groups involved in \emph{more} battles on average in the second period, but there level of conflict with nearly every group has increased.
@@ -76,10 +77,10 @@ One of the most important reasons for employing a network based approach is that
 
 \begin{enumerate}
 	\item estimate model parameters with $\{y_{ij}: s_{ij} \neq s\}$, the data not in set $s$,
-	\item and predict $\{y_{ij}: s_{ij} = s\}$ from these estimated parameters. 
+	\item and predict $\{y_{ij,t}: s_{ij} = s\}$ from these estimated parameters. 
 \end{enumerate}
 
-\noindent The result of this procedure is a sociomatrix $\bm \hat Y$, in which each entry $\hat y_{ij}$ is a predicted value obtained from using a subset of the data that does not include $y_{ij}$. 
+\noindent The result of this procedure is a sociomatrix $\bm \hat Y$, in which each entry $\hat y_{ij}$ is a predicted value obtained from using a subset of the data that does not include $y_{ij}$. \textcolor{red}{We need to rewrite this a bit to address the fact that we're dealing with T different arrays.}
 
 We set a number of benchmarks for comparison. First we compare the AME model to a GLM trained using the same covariates to show the effect of accounting for network dependencies on predicting conflict. We supplement this with an alternative GLM that simply has a lagged dependent variable: the equivalent of saying that conflict and peace are relatively likely to persist between dyads, as well as a GLM with all of our covariates and a lagged dependent variable. 
 
