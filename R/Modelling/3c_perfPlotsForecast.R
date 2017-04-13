@@ -70,8 +70,9 @@ for(dropFromEnd in c(1,5)){
 	# plotting
 
 	# model col/lty
-	ggCols = brewer.pal(length(levels(rocData$model)), 'Set1')[c(1,3,2)]
-	ggLty = c('dashed', 'dotdash', 'solid')
+	ggCols = brewer.pal(length(levels(rocData$model)), 'Set1')[c(3,1,2)]
+	# ggLty = c('dashed', 'dotdash', 'solid')
+	ggLty = c('dotdash', 'dashed', 'solid')
 
 	# Separation plots
 	loadPkg(c('png','grid'))
