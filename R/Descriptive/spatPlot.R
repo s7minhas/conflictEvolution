@@ -36,14 +36,15 @@ nData$id = as.numeric(as.character(unique(nigShape$id))	)
 nData$postBH = ifelse(nData$YEAR>=2009,1,0)
 nData$invBoko = apply(nData[,c('a1','a2')], 1, function(x){ ifelse('Boko Haram' %in% x,'Yes','No')  })
 nData$invBoko = factor(nData$invBoko, levels=c('Yes','No'))
+nData$yearLab = ifelse(nData$YEAR>=2009, nData$YEAR, paste0(nData$YEAR, ' (Pre Boko Haram)'))
+nData$yearLab = factor(nData$yearLab, levels=sort(unique(nData$yearLab)))
 
 # viz
-ggNigConfMap = ggplot(nData, aes(map_id = id)) + 
-	geom_map( map=nigShape, fill='white', linetype=1, colour='grey50') +
+ggNigConfMap = ggplot(nData, aes(map_id = id, x=LONGITUDE,y=LATITUDE)) + 
+	geom_map( map=nigShape, fill='white', linetype=1, colour='grey30') +
 	inset_ggmap(ngaLines) +
-	expand_limits(x = nigShape$long, y = nigShape$lat) +
-	geom_point(aes(x=LONGITUDE,y=LATITUDE, color=factor(invBoko)),alpha=.7) + 
-	facet_wrap(~YEAR, nrow=4, ncol=4) + 
+	geom_point(aes(color=factor(invBoko)),alpha=.7) + 
+	facet_wrap(~yearLab, nrow=4, ncol=4) + 
 	xlab('') + ylab('') + 
 	labs(color='Confict Involving Boko Haram?') + 
 	theme(
