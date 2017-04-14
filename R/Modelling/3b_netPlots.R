@@ -36,5 +36,47 @@ circPlot=ggCirc(
 	family="Source Sans Pro Light", force=3, 
 	lcol='gray85', lsize=.05) +
 	scale_color_manual(values=uvCols)
-ggsave(circPlot, file=paste0(pathGraphics,'circPlot.pdf'), width=12, height=10, device=cairo_pdf)
+ggsave(circPlot, 
+	file=paste0(pathGraphics,'circPlot.pdf'), 
+	width=12, height=10, device=cairo_pdf)
+################
+
+################
+toDrop = grep('(Nigeria)', rownames(yArrSumm))
+ySimp = yArrSumm[-toDrop,] ; ySimp = ySimp[,-toDrop] 
+uSimp = ameFits$base$U[-toDrop,]
+vSimp = ameFits$base$V[-toDrop,]
+
+uvCols = brewer.pal(11, 'RdBu')[c(11-2, 3)]
+circPlot=ggCirc(
+	Y=ySimp, U=uSimp, V=vSimp, vscale=.7, 
+	family="Source Sans Pro Light", 
+	force=1, 
+	removeIsolates=FALSE, showActLinks=FALSE) +
+	scale_color_manual(values=uvCols)
+ggsave(circPlot, 
+	file=paste0(pathGraphics, 'circPlotSimple.pdf'), 
+	width=12, height=10, device=cairo_pdf)
+################
+
+################
+# plot vecs on 2d
+uDF = data.frame(ameFits$base$U) ; uDF$name = rownames(uDF) ; uDF$type='Sender Factor Space'
+vDF = data.frame(ameFits$base$V) ; vDF$name = rownames(vDF) ; vDF$type='Receiver Factor Space'
+uvDF = rbind(uDF, vDF) ; uvDF$type = factor(uvDF$type, levels=unique(uvDF$type))
+ggplot(uvDF, aes(x=X1, y=X2, color=type, label=name)) + 
+	geom_vline(xintercept = 0, linetype='dashed', color='grey50') + 
+	geom_hline(yintercept = 0, linetype='dashed', color='grey50') + 
+	scale_color_manual(values=rev(uvCols)) + 
+	geom_point() + 
+	geom_text_repel() + 
+	facet_wrap(~type) + 
+	xlab('') + ylab('') + 
+	labs(color='') + 
+	theme(
+		legend.position = 'none',
+		axis.ticks=element_blank(),
+		axis.text=element_blank(),
+		panel.border=element_blank()
+		)
 ################
