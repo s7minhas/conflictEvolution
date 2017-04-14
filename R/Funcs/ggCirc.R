@@ -3,7 +3,7 @@ loadPkg('ggrepel')
 ggCirc = function(
 	Y, U=NULL, V=NULL, row.names=rownames(Y), col.names=colnames(Y),
 	vscale=.8, prange=c(2,5), lcol='gray85', ltype='dotted', lsize=.5,
-	force=1, maxIter = 3e3,
+	force=1, maxIter = 3e3, removeIsolates=TRUE,
 	showActLinks=TRUE, geomLabel=TRUE, geomText=FALSE, geomPoint=TRUE, ...
 	){
 	
@@ -49,17 +49,17 @@ ggCirc = function(
 	
 	# org df for gg
 	uG = data.frame(u*1.2)
-	uG$actor = rownames(yArrSumm)
+	uG$actor = rownames(Y)
 	uG$tPch = 0 ; uG$tPch[rsum>0] = (mu[rsum>0])^3
-	uG = uG[uG$tPch>0,]
+	if(removeIsolates){ uG = uG[uG$tPch>0,] }
 	uG$tPch = uG$tPch
 	
 	# add v if supplied
 	if(!is.null(V)){
 		vG = data.frame(v*1.2)
-		vG$actor = rownames(yArrSumm)
+		vG$actor = rownames(Y)
 		vG$tPch = 0 ; vG$tPch[csum>0] = (mv[csum>0])^3
-		vG = vG[vG$tPch>0,]
+		if(removeIsolates){ vG = vG[vG$tPch>0,] }
 		vG$tPch = vG$tPch
 		
 		uG$eff = 'u' ; vG$eff = 'v'
