@@ -101,15 +101,15 @@ All of the models' performance out of sample by these metrics are displayed in f
 \end{figure}
 \FloatBarrier
 
-Typically, conflict scholars are also interested in generating forecasts from their models, and to assess the performance of their model instead of taking a cross-validation approach they often just predict out some number of years. We perform such an exercise as well by dividing up our sample into a training and test set, where the test set corresponds to the last five periods in the data that we have available. Results for this analysis are shown in Figure~\ref{fig:roc_ameForecast} and there again we find that our network based approach has better out of sample predictive performance than the alternatives.
+Typically, conflict scholars are also interested in generating forecasts from their models, and to assess the performance of their model instead of taking a cross-validation approach they often just predict out some number of years. We perform such an exercise as well by dividing up our sample into a training and test set, where the test set corresponds to the last period in the data that we have available. Results for this analysis are shown in Figure~\ref{fig:roc_ameForecast} and there again we find that our network based approach has better out of sample predictive performance than the alternatives.
 
 \begin{figure}[ht]
 	\centering
 	\begin{tabular}{cc}
-	\includegraphics[width=.5\textwidth]{roc_outSampleForecast_5} & 
-	\includegraphics[width=.5\textwidth]{rocPr_outSampleForecast_5}
+	\includegraphics[width=.5\textwidth]{roc_outSampleForecast_1} & 
+	\includegraphics[width=.5\textwidth]{rocPr_outSampleForecast_1}
 	\end{tabular}
-	\caption{Assessments of out-of-sample predictive performance when forecasting out the last five periods using ROC curves, separation plots, and PR curves. AUC statistics are provided as well for both curves. In each curve, the AME model is in blue, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in red.}
+	\caption{Assessments of out-of-sample predictive performance when forecasting out the last period using ROC curves, separation plots, and PR curves. AUC statistics are provided as well for both curves. In each curve, the AME model is in blue, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in red.}
 	\label{fig:roc_ameForecast}
 \end{figure}
 \FloatBarrier
