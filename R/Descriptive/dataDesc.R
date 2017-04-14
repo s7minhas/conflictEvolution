@@ -22,6 +22,8 @@ yDF = melt(yList) ; yDF = yDF[yDF$value!=0,]
 aKey = getNameKey(yList)
 yDF$Var1 = aKey$clean[match(yDF$Var1,aKey$dirty)]
 yDF$Var1 = gsub('\n',' ', yDF$Var1, fixed=TRUE)
+yDF$Var2 = aKey$clean[match(yDF$Var2,aKey$dirty)]
+yDF$Var2 = gsub('\n',' ', yDF$Var2, fixed=TRUE)
 ################
 
 ################
@@ -62,32 +64,76 @@ ggplot(ggNetSumm, aes(x=pd, y=value, group=1)) +
 		axis.ticks=element_blank(),
 		panel.border = element_blank()
 		)	
+################	
 
-# degree dists
-degreeDF = do.call('rbind', lapply(unique(yDF$L1), function(t){
-	cbind(
-		data.frame(table( yDF$Var1[yDF$L1==t] )),
-		data.frame(table( yDF$Var2[yDF$L1==t] ))[,2], year=t )
-}))
-names(degreeDF)[2:3] = c('outDegree','inDegree')
-degreeDF$degree = degreeDF$outDegree + degreeDF$inDegree
+################
+# degrees  by t and actor
+getDegreeDF = function(dyad, actors, years){
+	inDegree = data.frame(table( dyad$Var2, dyad$L1 ))
+	outDegree = data.frame(table( dyad$Var1, dyad$L1 ))
+	degreeDF = expand.grid(actor=actors, year=years)
+	degreeDF$actor = gsub('\n',' ', degreeDF$actor, fixed=TRUE)
+	degreeDF$inDegree = inDegree$Freq[match(
+		paste0(degreeDF$actor,degreeDF$year),
+		paste0(inDegree$Var1,inDegree$Var2)
+		)] ; degreeDF$inDegree[is.na(degreeDF$inDegree)] = 0
+	degreeDF$outDegree = outDegree$Freq[match(
+		paste0(degreeDF$actor,degreeDF$year),
+		paste0(outDegree$Var1,outDegree$Var2)
+		)] ; degreeDF$outDegree[is.na(degreeDF$outDegree)] = 0
+	degreeDF$degree = degreeDF$outDegree + degreeDF$inDegree
+	return(degreeDF)
+}
+degreeDF = getDegreeDF(yDF, aKey$clean, 2000:2016)
 
-summ = degreeDF %>% group_by(Var1) %>% summarise(degT=sum(degree))
-groupOrder = char(summ$Var1[order(summ$degT,decreasing=TRUE)])
-
-ggDegree = melt(degreeDF)
-ggDegree$Var1 = factor(ggDegree$Var1, levels=rev(groupOrder))
-
+# across T by actor
+summ = degreeDF[,-which(names(degreeDF) %in% c('year'))] %>%
+	group_by(actor) %>% summarise_each(funs(sum))
+groupOrder = char(summ$actor[order(summ$degree,decreasing=TRUE)])
+ggDegree = melt(summ)
+ggDegree$actor = factor(ggDegree$actor, levels=groupOrder)
 ggDegree = ggDegree[ggDegree$variable!='degree',]
-ggplot(ggDegree, aes(x=Var1, y=value, color=year, fill=year)) +
-	# geom_point() + 
-	# geom_linerange(aes(ymin=0,ymax=value)) +
+ggplot(ggDegree, aes(x=actor, y=value)) +
+	geom_point() + 
+	geom_linerange(aes(ymin=0,ymax=value)) +
 	facet_wrap(~variable, scales='free_y', nrow=2) +
-	geom_bar(stat='identity', position='stack') +
+	# geom_bar(stat='identity', position='stack') +
 	xlab('') + ylab('') + 
 	theme(
 		axis.text.x = element_text(angle=45, hjust=1),
 		axis.ticks=element_blank(),
 		panel.border = element_blank()
 		)
+
+# focus on actor by T
+degreeDF_noBH = getDegreeDF(
+	yDF[which(!yDF$Var1=='Boko Haram' & !yDF$Var2=='Boko Haram'),],
+	aKey$clean, 2000:2016)
+
+aFocus = c('Police (Nigeria)','Military (Nigeria)')
+aSlice = degreeDF[which(degreeDF$actor %in% aFocus),]
+aSlice_noBH = degreeDF_noBH[which(degreeDF_noBH$actor %in% aFocus),]
+colnames(aSlice_noBH)[3:5] = paste0(colnames(aSlice_noBH)[3:5],'_noBH')
+aSlice = cbind(aSlice, aSlice_noBH[,3:5])
+aSlice = melt(aSlice, id=c('actor','year'))
+
+aSlice$variable = char(aSlice$variable)
+aSlice$BH = unlist(lapply(strsplit(aSlice$variable,'_',fixed=TRUE), function(x){x[2]}))
+aSlice$BH[is.na(aSlice$BH)] = 'all'
+aSlice$variable = unlist(lapply(strsplit(aSlice$variable,'_',fixed=TRUE), function(x){x[1]}))
+
+ggplot(
+		aSlice[aSlice$variable!='degree',], 
+		aes(x=year, y=value, color=BH, fill=BH)
+	) +
+	# geom_point(position=position_dodge(width=.5)) + 
+	# geom_linerange(aes(ymin=0,ymax=value),position=position_dodge(width=.5)) + 
+	geom_bar(stat='identity',position=position_dodge(width=.7)) +
+	facet_grid(actor ~ variable) +
+	xlab('') + ylab('') + 
+	theme(
+		axis.text.x = element_text(angle=45, hjust=1),
+		axis.ticks=element_blank(),
+		panel.border = element_blank()
+		)	
 ################

@@ -25,6 +25,8 @@ In figures \ref{nigeria_preBK} and \ref{nigeria_postBK}, we show that there is b
 
 Our initial intuition was that Boko Haram's conflict with the government weakened the Nigerian state's ability to monopolize violence and deter other violent actors. This suggests that the government is so busy fighting Boko Haram that other militias are able to run amok. If this were the case, we would expect to see the Police and Military involved in fewer conflicts with other groups in the later period. We do not observe this: not only are the government groups involved in \emph{more} battles on average in the second period, but there level of conflict with nearly every group has increased.
 
+\textcolor{purple}{bring in new chart from descriptives to support this}
+
  These results might be driven by the process in which Boko Haram's behavior incentivizes other militias to ramp up their levels of violence. This may be because these groups increase their military strength to defend against Boko Haram, and this leads to security dilemmas and spirals of escalation. Alternatively, it could be because Boko Haram, in a quest for widespread territorial control of the northern regions, has dislocated groups and strained resources leading to more violence. We need more study and more finely grained data if we want to adjudicate between these, or potential alternative explanations.
 
 \begin{landscape}
@@ -63,9 +65,11 @@ We prefer to use a network model to understand intrastate conflict in Nigeria no
 
 Figure \ref{circplot} shows the directions of actors' latent factors for both sending and receiving violence. The directions of $\hat{u}_{i}$'s (for sending conflict) and $\hat{v}_{i}$'s (for receiving conflict) are noted in \textcolor{blue}{blue} and \textcolor{red}{red}, respectively. The size of the label assigned to the points is a function of the magnitude of the vectors, and dashed lines between actors indicate whether or not there was a conflictual interaction between the two at any point between 2000 to 2016.\footnote{Figure \ref{netGOF} in the appendix summarizes how well we capture first, second, and third order dependencies using our model.} The purpose of this figure is to discern groups of actors that are more similar to each other in terms of whom they send conflict to (outer ring) or receive conflict from (inner ring). Actor similarity here results from third order dependence patterns -- specifically, homophily and stochastic equivalence -- that remain after accounting for the other parameters estimated by the model. What appears to be the case in Nigeria, is that certain groups are not just more likely to fight common third parties, but they are also more likely to fight \emph{each other}. This is most notable in the cluster in the plot involving the government forces, the Vigilante Militia, Boko Haram, and MEND. %% need to keep fixing this up
 
+\textcolor{purple}{discuss how positioning relates to similar dependence patterns}
+
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth]{{circPlot}}
+	\includegraphics[width=1\textwidth]{{circPlotSimpls}}
 	\caption{Visualization of multiplicative effects.}
 	\label{circplot}
 \end{figure}
