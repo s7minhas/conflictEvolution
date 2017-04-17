@@ -1,4 +1,4 @@
-\begin{thebibliography}{51}
+\begin{thebibliography}{55}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -30,9 +30,18 @@ Celestino, M.~R., Gleditsch, K.~S., 2013. Fresh carnations or all thorn, no
 Chenoweth, E., Stephan, M.~J., 2011. Why civil resistance works: The strategic
   logic of nonviolent conflict. Columbia University Press.
 
+\bibitem[{Christia(2012)}]{fotini:2012}
+Christia, F., 2012. Alliance formation in civil wars. Cambridge University
+  Press.
+
 \bibitem[{Collier and Hoeffler(2004)}]{collier:hoeffler:2004}
 Collier, P., Hoeffler, A., 2004. Greed and grievance in civil war. Oxford
   Economic Papers 56, 563--595.
+
+\bibitem[{Collier et~al.(2004)Collier, Hoeffler, and
+  S\"{o}derbom}]{collier:etal:2004}
+Collier, P., Hoeffler, A., S\"{o}derbom, M., 2004. {On the duration of civil
+  war}. Journal of Peace Research 41~(3), 253--273.
 
 \bibitem[{Condra and Shapiro(2012)}]{condra:shapiro:2012}
 Condra, L.~N., Shapiro, J.~N., 2012. Who takes the blame? {T}he strategic
@@ -52,6 +61,10 @@ Cunningham, D., Gleditsch, K.~S., Salehyan, I., 2009. It takes two: A dyadic
 \bibitem[{Cunningham(2006)}]{cunningham:2006}
 Cunningham, D.~E., 2006. Veto players and civil war duration. American Journal
   of Political Science 50~(4), 875--892.
+
+\bibitem[{Cunningham(2014)}]{cunningham:2014}
+Cunningham, K.~G., 2014. Inside the Politics of Self-determination. Oxford
+  University Press.
 
 \bibitem[{Dorff and Minhas(2016)}]{dorff:minhas:2016}
 Dorff, C., Minhas, S., 2016. When do states say uncle? {Network} dependence and
@@ -78,6 +91,12 @@ Fjelde, H., Nilsson, D., 2012. Rebels against rebels: Explaining violence
 Gallop, M., 2017. More dangerous than dyads: How a third party enables
   rationalist explanations for war. Journal of Peace Research.
 
+\bibitem[{Gleditsch et~al.(2002)Gleditsch, Wallensteen, Eriksson, Sollenberg,
+  and Strand}]{gleditsch:etal:2002}
+Gleditsch, N.~P., Wallensteen, P., Eriksson, M., Sollenberg, M., Strand, H.,
+  2002. Armed conflict 1946-2001: A new dataset. Journal of Peace Research
+  39~(5), 615--637.
+
 \bibitem[{Granovetter(1973)}]{granovetter:1973}
 Granovetter, M.~S., May 1973. {The Strength of Weak Ties}. American Journal of
   Sociology 78~(6), 1360--1380.
@@ -91,16 +110,21 @@ Greenhill, B., Ward, M.~D., Sacks, A., 2011. The separation plot: A new visual
 \bibitem[{Gurr(1970)}]{gurr:1970}
 Gurr, T.~R., 1970. {Why Men Rebel}. Princeton University Press, Princeton, NJ.
 
+\bibitem[{Harbom et~al.(2008)Harbom, Melander, and
+  Wallensteen}]{harbom:etal:2008}
+Harbom, L., Melander, E., Wallensteen, P., 2008. Dyadic dimensions of armed
+  conflict, 1946---2007. Journal of Peace Research 45~(5), 697--710.
+
+\bibitem[{Hegre et~al.(2001)Hegre, Ellingsen, Gates, and
+  Gleditsch}]{hegre:etal:2001}
+Hegre, H., Ellingsen, T., Gates, S., Gleditsch, N.~P., 2001. Toward a
+  democratic civil peace? democracy, political change, and civil war,
+  1816-1992. American Political Science Review 95~(1), 33--48.
+
 \bibitem[{Hoff(2009)}]{hoff:2009}
 Hoff, P., 2009. Multiplicative latent factor models for description and
   prediction of social networks. Computational and Mathematical Organization
   Theory 15~(4), 261--272.
-
-\bibitem[{Hoff(2008)}]{hoff:2008}
-Hoff, P.~D., 2008. Modeling homophily and stochastic equivalence in symmetric
-  relational data. In: Platt, J.~C., Koller, D., Singer, Y., Roweis, S.~T.
-  (Eds.), Advances in Neural Information Processing Systems 20. Processing
-  Systems 21. MIT Press, Cambridge, MA, USA, pp. 657--664.
 
 \bibitem[{Hoff and Ward(2004)}]{hoff:ward:2004}
 Hoff, P.~D., Ward, M.~D., 2004. {Modeling Dependencies in International
@@ -133,6 +157,11 @@ Kathman, J.~D., Wood, R.~M., 2015. {Competing for the crown: Inter-rebel
 Kinne, B.~J., 2012. Multilateral trade and militarized conflict: Centrality,
   asymmetry, and openness in the global trade network. The Journal of Politics
   74~(1), 308--322.
+
+\bibitem[{Lacina(2014)}]{lacina:2014}
+Lacina, B., 2014. How governments shape the risk of civil violence: India's
+  federal reorganization, 1950-56. American Journal of Political Science
+  58~(3), 720--738.
 
 \bibitem[{Li and Loken(2002)}]{li:loken:2002}
 Li, H., Loken, E., 2002. A unified theory of statistical analysis and inference
@@ -168,14 +197,13 @@ Minhas, S., Hoff, P.~D., Ward, M.~D., May 2016{\natexlab{b}}. A new approach to
 Nemeth, S.~C., 2014. The effect of competition on terrorist group operations.
   Journal of Conflict Resolution 58~(2), 336--362.
 
-\bibitem[{Nemeth et~al.(2014)Nemeth, Mauslein, and Stapley}]{nemeth:etal:2014}
-Nemeth, S.~C., Mauslein, J.~A., Stapley, C., 2014. The primacy of the local:
-  {I}dentifying terrorist hot spots using geographic information systems. The
-  Journal of Politics 76~(2), 304--317.
-
 \bibitem[{Opp(1988)}]{opp:1988}
 Opp, K.-D., 12 1988. Grievances and participation in social movements. American
   Sociological Review 53~(6), 853.
+
+\bibitem[{Pettersson and Wallensteen(2015)}]{pettersson:wallensteen:2015}
+Pettersson, T., Wallensteen, P., 2015. Armed conflicts, 1946--2014. Journal of
+  Peace Research 52~(4), 536--550.
 
 \bibitem[{Prorok and Appel(2014)}]{prorok:appel:2014}
 Prorok, A.~K., Appel, B.~J., 2014. Compliance with international humanitarian
@@ -188,22 +216,15 @@ Raleigh, C., Linke, A., Hegre, H., Karlsen, J., 2010. Introducing {ACLED}: An
   armed conflict location and event dataset special data feature. Journal of
   Peace Research 47~(5), 651--660.
 
-\bibitem[{Rustad et~al.(2011)Rustad, Buhaug, Falch, and
-  Gates}]{rustad:etal:2011}
-Rustad, S. C.~A., Buhaug, H., Falch, A., Gates, S., 2011. All conflict is
-  local: Modeling sub-national variation in civil conflict risk. Conflict
-  Management and Peace Science 28~(1), 15--40.
+\bibitem[{Salehyan(2008)}]{salehyan:2008}
+Salehyan, I., 2008. The externalities of civil strife: Refugees as a source of
+  international conflict. American Journal of Political Science 52~(4),
+  787--801.
 
 \bibitem[{Shalizi and Thomas(2011)}]{shalizi:thomas:2011}
 Shalizi, C.~R., Thomas, A.~C., 2011. Homophily and contagion are generically
   confounded in observational social network studies. Sociological Methods \&
   Research 40~(2), 211--239.
-
-\bibitem[{Shortland et~al.(2013)Shortland, Christopoulou, and
-  Makatsoris}]{shortland:etal:2013}
-Shortland, A., Christopoulou, K., Makatsoris, C., 2013. War and famine, peace
-  and light? {T}he economic dynamics of conflict in {S}omalia 1993--2009.
-  Journal of Peace Research 50~(5), 545--561.
 
 \bibitem[{Snijders(1996)}]{snijders:1996}
 Snijders, T.~A., 1996. Stochastic actor-oriented models for network change.
@@ -225,11 +246,6 @@ Valentino, B., Huth, P., Balch-Lindsay, D., 2004. `draining the sea': Mass
 \bibitem[{Walter(2006)}]{walter:2006}
 Walter, B.~F., 2006. Information, uncertainty, and the decision to secede.
   International Organization 60~(1), 105--135.
-
-\bibitem[{Warner et~al.(1979)Warner, Kenny, and Stoto}]{warner:etal:1979}
-Warner, R., Kenny, D., Stoto, M., 1979. A new round robin analysis of variance
-  for social interaction data. Journal of Personality and Social Psychology 37,
-  1742--1757.
 
 \bibitem[{Wasserman and Faust(1994)}]{wasserman:faust:1994}
 Wasserman, S., Faust, K., 1994. Social Network Analysis: Methods and
