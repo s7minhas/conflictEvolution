@@ -80,9 +80,10 @@ edgePostBH = data.frame( edge=attributes(E(gArrSumPostBH))$vnames,
 	edgeWgt=E(gArrSumPostBH)$weight, stringsAsFactors = FALSE )
 edgePostBH$wgtPreBH = edgePreBH$edgeWgt[match(edgePostBH$edge,edgePreBH$edge)]
 edgePostBH$wgtPreBH[is.na(edgePostBH$wgtPreBH)] = 0
-edgePal = brewer.pal(7,'Paired')[c(5,1,3)]
+edgePal = brewer.pal(3,'Set1')
 edgePostBH$edgeCol = ifelse(edgePostBH$edgeWgt>edgePostBH$wgtPreBH, edgePal[2],edgePal[1])
 edgePostBH$edgeCol[edgePostBH$edgeWgt==edgePostBH$wgtPreBH]=edgePal[3]
+E(gArrSumPostBH)$weight = E(gArrSumPostBH)$weight*3
 
 # define v cols by actor type
 vCol = ifelse(names(V(gArrSumPostBH)) %in% govActors, 'gray30', 'gray95')
