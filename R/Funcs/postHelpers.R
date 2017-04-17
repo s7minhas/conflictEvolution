@@ -28,7 +28,7 @@ getSigVec = function(beta){
 }
 
 # AB Effect plot
-addEffPlot = function(fit, row=TRUE, addDegree=FALSE, yList=NULL, orderByDegree=FALSE){
+getAddEffData = function(fit, row=TRUE, addDegree=FALSE, yList=NULL, orderByDegree=FALSE){
 	if(row){addEffData = data.frame(addEff=fit$APM, stringsAsFactors = FALSE) ; yLabel='Sender Effects'}
 	if(!row){addEffData = data.frame(addEff=fit$BPM, stringsAsFactors = FALSE) ; yLabel='Receiver Effects'}
 	addEffData$actor = rownames(addEffData) ; rownames(addEffData) = NULL
@@ -52,6 +52,15 @@ addEffPlot = function(fit, row=TRUE, addDegree=FALSE, yList=NULL, orderByDegree=
 	}
 	addEffData$max = ifelse(addEffData$addEff>=0,addEffData$addEff,0)
 	addEffData$min = ifelse(addEffData$addEff<0,addEffData$addEff,0) 
+	return(addEffData)
+}
+
+addEffPlot = function(fit, row=TRUE, addDegree=FALSE, yList=NULL, orderByDegree=FALSE, addEffData=NULL){
+	if(is.null(addEffData)){
+		addEffData = getAddEffData(fit, row, addDegree, yList, orderByDegree)
+	}
+	if(row){ yLabel='Sender Effects'}
+	if(!row){ yLabel='Receiver Effects'}		
 	gg = ggplot(addEffData, aes(x=actor, y=addEff)) +
 		geom_point() + geom_linerange(aes(ymax=max,ymin=min)) +
 		ylab(yLabel) + xlab('') + 
