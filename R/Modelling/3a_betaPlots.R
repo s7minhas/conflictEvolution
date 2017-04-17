@@ -79,7 +79,8 @@ ameBETA = getSigVec(ameBETA)
 # viz
 cleanVars = ameBETA$varClean
 ameBETA$typeClean = factor(ameBETA$typeClean, levels=unique(ameBETA$typeClean)[c(3,1,2)])
-ggCoef=ggplot(ameBETA, aes(x=varClean, y=mean, color=sig)) + facet_wrap(~typeClean,ncol=1,scales='free_y') + 
+ggCoef=ggplot(ameBETA, aes(x=varClean, y=mean, color=sig)) +
+	facet_wrap(~typeClean,ncol=1,scales='free_y') + 
 	geom_hline(aes(yintercept=0), linetype=2, color = "black") + 
 	geom_point(size=4) + 
 	geom_linerange(aes(ymin=lo90, ymax=hi90),alpha = 1, size = 1.5) + 
@@ -95,7 +96,8 @@ ggCoef=ggplot(ameBETA, aes(x=varClean, y=mean, color=sig)) + facet_wrap(~typeCle
 		axis.ticks=element_blank(),
 		axis.text.x=element_text(family="Source Sans Pro Light"),
 		axis.text.y=element_text(family="Source Sans Pro Light", hjust=0),
-		strip.text.x = element_text(size = 9, color='white',family="Source Sans Pro Semibold", angle=0, hjust=.95),
+		strip.text.x = element_text(size = 9, color='white',
+			family="Source Sans Pro Semibold", angle=0, hjust=.95),
 		strip.background = element_rect(fill = "#525252", color='#525252')				
 	)
 ggsave(ggCoef, file=paste0(pathGraphics,'betaEst.pdf'), width=7, height=6, device=cairo_pdf)

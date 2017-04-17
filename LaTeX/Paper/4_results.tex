@@ -1,5 +1,3 @@
-\textcolor{purple}{didnt get a chance to update finding descriptions.}
-
 \section*{Results}
 
 \subsection*{Parameter Estimates}
@@ -10,7 +8,10 @@ In the case of this Nigerian conflict network, there is no evidence of a link be
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth]{betaEst}
+	\begin{tabular}{c}
+	\includegraphics[width=1\textwidth]{betaEst} \\
+	\includegraphics[width=1\textwidth]{vcEst} \\
+	\end{tabular}
 	\caption{Standardized parameter estimates from AME model. Points represent average value of parameters, thicker line represents the 90\% credible interval, and thinner line the 95\%.}
 	\label{betaEst}
 \end{figure}
@@ -18,58 +19,56 @@ In the case of this Nigerian conflict network, there is no evidence of a link be
 
 Finally, we examine at the effect of the beginning of the Boko Haram insurgency on the level of conflict in the system and find a clear increase in violence in the years that follow. Again this is not just the effect of Boko Haram's propensity to target and be targeted in battles, as those first order effects are accounted for in the AME model (though that does explain much of the difference between AME and GLM effects). The Boko Haram Insurgency is associated with an increase in conflicts even in the dyads that do not contain Boko Haram. 
 
+We plot the different variance parameters in the bottom of figure \ref{betaEst}. By looking at the sender and receiver heterogeneity estimates ($\sigma_{a^2}, \sigma_{b^2}$) we see significant first order effects--different actors not only have different baseline levels of conflict, but the variance changes too. We also see a moderate value for $\sigma_{ab}$ indicating that actors whom initiate more conflictual links also receive more conflictual links in return. Relatedly, the positive value for $\rho$ indicates that actors whom receive a conflict from a particular sender reciprocate that conflictual behavior. The fact that each of these variance parameters is positive and significantly greater than zero indicates that the assumption of observational independence relied on by standard generalized linear models (GLM) are violated in this dyadic conflict dataset.
+
 \subsection*{Boko Haram's Entrance}
 
 \textcolor{red}{I think we need to rewrite this section a bit, to bring it more in line with our theory section. In particular, we now have an explanation for increased violence vs and by the government -- BK harms perception of the gov, leading to incentives for other groups to attack the gov (or eachother) and by the gov to show its still there.}
-In figures \ref{nigeria_preBK} and \ref{nigeria_postBK}, we show that there is both more intense and more widespread conflict with the beginning of Boko Haram's uprising. In the post-Boko Haram network plot, we shade dyadic relationships that experience more conflict after the beginning of Boko Haram's insurgency in blue, those that saw less in red, and those that stay the same in green. Interestingly, much of this conflict does not actually involve Boko Haram. Their conflict is predominantly against the Nigerian Police and Military forces, and yet after their entrance we also see increases in conflict with other groups. 
+
+In figure \ref{nigeria_postBK}, we show that there is both more intense and more widespread conflict with the beginning of Boko Haram's uprising. In this visualization, we shade dyadic relationships that experience more conflict after the beginning of Boko Haram's insurgency in blue, those that saw less in red, and those that stay the same in green. Interestingly, much of this conflict does not actually involve Boko Haram. Their conflict is predominantly against the Nigerian Police and Military forces, and yet after their entrance we also see increases in conflict with other groups. 
 
 Our initial intuition was that Boko Haram's conflict with the government weakened the Nigerian state's ability to monopolize violence and deter other violent actors. This suggests that the government is so busy fighting Boko Haram that other militias are able to run amok. If this were the case, we would expect to see the Police and Military involved in fewer conflicts with other groups in the later period. We do not observe this: not only are the government groups involved in \emph{more} battles on average in the second period, but there level of conflict with nearly every group has increased.
 
-\textcolor{purple}{bring in new chart from descriptives to support this}
-
  These results might be driven by the process in which Boko Haram's behavior incentivizes other militias to ramp up their levels of violence. This may be because these groups increase their military strength to defend against Boko Haram, and this leads to security dilemmas and spirals of escalation. Alternatively, it could be because Boko Haram, in a quest for widespread territorial control of the northern regions, has dislocated groups and strained resources leading to more violence. We need more study and more finely grained data if we want to adjudicate between these, or potential alternative explanations.
 
-\begin{landscape}
-	\begin{figure}
+\begin{figure}
 	\centering
-	\includegraphics[width=1.3\textwidth]{nigeria_preBK}
-	\caption{Conflict network 2000-2008. Pairs with more conflict have larger links. Government groups are in black, all other groups are in grey.}
-	\label{nigeria_preBK}
-	\end{figure}
-\end{landscape}
-\FloatBarrier
-
-\begin{landscape}
-	\begin{figure}
-	\centering
-	\includegraphics[width=1.3\textwidth]{nigeria_postBK}
-	\caption{Conflict network 2009-2016. Pairs with more conflict have larger links. Government groups are in black, all other groups are in grey. Blue links indicate more interactions in the 2009-2016 period than in the 2000-2008 period, red indicates less, green is the same.}
-	\label{nigeria_postBK}
-	\end{figure}
-\end{landscape}
-\FloatBarrier
+	% \begin{tabular}{c}
+	% \includegraphics[width=1\textwidth]{nigeria_preBK} \\
+	\includegraphics[width=1\textwidth]{nigeria_postBK}
+	% \end{tabular}
+	\caption{Conflict network 2009-2016. Pairs with more conflict have larger links. Government groups are in black, all other groups are in grey. Blue links indicate more interactions in the 2009-2016 period than in the 2000-2008 period, red indicates less, green no change.}
+	\label{fig:nigeriaNets}
+\end{figure}
 
 What we can say is that the effect of Boko Haram demonstrates the need for a networked approach to interstate conflict. A standard approach to interstate conflict, which focuses on the government-rebel dyads, or in particularly ambitious cases, also looks at rebel-rebel dyads, would catch Boko Haram's direct effect on conflict, but it would miss this indirect effect. We see the entrance of a group to a network increasing the levels of activities in uninvolved dyads. So a traditional dyadic approach would underestimate the effect of Boko Haram, and would underpredict violence in the system.
 
 \subsection*{Network Dependencies}
 
-We prefer to use a network model to understand intrastate conflict in Nigeria not just because it can give more precise parameter estimates, but also because it can help us to understand the interdependencies among conflict actors in Nigeria. We plot the different variance parameters in figure \ref{varEsts}. By looking at the sender and receiver heterogeneity estimates ($\sigma_{a^2}, \sigma_{b^2}$) we see significant first order effects--different actors not only have different baseline levels of conflict, but the variance changes too.\footnote{In figure~\ref{abEst} of the Appendix, we show the sender and receiver random effect estimates for each actor in our model.} We also see a moderate value for $\sigma_{ab}$ indicating that actors whom initiate more conflictual links also receive more conflictual links in return. Relatedly, the positive value for $\rho$ indicates that actors whom receive a conflict from a particular sender reciprocate that conflictual behavior. The fact that each of these variance parameters is positive and significantly greater than zero indicates that the assumption of observational independence relied on by standard generalized linear models (GLM) are violated in this dyadic conflict dataset.
+We prefer to use a network model to understand intrastate conflict in Nigeria not just because it can give more precise parameter estimates, but also because it can help us to understand the interdependencies among conflict actors in Nigeria. 
+
+\textcolor{red}{
+essentially we find that the fulani militia, eg, is still sending more conflict than our model would predict
+well boko haram is essentially zero, which makes sense because it means we're predicting their level of sending conlflict well
+and acknowledge that by using the model we are also able to determine actors that our model is not capturing perfectly ie the fulani militia
+and that this points to avenues for future exploration}
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.8\textwidth]{{vcEst}}
-	\caption{AME network variance estimates. Points represent average value of parameters, thicker line represents the 90\% credible interval, and thinner line the 95\%.}
-	\label{varEsts}
+	\includegraphics[width=1\textwidth]{abEst2}
+	\caption{Sender and receiver random effect estimates.}
+	\label{fig:abEst}
 \end{figure}
 \FloatBarrier
+\newpage
 
-Figure \ref{circplot} shows the directions of actors' latent factors for both sending and receiving violence. The directions of $\hat{u}_{i}$'s (for sending conflict) and $\hat{v}_{i}$'s (for receiving conflict) are noted in \textcolor{blue}{blue} and \textcolor{red}{red}, respectively. The size of the label assigned to the points is a function of the magnitude of the vectors, and dashed lines between actors indicate whether or not there was a conflictual interaction between the two at any point between 2000 to 2016.\footnote{Figure \ref{netGOF} in the appendix summarizes how well we capture first, second, and third order dependencies using our model.} The purpose of this figure is to discern groups of actors that are more similar to each other in terms of whom they send conflict to (outer ring) or receive conflict from (inner ring). Actor similarity here results from third order dependence patterns -- specifically, homophily and stochastic equivalence -- that remain after accounting for the other parameters estimated by the model. What appears to be the case in Nigeria, is that certain groups are not just more likely to fight common third parties, but they are also more likely to fight \emph{each other}. This is most notable in the cluster in the plot involving the government forces, the Vigilante Militia, Boko Haram, and MEND. %% need to keep fixing this up
+\textcolor{red}{discuss how positioning relates to similar dependence patterns ... lets actually also use these results to talk about what the results here are saying. ie develop a descriptive story about what it means that BH is clustering with those actors ... the reason they're clustering is because each of these actors though separate spatially are fighting with the govt for control of some territory. other groups here are clustered because they have rivalries between themselves ... ie shiite - sunni muslims, etc. }
 
-\textcolor{purple}{discuss how positioning relates to similar dependence patterns ... lets actually also use these results to talk about what the results here are saying. ie develop a descriptive story about what it means that BH is clustering with those actors ... the reason they're clustering is because each of these actors though separate spatially are fighting with the govt for control of some territory. other groups here are clustered because they have rivalries between themselves ... ie shiite - sunni muslims, etc. }
+Figure \ref{circplot} shows the directions of actors' latent factors for both sending and receiving violence. The directions of $\hat{u}_{i}$'s (for sending conflict) and $\hat{v}_{i}$'s (for receiving conflict) are noted in \textcolor{blue}{blue} and \textcolor{red}{red}, respectively. The size of the label assigned to the points is a function of the magnitude of the vectors, and dashed lines between actors indicate whether or not there was a conflictual interaction between the two at any point between 2000 to 2016.\footnote{Figure \ref{netGOF} in the appendix summarizes how well we capture first, second, and third order dependencies using our model.} The purpose of this figure is to discern groups of actors that are more similar to each other in terms of whom they send conflict to (outer ring) or receive conflict from (inner ring). Actor similarity here results from third order dependence patterns -- specifically, homophily and stochastic equivalence -- that remain after accounting for the other parameters estimated by the model. What appears to be the case in Nigeria, is that certain groups are not just more likely to fight common third parties, but they are also more likely to fight \emph{each other}. This is most notable in the cluster in the plot involving the government forces, the Vigilante Militia, Boko Haram, and MEND. 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth]{{circPlotSimpls}}
+	\includegraphics[width=1\textwidth]{{circPlotSimplev2}}
 	\caption{Visualization of multiplicative effects.}
 	\label{circplot}
 \end{figure}
@@ -84,7 +83,9 @@ One of the most important reasons for employing a network based approach is that
 	\item and predict $\{y_{ij,t}: s_{ij} = s\}$ from these estimated parameters. 
 \end{enumerate}
 
-\noindent The result of this procedure is a sociomatrix $\bm \hat Y$, in which each entry $\hat y_{ij}$ is a predicted value obtained from using a subset of the data that does not include $y_{ij}$. \textcolor{red}{We need to rewrite this a bit to address the fact that we're dealing with T different arrays.}
+\noindent The result of this procedure is a sociomatrix $\bm \hat Y$, in which each entry $\hat y_{ij}$ is a predicted value obtained from using a subset of the data that does not include $y_{ij}$. 
+
+\textcolor{red}{We need to rewrite this a bit to address the fact that we're dealing with T different arrays. also talk more about the specification of the glm models}
 
 We set a number of benchmarks for comparison. First we compare the AME model to a GLM trained using the same covariates to show the effect of accounting for network dependencies on predicting conflict. We supplement this with an alternative GLM that simply has a lagged dependent variable: the equivalent of saying that conflict and peace are relatively likely to persist between dyads, as well as a GLM with all of our covariates and a lagged dependent variable. 
 

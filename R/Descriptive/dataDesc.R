@@ -122,18 +122,35 @@ aSlice$BH = unlist(lapply(strsplit(aSlice$variable,'_',fixed=TRUE), function(x){
 aSlice$BH[is.na(aSlice$BH)] = 'all'
 aSlice$variable = unlist(lapply(strsplit(aSlice$variable,'_',fixed=TRUE), function(x){x[1]}))
 
-ggplot(
-		aSlice[aSlice$variable!='degree',], 
-		aes(x=year, y=value, color=BH, fill=BH)
-	) +
+aSlice$BH[aSlice$BH=='noBH'] = 'No'
+aSlice$BH[aSlice$BH=='all'] = 'Yes'
+aSlice$BH = factor(aSlice$BH, levels=unique(aSlice$BH))
+
+aSlice = aSlice[aSlice$variable!='degree',]
+aSlice$variable[aSlice$variable=='inDegree'] = 'Conflict(s) Sent'
+aSlice$variable[aSlice$variable=='outDegree'] = 'Conflict(s) Received'
+aSlice$variable = factor(aSlice$variable, levels=unique(aSlice$variable))
+
+aSlice = aSlice[aSlice$year>=2009,]
+
+polMilDegree_bh = ggplot( aSlice, aes(x=year, y=value, fill=BH) ) +
 	# geom_point(position=position_dodge(width=.5)) + 
 	# geom_linerange(aes(ymin=0,ymax=value),position=position_dodge(width=.5)) + 
 	geom_bar(stat='identity',position=position_dodge(width=.7)) +
+	# geom_bar(stat='identity',position=position_stack()) +
+	scale_fill_manual(values=c('grey30','grey60')) + 
 	facet_grid(actor ~ variable) +
 	xlab('') + ylab('') + 
+	labs(fill='Including Boko Haram?') + 
 	theme(
-		axis.text.x = element_text(angle=45, hjust=1),
+		legend.position = 'bottom',
 		axis.ticks=element_blank(),
-		panel.border = element_blank()
-		)	
+		axis.text.x=element_text(family="Source Sans Pro Light", angle=45, hjust=1),
+		axis.text.y=element_text(family="Source Sans Pro Light"),		
+		panel.border = element_blank(),
+		strip.text.x = element_text(size = 9, color='white',family="Source Sans Pro Semibold", angle=0, hjust=.95),
+		strip.text.y = element_text(size = 9, color='white',family="Source Sans Pro Semibold"),
+		strip.background = element_rect(fill = "#525252", color='#525252')		
+		)
+ggsave(polMilDegree_bh, file=paste0(pathGraphics, 'polMilDegree.pdf'), width=8, height=4, device=cairo_pdf)
 ################
