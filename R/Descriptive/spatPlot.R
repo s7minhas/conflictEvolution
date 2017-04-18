@@ -59,7 +59,7 @@ ggNigConfMap = ggplot(nData, aes(map_id = id, x=LONGITUDE,y=LATITUDE)) +
 		panel.grid=element_blank(),
 		axis.ticks=element_blank(),
 		axis.text=element_blank(),
-		legend.text=element_text(family='Source Sans Pro Bold'),
+		legend.text=element_text(family='Source Sans Pro Bold', size=11),
 		legend.title=element_text(family='Source Sans Pro Bold'),
 		strip.text.x = element_text(color='white',family="Source Sans Pro Bold"),
 		strip.background = element_rect(fill = "#525252", color='#525252')		

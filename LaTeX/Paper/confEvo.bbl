@@ -1,4 +1,4 @@
-\begin{thebibliography}{55}
+\begin{thebibliography}{59}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -9,6 +9,10 @@
 Anderson, C.~J., Wasserman, S., Faust, K., 1992. Building stochastic
   blockmodels. Social Networks 14~(1), 137--161.
 
+\bibitem[{Beardsley(2011)}]{beardsley:2011}
+Beardsley, K., September 2011. {Peacekeeping and the Contagion of Armed
+  Conflict}. The Journal of Politics 73~(04), 1051--1064.
+
 \bibitem[{Berman and Matanock(2015)}]{berman:matanock:2015}
 Berman, E., Matanock, A.~M., 2015. The empiricists' insurgency. Annual Review
   of Political Science 18, 443--464.
@@ -16,6 +20,10 @@ Berman, E., Matanock, A.~M., 2015. The empiricists' insurgency. Annual Review
 \bibitem[{Bloom(2004)}]{bloom:2004}
 Bloom, M.~M., 2004. {Palestinian suicide bombing: Public support, market share,
   and outbidding}. Political Science Quarterly 119~(1), 61--88.
+
+\bibitem[{Braithwaite(2010)}]{braithwaite:2010a}
+Braithwaite, A., 2010. Resisting infection: How state capacity conditions
+  conflict contagion. Journal of Peace Research 47~(3), 311--319.
 
 \bibitem[{Cederman et~al.(2010)Cederman, Wimmer, and Min}]{cederman:etal:2010a}
 Cederman, L.-E., Wimmer, A., Min, B., 2010. Why do ethnic groups rebel? new
@@ -57,10 +65,6 @@ Crenshaw, M., 1981. {The causes of terrorism}. Comparative Politics 13~(4),
 Cunningham, D., Gleditsch, K.~S., Salehyan, I., 2009. It takes two: A dyadic
   analysis of civil war duration and outcome. Journal of Conflict Resolution
   53~(4), 570--597.
-
-\bibitem[{Cunningham(2006)}]{cunningham:2006}
-Cunningham, D.~E., 2006. Veto players and civil war duration. American Journal
-  of Political Science 50~(4), 875--892.
 
 \bibitem[{Cunningham(2014)}]{cunningham:2014}
 Cunningham, K.~G., 2014. Inside the Politics of Self-determination. Oxford
@@ -221,6 +225,14 @@ Salehyan, I., 2008. The externalities of civil strife: Refugees as a source of
   international conflict. American Journal of Political Science 52~(4),
   787--801.
 
+\bibitem[{Salehyan(2009)}]{salehyan:2009}
+Salehyan, I., 2009. Rebels without borders: transnational insurgencies in world
+  politics. Cornell University Press, Ithaca.
+
+\bibitem[{Salehyan and Gleditsch(2007)}]{salehyan:gleditsch:2007}
+Salehyan, I., Gleditsch, K.~S., 2007. Refugees and the spread of civil war.
+  International Organization 60~(2), 335--366.
+
 \bibitem[{Shalizi and Thomas(2011)}]{shalizi:thomas:2011}
 Shalizi, C.~R., Thomas, A.~C., 2011. Homophily and contagion are generically
   confounded in observational social network studies. Sociological Methods \&
@@ -229,6 +241,10 @@ Shalizi, C.~R., Thomas, A.~C., 2011. Homophily and contagion are generically
 \bibitem[{Snijders(1996)}]{snijders:1996}
 Snijders, T.~A., 1996. Stochastic actor-oriented models for network change.
   Journal of Mathematical Sociology 21~(1-2), 149--172.
+
+\bibitem[{Starr and Most(1983)}]{starr:most:1983}
+Starr, H., Most, B.~A., April 1983. Contagion and border effects on
+  contemporary african conflict. Comparative Political Studies 16, 92--117.
 
 \bibitem[{Tarrow(1994)}]{tarrow:1994}
 Tarrow, S., 1994. Power in Movement: {S}ocial Movements, {C}ollective {A}ction
