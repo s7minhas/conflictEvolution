@@ -1,4 +1,4 @@
-\begin{thebibliography}{59}
+\begin{thebibliography}{60}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -18,8 +18,8 @@ Berman, E., Matanock, A.~M., 2015. The empiricists' insurgency. Annual Review
   of Political Science 18, 443--464.
 
 \bibitem[{Bloom(2004)}]{bloom:2004}
-Bloom, M.~M., 2004. {Palestinian suicide bombing: Public support, market share,
-  and outbidding}. Political Science Quarterly 119~(1), 61--88.
+Bloom, M.~M., 2004. {Palestinian suicide bombing: {P}ublic support, market
+  share, and outbidding}. Political Science Quarterly 119~(1), 61--88.
 
 \bibitem[{Braithwaite(2010)}]{braithwaite:2010a}
 Braithwaite, A., 2010. Resisting infection: How state capacity conditions
@@ -66,6 +66,11 @@ Cunningham, D., Gleditsch, K.~S., Salehyan, I., 2009. It takes two: A dyadic
   analysis of civil war duration and outcome. Journal of Conflict Resolution
   53~(4), 570--597.
 
+\bibitem[{Cunningham(2013)}]{cunningham:2013}
+Cunningham, K.~G., 2013. Actor fragmentation and civil war bargaining: How
+  internal divisions generate civil conflict. American Journal of Political
+  Science 57~(3), 659--672.
+
 \bibitem[{Cunningham(2014)}]{cunningham:2014}
 Cunningham, K.~G., 2014. Inside the Politics of Self-determination. Oxford
   University Press.
@@ -79,7 +84,7 @@ Dorff, C., Ward, M.~D., 2013. Networks, dyads, and the social relations model.
   Political Science Research and Methods 1~(02), 159--178.
 
 \bibitem[{Downes(2006)}]{downes:2006}
-Downes, A., 2006. Desperate times, desperate measures: The causes of civilian
+Downes, A., 2006. Desperate times, desperate measures: {T}he causes of civilian
   victimization in war. International Security 30~(4), 152--195.
 
 \bibitem[{Erikson et~al.(2014)Erikson, Pinto, and Rader}]{erikson:pinto:2014}
@@ -153,7 +158,7 @@ Kalyvas, S., 2006. The Logic of Violence in Civil War. Cambridge University
   Press, New York.
 
 \bibitem[{Kathman and Wood(2015)}]{kathman:wood:2015}
-Kathman, J.~D., Wood, R.~M., 2015. {Competing for the crown: Inter-rebel
+Kathman, J.~D., Wood, R.~M., 2015. {Competing for the crown: {I}nter-rebel
   competition and civilian targeting in Civil War}. Political Research
   Quarterly 68~(1), 167--179.
 
