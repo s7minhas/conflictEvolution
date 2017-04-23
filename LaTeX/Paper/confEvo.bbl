@@ -1,4 +1,4 @@
-\begin{thebibliography}{60}
+\begin{thebibliography}{62}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -74,6 +74,10 @@ Cunningham, K.~G., 2013. Actor fragmentation and civil war bargaining: How
 \bibitem[{Cunningham(2014)}]{cunningham:2014}
 Cunningham, K.~G., 2014. Inside the Politics of Self-determination. Oxford
   University Press.
+
+\bibitem[{Dorff(2017)}]{dorff:2017}
+Dorff, C., 2017. Violence, kinship networks, and political resilience :
+  Evidence from mexico. Journal of Peace Research Forthcoming.
 
 \bibitem[{Dorff and Minhas(2016)}]{dorff:minhas:2016}
 Dorff, C., Minhas, S., 2016. When do states say uncle? {Network} dependence and
@@ -156,6 +160,10 @@ Idean~Salehyan, D.~S., Wood, R.~M., 2015. External rebel sponsorship and
 \bibitem[{Kalyvas(2006)}]{kalyvas:2006}
 Kalyvas, S., 2006. The Logic of Violence in Civil War. Cambridge University
   Press, New York.
+
+\bibitem[{Kaplan(2013)}]{kapl:2013}
+Kaplan, O., 2013. Protecting civilians in civil war; the institution of the
+  {ATCC} in {Colombia}. Journal of Peace Research 50~(3), 351--367.
 
 \bibitem[{Kathman and Wood(2015)}]{kathman:wood:2015}
 Kathman, J.~D., Wood, R.~M., 2015. {Competing for the crown: {I}nter-rebel
