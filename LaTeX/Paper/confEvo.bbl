@@ -1,4 +1,4 @@
-\begin{thebibliography}{62}
+\begin{thebibliography}{63}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -271,6 +271,10 @@ Tucker, J.~A., 2007. Enough! {E}lectoral fraud, collective action problems, and
   Balch-Lindsay}]{valentino:etal:2004}
 Valentino, B., Huth, P., Balch-Lindsay, D., 2004. `draining the sea': Mass
   killing and guerrilla warfare. International Organization 58~(2), 375--407.
+
+\bibitem[{Walker(2016)}]{walker:2016}
+Walker, A., 2016. `Eat the Heart of the Infidel': the harrowing of Nigeria and
+  the rise of Boko Haram. Hurst and Company, London.
 
 \bibitem[{Walter(2006)}]{walter:2006}
 Walter, B.~F., 2006. Information, uncertainty, and the decision to secede.
