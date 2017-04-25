@@ -36,7 +36,6 @@ if( !file.exists(paste0(pathData, 'nigeriaStamenLines.rda'))  ){
 } else { load(paste0(pathData, 'nigeriaStamenLines.rda')) }
 
 
-
 # org features in acled data
 nData$id = as.numeric(as.character(unique(nigShape$id))	)
 nData$postBH = ifelse(nData$YEAR>=2009,1,0)
@@ -44,15 +43,18 @@ nData$invBoko = apply(nData[,c('a1','a2')], 1, function(x){ ifelse('Boko Haram' 
 nData$invBoko = factor(nData$invBoko, levels=c('Yes','No'))
 nData$yearLab = ifelse(nData$YEAR>=2009, nData$YEAR, paste0(nData$YEAR, ' (Pre Boko Haram)'))
 nData$yearLab = factor(nData$yearLab, levels=sort(unique(nData$yearLab)))
+cols = brewer.pal(3,'Set1')[1:2] ; names(cols)=c('Yes',"No")
 
 # viz
 ggNigConfMap = ggplot(nData, aes(map_id = id, x=LONGITUDE,y=LATITUDE)) + 
+# ggNigConfMap = ggplot(nData[nData$YEAR<2009,], aes(map_id = id, x=LONGITUDE,y=LATITUDE)) + 
+# ggNigConfMap = ggplot(nData[nData$YEAR>=2009,], aes(map_id = id, x=LONGITUDE,y=LATITUDE)) + 
 	geom_map( map=nigShape, fill='white', linetype=1, colour='grey30') +
 	inset_ggmap(ngaLines) +
 	geom_point(aes(color=factor(invBoko)),alpha=.7) + 
 	facet_wrap(~yearLab, nrow=4, ncol=4) + 
 	xlab('') + ylab('') + 
-	labs(color='Confict Involving Boko Haram?') + 
+	scale_color_manual('Confict Involving Boko Haram?', values=cols) + 
 	theme(
 		legend.position = 'bottom',
 		panel.border=element_blank(),
@@ -64,8 +66,10 @@ ggNigConfMap = ggplot(nData, aes(map_id = id, x=LONGITUDE,y=LATITUDE)) +
 		strip.text.x = element_text(color='white',family="Source Sans Pro Bold"),
 		strip.background = element_rect(fill = "#525252", color='#525252')		
 		)
-fName = paste0(pathGraphics,'nigConfMap.pdf')
-ggsave(ggNigConfMap, file=fName, width=8, height=8, device=cairo_pdf)
+fName = paste0(pathGraphics,'nigConfMap.pdf') ; h=8 ; w=8
+# fName = paste0(pathGraphics,'nigConfMap_preBH.pdf') ; h=6 ; w=8
+# fName = paste0(pathGraphics,'nigConfMap_postBH.pdf') ; h=6 ; w=8
+ggsave(ggNigConfMap, file=fName, width=w, height=h, device=cairo_pdf)
 system( paste('pdfcrop', fName, fName, sep=' ') )
 ################
 
