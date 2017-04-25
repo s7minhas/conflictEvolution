@@ -1,0 +1,257 @@
+%!TEX TS-program = xelatex
+\documentclass[10pt, compress]{beamer}
+
+\usetheme[usetitleprogressbar]{m}
+
+\usepackage[export]{adjustbox}
+\usepackage{etoolbox}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage[scale=2]{ccicons}
+\usepackage{color}
+
+% math typesetting
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{relsize}
+\usepackage{mathtools}
+\usepackage{bm}
+
+% tables
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{multirow}
+
+% graphics stuff
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage[space]{grffile} % allows us to specify directories that have spaces
+\usepackage{tikz}
+
+% to change enumeration symbols begin{enumerate}[(a)]
+\usepackage{enumerate}
+
+% Add some colors
+\definecolor{red1}{RGB}{253,219,199}
+\definecolor{red2}{RGB}{244,165,130}
+\definecolor{red3}{RGB}{178,24,43}
+
+\definecolor{green1}{RGB}{229,245,224}
+\definecolor{green2}{RGB}{161,217,155}
+\definecolor{green3}{RGB}{49,163,84}
+
+\definecolor{blue0}{RGB}{255,247,251}
+\definecolor{blue1}{RGB}{222,235,247}
+\definecolor{blue2}{RGB}{158,202,225}
+\definecolor{blue3}{RGB}{49,130,189}
+\definecolor{blue4}{RGB}{4,90,141}
+
+\definecolor{purple1}{RGB}{191,211,230}
+\definecolor{purple2}{RGB}{140,150,198}
+\definecolor{purple3}{RGB}{140,107,177}
+
+\definecolor{brown1}{RGB}{246,232,195}
+\definecolor{brown2}{RGB}{223,194,125}
+\definecolor{brown3}{RGB}{191,129,45}
+
+% square bracket matrices
+\let\bbordermatrix\bordermatrix
+\patchcmd{\bbordermatrix}{8.75}{4.75}{}{}
+\patchcmd{\bbordermatrix}{\left(}{\left[}{}{}
+\patchcmd{\bbordermatrix}{\right)}{\right]}{}{}
+
+% references to graphics
+\makeatletter
+\def\input@path{
+  {/Users/janus829/Dropbox/Research/conflictEvolution/graphics/},   {/Users/s7m/Dropbox/Research/conflictEvolution/graphics/},  {/Users/cassydorff/Dropbox/Research/nothingbutnet/conflictEvolution/graphics/}
+     % {/Users/maxgallop/Dropbox (Netgroup)/conflictEvolutionMex/graphics/} % paren in path screws stuff up
+}
+
+\graphicspath{
+  {/Users/janus829/Dropbox/Research/conflictEvolution/graphics/},   {/Users/s7m/Dropbox/Research/conflictEvolution/graphics/},  {/Users/cassydorff/Dropbox/Research/nothingbutnet/conflictEvolution/graphics/}
+      % {/Users/maxgallop/Dropbox (Netgroup)/conflictEvolutionMex/graphics/}  % paren in path screws stuff up
+}
+
+\title[Nigeria Conflict]{\textsc{Predicting the Evolution of Intrastate Conflict: Evidence from Nigeria}}
+\author[Dorff, Gallop, \& Minhas]{Cassy Dorff, Max Gallop, and Shahryar Minhas} 
+
+\date{\today}
+
+\begin{document}
+\frame{\titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame
+{
+  \frametitle{Conflict Studies}
+
+  Many theories:
+  government + rebels
+  government + antigov groups
+
+  Problem:
+  Multiple groups
+  Multiple interactions
+
+\begin{center}
+\includegraphics[width=.5\textwidth]{confGraphs.png}
+\end{center}
+
+Roughly a \textbf{third} of all intrastate conflict between 1989 and 2003 have been fought with multiple warring parties (UCDP/PRIO 2007).
+
+} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Civilian Victimization/Mobilization}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Why study as a network?}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Spatial Distribution of Conflict Pre Boko Haram}
+
+  \vspace{-5mm}
+  \centering
+  \includegraphics[width=.95\textwidth]{nigConfMap_preBH.pdf}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Spatial Distribution of Conflict Post Boko Haram}
+
+  \vspace{-5mm}
+  \centering
+  \includegraphics[width=.95\textwidth]{nigConfMap_postBH.pdf}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Summary of Hypotheses}
+  
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Modelling Approach}
+
+  \begin{align*}
+    \begin{aligned}
+      y_{ij,t} &= g(\theta_{ij,t}) \\ 
+      &\theta_{ij,t} = \bm\beta_{d}^{T} \mathbf{X}_{ij,t} + \bm\beta_{s}^{T} \mathbf{X}_{i,t} + \bm\beta_{r}^{T} \mathbf{X}_{j,t} + e_{ij,t} \\
+      &e_{ij,t} = a_{i} + b_{j}  + \epsilon_{ij} + \alpha(\textbf{u}_{i}, \textbf{v}_{j}) \text{  , where } \\
+      &\qquad \alpha(\textbf{u}_{i}, \textbf{v}_{j}) = \textbf{u}_{i}^{T} \textbf{D} \textbf{v}_{j} = \sum_{k \in K} d_{k} u_{ik} v_{jk} \\ 
+    \end{aligned}
+  \end{align*}
+
+  \begin{align*}
+    \begin{aligned}
+      \{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \} &\sim N(0,\Sigma_{ab}) \\ 
+      \{ (\epsilon_{ij}, \epsilon_{ji}) : \; i \neq j\} &\sim N(0,\Sigma_{\epsilon}), \text{ where } \\
+      \Sigma_{ab} = \begin{pmatrix} \sigma_{a}^{2} & \sigma_{ab} \\ \sigma_{ab} & \sigma_{b}^2   \end{pmatrix} \;\;\;\;\; &\Sigma_{\epsilon} = \sigma_{\epsilon}^{2} \begin{pmatrix} 1 & \rho \\ \rho & 1  \end{pmatrix}
+    \end{aligned}
+  \end{align*}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Parameter Estimates}
+
+  \vspace{-8mm}
+  \centering
+  \begin{tabular}{c}
+  \includegraphics[height=.7\textheight]{betaEst} \\
+  \includegraphics[height=.2\textheight]{vcEst} \\  
+  \end{tabular}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Boko Haram's Entrance in Network}
+
+  \centering
+  \includegraphics[width=1\textwidth]{nigeria_postBK}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{SRM Nodal Effects}
+
+  \vspace{-8mm}
+  \centering
+  \includegraphics[width=.9\textwidth]{abEst2}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{LFM Multiplicative Effects}
+
+  \centering
+  \includegraphics[width=1\textwidth]{circPlotSimplev2}  
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Out of Sample Cross-Validation}
+
+  \centering
+  \begin{tabular}{ll}
+  \includegraphics[width=.5\textwidth]{roc_outSample} & 
+  \includegraphics[width=.5\textwidth]{rocPr_outSample}
+  \end{tabular}  
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Out of Sample Forecast}
+
+  \centering
+  \begin{tabular}{ll}
+  \includegraphics[width=.5\textwidth]{roc_outSampleForecast_1} & 
+  \includegraphics[width=.5\textwidth]{rocPr_outSampleForecast_1}
+  \end{tabular}  
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Conclusions}
+
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\plain{Thanks.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
