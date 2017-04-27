@@ -23,7 +23,18 @@ yList = yList[yrs] ; xDyadL = xDyadL[yrs] ; xNodeL = xNodeL[yrs]
 # create interactions
 xNodeL = lapply(xNodeL, function(x){
 	govActor = grepl('Forces of Nigeria', rownames(x), fixed=TRUE)*1
-	return(cbind(x, govActor=govActor))
+	riotsProtestsAgainst_gov = govActor*x[,'riotsProtestsAgainst']
+	riotsAgainst_gov = govActor*x[,'riotsAgainst']
+	protestsAgainst_gov = govActor*x[,'protestsAgainst']
+	vioCivEvents_gov = govActor*x[,'vioCivEvents']
+	x = cbind(x,
+		govActor=govActor,
+		riotsProtestsAgainst_gov=riotsProtestsAgainst_gov,
+		riotsAgainst_gov=riotsAgainst_gov,
+		protestsAgainst_gov=protestsAgainst_gov,
+		vioCivEvents_gov=vioCivEvents_gov
+		)
+	return(x)
 })
 ###############
 
@@ -33,10 +44,20 @@ subListArray = function(lA, vars, dims=2){
 	if(dims==2){ return( lapply(lA, function(x){ x[,vars, drop=FALSE] }) ) }
 	if(dims==3){ return( lapply(lA, function(x){ x[,,vars,drop=FALSE] }) ) } }
 designArrays = list(
-	NULL=list(senCovar=NULL, recCovar=NULL, dyadCovar=NULL), 
 	base=list(
 		senCovar=subListArray(xNodeL, c('riotsProtestsAgainst', 'vioCivEvents', 'groupSpread', 'govActor'), 2),
 		recCovar=subListArray(xNodeL, c('riotsProtestsAgainst', 'vioCivEvents', 'groupSpread', 'govActor'), 2),
+		dyadCovar=subListArray(xDyadL, c('postBoko', 'elecYear', 'ngbrConfCount'), 3)
+		),
+	baseInt=list(
+		senCovar=subListArray(xNodeL, c(
+			'riotsProtestsAgainst', 'riotsProtestsAgainst_gov', 
+			'vioCivEvents', 'vioCivEvents_gov',
+			'groupSpread', 'govActor'), 2),
+		recCovar=subListArray(xNodeL, c(
+			'riotsProtestsAgainst', 'riotsProtestsAgainst_gov', 
+			'vioCivEvents', 'vioCivEvents_gov',
+			'groupSpread', 'govActor'), 2),
 		dyadCovar=subListArray(xDyadL, c('postBoko', 'elecYear', 'ngbrConfCount'), 3)
 		),
 	rioProSep=list(
