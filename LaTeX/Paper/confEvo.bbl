@@ -1,4 +1,4 @@
-\begin{thebibliography}{63}
+\begin{thebibliography}{65}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -143,6 +143,10 @@ Hoff, P., 2009. Multiplicative latent factor models for description and
 Hoff, P.~D., Ward, M.~D., 2004. {Modeling Dependencies in International
   Relations Networks}. Political Analysis 12~(2), 160--175.
 
+\bibitem[{Hultman(2007)}]{hultman:2007}
+Hultman, L., 2007. Battle losses and rebel violence: Raising the costs for
+  fighting. Terrorism and Political Violence 19~(2), 205--222.
+
 \bibitem[{Humphreys and Weinstein(2008)}]{humphreys:weinstein:2008}
 Humphreys, M., Weinstein, J., 2008. Who fights? the determinants of
   participation in civil war. American Journal of Political Science 52~(2),
@@ -226,6 +230,10 @@ Pettersson, T., Wallensteen, P., 2015. Armed conflicts, 1946--2014. Journal of
 Prorok, A.~K., Appel, B.~J., 2014. Compliance with international humanitarian
   law: {D}emocratic third parties and civilian targeting in interstate war.
   Journal of Conflict Resolution 58~(4), 713--740.
+
+\bibitem[{Raleigh(2012)}]{raleigh:2012}
+Raleigh, C., 2012. Violence against civilians: A disaggregated analysis.
+  International Interactions 38~(4), 462--481.
 
 \bibitem[{Raleigh et~al.(2010)Raleigh, Linke, Hegre, and
   Karlsen}]{raleigh:etal:2010}
