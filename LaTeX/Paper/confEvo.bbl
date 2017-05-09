@@ -1,4 +1,4 @@
-\begin{thebibliography}{63}
+\begin{thebibliography}{65}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -65,11 +65,6 @@ Crenshaw, M., 1981. {The causes of terrorism}. Comparative Politics 13~(4),
 Cunningham, D., Gleditsch, K.~S., Salehyan, I., 2009. It takes two: A dyadic
   analysis of civil war duration and outcome. Journal of Conflict Resolution
   53~(4), 570--597.
-
-\bibitem[{Cunningham(2013)}]{cunningham:2013}
-Cunningham, K.~G., 2013. Actor fragmentation and civil war bargaining: How
-  internal divisions generate civil conflict. American Journal of Political
-  Science 57~(3), 659--672.
 
 \bibitem[{Cunningham(2014)}]{cunningham:2014}
 Cunningham, K.~G., 2014. Inside the Politics of Self-determination. Oxford
@@ -143,6 +138,10 @@ Hoff, P., 2009. Multiplicative latent factor models for description and
 Hoff, P.~D., Ward, M.~D., 2004. {Modeling Dependencies in International
   Relations Networks}. Political Analysis 12~(2), 160--175.
 
+\bibitem[{Hultman(2007)}]{hultman:2007}
+Hultman, L., 2007. Battle losses and rebel violence: {R}aising the costs for
+  fighting. Terrorism and Political Violence 19~(2), 205--222.
+
 \bibitem[{Humphreys and Weinstein(2008)}]{humphreys:weinstein:2008}
 Humphreys, M., Weinstein, J., 2008. Who fights? the determinants of
   participation in civil war. American Journal of Political Science 52~(2),
@@ -210,6 +209,10 @@ Minhas, S., Hoff, P.~D., Ward, M.~D., May 2016{\natexlab{b}}. A new approach to
   analyzing coevolving longitudinal networks in international relations.
   Journal of Peace Research 53~(3), 491--505.
 
+\bibitem[{Minhas and Radford(2016)}]{minhas:radford:2016}
+Minhas, S., Radford, B.~J., 2016. Enemy at the gates variation in economic
+  growth from civil conflict. Journal of Conflict Resolution.
+
 \bibitem[{Nemeth(2014)}]{nemeth:2014}
 Nemeth, S.~C., 2014. The effect of competition on terrorist group operations.
   Journal of Conflict Resolution 58~(2), 336--362.
@@ -226,6 +229,10 @@ Pettersson, T., Wallensteen, P., 2015. Armed conflicts, 1946--2014. Journal of
 Prorok, A.~K., Appel, B.~J., 2014. Compliance with international humanitarian
   law: {D}emocratic third parties and civilian targeting in interstate war.
   Journal of Conflict Resolution 58~(4), 713--740.
+
+\bibitem[{Raleigh(2012)}]{raleigh:2012}
+Raleigh, C., 2012. Violence against civilians: {A} disaggregated analysis.
+  International Interactions 38~(4), 462--481.
 
 \bibitem[{Raleigh et~al.(2010)Raleigh, Linke, Hegre, and
   Karlsen}]{raleigh:etal:2010}
