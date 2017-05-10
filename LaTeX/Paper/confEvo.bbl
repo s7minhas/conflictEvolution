@@ -1,4 +1,4 @@
-\begin{thebibliography}{67}
+\begin{thebibliography}{69}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -177,6 +177,10 @@ Kathman, J.~D., Wood, R.~M., 2015. {Competing for the crown: {I}nter-rebel
 Kenny, D.~A., {La Voie}, L., 1984. The social relations model. Advances in
   experimental social psychology 18, 142--182.
 
+\bibitem[{Keohane(1989)}]{keohane:1989}
+Keohane, R.~O., 1989. Reciprocity in international relations. International
+  Organization 40~(1).
+
 \bibitem[{Kinne(2012)}]{kinne:2012}
 Kinne, B.~J., 2012. Multilateral trade and militarized conflict: Centrality,
   asymmetry, and openness in the global trade network. The Journal of Politics
@@ -248,6 +252,10 @@ Raleigh, C., Linke, A., Hegre, H., Karlsen, J., 2010. Introducing {ACLED}: An
   armed conflict location and event dataset special data feature. Journal of
   Peace Research 47~(5), 651--660.
 
+\bibitem[{Richardson(1960)}]{richardson:1960}
+Richardson, L.~F., 1960. Arms and Insecurity. Quadrangle/Boxwood, Chicago and
+  Pittsburgh, PA.
+
 \bibitem[{Salehyan(2008)}]{salehyan:2008}
 Salehyan, I., 2008. The externalities of civil strife: Refugees as a source of
   international conflict. American Journal of Political Science 52~(4),
@@ -296,7 +304,7 @@ Walter, B.~F., 2006. Information, uncertainty, and the decision to secede.
   International Organization 60~(1), 105--135.
 
 \bibitem[{Wasserman and Faust(1994)}]{wasserman:faust:1994}
-Wasserman, S., Faust, K., 1994. Social Network Analysis: Methods and
+Wasserman, S., Faust, K., 1994. Social Network Analysis: {M}ethods and
   Applications. Cambridge University Press, Cambridge.
 
 \bibitem[{Wellman(1982)}]{wellman:1982}
