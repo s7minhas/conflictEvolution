@@ -1,6 +1,6 @@
 # pull out actor names from list
 getActor = function(list){ sort(unique(unlist(lapply(list, rownames))))  }
-
+## trying nonsense
 # get cleaned mat
 getNameKey = function(yList){
 	vNameKey = data.frame(dirty=getActor(yList), clean=getActor(yList), stringsAsFactors = FALSE)
