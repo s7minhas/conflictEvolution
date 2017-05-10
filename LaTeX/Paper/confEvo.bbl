@@ -1,4 +1,4 @@
-\begin{thebibliography}{65}
+\begin{thebibliography}{67}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -8,6 +8,10 @@
   Faust}]{anderson:etal:1992}
 Anderson, C.~J., Wasserman, S., Faust, K., 1992. Building stochastic
   blockmodels. Social Networks 14~(1), 137--161.
+
+\bibitem[{Barab{\'a}si and R{\'e}ka(1999)}]{barabasi:reka:1999}
+Barab{\'a}si, A.-L., R{\'e}ka, A., October 15 1999. Emergence of scaling in
+  random networks. Science 286, 509--510.
 
 \bibitem[{Beardsley(2011)}]{beardsley:2011}
 Beardsley, K., September 2011. {Peacekeeping and the Contagion of Armed
@@ -168,6 +172,10 @@ Kaplan, O., 2013. Protecting civilians in civil war; the institution of the
 Kathman, J.~D., Wood, R.~M., 2015. {Competing for the crown: {I}nter-rebel
   competition and civilian targeting in Civil War}. Political Research
   Quarterly 68~(1), 167--179.
+
+\bibitem[{Kenny and {La Voie}(1984)}]{kenny:lavoie:1984}
+Kenny, D.~A., {La Voie}, L., 1984. The social relations model. Advances in
+  experimental social psychology 18, 142--182.
 
 \bibitem[{Kinne(2012)}]{kinne:2012}
 Kinne, B.~J., 2012. Multilateral trade and militarized conflict: Centrality,
