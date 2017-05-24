@@ -1,7 +1,7 @@
 
 Thanks for giving me some time to speak, I'm currently just a postdoc at Duke and about to leave for Michigan State in a couple of months. Reason I'm in LA is that my advisor, Mike Ward, was nice enough to let me hang out at the beach during my postdoc. My substantive interests in political science have roots in the conflict literature, and much of my time the past two years has been spent working with Peter Hoff and Mike on the development of network approaches that can be used to study problems of relevance to political science.
 
-The work I'm presenting here is influenced by that collaboration, and specifically this is a joint project with a few of my old colleagues from Duke, Cassy Dorff and Max Gallop. Very broadly the goal of this paper is to argue that many modern day conflicts involve an array of actors that are interacting within a system. If we want to study systems such as these then we need to consider how interactions between these actors may be interdependent.
+The work I'm presenting here is certainly influenced by that collaboration, but this is a joint project with a few of my old colleagues from Duke, Cassy Dorff and Max Gallop. Very broadly the goal of this paper is to argue that many modern day conflicts involve an array of actors that are interacting within a system. If we want to study systems such as these then we need to consider how interactions between these actors may be interdependent.
 
 Also IN the presentation, I've tried to be mindful of the fact that I'm speaking to a diverse audience, so whenever I fail just yell at me and I'll try to clarify. In general, whenever you have a question feel free to just yell it out. So thanks for coming, I'm looking forward to hearing your critiques, and lets jump into it.
 
@@ -48,7 +48,7 @@ role of civilians
 focus
 ===
 
-* So the contributions we hope to make can be summarized as such. First, we provide a consideration of the role that civilians play in multi-actor conflict environments.
+* So the contributions we hope to make can be summarized as such. First, we provide a consideration of the role that civilians play in multi-actor conflict environments. The argument that we will make is that in multi-actor conflicts civilians again become passive actors in a conflict.
 * Second we suggest a way in which the study of civil conflict can be reframed in way that removes the assumption that dyads in the system are operating independently of one another. To do this we use a network based approach that enables us to not only examine the ways in which interactions between actors are interdependent but also still test how certain attributes of actors or the environment in general can affect the propensity for conflict.
 * And last we apply these ideas to the study of the intrastate conflict system in nigeria.
 
@@ -63,6 +63,7 @@ Civilian victimization & conflict
 * And those that do discuss this issue do so with a focus on the rebel-government dyad. THe principal argument these scholars provide rests on the role that civilians can play as an information resource, specifically:
 
   when insurgents kill civilians, other civilians are more likely to share information with the government: information allows the government to carry out attacks against insurgents, and the lack of information going towards insurgents may deprive them of information they need to carry out attacks against the government
+  thus actors will be wary of turning the civilian populous against them
 
 * Condra and Shapiro (2012) find support for this relationship during the early stages of the war in Iraq. Areas where US-led coalition forces kill civilians are associated with a higher likelihood of future insurgent attacks, and areas where insurgent forces kill civilians are associated with a lower risk of future insurgent attacks (against the US-led coalition).
 
@@ -82,9 +83,9 @@ transition to network context
 expectations for civilians
 ===
 
-* Thus when we reconsider intrastate conflict through this multi-actor lens, we may instead find that civilians do indeed once again become passive actors in a conflict.
+* our expectation is that groups which target civilians are not going to be any less likely to initiate more attacks in the future as the downsides they would typically incur for attacking civilians are mitigated.
 
-* Further our expectation is that groups which target civilians are not going to be any less likely to initiate more attacks in the future as the downsides they would typically incur for attacking civilians are mitigated.
+* Thus when we reconsider intrastate conflict through this multi-actor lens, we may instead find that civilians do indeed once again become passive actors in a conflict.
 
 from dyads to networks
 ===
@@ -95,9 +96,9 @@ from dyads to networks
 
 * And for pairs of these nodes we have some measurement, ie whether some battle occurred.
 
-* Typically political scientists we organize this data into large dyadic arrays, in which we have senders down a column, receivers down another, and then the relation between the two. This typically makes for some very large datasets.
+* Typically political scientists organize this data into large dyadic frames, in which we have senders down a column, receivers down another, and then the relation between the two. This typically makes for some very large datasets.
 
-* Another way of organizing this information is in terms of an adjacency matrix. Here in the case of a directed network we have nodes listed as senders on the rows and receivers on the column. The cross-sections define the relation from i to j. And the diagonals are typically undefined since we dont consider countries as being able to send conflicts to themselves.
+* Another way of organizing this information is in terms of an adjacency matrix. Here in the case of a directed network we have nodes listed as senders on the rows and receivers on the column. The cross-sections define the relation from i to j. And the diagonals are typically undefined since we dont consider actors as being able to send an action to themselves.
 
 * And then last people like me always feel the need to take these adjacency matrices and try to make a network out of 'em.
 
@@ -118,12 +119,14 @@ The principal idea underlying each of the dependence patterns discussed above is
 
 now additive effects
 ===
-A particular reason for why interactions between actors may not be independent stems from the fact that in social systems we often observe heterogeneity in how central actors are to the activities occurring within the network, meaning that some may initiate and/or be the target of more events. Heterogeneity in the centrality of actors provides us with information on the set of events that led to the network as we observe it and for how the network will continue to evolve. Namely, the implication of heterogeneity in how active actors are in a network is within-actor homogeneity of ties, meaning that the relationships between the set of dyads $\{i \rightarrow j,\, i \rightarrow k,\, i \rightarrow l\}$ will be more similar to each other than they are to other interactions in the system, such as $m \rightarrow n$, because they all involve actor $i$ as the sender of the event \citep{kenny:lavoie:1984}.
+* A particular reason for why interactions between actors may not be independent stems from the fact that in social systems we often observe heterogeneity in how central actors are to the activities occurring within the network, meaning that some may initiate and/or be the target of more events. Heterogeneity in the centrality of actors provides us with information on the set of events that led to the network as we observe it and for how the network will continue to evolve. Namely, the implication of heterogeneity in how active actors are in a network is within-actor homogeneity of ties, meaning that the relationships between the set of dyads $\{i \rightarrow j,\, i \rightarrow k,\, i \rightarrow l\}$ will be more similar to each other than they are to other interactions in the system, such as $m \rightarrow n$, because they all involve actor $i$ as the sender of the event \citep{kenny:lavoie:1984}.
 
-A straightforward example for why we may see this type of dependence emerge in intrastate conflict networks may involve government actors, who likely have interests in asserting their control across the country. Specifically, in a scenario where rebel groups $\{j,k,l\}$ are operating in different parts of a country, we would expect a government actor $i$ to be a more likely initiate of conflict with those rebel groups than an actor with non-competing interests. This logic can obviously extend to non-government groups as well. For example, a rebel group may be acting upon ambitions of establishing control over broad swaths of the country, and, as a result, it may become a more central initiator of conflicts in the network. For similar reasons we may observe heterogeneity in how likely actors are to receive conflict events, and, relatedly, we are likely to find that actors initiating more conflicts are likely to also face more conflicts, in general. Each of these effects relates to reasons why there may be dependence between the observations involving a particular actor.
+* A straightforward example for why we may see this type of dependence emerge in intrastate conflict networks may involve government actors, who likely have interests in asserting their control across the country. Specifically, in a scenario where rebel groups $\{j,k,l\}$ are operating in different parts of a country, we would expect a government actor $i$ to be a more likely initiate of conflict with those rebel groups than an actor with non-competing interests. This logic can obviously extend to non-government groups as well. For example, a rebel group may be acting upon ambitions of establishing control over broad swaths of the country, and, as a result, it may become a more central initiator of conflicts in the network.
+
+* For similar reasons we may observe heterogeneity in how likely actors are to receive conflict events, and, relatedly, we are likely to find that actors initiating more conflicts are likely to also face more conflicts, in general. Each of these effects relates to reasons why there may be dependence between the observations involving a particular actor.
 
 ###
-The relevance of modeling ﬁrst- and second-order dependencies has long been recognized within some social sciences particularly in psychology. And (Warner et al., 1979) developed the foundational model for analyzing such within-node and within-dyad dependence is the social relations model, or SRM.
+The relevance of modeling nodal and dyadic dependencies has long been recognized within some social sciences particularly in psychology. (Warner et al., 1979) developed the foundational model for analyzing such within-node and within-dyad dependence is the social relations model, or SRM.
 
 The goal of this model is to decompose the variance of observations in an adjacency matrix in terms of heterogeneity across row means (out-degree), heterogeneity along column means (in-degree), correlation between row and column means, and correlations within dyads. So basically all the stuff we've just been talking about.
 
@@ -172,7 +175,9 @@ peter has recently released a package that enables people to use this model, it 
 nigeria
 ===
 
-To study how violence evolves, we turn to the Nigerian case from 2000-2016. During these years, Nigeria has seen the rise of multiple armed non-state actor groups. In the southern delta region armed actors such as the Movement for the Emancipation of the Nigerian Delta (MEND) have battled the government for control of oil production. Boko Haram, potentially the most well known of these groups, has caused massive devastation both to human life and infrastructure in the Northern regions of the country. This group often targets Christian civilians via the bombing of schools, churches, and other community centers. Accordingly, Boko Haram has challenged the governments' ability to keep order and protect civilians. We suggest this case is useful for analysis due to its multi-party nature and the role that both civilian victimization and civilian mobilization have potentially played in shaping the conflict's development. By using a network approach, we are able to better understand and predict these dynamics in Nigeria. In particular, this approach yields insights about the effects of civilian victimization--attacks against civilians lead groups to both be more violent, and to become the targets of attacks in subsequent periods--and the impact of key actors entering the conflict--Boko Haram's entrance into the civil war leads to an increase in violence even in unrelated dyads. Further, our approach, which looks at both these strategic actions and accounts for the networked nature of the conflict in Nigeria, significantly outperforms more traditional dyad-group approaches at predicting the incidence of conflict.
+To study the role of civilians and networks in intrastate conflict, we turn to the Nigerian case from 2000-2016.
+
+During these years, Nigeria has seen the rise of multiple armed non-state actor groups. In the southern delta region armed actors such as the Movement for the Emancipation of the Nigerian Delta (MEND) have battled the government for control of oil production. Boko Haram, potentially the most well known of these groups, has caused massive devastation both to human life and infrastructure in the Northern regions of the country. This group often targets Christian civilians via the bombing of schools, churches, and other community centers. Accordingly, Boko Haram has challenged the governments' ability to keep order and protect civilians. We suggest this case is useful for analysis due to its multi-party nature and the role that both civilian victimization and civilian mobilization have potentially played in shaping the conflict's development. By using a network approach, we are able to better understand and predict these dynamics in Nigeria.
 
 maps
 nets
