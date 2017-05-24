@@ -1,45 +1,58 @@
 
-Thanks for giving me some time to speak, I'm currently just a postdoc at Duke and about to leave for Michigan State in a couple of months. Reason I'm in LA is that my advisor, Mike Ward, was nice enough to let me hang out at the beach during my postdoc. My substantive interests in political science have roots in the conflict literature, and much of my time the past two years has been spent working with Peter Hoff and Mike on the development of network approaches that can be used to study problems of relevance to political science.
+Thanks for giving me some time to speak, I'm currently just a postdoc at Duke and about to leave for Michigan State in a couple of months. Reason I'm in LA is that my advisor, Mike Ward, was nice enough to let me enjoy some sun before i head back home to the midwest.
+
+My substantive interests in political science have roots in the conflict literature, and much of my time the past two years has been spent working with Peter Hoff and Mike on the development of network approaches that can be used to study problems of relevance to political science.
 
 The work I'm presenting here is certainly influenced by that collaboration, but this is a joint project with a few of my old colleagues from Duke, Cassy Dorff and Max Gallop. Very broadly the goal of this paper is to argue that many modern day conflicts involve an array of actors that are interacting within a system. If we want to study systems such as these then we need to consider how interactions between these actors may be interdependent.
 
-Also IN the presentation, I've tried to be mindful of the fact that I'm speaking to a diverse audience, so whenever I fail just yell at me and I'll try to clarify. In general, whenever you have a question feel free to just yell it out. So thanks for coming, I'm looking forward to hearing your critiques, and lets jump into it.
+Also IN the presentation, I've tried to be mindful of the fact that I'm speaking to a diverse audience, so if it seems that I've assumed you know something that you dont just yell at me and I'll try to clarify. And In general, whenever you have a question or the urge to give a critique or correction feel free to just yell it out. So anyhow thanks for coming, I'm looking forward to getting some feedback on this project, and lets jump into it.
 
 conflict studies
 ==
 
-* Since 1946 more than half of the countries in the international system have experienced a civil war, and while wars between countries wane the number of intrastate conflicts are on the rise. These types of conflicts have proven to be costly, as violence between state and non-state actors has led to some of the highest yearly fatality counts in the post-Cold War period.
+* We dont hear much about interstate wars anymore -- with some exceptions such as flare ups between countries like Pakistan and India. But what we often see in the news are references to civil wars -- these are wars that are taking place between government and insurgent groups within a country.
 
-* The prevalence and costliness of intrastate conflicts have resulted in the development of a rich literature on the causes and consequences of civil war. Through the existing literature we have developed a better understanding of the links between:
+* In fact, since the end of world war 2 more than half of the countries in the international system have experienced a civil war, and intrastate conflicts are actually on the rise. These types of conflicts have proven to be costly, as violence between state and non-state actors has led to some of the highest yearly fatality counts in the post-Cold War period. To see evidence of this one just need to open a newspaper and read about events in countries like the Democratic Republic of Congo or Syria.
+
+* Now social scientists have taken particular note of intrastate conflicts. And the prevalence and costliness of this type of warfare has resulted in the development of a rich literature on the causes and consequences of civil war. Through the existing literature we have developed a better understanding of the links between:
   - economic performance and conflict,
   - civil and interstate conflict,
   - how civil wars can spillover into other countries
   - how certain types of political institutions can affect the risk of violence
   - and how ethnic divisions within a country can stir conflict
 
-* The focus of much of this literature has been on understanding what type of countries are prone to civil war. Because of that focus the empirical design that they employ is the country-year. Where the goal of the analysis is to predict or understand why a particular country at a particular time experienced a civil conflict.
+* The focus of much of this literature has been on understanding what type of countries are prone to civil war. Because of that focus the empirical design that they employ is the country-year. Where the goal of the analysis is to predict or understand why a particular country at a particular time experienced a civil conflict. Now this means that when much of the quantitative literature studies the emergence or termination of civil war we try to summarize the various events that are going on in that country in a given year into a single observation.
 
-* However, in 2009 a special issue came out at the Journal of Conflict Resolution that advocated and showed how we could move beyond these high level monadic studies and peer into civil wars from a dyadic perspective. What this typically means is that we look at some specified country or region and evaluate the likelihood of conflict between actors within that system. Yet, much of this recent dyadic work has focused on just evaluating the relationship between a government on the one side and rebel groups on the other. This is certainly useful as it can help us to better understand how attributes of non-state actors and their relationship to the state can be used to understand how conflicts evolve or end.
+* This can obviously be somewhat problematic, and scholars in political science increasingly recognize this. Evidence of this realization is a 2009 special issue that came out at the Journal of Conflict Resolution that advocated and showed how we could move beyond these high level monadic studies and peer into civil wars from a dyadic perspective. What this typically means is that we look at some specified country or region and evaluate the likelihood of conflict between actors within that system.
+
+* This was an incredibly important transition because by shifting to the dyadic level we are actually pointing our empirical models closer to where the action is actually taking place.
+
+* Yet, much of this recent dyadic work has focused on just evaluating the relationship between a government on the one side and rebel groups on the other. This is certainly useful as it can help us to better understand how attributes of non-state actors and their relationship to the state can be used to understand how conflicts evolve or end.
 
 conflicts are complex
 ==
 
-* But those perspectives do not provide much consideration to the interconnected multi-actor dynamics that characterize recent examples of intrastate conflicts. This is a notable absence given that even by 2003 over 30\% of active civil wars involved multiple dyads in conflict with one another.
+* But those perspectives do not provide much consideration to the multi-actor dynamics that characterize recent examples of intrastate conflicts. This is a notable absence given that even by 2003 over 30\% of active civil wars involved multiple dyads in conflict with one another.
 
-* For example, in the current Syrian civil war, Bashar al-Assad's government is fighting against the Islamic State and multiple militarized opposition groups (the Free Syrian Army, Jaysh al-Islam, Ahrar al-Sham and others). Each of these actors is often involved in conflict both with the government and amongst themselves. In other regions, like Mexico, we observe drug trafficking organizations (DTOs) vying both for political influence and territorial control against government actors and other DTOs.  Complex systems of conflict dynamics such as those can be found in countries as varied as India, Colombia, and Nigeria.
+* For example, in the current Syrian civil war, Bashar al-Assad's government is fighting against the Islamic State and multiple militarized opposition groups (the Free Syrian Army, Jaysh al-Islam, Ahrar al-Sham and others). Each of these actors is often involved in conflict both with the government and amongst themselves.
+
+* The graphic here provides a high level summary of the actors involved and the links between them in the syrian conflict. in the inner ring are actors such as isil and the syrian government, and the the outer ring is composed of external nations that have some involvement in the conflict.
+
+* Though the Syrian conflict is extra complex because of the involvement of outside actors, the fact that modern day intrastate conflicts are complex extends to many other regions. For example, in Mexico, we observe drug trafficking organizations (DTOs) vying both for political influence and territorial control against government actors and other DTOs.  Complex systems of conflict dynamics such as those can be found in countries as varied as India, Colombia, and Nigeria.
 
 * The fact that conflicts are complex is not a point lost on scholars in the field. Kathleen Cunningham notes that while qualitative studies have delved more into the complex dynamics between rebel groups, the quantitative literature has yet to do so to the same degree.
 
 * Yet this is important, since states often face multiple challengers in what are essentially different civil wars (for example, see India’s multiple low-level wars).  Dyads in conflict with the same state are clearly not totally independent. To deal with the fact that dyads in conflict are not independent so far the literature has typically just addressed such issues using clustering standard errors.
 
-* Systems of this sort have long been studied in other fields such as sociology, where researchers have argued that to understand an actor's (or group's) behavior it is necessary to understand the system in which the actor is enmeshed. Many of the questions that conflict scholars are interested in require a careful application of these lessons. For example, can the actions of a particular actor lead to greater levels of violence between other actors in the system? How does a government crackdown on one group affect the activities of other challenger groups? Grappling with any of these questions requires developing a methodological approach in which we can account for dependencies between actors.
+* Systems of this sort have long been studied in other fields such as sociology, where researchers have argued that to understand an actor's (or group's) behavior it is necessary to understand the system in which the actor is enmeshed. Many of the questions that conflict scholars are interested in require a careful application of these lessons.
+  - For example, can the actions of a particular actor lead to greater levels of violence between other actors in the system? How does a government crackdown on one group affect the activities of other challenger groups? Grappling with any of these questions requires developing a methodological approach in which we can account for dependencies between actors.
 
 role of civilians
 ==
 
 * Further reconceptualizing our understanding of civil conflict through a network perspective enables us to better understand a substantive topic that has gained increasing attention in the conflict literature in recent years. Specifically, the role that civilians play in shaping a conflict.
 
-* Compared to the number of studies focusing on economic (Collier and Hoeffler, 2004), political (Humphreys and Weinstein, 2008), and identity-based (Cederman et al., 2010) drivers of conflict, existing research is only beginning to understand the role of civilians in conflict.
+* Compared to the number of studies focusing on economic, political, and identity-based drivers of conflict, existing research is only beginning to explore the role of civilians in conflict.
 
 * Now civilians sustain substantial costs during a war. At the individual level, the civilian often faces the risk of death and physical abuse. At the collective level, civilian populations must navigate the destruction of roads, schools, hospitals, and basic infrastructure. But as scholars like Kalyvas note civilians are not merely passive victims of war, they can be a source of information for groups.
 
@@ -74,11 +87,10 @@ transition to network context
 
 * Consider the plight of civilians victimized by a violent rebel group. According to previous research on dyadic conflicts, civilians know the actors to rely on to obtain protection and revenge--the group that did not victimize them.
 
-* In a multi-actor conflict, the choice to respond to victimization by informing on the perpetrators (or siding with their opponents) is less clear. In this setting, civilians observe that the very existence of multiple challenger groups weakens the government.
-
-* Thus in a multiparty conflict, the government is less likely to be viewed as capable of effective civilian protection when fighting between rebel groups increase.
-
-* In addition, if a rebel group preys on civilians, civilians may not be able to safely identify or contact the victimizers' rival rebel group.
+* In a multi-actor conflict, the choice to respond to victimization by informing on the perpetrators (or siding with their opponents) is less clear.
+  - In this setting, civilians observe that the very existence of multiple challenger groups weakens the government.
+  - Thus in a multiparty conflict, the government is less likely to be viewed as capable of effective civilian protection when fighting between rebel groups increase.
+  - In addition, if a rebel group preys on civilians, civilians may not be able to safely identify or contact the victimizers' rival rebel group.
 
 expectations for civilians
 ===
@@ -105,17 +117,19 @@ from dyads to networks
 dyadic data assumptions
 ===
 
-The reason for studying dyadic interactions using a network based approach is to acknowledge the possibility that the actions of actors in a system are contingent on one another. By moving away from the assumption that interactions within a system are independent, a significant amount of work has shown that we can better account for the underlying process that generates relational data and make more accurate inferences.
+* The reason for studying dyadic interactions using a network based approach is to acknowledge the possibility that the actions of actors in a system are contingent on one another.
 
-In recent years, however, there have been plenty of very interesting solutions to this issue that remain within the realm of GLM, ie Erikson et al suggest to employ randomization tests to infer the correct p-values associated with dyadic hypotheses.
+* When using standard techniques such as GLM we assume a priori that the observed dyadic interactions are independent. By moving away from the assumption that interactions within a system are independent, a significant amount of work has shown that we can better account for the underlying process that generates relational data and make more accurate inferences.
 
-Aronow et al. came up with a non-parametric, sandwich-type robust variance estimator for linear regression to account for dyadic data that can even be applied to longitudinal data. And recently from econ Athey et al. also have posited a way to address this problem.
+* In recent years, however, there have been plenty of very interesting solutions to this issue that remain within the realm of GLM, ie Erikson et al suggest to employ randomization tests to infer the correct p-values associated with dyadic hypotheses.
 
-And if one's research agenda is just focused on conducting hypothesis tests appropriately when estimating the effect of some exogenous variable on a relational dv, these tests might do just fine. With one caveat being that I'm not quite sure how well they do in the face of triadic dependence patterns.
+* Aronow et al. came up with a non-parametric, sandwich-type robust variance estimator for linear regression to account for dyadic data that can even be applied to longitudinal data. And recently from econ Athey et al. also have posited a way to address this problem.
 
-Further at times examining the role that higher order network patterns play in a network can be both theoretically interesting and useful accounting for those patterns has proven to be useful when it comes to prediction.
+* And if one's research agenda is just focused on conducting hypothesis tests appropriately when estimating the effect of some exogenous variable on a relational dv, these tests might do just fine. With one caveat being that I'm not quite sure how well they do in the face of triadic dependence patterns.
 
-The principal idea underlying each of the dependence patterns discussed above is that the actions, or inactions, of any actor, are taking place within an interdependent system.
+* Further at times examining the role that higher order network patterns play in a network can be both theoretically interesting and useful accounting for those patterns has proven to be useful when it comes to prediction.
+
+* The principal idea underlying each of the dependence patterns discussed above is that the actions, or inactions, of any actor, are taking place within an interdependent system.
 
 now additive effects
 ===
@@ -145,15 +159,15 @@ Beyond these ﬁrst-order dependencies, second order dependencies are described 
 
 third order patterns
 ===
-Missing from the framework provided by the SRM is an accounting of third-order dependence patterns that can arise in relational data.
+* Missing from the framework provided by the SRM is an accounting of third-order dependence patterns that can arise in relational data.
 
-For example, in a binary network where people prefer to form ties to others who are similar to them, there tend to be a lot of “transitive triples,” that is, triples of indices i, j, k having a link between each pair. One explanation of this is that links from i to j and from i to k occur because i is similar to both j and to k. If this is the case, then j and k must also be somewhat similar, and so there is a high probability of a link between j and k, which would form a triangle of ties among nodes i, j and k. Multiple linked triangles result in visual “clusters” in graphs of social networks. The left-most plot  provides a representation of a network that exhibits this type of pattern.
+* For example, in a binary network where people prefer to form ties to others who are similar to them, there tend to be a lot of “transitive triples,” that is, triples of indices i, j, k having a link between each pair. One explanation of this is that links from i to j and from i to k occur because i is similar to both j and to k. If this is the case, then j and k must also be somewhat similar, and so there is a high probability of a link between j and k, which would form a triangle of ties among nodes i, j and k. Multiple linked triangles result in visual “clusters” in graphs of social networks. The left-most plot  provides a representation of a network that exhibits this type of pattern.
 
-In the intrastate setting, conflict triads may emerge when multiple actors are competing for control over the same territory or resource.
+* In the intrastate setting, conflict triads may emerge when multiple actors are competing for control over the same territory or resource.
 
-Another third-order dependence pattern that cannot be accounted for in the additive effects framework is stochastic equivalence. A pair of actors $ij$ are stochastically equivalent if the probability of $i$ relating to, and being related to, by every other actor is the same as the probability for $j$. This refers to the idea that there will be groups of nodes in a network with similar relational patterns.
+* Another third-order dependence pattern that cannot be accounted for in the additive effects framework is stochastic equivalence. A pair of actors $ij$ are stochastically equivalent if the probability of $i$ relating to, and being related to, by every other actor is the same as the probability for $j$. This refers to the idea that there will be groups of nodes in a network with similar relational patterns.
 
-Consider a case in which actors nest in groups based on, for example, a shared but unobserved ideology: $\mathbf{a}=\{i,j\}$ and $\mathbf{b}=\{k,l\}$. Here we may likely find that the relations of $i$ towards $k$ and $l$ is similar to how $j$ behaves towards those actors, and this induces a dependence in the relations of actors within the system. Specifically, the behavior of actors within the conflict system may be a function of a latent community to which they belong.
+* Consider a case in which actors nest in groups based on, for example, a shared but unobserved ideology: $\mathbf{a}=\{i,j\}$ and $\mathbf{b}=\{k,l\}$. Here we may likely find that the relations of $i$ towards $k$ and $l$ is similar to how $j$ behaves towards those actors, and this induces a dependence in the relations of actors within the system. Specifically, the behavior of actors within the conflict system may be a function of a latent community to which they belong.
 
 lfm
 ===
@@ -175,9 +189,13 @@ peter has recently released a package that enables people to use this model, it 
 nigeria
 ===
 
-To study the role of civilians and networks in intrastate conflict, we turn to the Nigerian case from 2000-2016.
+* To study the role of civilians and networks in intrastate conflict, we turn to the Nigerian case from 2000-2016.
 
-During these years, Nigeria has seen the rise of multiple armed non-state actor groups. In the southern delta region armed actors such as the Movement for the Emancipation of the Nigerian Delta (MEND) have battled the government for control of oil production. Boko Haram, potentially the most well known of these groups, has caused massive devastation both to human life and infrastructure in the Northern regions of the country. This group often targets Christian civilians via the bombing of schools, churches, and other community centers. Accordingly, Boko Haram has challenged the governments' ability to keep order and protect civilians. We suggest this case is useful for analysis due to its multi-party nature and the role that both civilian victimization and civilian mobilization have potentially played in shaping the conflict's development. By using a network approach, we are able to better understand and predict these dynamics in Nigeria.
+* During these years, Nigeria has seen the rise of multiple armed non-state actor groups. In the southern delta region armed actors such as the Movement for the Emancipation of the Nigerian Delta (MEND) have battled the government for control of oil production.
+
+* Boko Haram, potentially the most well known of these groups, has caused massive devastation both to human life and infrastructure in the Northern regions of the country. This group often targets Christian civilians via the bombing of schools, churches, and other community centers. Accordingly, Boko Haram has challenged the governments' ability to keep order and protect civilians.
+
+* this case is useful for analysis due to its multi-party nature and the role that both civilian victimization and civilian mobilization have potentially played in shaping the conflict's development. By using a network approach, we are able to better understand and predict these dynamics in Nigeria.
 
 maps
 nets
