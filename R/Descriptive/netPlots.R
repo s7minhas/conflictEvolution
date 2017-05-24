@@ -44,11 +44,15 @@ tmp=getGraphfromMat(mat=yArrSumPreBH, nodePos=gArrPos)
 gArrSumPreBH=tmp$g ; gArrPosPreBH=tmp$nodePos ; rm(tmp)
 tmp=getGraphfromMat(mat=yArrSumPostBH, nodePos=gArrPos)
 gArrSumPostBH=tmp$g ; gArrPosPostBH=tmp$nodePos ; rm(tmp)
+
+# 
+fck = c(10, 30, 4, 19, 26, 31, 11, 36, 12, 20, 16, 18)
+tmp=getGraphfromMat(mat=yArrSum[fck,fck]) ; gArrSumSmall=tmp$g ; gArrPosSmall=tmp$nodePos ; rm(tmp)
 ################
 
 ################
 # plot by full, pre and post bh periods
-fName = paste0(pathGraphics, 'nigeria_2000_2016.pdf') ; pdf(file=fName, width=13,height=9)
+# fName = paste0(pathGraphics, 'nigeria_2000_2016.pdf') ; pdf(file=fName, width=13,height=9)
 vCol = ifelse(names(V(gArrSum)) %in% govActors, 'gray30', 'gray95')
 vLabCol = ifelse(names(V(gArrSum)) %in% govActors, 'white', 'gray30')
 plotGraph(gArrSum, gArrPos, 
@@ -56,7 +60,7 @@ plotGraph(gArrSum, gArrPos,
 	vLabCol=vLabCol, vertex.label.font=1, vertex.size=gArrSum$vSize, 
 	vFrameCol=vCol, vCol=vCol, vertex.label.family="Helvetica")
 title('Nigerian Intra-State Conflict\n(2000-2016)', family='Helvetica', adj=1, line=-4)	
-dev.off() ; system(paste('pdfcrop',fName,fName, sep=' '))
+# dev.off() ; system(paste('pdfcrop',fName,fName, sep=' '))
 ################
 
 ################
