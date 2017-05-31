@@ -1,4 +1,4 @@
-\begin{thebibliography}{69}
+\begin{thebibliography}{67}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -74,10 +74,6 @@ Cunningham, D., Gleditsch, K.~S., Salehyan, I., 2009. It takes two: A dyadic
 Cunningham, K.~G., 2014. Inside the Politics of Self-determination. Oxford
   University Press.
 
-\bibitem[{Dorff(2017)}]{dorff:2017}
-Dorff, C., 2017. Violence, kinship networks, and political resilience :
-  Evidence from mexico. Journal of Peace Research Forthcoming.
-
 \bibitem[{Dorff and Minhas(2016)}]{dorff:minhas:2016}
 Dorff, C., Minhas, S., 2016. When do states say uncle? {Network} dependence and
   sanction compliance. International Interactions In press.
@@ -89,6 +85,10 @@ Dorff, C., Ward, M.~D., 2013. Networks, dyads, and the social relations model.
 \bibitem[{Downes(2006)}]{downes:2006}
 Downes, A., 2006. Desperate times, desperate measures: {T}he causes of civilian
   victimization in war. International Security 30~(4), 152--195.
+
+\bibitem[{Eck and Hultman(2007)}]{eck:hultman:2007}
+Eck, K., Hultman, L., 2007. One-sided violance against civilians in war:
+  insights from new fatality data. Journal of Peace Research 44~(2), 233--246.
 
 \bibitem[{Erikson et~al.(2014)Erikson, Pinto, and Rader}]{erikson:pinto:2014}
 Erikson, R.~S., Pinto, P.~M., Rader, K.~T., 2014. Dyadic analysis in
@@ -164,10 +164,6 @@ Idean~Salehyan, D.~S., Wood, R.~M., 2015. External rebel sponsorship and
 Kalyvas, S., 2006. The Logic of Violence in Civil War. Cambridge University
   Press, New York.
 
-\bibitem[{Kaplan(2013)}]{kapl:2013}
-Kaplan, O., 2013. Protecting civilians in civil war; the institution of the
-  {ATCC} in {Colombia}. Journal of Peace Research 50~(3), 351--367.
-
 \bibitem[{Kathman and Wood(2015)}]{kathman:wood:2015}
 Kathman, J.~D., Wood, R.~M., 2015. {Competing for the crown: {I}nter-rebel
   competition and civilian targeting in Civil War}. Political Research
@@ -186,6 +182,10 @@ Kinne, B.~J., 2012. Multilateral trade and militarized conflict: Centrality,
   asymmetry, and openness in the global trade network. The Journal of Politics
   74~(1), 308--322.
 
+\bibitem[{Lacina(2006)}]{lacina:2006}
+Lacina, B., 2006. Explaining the severity of civil wars. Journal of Conflict
+  Resolution 50~(2), 276--289.
+
 \bibitem[{Lacina(2014)}]{lacina:2014}
 Lacina, B., 2014. How governments shape the risk of civil violence: India's
   federal reorganization, 1950-56. American Journal of Political Science
@@ -199,10 +199,6 @@ Li, H., Loken, E., 2002. A unified theory of statistical analysis and inference
 \bibitem[{Lyall(2009)}]{lyall:2009}
 Lyall, J., 2009. Does indiscriminate violence incite insurgent attacks? Journal
   of Conflict Resolution 53~(3), 331--362.
-
-\bibitem[{Maiangwa and Agbiboa(2014)}]{maiangwa:agbiboa:2014}
-Maiangwa, B., Agbiboa, D., 2014. Why {B}oko {H}aram kidnaps women and young
-  girls in north-eastern {N}igeria. Conflict Trends 2014~(3), 51--56.
 
 \bibitem[{Metternich et~al.(2015)Metternich, Minhas, and
   Ward}]{metternich:etal:2015}
@@ -294,10 +290,6 @@ Tucker, J.~A., 2007. Enough! {E}lectoral fraud, collective action problems, and
   Balch-Lindsay}]{valentino:etal:2004}
 Valentino, B., Huth, P., Balch-Lindsay, D., 2004. `draining the sea': Mass
   killing and guerrilla warfare. International Organization 58~(2), 375--407.
-
-\bibitem[{Walker(2016)}]{walker:2016}
-Walker, A., 2016. `Eat the Heart of the Infidel': the harrowing of Nigeria and
-  the rise of Boko Haram. Hurst and Company, London.
 
 \bibitem[{Walter(2006)}]{walter:2006}
 Walter, B.~F., 2006. Information, uncertainty, and the decision to secede.
