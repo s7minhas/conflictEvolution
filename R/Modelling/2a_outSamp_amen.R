@@ -1,8 +1,6 @@
 ################
 # workspace
-if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){ source('~/Research/conflictEvolution/R/setup.R')  }
-if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){ source('~/ProjectsGit/conflictEvolution/R/setup.R')  }
-if(Sys.info()['user']=='maxgallop'){ source('~/Documents/conflictEvolution/R/setup.R')  }
+if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){ source('~/Research/conflictEvolution/R/setup.R')}
 loadPkg('devtools') ; devtools::install_github('s7minhas/amen') ; library(amen)
 ################
 
@@ -19,7 +17,7 @@ ameOutSamp = function(
 	xDyadL=NULL, xRowL=NULL, xColL=NULL,
 	seed=6886, 
 	R=2, model='bin', intercept=TRUE, rvar=TRUE, cvar=TRUE, symmetric=FALSE,
-	burn=10000, nscan=20000, odens=25, folds=30, cores=7
+	burn=10000, nscan=20000, odens=25, folds=30, cores=6
 	){
 	
 	################
@@ -100,18 +98,67 @@ ameOutSamp = function(
 ################
 
 ################
-# run outsamp models
-yrs = char(2000:2016) ; yList = yList[yrs]
-ameOutSamp_wFullSpec = ameOutSamp(
+# load data
+load(paste0(pathData, 'nigeriaMatList_acled_v7.rda')) # loads yList object
+load(paste0(pathData, 'exoVars.rda')) # load xNodeL, xDyadL
+
+# focus on post 2000 data [few actors beforehand]
+yrs = char(2000:2016)
+yList = yList[yrs] ; xDyadL = xDyadL[yrs] ; xNodeL = xNodeL[yrs]
+###############
+
+################
+# set up model specs
+subListArray = function(lA, vars, dims=2){
+	if(dims==2){ return( lapply(lA, function(x){ x[,vars, drop=FALSE] }) ) }
+	if(dims==3){ return( lapply(lA, function(x){ x[,,vars,drop=FALSE] }) ) } }
+designArrays = list(
+	NULL=list(senCovar=NULL, recCovar=NULL, dyadCovar=NULL), 
+	base=list(
+		senCovar=subListArray(xNodeL, c('riotsProtestsAgainst', 'vioCivEvents', 'groupSpread'), 2),
+		recCovar=subListArray(xNodeL, c('riotsProtestsAgainst', 'vioCivEvents', 'groupSpread'), 2),
+		dyadCovar=subListArray(xDyadL, c('govActor', 'postBoko', 'elecYear', 'ngbrConfCount'), 3)
+		),
+	noCiv=list(
+		senCovar=subListArray(xNodeL, c('groupSpread'), 2),
+		recCovar=subListArray(xNodeL, c('groupSpread'), 2),
+		dyadCovar=subListArray(xDyadL, c('govActor', 'postBoko', 'elecYear', 'ngbrConfCount'), 3)
+		),
+	noBH=list(
+		senCovar=subListArray(xNodeL, c('riotsProtestsAgainst', 'vioCivEvents', 'groupSpread'), 2),
+		recCovar=subListArray(xNodeL, c('riotsProtestsAgainst', 'vioCivEvents', 'groupSpread'), 2),
+		dyadCovar=subListArray(xDyadL, c('govActor', 'elecYear', 'ngbrConfCount'), 3)
+		)	
+	)
+
+# ameOutSamp_wFullSpec = ameOutSamp(
+# 	yList=yList, 
+# 	xDyadL=designArrays$base$dyadCovar,
+# 	xRowL=designArrays$base$senCovar,
+# 	xColL=designArrays$base$recCovar
+# 	)
+
+load(paste0(pathResults, 'ameCrossValResults.rda'))
+
+ameOutSamp_wNoCiv = ameOutSamp(
 	yList=yList, 
-	xDyadL=designArrays$base$dyadCovar,
-	xRowL=designArrays$base$senCovar,
-	xColL=designArrays$base$recCovar
+	xDyadL=designArrays$noCiv$dyadCovar,
+	xRowL=designArrays$noCiv$senCovar,
+	xColL=designArrays$noCiv$recCovar
+	)
+
+ameOutSamp_wNoBH = ameOutSamp(
+	yList=yList, 
+	xDyadL=designArrays$noBH$dyadCovar,
+	xRowL=designArrays$noBH$senCovar,
+	xColL=designArrays$noBH$recCovar
 	)
 
 # save
 save(
 	ameOutSamp_wFullSpec, 
+	ameOutSamp_wNoCiv,
+	ameOutSamp_wNoBH,
 	file=paste0(pathResults, 'ameCrossValResults.rda')
 	)
 ################
