@@ -131,14 +131,12 @@ designArrays = list(
 		)	
 	)
 
-# ameOutSamp_wFullSpec = ameOutSamp(
-# 	yList=yList, 
-# 	xDyadL=designArrays$base$dyadCovar,
-# 	xRowL=designArrays$base$senCovar,
-# 	xColL=designArrays$base$recCovar
-# 	)
-
-load(paste0(pathResults, 'ameCrossValResults.rda'))
+ameOutSamp_wFullSpec = ameOutSamp(
+	yList=yList, 
+	xDyadL=designArrays$base$dyadCovar,
+	xRowL=designArrays$base$senCovar,
+	xColL=designArrays$base$recCovar
+	)
 
 ameOutSamp_wNoCiv = ameOutSamp(
 	yList=yList, 
