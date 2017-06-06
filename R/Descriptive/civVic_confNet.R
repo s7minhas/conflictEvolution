@@ -97,8 +97,9 @@ lapply(1:length(yList), function(t){
 		colBrksByDegree=seq(0,12,3),
 		)
 	g = tmp$g ; pos = tmp$nodePos ; rm(tmp)
-	vCol = ifelse(names(V(g)) %in% govActors, 'gray30', 'gray95')
-	vLabCol = ifelse(names(V(g)) %in% govActors, 'white', 'gray30')	
+	# vCol = ifelse(names(V(g)) %in% govActors, 'gray30', 'gray95')
+	# vLabCol = ifelse(names(V(g)) %in% govActors, 'white', 'gray30')	
+	vCol = 'gray60' ; vLabCol = 'gray60'
 	fName = paste0(pathGraphics, 'civVicConfNet/nigeriaT_', names(yList)[t], '.png')
 	png(filename=fName, width=500,height=500)
 	plotGraph(g, pos, 
