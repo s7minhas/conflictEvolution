@@ -63,6 +63,25 @@ yList = lapply(1997:2016, function(ii){
 #################
 
 #################
+# create list of adj mats fatalities>0
+nData$dv = 0 ; yVar = 'dv'
+nData$dv[nData$FATALITIES>0]=1
+yListFatal = lapply(1997:2016, function(ii){ 
+  actorSlice = actorsT[[char(ii)]]
+  slice = nData[ which( 
+      nData$YEAR==ii & 
+      nData$a1 %in% actorSlice &
+      nData$a2 %in% actorSlice
+      ), c('a1', 'a2', yVar) ]
+  adjMat = matrix(0, 
+    nrow=length(actorSlice), ncol=length(actorSlice),
+    dimnames=list(actorSlice,actorSlice) )
+  for(r in 1:nrow(slice)){ adjMat[slice$a1[r],slice$a2[r]]=1  }
+  return(adjMat)
+}) ; names(yListFatal) = yrs
+#################
+
+#################
 # cleanup some irrelev or no interaction actors
 other=c('NURTW: National Union of Road Transport Workers',
   'RTEAN: Road Transport Employers Association of Nigeria',
@@ -80,12 +99,15 @@ polParties=c(
   "CPC: Congress for Progressive Change"
   )
 drop = c(other, polParties)
-yList=lapply(yList, function(y){ toKeep = setdiff(rownames(y), drop); return(y[toKeep,toKeep]) })
+yList=lapply(yList,
+  function(y){ toKeep = setdiff(rownames(y), drop); return(y[toKeep,toKeep]) })
+yListFatal=lapply(yListFatal,
+  function(y){ toKeep = setdiff(rownames(y), drop); return(y[toKeep,toKeep]) })
 #################
 
 #################
 # save
-save(yList, 
+save(yList, yListFatal,
   file=paste0(pathData,"nigeriaMatList_acled_v7.rda") # label with acled number
   )
 #################
