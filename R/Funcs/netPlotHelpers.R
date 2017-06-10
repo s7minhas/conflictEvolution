@@ -20,7 +20,7 @@ getGraphfromMat = function(
 	mat, mode='directed', diag=FALSE, weighted=TRUE, 
 	colBrksByDegree=seq(0,50,5),
 	nodePos=NULL, areaMult=100, repulseExp=3.1, 
-	seed=6886
+	seed=6886, layout='fruchtermanreingold'
 	){
 	# create graph object
 	g = graph.adjacency(mat, mode=mode, diag=diag, weighted=weighted)
