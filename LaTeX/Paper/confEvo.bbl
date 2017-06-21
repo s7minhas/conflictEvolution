@@ -1,4 +1,4 @@
-\begin{thebibliography}{69}
+\begin{thebibliography}{68}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -29,15 +29,6 @@ Bloom, M.~M., 2004. {Palestinian suicide bombing: {P}ublic support, market
 Braithwaite, A., 2010. Resisting infection: How state capacity conditions
   conflict contagion. Journal of Peace Research 47~(3), 311--319.
 
-\bibitem[{Cederman et~al.(2010)Cederman, Wimmer, and Min}]{cederman:etal:2010a}
-Cederman, L.-E., Wimmer, A., Min, B., 2010. Why do ethnic groups rebel? new
-  data and analysis. World Politics 62~(1), 87--119.
-
-\bibitem[{Celestino and Gleditsch(2013)}]{celestino:gleditsch:2013}
-Celestino, M.~R., Gleditsch, K.~S., 2013. Fresh carnations or all thorn, no
-  rose? nonviolent campaigns and transitions in autocracies. Journal of Peace
-  Research 50~(3), 385--400.
-
 \bibitem[{Chenoweth and Stephan(2011)}]{chenoweth:stephan:2011}
 Chenoweth, E., Stephan, M.~J., 2011. Why civil resistance works: The strategic
   logic of nonviolent conflict. Columbia University Press.
@@ -45,10 +36,6 @@ Chenoweth, E., Stephan, M.~J., 2011. Why civil resistance works: The strategic
 \bibitem[{Christia(2012)}]{fotini:2012}
 Christia, F., 2012. Alliance formation in civil wars. Cambridge University
   Press.
-
-\bibitem[{Collier and Hoeffler(2004)}]{collier:hoeffler:2004}
-Collier, P., Hoeffler, A., 2004. Greed and grievance in civil war. Oxford
-  Economic Papers 56, 563--595.
 
 \bibitem[{Collier et~al.(2004)Collier, Hoeffler, and
   S\"{o}derbom}]{collier:etal:2004}
@@ -99,10 +86,6 @@ Erikson, R.~S., Pinto, P.~M., Rader, K.~T., 2014. Dyadic analysis in
 Fjelde, H., Nilsson, D., 2012. Rebels against rebels: Explaining violence
   between rebel groups. The Journal of Conflict Resolution 56~(4), 604--628.
 
-\bibitem[{Gallop(2017)}]{gallop:2017}
-Gallop, M., 2017. More dangerous than dyads: How a third party enables
-  rationalist explanations for war. Journal of Peace Research.
-
 \bibitem[{Gleditsch et~al.(2002)Gleditsch, Wallensteen, Eriksson, Sollenberg,
   and Strand}]{gleditsch:etal:2002}
 Gleditsch, N.~P., Wallensteen, P., Eriksson, M., Sollenberg, M., Strand, H.,
@@ -138,18 +121,28 @@ Hoff, P., 2009. Multiplicative latent factor models for description and
   prediction of social networks. Computational and Mathematical Organization
   Theory 15~(4), 261--272.
 
+\bibitem[{Hoff(2005)}]{hoff:2005}
+Hoff, P.~D., 2005. Bilinear mixed-effects models for dyadic data. Journal of
+  the American Statistical Association 100~(4690), 286--295.
+
+\bibitem[{Hoff(2008)}]{hoff:2008}
+Hoff, P.~D., 2008. Modeling homophily and stochastic equivalence in symmetric
+  relational data. In: Platt, J.~C., Koller, D., Singer, Y., Roweis, S.~T.
+  (Eds.), Advances in Neural Information Processing Systems 20. Processing
+  Systems 21. MIT Press, Cambridge, MA, USA, pp. 657--664.
+
 \bibitem[{Hoff and Ward(2004)}]{hoff:ward:2004}
 Hoff, P.~D., Ward, M.~D., 2004. {Modeling Dependencies in International
   Relations Networks}. Political Analysis 12~(2), 160--175.
 
+\bibitem[{Huisman and Snijders(2003)}]{huisman:snijders:2003}
+Huisman, M., Snijders, T.~A., 2003. Statistical analysis of longitudinal
+  network data with changing composition. Sociological methods \& research
+  32~(2), 253--287.
+
 \bibitem[{Hultman(2007)}]{hultman:2007}
 Hultman, L., 2007. Battle losses and rebel violence: {R}aising the costs for
   fighting. Terrorism and Political Violence 19~(2), 205--222.
-
-\bibitem[{Humphreys and Weinstein(2008)}]{humphreys:weinstein:2008}
-Humphreys, M., Weinstein, J., 2008. Who fights? the determinants of
-  participation in civil war. American Journal of Political Science 52~(2),
-  436--455.
 
 \bibitem[{Humphreys and Weinstein(2006)}]{humphreys:weinstein:2006}
 Humphreys, M., Weinstein, J.~M., 2006. Handling and manhandling civilians in
@@ -199,10 +192,6 @@ Li, H., Loken, E., 2002. A unified theory of statistical analysis and inference
 \bibitem[{Lyall(2009)}]{lyall:2009}
 Lyall, J., 2009. Does indiscriminate violence incite insurgent attacks? Journal
   of Conflict Resolution 53~(3), 331--362.
-
-\bibitem[{Maiangwa and Agbiboa(2014)}]{maiangwa:agbiboa:2014}
-Maiangwa, B., Agbiboa, D., 2014. Why {B}oko {H}aram kidnaps women and young
-  girls in north-eastern {N}igeria. Conflict Trends 2014~(3), 51--56.
 
 \bibitem[{Metternich et~al.(2015)Metternich, Minhas, and
   Ward}]{metternich:etal:2015}
@@ -307,8 +296,17 @@ Walter, B.~F., 2006. Information, uncertainty, and the decision to secede.
 Wasserman, S., Faust, K., 1994. Social Network Analysis: {M}ethods and
   Applications. Cambridge University Press, Cambridge.
 
+\bibitem[{Weinstein(2007)}]{weinstein:2007}
+Weinstein, J.~M., 2007. Inside rebellion: The politics of insurgent violence.
+  Cambridge University Press, Cambridge.
+
 \bibitem[{Wellman(1982)}]{wellman:1982}
 Wellman, B., 1982. {Studying personal communities}. Social Structure and
   Network Analysis, 61--80.
+
+\bibitem[{Wong et~al.(2006)Wong, Pattison, and Robins}]{wong:etal:2006}
+Wong, L.~H., Pattison, P., Robins, G., 2006. A spatial model for social
+  networks. Physica A: {Statistical} Mechanics and its Applications 360~(1), 99
+  -- 120.
 
 \end{thebibliography}
