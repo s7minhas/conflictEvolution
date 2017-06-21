@@ -1,4 +1,4 @@
-\begin{thebibliography}{68}
+\begin{thebibliography}{71}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -258,6 +258,14 @@ Salehyan, I., 2009. Rebels without borders: transnational insurgencies in world
 Salehyan, I., Gleditsch, K.~S., 2007. Refugees and the spread of civil war.
   International Organization 60~(2), 335--366.
 
+\bibitem[{Sarkar and Moore(2005)}]{sarkar:moore:2005}
+Sarkar, P., Moore, A.~W., 2005. Dynamic social network analysis using latent
+  space models. ACM SIGKDD Explorations Newsletter 7~(2), 31--40.
+
+\bibitem[{Sewell and Chen(2015)}]{sewell:chen:2015}
+Sewell, D.~K., Chen, Y., 2015. Latent space models for dynamic networks.
+  Journal of the American Statistical Association 110~(512), 1646--1657.
+
 \bibitem[{Shalizi and Thomas(2011)}]{shalizi:thomas:2011}
 Shalizi, C.~R., Thomas, A.~C., 2011. Homophily and contagion are generically
   confounded in observational social network studies. Sociological Methods \&
@@ -291,6 +299,11 @@ Walker, A., 2016. `Eat the Heart of the Infidel': the harrowing of Nigeria and
 \bibitem[{Walter(2006)}]{walter:2006}
 Walter, B.~F., 2006. Information, uncertainty, and the decision to secede.
   International Organization 60~(1), 105--135.
+
+\bibitem[{Ward et~al.(2012)Ward, Ahlquist, and Rozenas}]{ward:etal:2012}
+Ward, M.~D., Ahlquist, J.~S., Rozenas, A., March 2012. Gravity's rainbow: A
+  dynamic latent space model for the world trade network. Network Science
+  1~(1), 95--118.
 
 \bibitem[{Wasserman and Faust(1994)}]{wasserman:faust:1994}
 Wasserman, S., Faust, K., 1994. Social Network Analysis: {M}ethods and
