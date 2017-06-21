@@ -1,4 +1,4 @@
-\begin{thebibliography}{71}
+\begin{thebibliography}{70}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -209,10 +209,6 @@ Minhas, S., Hoff, P.~D., Ward, M.~D., October 2016{\natexlab{a}}. {Let's Say
 Minhas, S., Hoff, P.~D., Ward, M.~D., May 2016{\natexlab{b}}. A new approach to
   analyzing coevolving longitudinal networks in international relations.
   Journal of Peace Research 53~(3), 491--505.
-
-\bibitem[{Minhas and Radford(2016)}]{minhas:radford:2016}
-Minhas, S., Radford, B.~J., 2016. Enemy at the gates variation in economic
-  growth from civil conflict. Journal of Conflict Resolution.
 
 \bibitem[{Nemeth(2014)}]{nemeth:2014}
 Nemeth, S.~C., 2014. The effect of competition on terrorist group operations.
