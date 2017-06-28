@@ -1,321 +1,385 @@
-\begin{thebibliography}{70}
-\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
-\expandafter\ifx\csname url\endcsname\relax
-  \def\url#1{\texttt{#1}}\fi
-\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\begin{thebibliography}{}
 
-\bibitem[{Anderson et~al.(1992)Anderson, Wasserman, and
-  Faust}]{anderson:etal:1992}
-Anderson, C.~J., Wasserman, S., Faust, K., 1992. Building stochastic
-  blockmodels. Social Networks 14~(1), 137--161.
+\bibitem[\protect\citeauthoryear{Anderson, Wasserman \& Faust}{Anderson
+  et~al.}{1992}]{anderson:etal:1992}
+Anderson, Carolyn~J; Stanley Wasserman  \& Katherine Faust (1992) Building
+  stochastic blockmodels.
+\newblock {\em Social Networks} { 14\/}(1): 137--161.
 
-\bibitem[{Barab{\'a}si and R{\'e}ka(1999)}]{barabasi:reka:1999}
-Barab{\'a}si, A.-L., R{\'e}ka, A., October 15 1999. Emergence of scaling in
-  random networks. Science 286, 509--510.
+\bibitem[\protect\citeauthoryear{Barab{\'a}si \& R{\'e}ka}{Barab{\'a}si \&
+  R{\'e}ka}{1999}]{barabasi:reka:1999}
+Barab{\'a}si, A.-L  \& Albert R{\'e}ka (1999) Emergence of scaling in random
+  networks.
+\newblock {\em Science} {\em 286}: 509--510.
 
-\bibitem[{Beardsley(2011)}]{beardsley:2011}
-Beardsley, K., September 2011. {Peacekeeping and the Contagion of Armed
-  Conflict}. The Journal of Politics 73~(04), 1051--1064.
+\bibitem[\protect\citeauthoryear{Beardsley}{Beardsley}{2011}]{beardsley:2011}
+Beardsley, Kyle (2011) {Peacekeeping and the Contagion of Armed Conflict}.
+\newblock {\em The Journal of Politics} { 73\/}(04): 1051--1064.
 
-\bibitem[{Berman and Matanock(2015)}]{berman:matanock:2015}
-Berman, E., Matanock, A.~M., 2015. The empiricists' insurgency. Annual Review
-  of Political Science 18, 443--464.
+\bibitem[\protect\citeauthoryear{Berman \& Matanock}{Berman \&
+  Matanock}{2015}]{berman:matanock:2015}
+Berman, Eli  \& Aila~M Matanock (2015) The empiricists' insurgency.
+\newblock {\em Annual Review of Political Science} {\em 18}: 443--464.
 
-\bibitem[{Bloom(2004)}]{bloom:2004}
-Bloom, M.~M., 2004. {Palestinian suicide bombing: {P}ublic support, market
-  share, and outbidding}. Political Science Quarterly 119~(1), 61--88.
+\bibitem[\protect\citeauthoryear{Bloom}{Bloom}{2004}]{bloom:2004}
+Bloom, Mia~M (2004) {Palestinian suicide bombing: {P}ublic support, market
+  share, and outbidding}.
+\newblock {\em Political Science Quarterly} { 119\/}(1): 61--88.
 
-\bibitem[{Braithwaite(2010)}]{braithwaite:2010a}
-Braithwaite, A., 2010. Resisting infection: How state capacity conditions
-  conflict contagion. Journal of Peace Research 47~(3), 311--319.
+\bibitem[\protect\citeauthoryear{Braithwaite}{Braithwaite}{2010}]{braithwaite:2010a}
+Braithwaite, Alex (2010) Resisting infection: How state capacity conditions
+  conflict contagion.
+\newblock {\em Journal of Peace Research} { 47\/}(3): 311--319.
 
-\bibitem[{Chenoweth and Stephan(2011)}]{chenoweth:stephan:2011}
-Chenoweth, E., Stephan, M.~J., 2011. Why civil resistance works: The strategic
-  logic of nonviolent conflict. Columbia University Press.
+\bibitem[\protect\citeauthoryear{Chenoweth \& Stephan}{Chenoweth \&
+  Stephan}{2011}]{chenoweth:stephan:2011}
+Chenoweth, Erica  \& Maria~J Stephan (2011) {\em Why civil resistance works:
+  The strategic logic of nonviolent conflict}.
+\newblock Columbia University Press.
 
-\bibitem[{Christia(2012)}]{fotini:2012}
-Christia, F., 2012. Alliance formation in civil wars. Cambridge University
-  Press.
+\bibitem[\protect\citeauthoryear{Christia}{Christia}{2012}]{fotini:2012}
+Christia, Fotini (2012) {\em Alliance formation in civil wars}.
+\newblock Cambridge University Press.
 
-\bibitem[{Collier et~al.(2004)Collier, Hoeffler, and
-  S\"{o}derbom}]{collier:etal:2004}
-Collier, P., Hoeffler, A., S\"{o}derbom, M., 2004. {On the duration of civil
-  war}. Journal of Peace Research 41~(3), 253--273.
+\bibitem[\protect\citeauthoryear{Collier, Hoeffler \& S\"{o}derbom}{Collier
+  et~al.}{2004}]{collier:etal:2004}
+Collier, Paul; Anke Hoeffler  \& Mans S\"{o}derbom (2004) {On the duration of
+  civil war}.
+\newblock {\em Journal of Peace Research} { 41\/}(3): 253--273.
 
-\bibitem[{Condra and Shapiro(2012)}]{condra:shapiro:2012}
-Condra, L.~N., Shapiro, J.~N., 2012. Who takes the blame? {T}he strategic
-  effects of collateral damage. American Journal of Political Science 56~(1),
-  167--187.
+\bibitem[\protect\citeauthoryear{Condra \& Shapiro}{Condra \&
+  Shapiro}{2012}]{condra:shapiro:2012}
+Condra, Luke~N  \& Jacob~N Shapiro (2012) Who takes the blame? {T}he strategic
+  effects of collateral damage.
+\newblock {\em American Journal of Political Science} { 56\/}(1): 167--187.
 
-\bibitem[{Crenshaw(1981)}]{crenshaw:1981}
-Crenshaw, M., 1981. {The causes of terrorism}. Comparative Politics 13~(4),
-  379--399.
+\bibitem[\protect\citeauthoryear{Crenshaw}{Crenshaw}{1981}]{crenshaw:1981}
+Crenshaw, Martha (1981) {The causes of terrorism}.
+\newblock {\em Comparative Politics} { 13\/}(4): 379--399.
 
-\bibitem[{Cunningham et~al.(2009)Cunningham, Gleditsch, and
-  Salehyan}]{cunningham:etal:2009}
-Cunningham, D., Gleditsch, K.~S., Salehyan, I., 2009. It takes two: A dyadic
-  analysis of civil war duration and outcome. Journal of Conflict Resolution
-  53~(4), 570--597.
+\bibitem[\protect\citeauthoryear{Cunningham, Gleditsch \& Salehyan}{Cunningham
+  et~al.}{2009}]{cunningham:etal:2009}
+Cunningham, David; Kristian~S Gleditsch  \& Idean Salehyan (2009) It takes two:
+  A dyadic analysis of civil war duration and outcome.
+\newblock {\em Journal of Conflict Resolution} { 53\/}(4): 570--597.
 
-\bibitem[{Cunningham(2014)}]{cunningham:2014}
-Cunningham, K.~G., 2014. Inside the Politics of Self-determination. Oxford
-  University Press.
+\bibitem[\protect\citeauthoryear{Cunningham}{Cunningham}{2014}]{cunningham:2014}
+Cunningham, Kathleen~G (2014) {\em Inside the Politics of Self-determination}.
+\newblock Oxford University Press.
 
-\bibitem[{Dorff and Minhas(2016)}]{dorff:minhas:2016}
-Dorff, C., Minhas, S., 2016. When do states say uncle? {Network} dependence and
-  sanction compliance. International Interactions In press.
+\bibitem[\protect\citeauthoryear{Dorff \& Minhas}{Dorff \&
+  Minhas}{2016}]{dorff:minhas:2016}
+Dorff, Cassy  \& Shahryar Minhas (2016) When do states say uncle? {Network}
+  dependence and sanction compliance.
+\newblock {\em International Interactions} {\em In press}.
 
-\bibitem[{Dorff and Ward(2013)}]{dorff:ward:2013}
-Dorff, C., Ward, M.~D., 2013. Networks, dyads, and the social relations model.
-  Political Science Research and Methods 1~(02), 159--178.
+\bibitem[\protect\citeauthoryear{Dorff \& Ward}{Dorff \&
+  Ward}{2013}]{dorff:ward:2013}
+Dorff, Cassy  \& Michael~D Ward (2013) Networks, dyads, and the social
+  relations model.
+\newblock {\em Political Science Research and Methods} { 1\/}(02): 159--178.
 
-\bibitem[{Downes(2006)}]{downes:2006}
-Downes, A., 2006. Desperate times, desperate measures: {T}he causes of civilian
-  victimization in war. International Security 30~(4), 152--195.
+\bibitem[\protect\citeauthoryear{Downes}{Downes}{2006}]{downes:2006}
+Downes, A.B. (2006) Desperate times, desperate measures: {T}he causes of
+  civilian victimization in war.
+\newblock {\em International Security} { 30\/}(4): 152--195.
 
-\bibitem[{Eck and Hultman(2007)}]{eck:hultman:2007}
-Eck, K., Hultman, L., 2007. One-sided violance against civilians in war:
-  insights from new fatality data. Journal of Peace Research 44~(2), 233--246.
+\bibitem[\protect\citeauthoryear{Eck \& Hultman}{Eck \&
+  Hultman}{2007}]{eck:hultman:2007}
+Eck, Kristine  \& Lisa Hultman (2007) One-sided violance against civilians in
+  war: insights from new fatality data.
+\newblock {\em Journal of Peace Research} { 44\/}(2): 233--246.
 
-\bibitem[{Erikson et~al.(2014)Erikson, Pinto, and Rader}]{erikson:pinto:2014}
-Erikson, R.~S., Pinto, P.~M., Rader, K.~T., 2014. Dyadic analysis in
-  international relations: {A} cautionary tale. Political Analysis 22~(4),
-  457--463.
+\bibitem[\protect\citeauthoryear{Erikson, Pinto \& Rader}{Erikson
+  et~al.}{2014}]{erikson:pinto:2014}
+Erikson, Robert~S; Pablo~M Pinto  \& Kelly~T Rader (2014) Dyadic analysis in
+  international relations: {A} cautionary tale.
+\newblock {\em Political Analysis} { 22\/}(4): 457--463.
 
-\bibitem[{Fjelde and Nilsson(2012)}]{fjelde:nilsson:2012}
-Fjelde, H., Nilsson, D., 2012. Rebels against rebels: Explaining violence
-  between rebel groups. The Journal of Conflict Resolution 56~(4), 604--628.
+\bibitem[\protect\citeauthoryear{Fjelde \& Nilsson}{Fjelde \&
+  Nilsson}{2012}]{fjelde:nilsson:2012}
+Fjelde, Hanne  \& Desir{\'e}e Nilsson (2012) Rebels against rebels: Explaining
+  violence between rebel groups.
+\newblock {\em The Journal of Conflict Resolution} { 56\/}(4): 604--628.
 
-\bibitem[{Gleditsch et~al.(2002)Gleditsch, Wallensteen, Eriksson, Sollenberg,
-  and Strand}]{gleditsch:etal:2002}
-Gleditsch, N.~P., Wallensteen, P., Eriksson, M., Sollenberg, M., Strand, H.,
-  2002. Armed conflict 1946-2001: A new dataset. Journal of Peace Research
-  39~(5), 615--637.
+\bibitem[\protect\citeauthoryear{Gleditsch, Wallensteen, Eriksson, Sollenberg
+  \& Strand}{Gleditsch et~al.}{2002}]{gleditsch:etal:2002}
+Gleditsch, Nils~P; Peter Wallensteen; Mikael Eriksson; Margareta Sollenberg  \&
+  Havard Strand (2002) Armed conflict 1946-2001: A new dataset.
+\newblock {\em Journal of Peace Research} { 39\/}(5): 615--637.
 
-\bibitem[{Granovetter(1973)}]{granovetter:1973}
-Granovetter, M.~S., May 1973. {The Strength of Weak Ties}. American Journal of
-  Sociology 78~(6), 1360--1380.
+\bibitem[\protect\citeauthoryear{Granovetter}{Granovetter}{1973}]{granovetter:1973}
+Granovetter, Mark~S (1973) {The Strength of Weak Ties}.
+\newblock {\em American Journal of Sociology} { 78\/}(6): 1360--1380.
 
-\bibitem[{Greenhill et~al.(2011)Greenhill, Ward, and
-  Sacks}]{greenhill:etal:2011}
-Greenhill, B., Ward, M.~D., Sacks, A., 2011. The separation plot: A new visual
-  method for evaluating the fit of binary data. American Journal of Political
-  Science 55~(4), 991--1002.
+\bibitem[\protect\citeauthoryear{Greenhill, Ward \& Sacks}{Greenhill
+  et~al.}{2011}]{greenhill:etal:2011}
+Greenhill, Brian; Michael~D Ward  \& Audrey Sacks (2011) The separation plot: A
+  new visual method for evaluating the fit of binary data.
+\newblock {\em American Journal of Political Science} { 55\/}(4): 991--1002.
 
-\bibitem[{Gurr(1970)}]{gurr:1970}
-Gurr, T.~R., 1970. {Why Men Rebel}. Princeton University Press, Princeton, NJ.
+\bibitem[\protect\citeauthoryear{Gurr}{Gurr}{1970}]{gurr:1970}
+Gurr, Ted~R (1970) {\em {Why Men Rebel}}.
+\newblock Princeton, NJ: Princeton University Press.
 
-\bibitem[{Harbom et~al.(2008)Harbom, Melander, and
-  Wallensteen}]{harbom:etal:2008}
-Harbom, L., Melander, E., Wallensteen, P., 2008. Dyadic dimensions of armed
-  conflict, 1946---2007. Journal of Peace Research 45~(5), 697--710.
+\bibitem[\protect\citeauthoryear{Harbom, Melander \& Wallensteen}{Harbom
+  et~al.}{2008}]{harbom:etal:2008}
+Harbom, Lotta; Erik Melander  \& Peter Wallensteen (2008) Dyadic dimensions of
+  armed conflict, 1946---2007.
+\newblock {\em Journal of Peace Research} { 45\/}(5): 697--710.
 
-\bibitem[{Hegre et~al.(2001)Hegre, Ellingsen, Gates, and
-  Gleditsch}]{hegre:etal:2001}
-Hegre, H., Ellingsen, T., Gates, S., Gleditsch, N.~P., 2001. Toward a
-  democratic civil peace? democracy, political change, and civil war,
-  1816-1992. American Political Science Review 95~(1), 33--48.
+\bibitem[\protect\citeauthoryear{Hegre, Ellingsen, Gates \& Gleditsch}{Hegre
+  et~al.}{2001}]{hegre:etal:2001}
+Hegre, H{\aa}vard; Tanja Ellingsen; Scott Gates  \& Nils~P Gleditsch (2001)
+  Toward a democratic civil peace? democracy, political change, and civil war,
+  1816-1992.
+\newblock {\em American Political Science Review} { 95\/}(1): 33--48.
 
-\bibitem[{Hoff(2009)}]{hoff:2009}
-Hoff, P., 2009. Multiplicative latent factor models for description and
-  prediction of social networks. Computational and Mathematical Organization
-  Theory 15~(4), 261--272.
+\bibitem[\protect\citeauthoryear{Hoff}{Hoff}{2009}]{hoff:2009}
+Hoff, Peter (2009) Multiplicative latent factor models for description and
+  prediction of social networks.
+\newblock {\em Computational and Mathematical Organization Theory} { 15\/}(4):
+  261--272.
 
-\bibitem[{Hoff(2005)}]{hoff:2005}
-Hoff, P.~D., 2005. Bilinear mixed-effects models for dyadic data. Journal of
-  the American Statistical Association 100~(4690), 286--295.
+\bibitem[\protect\citeauthoryear{Hoff}{Hoff}{2005}]{hoff:2005}
+Hoff, Peter~D (2005) Bilinear mixed-effects models for dyadic data.
+\newblock {\em Journal of the American Statistical Association} { 100\/}(4690):
+  286--295.
 
-\bibitem[{Hoff(2008)}]{hoff:2008}
-Hoff, P.~D., 2008. Modeling homophily and stochastic equivalence in symmetric
-  relational data. In: Platt, J.~C., Koller, D., Singer, Y., Roweis, S.~T.
-  (Eds.), Advances in Neural Information Processing Systems 20. Processing
-  Systems 21. MIT Press, Cambridge, MA, USA, pp. 657--664.
+\bibitem[\protect\citeauthoryear{Hoff}{Hoff}{2008}]{hoff:2008}
+Hoff, Peter~D (2008).
+\newblock Modeling homophily and stochastic equivalence in symmetric relational
+  data.
+\newblock In: Platt, J. C, Koller, D, Singer, Y \& Roweis, S. T (eds.) Advances
+  in Neural Information Processing Systems 20 Processing Systems 21 ,
+  657--664. Cambridge, MA, USA. MIT Press.
 
-\bibitem[{Hoff and Ward(2004)}]{hoff:ward:2004}
-Hoff, P.~D., Ward, M.~D., 2004. {Modeling Dependencies in International
-  Relations Networks}. Political Analysis 12~(2), 160--175.
+\bibitem[\protect\citeauthoryear{Hoff \& Ward}{Hoff \&
+  Ward}{2004}]{hoff:ward:2004}
+Hoff, Peter~D  \& Michael~D Ward (2004) {Modeling Dependencies in International
+  Relations Networks}.
+\newblock {\em Political Analysis} { 12\/}(2): 160--175.
 
-\bibitem[{Huisman and Snijders(2003)}]{huisman:snijders:2003}
-Huisman, M., Snijders, T.~A., 2003. Statistical analysis of longitudinal
-  network data with changing composition. Sociological methods \& research
-  32~(2), 253--287.
+\bibitem[\protect\citeauthoryear{Huisman \& Snijders}{Huisman \&
+  Snijders}{2003}]{huisman:snijders:2003}
+Huisman, Mark  \& Tom~A Snijders (2003) Statistical analysis of longitudinal
+  network data with changing composition.
+\newblock {\em Sociological methods \& research} { 32\/}(2): 253--287.
 
-\bibitem[{Hultman(2007)}]{hultman:2007}
-Hultman, L., 2007. Battle losses and rebel violence: {R}aising the costs for
-  fighting. Terrorism and Political Violence 19~(2), 205--222.
+\bibitem[\protect\citeauthoryear{Hultman}{Hultman}{2007}]{hultman:2007}
+Hultman, Lisa (2007) Battle losses and rebel violence: {R}aising the costs for
+  fighting.
+\newblock {\em Terrorism and Political Violence} { 19\/}(2): 205--222.
 
-\bibitem[{Humphreys and Weinstein(2006)}]{humphreys:weinstein:2006}
-Humphreys, M., Weinstein, J.~M., 2006. Handling and manhandling civilians in
-  civil war. American Political Science Review 100~(3), 429--447.
+\bibitem[\protect\citeauthoryear{Humphreys \& Weinstein}{Humphreys \&
+  Weinstein}{2006}]{humphreys:weinstein:2006}
+Humphreys, Macartan  \& Jeremy~M Weinstein (2006) Handling and manhandling
+  civilians in civil war.
+\newblock {\em American Political Science Review} { 100\/}(3): 429--447.
 
-\bibitem[{Idean~Salehyan and Wood(2015)}]{salehyan:etal:2014}
-Idean~Salehyan, D.~S., Wood, R.~M., 2015. External rebel sponsorship and
+\bibitem[\protect\citeauthoryear{Idean~Salehyan \& Wood}{Idean~Salehyan \&
+  Wood}{2015}]{salehyan:etal:2014}
+Idean~Salehyan, David~S  \& Reed~M Wood (2015) External rebel sponsorship and
   civilian abuse: A principal-agent analysis of wartime atrocities.
-  International Organionizat 68~(3), 633--661.
+\newblock {\em International Organionizat} { 68\/}(3): 633--661.
 
-\bibitem[{Kalyvas(2006)}]{kalyvas:2006}
-Kalyvas, S., 2006. The Logic of Violence in Civil War. Cambridge University
-  Press, New York.
+\bibitem[\protect\citeauthoryear{Kalyvas}{Kalyvas}{2006}]{kalyvas:2006}
+Kalyvas, Stathis (2006) {\em The Logic of Violence in Civil War}.
+\newblock New York: Cambridge University Press.
 
-\bibitem[{Kathman and Wood(2015)}]{kathman:wood:2015}
-Kathman, J.~D., Wood, R.~M., 2015. {Competing for the crown: {I}nter-rebel
-  competition and civilian targeting in Civil War}. Political Research
-  Quarterly 68~(1), 167--179.
+\bibitem[\protect\citeauthoryear{Kathman \& Wood}{Kathman \&
+  Wood}{2015}]{kathman:wood:2015}
+Kathman, Jacob~D  \& Reed~M Wood (2015) {Competing for the crown: {I}nter-rebel
+  competition and civilian targeting in Civil War}.
+\newblock {\em Political Research Quarterly} { 68\/}(1): 167--179.
 
-\bibitem[{Kenny and {La Voie}(1984)}]{kenny:lavoie:1984}
-Kenny, D.~A., {La Voie}, L., 1984. The social relations model. Advances in
-  experimental social psychology 18, 142--182.
+\bibitem[\protect\citeauthoryear{Kenny \& {La Voie}}{Kenny \& {La
+  Voie}}{1984}]{kenny:lavoie:1984}
+Kenny, David~A  \& Lawrence {La Voie} (1984) The social relations model.
+\newblock {\em Advances in experimental social psychology} {\em 18}: 142--182.
 
-\bibitem[{Keohane(1989)}]{keohane:1989}
-Keohane, R.~O., 1989. Reciprocity in international relations. International
-  Organization 40~(1).
+\bibitem[\protect\citeauthoryear{Keohane}{Keohane}{1989}]{keohane:1989}
+Keohane, Robert~O (1989) Reciprocity in international relations.
+\newblock {\em International Organization} { 40\/}(1).
 
-\bibitem[{Kinne(2012)}]{kinne:2012}
-Kinne, B.~J., 2012. Multilateral trade and militarized conflict: Centrality,
-  asymmetry, and openness in the global trade network. The Journal of Politics
-  74~(1), 308--322.
+\bibitem[\protect\citeauthoryear{Kinne}{Kinne}{2012}]{kinne:2012}
+Kinne, Brandon~J (2012) Multilateral trade and militarized conflict:
+  Centrality, asymmetry, and openness in the global trade network.
+\newblock {\em The Journal of Politics} { 74\/}(1): 308--322.
 
-\bibitem[{Lacina(2006)}]{lacina:2006}
-Lacina, B., 2006. Explaining the severity of civil wars. Journal of Conflict
-  Resolution 50~(2), 276--289.
+\bibitem[\protect\citeauthoryear{Lacina}{Lacina}{2006}]{lacina:2006}
+Lacina, Bethany (2006) Explaining the severity of civil wars.
+\newblock {\em Journal of Conflict Resolution} { 50\/}(2): 276--289.
 
-\bibitem[{Lacina(2014)}]{lacina:2014}
-Lacina, B., 2014. How governments shape the risk of civil violence: India's
-  federal reorganization, 1950-56. American Journal of Political Science
-  58~(3), 720--738.
+\bibitem[\protect\citeauthoryear{Lacina}{Lacina}{2014}]{lacina:2014}
+Lacina, Bethany (2014) How governments shape the risk of civil violence:
+  India's federal reorganization, 1950-56.
+\newblock {\em American Journal of Political Science} { 58\/}(3): 720--738.
 
-\bibitem[{Li and Loken(2002)}]{li:loken:2002}
-Li, H., Loken, E., 2002. A unified theory of statistical analysis and inference
-  for variance component models for dyadic data. Statistica Sinica 12~(2),
-  519--535.
+\bibitem[\protect\citeauthoryear{Li \& Loken}{Li \&
+  Loken}{2002}]{li:loken:2002}
+Li, Heng  \& Eric Loken (2002) A unified theory of statistical analysis and
+  inference for variance component models for dyadic data.
+\newblock {\em Statistica Sinica} { 12\/}(2): 519--535.
 
-\bibitem[{Lyall(2009)}]{lyall:2009}
-Lyall, J., 2009. Does indiscriminate violence incite insurgent attacks? Journal
-  of Conflict Resolution 53~(3), 331--362.
+\bibitem[\protect\citeauthoryear{Lyall}{Lyall}{2009}]{lyall:2009}
+Lyall, J. (2009) Does indiscriminate violence incite insurgent attacks?
+\newblock {\em Journal of Conflict Resolution} { 53\/}(3): 331--362.
 
-\bibitem[{Metternich et~al.(2015)Metternich, Minhas, and
-  Ward}]{metternich:etal:2015}
-Metternich, N., Minhas, S., Ward, M., 2015. Firewall? or wall on fire? {A}
-  unified framework of conflict contagion and the role of ethnic exclusion.
-  Journal of Conflict Resolution Online version~(doi:10.1177/0022002715603452).
+\bibitem[\protect\citeauthoryear{Metternich, Minhas \& Ward}{Metternich
+  et~al.}{2015}]{metternich:etal:2015}
+Metternich, Nils; Shahryar Minhas  \& Michael Ward (2015) Firewall? or wall on
+  fire? {A} unified framework of conflict contagion and the role of ethnic
+  exclusion.
+\newblock {\em Journal of Conflict Resolution} { Online
+  version\/}(doi:10.1177/0022002715603452).
 
-\bibitem[{Minhas et~al.(2016{\natexlab{a}})Minhas, Hoff, and
-  Ward}]{minhas:etal:2016:arxiv}
-Minhas, S., Hoff, P.~D., Ward, M.~D., October 2016{\natexlab{a}}. {Let's Say
-  Amen for Latent Factor Models}, working paper.
+\bibitem[\protect\citeauthoryear{Minhas, Hoff \& Ward}{Minhas
+  et~al.}{2016a}]{minhas:etal:2016:arxiv}
+Minhas, Shahryar; Peter~D Hoff  \& Michael~D Ward (2016a) {Let's Say Amen for
+  Latent Factor Models}.
+\newblock Working paper.
 
-\bibitem[{Minhas et~al.(2016{\natexlab{b}})Minhas, Hoff, and
-  Ward}]{minhas:etal:2016}
-Minhas, S., Hoff, P.~D., Ward, M.~D., May 2016{\natexlab{b}}. A new approach to
+\bibitem[\protect\citeauthoryear{Minhas, Hoff \& Ward}{Minhas
+  et~al.}{2016b}]{minhas:etal:2016}
+Minhas, Shahryar; Peter~D Hoff  \& Michael~D Ward (2016b) A new approach to
   analyzing coevolving longitudinal networks in international relations.
-  Journal of Peace Research 53~(3), 491--505.
+\newblock {\em Journal of Peace Research} { 53\/}(3): 491--505.
 
-\bibitem[{Nemeth(2014)}]{nemeth:2014}
-Nemeth, S.~C., 2014. The effect of competition on terrorist group operations.
-  Journal of Conflict Resolution 58~(2), 336--362.
+\bibitem[\protect\citeauthoryear{Nemeth}{Nemeth}{2014}]{nemeth:2014}
+Nemeth, Stephen~C (2014) The effect of competition on terrorist group
+  operations.
+\newblock {\em Journal of Conflict Resolution} { 58\/}(2): 336--362.
 
-\bibitem[{Opp(1988)}]{opp:1988}
-Opp, K.-D., 12 1988. Grievances and participation in social movements. American
-  Sociological Review 53~(6), 853.
+\bibitem[\protect\citeauthoryear{Opp}{Opp}{1988}]{opp:1988}
+Opp, K.-D (1988) Grievances and participation in social movements.
+\newblock {\em American Sociological Review} { 53\/}(6): 853.
 
-\bibitem[{Pettersson and Wallensteen(2015)}]{pettersson:wallensteen:2015}
-Pettersson, T., Wallensteen, P., 2015. Armed conflicts, 1946--2014. Journal of
-  Peace Research 52~(4), 536--550.
+\bibitem[\protect\citeauthoryear{Pettersson \& Wallensteen}{Pettersson \&
+  Wallensteen}{2015}]{pettersson:wallensteen:2015}
+Pettersson, Ther{\'e}se  \& Peter Wallensteen (2015) Armed conflicts,
+  1946--2014.
+\newblock {\em Journal of Peace Research} { 52\/}(4): 536--550.
 
-\bibitem[{Prorok and Appel(2014)}]{prorok:appel:2014}
-Prorok, A.~K., Appel, B.~J., 2014. Compliance with international humanitarian
-  law: {D}emocratic third parties and civilian targeting in interstate war.
-  Journal of Conflict Resolution 58~(4), 713--740.
+\bibitem[\protect\citeauthoryear{Prorok \& Appel}{Prorok \&
+  Appel}{2014}]{prorok:appel:2014}
+Prorok, Alyssa~K  \& Benjamin~J Appel (2014) Compliance with international
+  humanitarian law: {D}emocratic third parties and civilian targeting in
+  interstate war.
+\newblock {\em Journal of Conflict Resolution} { 58\/}(4): 713--740.
 
-\bibitem[{Raleigh(2012)}]{raleigh:2012}
-Raleigh, C., 2012. Violence against civilians: {A} disaggregated analysis.
-  International Interactions 38~(4), 462--481.
+\bibitem[\protect\citeauthoryear{Raleigh}{Raleigh}{2012}]{raleigh:2012}
+Raleigh, Clionadh (2012) Violence against civilians: {A} disaggregated
+  analysis.
+\newblock {\em International Interactions} { 38\/}(4): 462--481.
 
-\bibitem[{Raleigh et~al.(2010)Raleigh, Linke, Hegre, and
-  Karlsen}]{raleigh:etal:2010}
-Raleigh, C., Linke, A., Hegre, H., Karlsen, J., 2010. Introducing {ACLED}: An
-  armed conflict location and event dataset special data feature. Journal of
-  Peace Research 47~(5), 651--660.
+\bibitem[\protect\citeauthoryear{Raleigh, Linke, Hegre \& Karlsen}{Raleigh
+  et~al.}{2010}]{raleigh:etal:2010}
+Raleigh, Clionadh; Andrew Linke; H{\aa}vard Hegre  \& Joakim Karlsen (2010)
+  Introducing {ACLED}: An armed conflict location and event dataset special
+  data feature.
+\newblock {\em Journal of Peace Research} { 47\/}(5): 651--660.
 
-\bibitem[{Richardson(1960)}]{richardson:1960}
-Richardson, L.~F., 1960. Arms and Insecurity. Quadrangle/Boxwood, Chicago and
-  Pittsburgh, PA.
+\bibitem[\protect\citeauthoryear{Richardson}{Richardson}{1960}]{richardson:1960}
+Richardson, Lewis~F (1960) {\em Arms and Insecurity}.
+\newblock Chicago and Pittsburgh, PA: Quadrangle/Boxwood.
 
-\bibitem[{Salehyan(2008)}]{salehyan:2008}
-Salehyan, I., 2008. The externalities of civil strife: Refugees as a source of
-  international conflict. American Journal of Political Science 52~(4),
-  787--801.
+\bibitem[\protect\citeauthoryear{Salehyan}{Salehyan}{2008}]{salehyan:2008}
+Salehyan, Idean (2008) The externalities of civil strife: Refugees as a source
+  of international conflict.
+\newblock {\em American Journal of Political Science} { 52\/}(4): 787--801.
 
-\bibitem[{Salehyan(2009)}]{salehyan:2009}
-Salehyan, I., 2009. Rebels without borders: transnational insurgencies in world
-  politics. Cornell University Press, Ithaca.
+\bibitem[\protect\citeauthoryear{Salehyan}{Salehyan}{2009}]{salehyan:2009}
+Salehyan, Idean (2009) {\em Rebels without borders: transnational insurgencies
+  in world politics}.
+\newblock Ithaca: Cornell University Press.
 
-\bibitem[{Salehyan and Gleditsch(2007)}]{salehyan:gleditsch:2007}
-Salehyan, I., Gleditsch, K.~S., 2007. Refugees and the spread of civil war.
-  International Organization 60~(2), 335--366.
+\bibitem[\protect\citeauthoryear{Salehyan \& Gleditsch}{Salehyan \&
+  Gleditsch}{2007}]{salehyan:gleditsch:2007}
+Salehyan, Idean  \& Kristian~S Gleditsch (2007) Refugees and the spread of
+  civil war.
+\newblock {\em International Organization} { 60\/}(2): 335--366.
 
-\bibitem[{Sarkar and Moore(2005)}]{sarkar:moore:2005}
-Sarkar, P., Moore, A.~W., 2005. Dynamic social network analysis using latent
-  space models. ACM SIGKDD Explorations Newsletter 7~(2), 31--40.
+\bibitem[\protect\citeauthoryear{Sarkar \& Moore}{Sarkar \&
+  Moore}{2005}]{sarkar:moore:2005}
+Sarkar, Purnamrita  \& Andrew~W Moore (2005) Dynamic social network analysis
+  using latent space models.
+\newblock {\em ACM SIGKDD Explorations Newsletter} { 7\/}(2): 31--40.
 
-\bibitem[{Sewell and Chen(2015)}]{sewell:chen:2015}
-Sewell, D.~K., Chen, Y., 2015. Latent space models for dynamic networks.
-  Journal of the American Statistical Association 110~(512), 1646--1657.
+\bibitem[\protect\citeauthoryear{Sewell \& Chen}{Sewell \&
+  Chen}{2015}]{sewell:chen:2015}
+Sewell, Daniel~K  \& Yuguo Chen (2015) Latent space models for dynamic
+  networks.
+\newblock {\em Journal of the American Statistical Association} { 110\/}(512):
+  1646--1657.
 
-\bibitem[{Shalizi and Thomas(2011)}]{shalizi:thomas:2011}
-Shalizi, C.~R., Thomas, A.~C., 2011. Homophily and contagion are generically
-  confounded in observational social network studies. Sociological Methods \&
-  Research 40~(2), 211--239.
+\bibitem[\protect\citeauthoryear{Shalizi \& Thomas}{Shalizi \&
+  Thomas}{2011}]{shalizi:thomas:2011}
+Shalizi, Cosma~R  \& Andrew~C Thomas (2011) Homophily and contagion are
+  generically confounded in observational social network studies.
+\newblock {\em Sociological Methods \& Research} { 40\/}(2): 211--239.
 
-\bibitem[{Snijders(1996)}]{snijders:1996}
-Snijders, T.~A., 1996. Stochastic actor-oriented models for network change.
-  Journal of Mathematical Sociology 21~(1-2), 149--172.
+\bibitem[\protect\citeauthoryear{Snijders}{Snijders}{1996}]{snijders:1996}
+Snijders, Tom~A (1996) Stochastic actor-oriented models for network change.
+\newblock {\em Journal of Mathematical Sociology} { 21\/}(1-2): 149--172.
 
-\bibitem[{Starr and Most(1983)}]{starr:most:1983}
-Starr, H., Most, B.~A., April 1983. Contagion and border effects on
-  contemporary african conflict. Comparative Political Studies 16, 92--117.
+\bibitem[\protect\citeauthoryear{Starr \& Most}{Starr \&
+  Most}{1983}]{starr:most:1983}
+Starr, Harvey  \& Benjamin~A Most (1983) Contagion and border effects on
+  contemporary african conflict.
+\newblock {\em Comparative Political Studies} {\em 16}: 92--117.
 
-\bibitem[{Tarrow(1994)}]{tarrow:1994}
-Tarrow, S., 1994. Power in Movement: {S}ocial Movements, {C}ollective {A}ction
-  and {P}olitics. Cambridge University Press, Cambridge and New York.
+\bibitem[\protect\citeauthoryear{Tarrow}{Tarrow}{1994}]{tarrow:1994}
+Tarrow, Sidney (1994) {\em Power in Movement: {S}ocial Movements, {C}ollective
+  {A}ction and {P}olitics}.
+\newblock Cambridge and New York: Cambridge University Press.
 
-\bibitem[{Tucker(2007)}]{tucker:2007}
-Tucker, J.~A., 2007. Enough! {E}lectoral fraud, collective action problems, and
-  post-communist colored revolutions. Perspectives on Politics 5~(3), 535--551.
+\bibitem[\protect\citeauthoryear{Tucker}{Tucker}{2007}]{tucker:2007}
+Tucker, Joshua~A (2007) Enough! {E}lectoral fraud, collective action problems,
+  and post-communist colored revolutions.
+\newblock {\em Perspectives on Politics} { 5\/}(3): 535--551.
 
-\bibitem[{Valentino et~al.(2004)Valentino, Huth, and
-  Balch-Lindsay}]{valentino:etal:2004}
-Valentino, B., Huth, P., Balch-Lindsay, D., 2004. `draining the sea': Mass
-  killing and guerrilla warfare. International Organization 58~(2), 375--407.
+\bibitem[\protect\citeauthoryear{Valentino, Huth \& Balch-Lindsay}{Valentino
+  et~al.}{2004}]{valentino:etal:2004}
+Valentino, Benjamin; Paul Huth  \& Dylan Balch-Lindsay (2004) `draining the
+  sea': Mass killing and guerrilla warfare.
+\newblock {\em International Organization} { 58\/}(2): 375--407.
 
-\bibitem[{Walker(2016)}]{walker:2016}
-Walker, A., 2016. `Eat the Heart of the Infidel': the harrowing of Nigeria and
-  the rise of Boko Haram. Hurst and Company, London.
+\bibitem[\protect\citeauthoryear{Walker}{Walker}{2016}]{walker:2016}
+Walker, Andrew (2016) {\em `Eat the Heart of the Infidel': the harrowing of
+  Nigeria and the rise of Boko Haram}.
+\newblock London: Hurst and Company.
 
-\bibitem[{Walter(2006)}]{walter:2006}
-Walter, B.~F., 2006. Information, uncertainty, and the decision to secede.
-  International Organization 60~(1), 105--135.
+\bibitem[\protect\citeauthoryear{Walter}{Walter}{2006}]{walter:2006}
+Walter, Barbara~F (2006) Information, uncertainty, and the decision to secede.
+\newblock {\em International Organization} { 60\/}(1): 105--135.
 
-\bibitem[{Ward et~al.(2012)Ward, Ahlquist, and Rozenas}]{ward:etal:2012}
-Ward, M.~D., Ahlquist, J.~S., Rozenas, A., March 2012. Gravity's rainbow: A
-  dynamic latent space model for the world trade network. Network Science
-  1~(1), 95--118.
+\bibitem[\protect\citeauthoryear{Ward, Ahlquist \& Rozenas}{Ward
+  et~al.}{2012}]{ward:etal:2012}
+Ward, Michael~D; John~S Ahlquist  \& Arturas Rozenas (2012) Gravity's rainbow:
+  A dynamic latent space model for the world trade network.
+\newblock {\em Network Science} { 1\/}(1): 95--118.
 
-\bibitem[{Wasserman and Faust(1994)}]{wasserman:faust:1994}
-Wasserman, S., Faust, K., 1994. Social Network Analysis: {M}ethods and
-  Applications. Cambridge University Press, Cambridge.
+\bibitem[\protect\citeauthoryear{Wasserman \& Faust}{Wasserman \&
+  Faust}{1994}]{wasserman:faust:1994}
+Wasserman, Stanley  \& Katherine Faust (1994) {\em Social Network Analysis:
+  {M}ethods and Applications}.
+\newblock Cambridge: Cambridge University Press.
 
-\bibitem[{Weinstein(2007)}]{weinstein:2007}
-Weinstein, J.~M., 2007. Inside rebellion: The politics of insurgent violence.
-  Cambridge University Press, Cambridge.
+\bibitem[\protect\citeauthoryear{Weinstein}{Weinstein}{2007}]{weinstein:2007}
+Weinstein, Jeremy~M (2007) {\em Inside rebellion: The politics of insurgent
+  violence}.
+\newblock Cambridge: Cambridge University Press.
 
-\bibitem[{Wellman(1982)}]{wellman:1982}
-Wellman, B., 1982. {Studying personal communities}. Social Structure and
-  Network Analysis, 61--80.
+\bibitem[\protect\citeauthoryear{Wellman}{Wellman}{1982}]{wellman:1982}
+Wellman, Barry (1982) {Studying personal communities}.
+\newblock {\em Social Structure and Network Analysis}: 61--80.
 
-\bibitem[{Wong et~al.(2006)Wong, Pattison, and Robins}]{wong:etal:2006}
-Wong, L.~H., Pattison, P., Robins, G., 2006. A spatial model for social
-  networks. Physica A: {Statistical} Mechanics and its Applications 360~(1), 99
-  -- 120.
+\bibitem[\protect\citeauthoryear{Wong, Pattison \& Robins}{Wong
+  et~al.}{2006}]{wong:etal:2006}
+Wong, Ling~H; Philippa Pattison  \& Garry Robins (2006) A spatial model for
+  social networks.
+\newblock {\em Physica A: {Statistical} Mechanics and its Applications} {
+  360\/}(1): 99 -- 120.
 
 \end{thebibliography}
