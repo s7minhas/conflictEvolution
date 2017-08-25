@@ -1,10 +1,20 @@
 \begin{thebibliography}{}
 
+\bibitem[\protect\citeauthoryear{Akcinaroglu}{Akcinaroglu}{2012}]{akcinaroglu:2012}
+Akcinaroglu, Seden (2012) Rebel interdependencies and civil war outcomes.
+\newblock {\em Journal of Conflict Resolution} { 56\/}(5): 879--903.
+
 \bibitem[\protect\citeauthoryear{Anderson, Wasserman \& Faust}{Anderson
   et~al.}{1992}]{anderson:etal:1992}
 Anderson, Carolyn~J; Stanley Wasserman  \& Katherine Faust (1992) Building
   stochastic blockmodels.
 \newblock {\em Social Networks} { 14\/}(1): 137--161.
+
+\bibitem[\protect\citeauthoryear{Bakke, Cunningham \& Seymour}{Bakke
+  et~al.}{2012}]{bakke:etal:2012}
+Bakke, Kristin~M; Kathleen~G Cunningham  \& Lee~J Seymour (2012) A plague of
+  initials: Fragmentation, cohesion, and infighting in civil wars.
+\newblock {\em Perspectives on Politics} { 10\/}(2): 265--283.
 
 \bibitem[\protect\citeauthoryear{Barab{\'a}si \& R{\'e}ka}{Barab{\'a}si \&
   R{\'e}ka}{1999}]{barabasi:reka:1999}
@@ -37,10 +47,6 @@ Chenoweth, Erica  \& Maria~J Stephan (2011) {\em Why civil resistance works:
   The strategic logic of nonviolent conflict}.
 \newblock Columbia University Press.
 
-\bibitem[\protect\citeauthoryear{Christia}{Christia}{2012}]{fotini:2012}
-Christia, Fotini (2012) {\em Alliance formation in civil wars}.
-\newblock Cambridge University Press.
-
 \bibitem[\protect\citeauthoryear{Collier, Hoeffler \& S\"{o}derbom}{Collier
   et~al.}{2004}]{collier:etal:2004}
 Collier, Paul; Anke Hoeffler  \& Mans S\"{o}derbom (2004) {On the duration of
@@ -63,9 +69,9 @@ Cunningham, David; Kristian~S Gleditsch  \& Idean Salehyan (2009) It takes two:
   A dyadic analysis of civil war duration and outcome.
 \newblock {\em Journal of Conflict Resolution} { 53\/}(4): 570--597.
 
-\bibitem[\protect\citeauthoryear{Cunningham}{Cunningham}{2014}]{cunningham:2014}
-Cunningham, Kathleen~G (2014) {\em Inside the Politics of Self-determination}.
-\newblock Oxford University Press.
+\bibitem[\protect\citeauthoryear{Cunningham}{Cunningham}{2006}]{cunningham:2006}
+Cunningham, David~E (2006) Veto players and civil war duration.
+\newblock {\em American Journal of Political Science} { 50\/}(4): 875--892.
 
 \bibitem[\protect\citeauthoryear{Dorff \& Minhas}{Dorff \&
   Minhas}{2016}]{dorff:minhas:2016}
@@ -84,17 +90,21 @@ Downes, A.B. (2006) Desperate times, desperate measures: {T}he causes of
   civilian victimization in war.
 \newblock {\em International Security} { 30\/}(4): 152--195.
 
-\bibitem[\protect\citeauthoryear{Eck \& Hultman}{Eck \&
-  Hultman}{2007}]{eck:hultman:2007}
-Eck, Kristine  \& Lisa Hultman (2007) One-sided violance against civilians in
-  war: insights from new fatality data.
-\newblock {\em Journal of Peace Research} { 44\/}(2): 233--246.
-
 \bibitem[\protect\citeauthoryear{Erikson, Pinto \& Rader}{Erikson
   et~al.}{2014}]{erikson:pinto:2014}
 Erikson, Robert~S; Pablo~M Pinto  \& Kelly~T Rader (2014) Dyadic analysis in
   international relations: {A} cautionary tale.
 \newblock {\em Political Analysis} { 22\/}(4): 457--463.
+
+\bibitem[\protect\citeauthoryear{Fearon}{Fearon}{2003}]{fearon:2003}
+Fearon, James~D (2003) Ethnic and cultural diversity by country.
+\newblock {\em Journal of Economic Growth} { 8\/}(2): 195--222.
+
+\bibitem[\protect\citeauthoryear{Findley \& Rudloff}{Findley \&
+  Rudloff}{2012}]{findley:rudloff:2012}
+Findley, Michael  \& Peter Rudloff (2012) Combatant fragmentation and the
+  dynamics of civil wars.
+\newblock {\em British Journal of Political Science} { 42\/}(4): 879--901.
 
 \bibitem[\protect\citeauthoryear{Fjelde \& Nilsson}{Fjelde \&
   Nilsson}{2012}]{fjelde:nilsson:2012}
@@ -107,10 +117,6 @@ Fjelde, Hanne  \& Desir{\'e}e Nilsson (2012) Rebels against rebels: Explaining
 Gleditsch, Nils~P; Peter Wallensteen; Mikael Eriksson; Margareta Sollenberg  \&
   Havard Strand (2002) Armed conflict 1946-2001: A new dataset.
 \newblock {\em Journal of Peace Research} { 39\/}(5): 615--637.
-
-\bibitem[\protect\citeauthoryear{Granovetter}{Granovetter}{1973}]{granovetter:1973}
-Granovetter, Mark~S (1973) {The Strength of Weak Ties}.
-\newblock {\em American Journal of Sociology} { 78\/}(6): 1360--1380.
 
 \bibitem[\protect\citeauthoryear{Greenhill, Ward \& Sacks}{Greenhill
   et~al.}{2011}]{greenhill:etal:2011}
@@ -207,10 +213,6 @@ Kinne, Brandon~J (2012) Multilateral trade and militarized conflict:
   Centrality, asymmetry, and openness in the global trade network.
 \newblock {\em The Journal of Politics} { 74\/}(1): 308--322.
 
-\bibitem[\protect\citeauthoryear{Lacina}{Lacina}{2006}]{lacina:2006}
-Lacina, Bethany (2006) Explaining the severity of civil wars.
-\newblock {\em Journal of Conflict Resolution} { 50\/}(2): 276--289.
-
 \bibitem[\protect\citeauthoryear{Lacina}{Lacina}{2014}]{lacina:2014}
 Lacina, Bethany (2014) How governments shape the risk of civil violence:
   India's federal reorganization, 1950-56.
@@ -239,6 +241,7 @@ Metternich, Nils; Shahryar Minhas  \& Michael Ward (2015) Firewall? or wall on
 Minhas, Shahryar; Peter~D Hoff  \& Michael~D Ward (2016a) {Let's Say Amen for
   Latent Factor Models}.
 \newblock Working paper.
+\newline\harvardurl{https://arxiv.org/abs/1611.00460}
 
 \bibitem[\protect\citeauthoryear{Minhas, Hoff \& Ward}{Minhas
   et~al.}{2016b}]{minhas:etal:2016}
@@ -370,10 +373,6 @@ Wasserman, Stanley  \& Katherine Faust (1994) {\em Social Network Analysis:
 Weinstein, Jeremy~M (2007) {\em Inside rebellion: The politics of insurgent
   violence}.
 \newblock Cambridge: Cambridge University Press.
-
-\bibitem[\protect\citeauthoryear{Wellman}{Wellman}{1982}]{wellman:1982}
-Wellman, Barry (1982) {Studying personal communities}.
-\newblock {\em Social Structure and Network Analysis}: 61--80.
 
 \bibitem[\protect\citeauthoryear{Wong, Pattison \& Robins}{Wong
   et~al.}{2006}]{wong:etal:2006}
