@@ -152,19 +152,6 @@ Hoff, Peter (2009) Multiplicative latent factor models for description and
 \newblock {\em Computational and Mathematical Organization Theory} { 15\/}(4):
   261--272.
 
-\bibitem[\protect\citeauthoryear{Hoff}{Hoff}{2005}]{hoff:2005}
-Hoff, Peter~D (2005) Bilinear mixed-effects models for dyadic data.
-\newblock {\em Journal of the American Statistical Association} { 100\/}(4690):
-  286--295.
-
-\bibitem[\protect\citeauthoryear{Hoff}{Hoff}{2008}]{hoff:2008}
-Hoff, Peter~D (2008).
-\newblock Modeling homophily and stochastic equivalence in symmetric relational
-  data.
-\newblock In: Platt, J. C, Koller, D, Singer, Y \& Roweis, S. T (eds.) Advances
-  in Neural Information Processing Systems 20 Processing Systems 21 ,
-  657--664. Cambridge, MA, USA. MIT Press.
-
 \bibitem[\protect\citeauthoryear{Hoff \& Ward}{Hoff \&
   Ward}{2004}]{hoff:ward:2004}
 Hoff, Peter~D  \& Michael~D Ward (2004) {Modeling Dependencies in International
