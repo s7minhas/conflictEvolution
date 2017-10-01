@@ -10,8 +10,32 @@ loadPkg('devtools') ; devtools::install_github('s7minhas/amen') ; library(amen)
 ################
 
 ################
+useActors = c("Boko Haram", "Christian Militia (Nigeria)",
+	"Fulani Ethnic Militia (Nigeria)",
+    "Hausa Ethnic Militia (Nigeria)",
+    "Igbo Ethnic Militia (Nigeria)",
+    "Ijaw Ethnic Militia (Nigeria)",
+    "NDV: Niger Delta Vigilante",
+    "NDPVF: Niger Delta People's Volunteer Force",
+    "Ilajes Ethnic Militia (Nigeria)",
+    "Itsekiri Ethnic Militia (Nigeria)",
+    "Itsekiri Ethnic Militia (Nigeria)",
+    "Kuteb Ethnic Militia (Nigeria)",
+    "Military Forces of Nigeria",
+    "Muslim Militia (Nigeria)",
+    "Ogoni Ethnic Militia (Nigeria)",
+    "Police Forces of Nigeria",
+    "Tarok Ethnic Militia (Nigeria)",
+    "Tiv Ethnic Militia (Nigeria)",
+    "Urhobo Ethnic Militia (Nigeria)",
+    "Yoruba Ethnic Militia (Nigeria)")
+
+useActors = c(useActors, "MEND: Movement for the Emancipation of the Niger Delta")
+################
+
+################
 # load data
-load(paste0(pathData,"ucdpActorsyList.rda")) # loads yList object 
+load(paste0(pathData, 'nigeriaMatList_acled_v7.rda')) # loads yList object 
 load(paste0(pathData, 'exoVars.rda')) # load xNodeL, xDyadL
 
 # only acled & ucdp actors
