@@ -19,6 +19,13 @@ yrs = char(2000:2016)
 yList = yList[yrs] ; xDyadL = xDyadL[yrs] ; xNodeL = xNodeL[yrs]
 ###############
 
+###############
+# make yList symmetric
+yList = lapply(yList, function(y){
+	diag(y) = NA ; ySymm = y + t(y) ; ySymm[ySymm>1] = 1
+	return(ySymm) })
+###############
+
 ################
 # set up model specs
 subListArray = function(lA, vars, dims=2){
@@ -45,7 +52,7 @@ ameFits = foreach(i = 1:length(designArrays), .packages=c('amen')) %dopar% {
 	fit = ame_repL(
 		Y=yList, Xdyad=designArrays[[i]]$dyadCovar,
 		Xrow=designArrays[[i]]$senCovar,
-		symmetric=TRUE, rvar=TRUE, cvar=TRUE, R=2, 
+		symmetric=TRUE, nvar=TRUE, R=2, 
 		model='bin', intercept=TRUE, seed=6886,
 		burn=10000, nscan=50000, odens=25,
 		plot=FALSE, gof=TRUE, periodicSave=FALSE )
