@@ -1,0 +1,629 @@
+\documentclass[10pt, compress]{beamer}
+
+\usetheme[block=transparent, background=light]{metropolis}
+\setbeamercolor{progress bar}{fg=blue3, bg=caribbeangreen}
+\setbeamercolor{block title alerted}{fg=seafoam}
+\setbeamercolor{frametitle}{fg=white, bg=darkgray}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[export]{adjustbox}
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+\usepackage{dcolumn}
+\usepackage[export]{adjustbox}
+\usepackage{etoolbox}
+
+\usepackage{xspace}
+\usepackage{hyperref}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+% math typesetting
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{relsize}
+\usepackage{mathtools}
+\usepackage{bm}
+
+% tables
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{multirow}
+
+% graphics stuff
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage[space]{grffile} % allows us to specify directories that have spaces
+\usepackage{tikz}
+
+%\graphicspath{/Users/cassydorff/Dropbox/Research/ponyClub/JoGGSsubmission/updatedDraft/}
+
+%CD colors
+\usepackage{color}
+\definecolor{lightaquablue}{rgb}{0.1,0.7,0.9}
+\definecolor{seafoam}{RGB}{ 81, 200, 129}
+\definecolor{deepwater}{RGB}{48, 117, 121}
+\definecolor{amaranth}{rgb}{0.9, 0.17, 0.31}
+\definecolor{caribbeangreen}{rgb}{0.0, 0.8, 0.6}
+\definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
+
+
+% Add some colors
+\definecolor{red1}{RGB}{253,219,199}
+\definecolor{red2}{RGB}{244,165,130}
+\definecolor{red3}{RGB}{178,24,43}
+
+\definecolor{green1}{RGB}{229,245,224}
+\definecolor{green2}{RGB}{161,217,155}
+\definecolor{green3}{RGB}{49,163,84}
+
+\definecolor{blue0}{RGB}{255,247,251}
+\definecolor{blue1}{RGB}{222,235,247}
+\definecolor{blue2}{RGB}{158,202,225}
+\definecolor{blue3}{RGB}{49,130,189}
+\definecolor{blue4}{RGB}{4,90,141}
+
+\definecolor{purple1}{RGB}{191,211,230}
+\definecolor{purple2}{RGB}{140,150,198}
+\definecolor{purple3}{RGB}{140,107,177}
+
+\definecolor{brown1}{RGB}{246,232,195}
+\definecolor{brown2}{RGB}{223,194,125}
+\definecolor{brown3}{RGB}{191,129,45}
+
+% square bracket matrices
+\let\bbordermatrix\bordermatrix
+\patchcmd{\bbordermatrix}{8.75}{4.75}{}{}
+\patchcmd{\bbordermatrix}{\left(}{\left[}{}{}
+\patchcmd{\bbordermatrix}{\right)}{\right]}{}{}
+
+% references to graphics
+\makeatletter
+\def\input@path{
+  {/Users/janus829/Dropbox/Research/conflictEvolution/graphics/},   {/Users/s7m/Dropbox/Research/conflictEvolution/graphics/},  {/Users/cassydorff/Dropbox/Research/nothingbutnet/conflictEvolution/graphics/}
+     % {/Users/maxgallop/Dropbox (Netgroup)/conflictEvolutionMex/graphics/} % paren in path screws stuff up
+}
+
+\graphicspath{
+  {/Users/janus829/Dropbox/Research/conflictEvolution/graphics/},   {/Users/s7m/Dropbox/Research/conflictEvolution/graphics/},  {/Users/cassydorff/Dropbox/Research/nothingbutnet/conflictEvolution/graphics/}
+      % {/Users/maxgallop/Dropbox (Netgroup)/conflictEvolutionMex/graphics/}  % paren in path screws stuff up
+}
+
+\title[Nigeria Conflict]{\textsc{Predicting Intrastate Conflict: Evidence from Nigeria}}
+\author[Dorff, Gallop, \& Minhas]{Cassy Dorff (University of New Mexico),\\ Max Gallop (University of Strathclyde),\\ and Shahryar Minhas (Michigan State University)\\} 
+
+\date{\textsc{\today}}
+
+\begin{document}
+\frame{
+	\frametitle{Broader Research}
+	Me
+}
+
+\frame{\titlepage}
+
+\section{Motivation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{
+  \frametitle{Predicting Intrastate Conflicts}
+
+Map of where conflicts have occurred? 
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame
+{
+  \frametitle{Progress in the field}
+  Extensive literature on the causes and prediction of intrastate conflict
+  \begin{table}
+  \begin{tabular}{lc}
+    Hegre et al. (2001) & \multirow{5}{*}{\includegraphics[width=.6\textwidth]{confGraphs.png}} \\
+    Fearon \& Laitin (2003) & \\
+    Collier et al. (2004) & \\
+    Salehyan (2008)  & \\
+    Cunningham (2013) & \\
+    Sambanis \& Shayo (2013) & \\
+    Lacina (2014) & \\
+    Prorok (2016) & \\
+  \end{tabular}
+  \end{table}
+
+\vspace{.2in}
+ \textcolor{amaranth}{Fearon \& Laitin (2003) has been cited over 6,000 times!}
+
+} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{
+  \frametitle{Conflicts are complex}
+
+  Roughly a \textbf{third} of all intrastate conflict between 1989 and 2003 have been fought with multiple warring parties (UCDP/PRIO 2007).
+  \vspace{.1in}
+  
+ Conflicts involve multiple actors with changing relationships overtime
+ 
+ \begin{itemize}
+ \item Coordination (Bakke et al 2012; Findley \& Rudloff 2012)
+ \item Spoiler groups and veto-players (Cunningham, 2006)
+\end{itemize}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{
+  \frametitle{Pairing Empirical Analysis to Theory}
+
+  \begin{quote}
+ ``Existence of \textcolor{amaranth}{multiple rebel groups} means we can no longer understand civil wars with a sole focus on state attributes. In fact, the government's strategies leading to victory, defeat, or continuation of war can only be understood \textcolor{amaranth}{in relation to} the rebel group/groups it is fighting." 
+  \end{quote}
+  \vspace{-.1in}
+ \center  Akcinaroglu (2012)
+  
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{
+	\frametitle{Our Project}
+	\textbf{Conflict processes are driven by the evolution of relationships overtime. }
+		\begin{itemize}
+			\item We argue that intrastate conflicts are best understood as a single complex system composed of multiple actors in conflict with one another
+			\item We conceptualize armed actors and battles as nodes and ties in a network
+			\item We present a novel model that captures relationships endogenous to the conflict system, as well as covariate information at both the state and actor level. 
+			\item Our model out performs standard approaches and uncovers important substantive implications for the study of conflict processes
+		\end{itemize}  
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Networks \& Conflict Processes}
+
+\frame{
+  \frametitle{From dyads to networks}
+
+  Dyadic data consists of a set of:
+  \begin{itemize}
+    \item nodes (e.g., rebel group actors)
+    \item measurements specific to a pair of actors (e.g., the occurrence of a battle)
+  \end{itemize}
+
+  \centering
+  \includegraphics[width=.9\textwidth]{df_adj_net3.png}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{
+  \frametitle{Dyadic data assumptions}
+
+GLM: $y_{ij} \sim \beta^{T} X_{ij} + e_{ij}$
+
+Networks typically show evidence against independence of dyadic interactions
+
+Not accounting for dependence can lead to:
+
+\begin{itemize}
+\item biased effects estimation
+\item uncalibrated confidence intervals
+\item poor predictive performance
+\item inaccurate description of network phenomena
+\end{itemize}
+
+We've been hearing this concern for decades now:
+
+\begin{tabular}{lll}
+Thompson \& Walker (1982) & Beck et al. (1998) & Snijders (2011) \\
+Frank \& Strauss (1986) & Signorino (1999) & Erikson et al. (2014) \\
+Kenny (1996) & Li \& Loken (2002) & Aronow et al. (2015) \\
+Krackhardt (1998) & Hoa \& Ward (2004) & Athey et al. (2016) \\
+\end{tabular}
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{
+  \frametitle{Network Effects}
+ How does evolution in the structure of relationships influence conflict over time?
+\begin{itemize}
+\item 1st-order: Sender effects\\
+\item 2nd-order: Reciprocity\\
+\item 3rd-order: Homophily \& Stochastic equivalence\\
+\item System level: Changing actor composition\\
+\end{itemize}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{What network phenomena? Sender heterogeneity}
+
+  Values across a row, say $\{y_{ij},y_{ik},y_{il}\}$, may be more similar to each other than other values in the adjacency matrix because each of these values has a common sender $i$
+
+  \centering
+  \includegraphics[width=.7\textwidth]{adjRowDep}
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{
+  \frametitle{What network phenomena? Receiver heterogeneity}
+
+  Values across a column, say $\{y_{ji},y_{ki},y_{li}\}$, may be more similar to each other than other values in the adjacency matrix because each of these values has a common receiver $i$
+
+  \centering
+  \includegraphics[width=.7\textwidth]{adjColDep}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{What network phenomena? Sender-Receiver Covariance}
+
+  Actors who are more likely to send ties in a network may also be more likely to receive them
+
+  \centering
+  \includegraphics[width=.7\textwidth]{adjRowColCovar}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{What network phenomena? Reciprocity}
+
+  Values of $y_{ij}$ and $y_{ji}$ may be statistically dependent
+
+  \centering
+  \includegraphics[width=.7\textwidth]{adjRecip}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Social Relations Model (The ``A'' in AME)}
+
+Additive effects portion of AME (Warner et al. 1979; Li \& Loken 2002):
+
+\begin{align*}
+\begin{aligned}
+      y_{ij} &= \color{red}{\mu} + \color{red}{e_{ij}} \\
+      e_{ij} &= a_{i} + b_{j} + \epsilon_{ij} \\
+      \{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \} &\sim N(0,\Sigma_{ab}) \\ 
+      \{ (\epsilon_{ij}, \epsilon_{ji}) : \; i \neq j\} &\sim N(0,\Sigma_{\epsilon}), \text{ where } \\
+      \Sigma_{ab} = \begin{pmatrix} \sigma_{a}^{2} & \sigma_{ab} \\ \sigma_{ab} & \sigma_{b}^2   \end{pmatrix} \;\;\;\;\; &\Sigma_{\epsilon} = \sigma_{\epsilon}^{2} \begin{pmatrix} 1 & \rho \\ \rho & 1  \end{pmatrix}
+\end{aligned}
+\end{align*}
+
+\begin{itemize}
+\item $\mu$ baseline measure of network activity (for the purpose of regression we turn this into $\bm\beta^{T} \mathbf{X}_{ij,t}$)
+\item $e_{ij}$ residual variation that we will use the SRM to decompose
+\end{itemize}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Social Relations Model (The ``A'' in AME)}
+
+\begin{align*}
+\begin{aligned}
+      y_{ij} &= \mu + e_{ij} \\
+      e_{ij} &= \color{red}{a_{i} + b_{j}} + \epsilon_{ij} \\
+      \color{red}{\{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \}} &\sim N(0,\Sigma_{ab}) \\ 
+      \{ (\epsilon_{ij}, \epsilon_{ji}) : \; i \neq j\} &\sim N(0,\Sigma_{\epsilon}), \text{ where } \\
+      \Sigma_{ab} = \begin{pmatrix} \sigma_{a}^{2} & \sigma_{ab} \\ \sigma_{ab} & \sigma_{b}^2   \end{pmatrix} \;\;\;\;\; &\Sigma_{\epsilon} = \sigma_{\epsilon}^{2} \begin{pmatrix} 1 & \rho \\ \rho & 1  \end{pmatrix}
+\end{aligned}
+\end{align*}
+
+\begin{itemize}
+\item row/sender effect ($a_{i}$) \& column/receiver effect ($b_{j}$)
+\item Modeled jointly to account for correlation in how active an actor is in sending and receiving ties
+\end{itemize}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Social Relations Model (The ``A'' in AME)}
+
+\begin{align*}
+\begin{aligned}
+      y_{ij} &= \mu + e_{ij} \\
+      e_{ij} &= a_{i} + b_{j} + \epsilon_{ij} \\
+      \{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \} &\sim N(0,\color{red}{\Sigma_{ab}}) \\ 
+      \{ (\epsilon_{ij}, \epsilon_{ji}) : \; i \neq j\} &\sim N(0,\Sigma_{\epsilon}), \text{ where } \\
+      \color{red}{\Sigma_{ab}} = \begin{pmatrix} \sigma_{a}^{2} & \sigma_{ab} \\ \sigma_{ab} & \sigma_{b}^2   \end{pmatrix} \;\;\;\;\; &\Sigma_{\epsilon} = \sigma_{\epsilon}^{2} \begin{pmatrix} 1 & \rho \\ \rho & 1  \end{pmatrix}
+\end{aligned}
+\end{align*}
+
+\begin{itemize}
+\item $\sigma_{a}^{2}$ and $\sigma_{b}^{2}$ capture heterogeneity in the row and column means
+\item $\sigma_{ab}$ describes the linear relationship between these two effects (i.e., whether actors who send [receive] a lot of ties also receive [send] a lot of ties)
+\end{itemize}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Social Relations Model (The ``A'' in AME)}
+
+\begin{align*}
+\begin{aligned}
+      y_{ij} &= \mu + e_{ij} \\
+      e_{ij} &= a_{i} + b_{j} + \color{red}{\epsilon_{ij}} \\
+      \{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \} &\sim N(0,\Sigma_{ab}) \\ 
+      \color{red}{\{ (\epsilon_{ij}, \epsilon_{ji}) : \; i \neq j\}} &\sim N(0,\color{red}{\Sigma_{\epsilon}}), \text{ where } \\
+      \Sigma_{ab} = \begin{pmatrix} \sigma_{a}^{2} & \sigma_{ab} \\ \sigma_{ab} & \sigma_{b}^2   \end{pmatrix} \;\;\;\;\; & \color{red}{\Sigma_{\epsilon}} = \sigma_{\epsilon}^{2} \begin{pmatrix} 1 & \rho \\ \rho & 1  \end{pmatrix}
+\end{aligned}
+\end{align*}
+
+\begin{itemize}
+\item $\epsilon_{ij}$ captures the within dyad effect
+\item Second-order dependencies are described by $\sigma_{\epsilon}^{2}$
+\item Reciprocity, aka within dyad correlation, represented by $\rho$
+\end{itemize}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Third Order Dependencies}
+
+  \vspace{-10mm}
+
+  \begin{table}[ht]
+  \begin{tabular}{lcr}
+  \qquad\scshape{Homophily} & & \scshape{Stochastic Equivalence} \\
+  \includegraphics[width=.33\textwidth]{homophNet.pdf} & \hspace{2cm} &
+  \includegraphics[width=.33\textwidth]{stochEquivNet.pdf}  
+  \end{tabular}
+  \end{table}
+
+  To account for these patterns we can build on the SRM framework and find an expression for $\gamma$:
+  
+  \vspace{-5mm}
+  \begin{align*}
+  \centering
+  y_{ij} &\approx \beta^{T} X_{ij} + a_{i} + b_{j} + \gamma(u_{i},v_{j})
+  \end{align*}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Latent Factor Model: The ``M'' in AME}
+
+Each node $i$ has an unknown latent factor
+
+\vspace{-5mm}
+\begin{align*}
+{\textbf{u}_{i},\textbf{v}_{j}} \in \mathbb{R}^{k} \;\; i,j \in \{1, \ldots, n \} \\
+\end{align*}
+
+\vspace{-5mm}
+The probability of a tie from $i$ to $j$ depends on their latent factors
+
+\vspace{-5mm}
+\begin{align*}
+\begin{aligned}
+  \gamma(\textbf{u}_{i}, \textbf{v}_{j}) &= \textbf{u}_{i}^{T} D \textbf{v}_{j} \\
+  &= \sum_{k \in K} d_{k} u_{ik} v_{jk} \\
+  &D \text{ is a  } K \times K \text{ diagonal matrix}
+\end{aligned}
+\end{align*}
+
+Accounts for both stochastic equivalence and homophily (Hoff 2008)
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Additive and Multiplicative Effects (AME) Model}
+
+  \begin{align*}
+    \begin{aligned}
+      y_{ij,t} &= g(\theta_{ij,t}) \\ 
+      &\theta_{ij,t} = \bm\beta^{T} \mathbf{X}_{ij,t} + e_{ij,t} \\
+      % &\theta_{ij,t} = \bm\beta_{d}^{T} \mathbf{X}_{ij,t} + \bm\beta_{s}^{T} \mathbf{X}_{i,t} + \bm\beta_{r}^{T} \mathbf{X}_{j,t} + e_{ij,t} \\      
+      &e_{ij,t} = a_{i} + b_{j}  + \epsilon_{ij} + \alpha(\textbf{u}_{i}, \textbf{v}_{j}) \text{  , where } \\
+      &\qquad \alpha(\textbf{u}_{i}, \textbf{v}_{j}) = \textbf{u}_{i}^{T} \textbf{D} \textbf{v}_{j} = \sum_{k \in K} d_{k} u_{ik} v_{jk} \\ 
+    \end{aligned}
+  \end{align*}
+
+  (Hoff 2005; Hoff 2008; Hoff et al. 2013; Minhas et al. 2016)
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Application case: Nigerian intrastate conflict system}
+
+  \begin{center}
+  \includegraphics[width=1\textwidth]{nigeria_2000_2016.pdf}
+  \end{center}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Spatial Distribution of Conflict Pre Boko Haram}
+
+%  \vspace{-5mm}
+  \centering
+  \includegraphics[width=.95\textwidth]{nigConfMap_preBH.pdf}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Spatial Distribution of Conflict Post Boko Haram}
+
+  \centering
+  \includegraphics[width=.95\textwidth]{nigConfMap_postBH.pdf}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Boko Haram's Entrance in Network}
+
+  \centering
+  \includegraphics[width=1\textwidth]{nigeria_postBK}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Data}
+
+  Armed Conflict Location and Event Data Project (ACLED) developed by Raleigh et al. (2010)
+
+  \begin{itemize}
+    \item ACLED records armed conflict and protest events in over 60 developing countries
+    \item We use ACLED \textit{battles} data for Nigeria to generate a measure of conflict where:
+    \begin{itemize}
+      \item $y_{ij,t} = 1$ indicates that a conflict occurred when actor $i$ attacked actor $j$ at time $t$
+      \item $y_{ij,t} = 0$ if no conflict occurred
+    \end{itemize}
+    \item We focus only on modeling the interactions between armed groups that are engaged in battles for at least 5 years during the 2000-2016 period, which results in a total of 37 armed groups
+  \end{itemize}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Covariates}
+
+  \begin{itemize}
+    \item Country-Level covariates:
+    \begin{itemize}
+      \item Post Boko-Haram
+      \item Neighborhood conflict
+      \item Election year      
+    \end{itemize}
+    \item Sender and Receiver-Level Covariates:
+    \begin{itemize}
+      \item Violence against civilians
+      \item Riots/Protests directed against actor
+      \item Geographic spread
+    \end{itemize}
+  \end{itemize}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Model Results}
+
+  \centering
+  \begin{tabular}{c}
+  \includegraphics[height=.7\textheight]{betaEst} \\
+  \includegraphics[height=.2\textheight]{vcEst} \\  
+  \end{tabular}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Additive Sender/Receiver Random Effects}
+
+  \centering
+  \includegraphics[width=.9\textwidth]{abEst2}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Multiplicative Effects}
+
+  \centering
+  \includegraphics[width=1\textwidth]{circPlotSimplev2}  
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Out of Sample Cross-Validation}
+
+  \centering
+  \begin{tabular}{ll}
+  \includegraphics[width=.5\textwidth]{roc_outSample} & 
+  \includegraphics[width=.5\textwidth]{rocPr_outSample}
+  \end{tabular}  
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Out of Sample Forecast}
+
+  \centering
+  \begin{tabular}{ll}
+  \includegraphics[width=.5\textwidth]{roc_outSampleForecast_1} & 
+  \includegraphics[width=.5\textwidth]{rocPr_outSampleForecast_1}
+  \end{tabular}  
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \frame{
+%   \frametitle{Conclusion}
+
+
+
+% }
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\plain{Thanks.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Network GOF}
+
+  \centering
+  \includegraphics[width=.8\textwidth]{netGOF}  
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
