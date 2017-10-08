@@ -72,3 +72,19 @@ save(
 	file=paste0(pathResults, 'ameResults_rebelGroupOnly.rda')
 	)
 ################
+
+################
+#
+source(paste0(fPth, 'paramPlot2.R'))
+
+# quick trace plot
+mcmcData = ameFits$base$BETA
+varKey = data.frame(dirty=colnames(mcmcData),stringsAsFactors=FALSE)
+varKey$clean = c(
+	'Intercept',
+	'Riots/Protests Against (Sender)', 'Civilian Attacks (Sender)', 'Geographic Spread (Sender)',
+	'Riots/Protests Against (Receiver)', 'Civilian Attacks (Receiver)', 'Geographic Spread (Receiver)',
+	'Post-Boko Haram', 'Election Year', 'Neighborhood Conflict')
+varKey = varKey[c(8,2,5,3,6,4,7,9,10,1),]
+ggsave(paramPlot2(mcmcData, varKey), file=paste0(pathGraphics, 'betaTrace_rebelGroupOnly.pdf'), width=8,height=9)
+################
