@@ -11,6 +11,8 @@
 
 \subsection{Trace plots for parameter estimates}
 
+Figure~\ref{betaTrace} below shows trace plots for the parameters summarized in Figure~\ref{betaest}.
+
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=.88\textwidth]{betaTrace}
@@ -18,24 +20,63 @@
 	\label{betaTrace}
 	\end{figure}
 \FloatBarrier
-\newpage
+\clearpage
 
-\subsection{Additive Effects}
+\subsection{Trace plots for parameter estimates when using fatality threshold}
 
-We depict the sender ($\hat{a}_{i}$) and receiver ($\hat{b}_{j}$) random effects in figure \ref{fig:abEst}. 
+ Figure~\ref{betaTrace_fatalities} below shows trace plots for an alternative formulation of the model we presented in the paper. Specifically, here in defining the dependent variable from ACLED, we only set $y_{ij}=1$ when the corresponding battle between $i$ and $j$ led to at least one fatality. 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth]{abEst2}
-	\caption{Sender and receiver random effect estimates.}
-	\label{fig:abEst}
-\end{figure}
+	\includegraphics[width=.88\textwidth]{betaTrace_fatalities}
+	\caption{Trace plots for exogenous parameters.}
+	\label{betaTrace_fatalities}
+	\end{figure}
 \FloatBarrier
-% \newpage
+\clearpage
 
-This figure shows which actors are more (and less) violent than would be predicted by just accounting for the exogenous covariates we reviewed in the previous section. We can see, for example, that Boko Haram actually has a random sender effect that is approximately zero, implying that once we account for their high tendency to target civilians and the secular increase in violence that followed their entry into the conflict the model is able to accurately predict the group's tendency towards initiating conflict. On the other hand, actors like the Fulani and Hausa militias have notably positive sender and receiver effects (and the Christian and Muslim Militias have notably negative effects). This gives us cause to believe that our model has done a somewhat worse job capturing the behavior of these groups; it indicates that other unobserved factors drive their tendency to send and receive conflict. 
+\subsection{Trace plots for parameter estimates when setting battles to be symmetric}
 
+ Figure~\ref{betaTrace_symmetric} below shows trace plots for an alternative formulation of the model we presented in the paper. Specifically, here in defining the dependent variable from ACLED, when $y_{ij}=1$ we set $y_{ji}=1$ as well. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.88\textwidth]{betaTrace_symmetric}
+	\caption{Trace plots for exogenous parameters.}
+	\label{betaTrace_symmetric}
+	\end{figure}
+\FloatBarrier
+\clearpage
+
+\subsection{Trace plots for parameter estimates when excluding Government actors}
+
+ Figure~\ref{betaTrace_rebelGroup} below shows trace plots for an alternative formulation of the model we presented in the paper. Specifically, here we exclude government actors from the analysis. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.88\textwidth]{betaTrace_rebelGroupOnly}
+	\caption{Trace plots for exogenous parameters.}
+	\label{betaTrace_rebelGroup}
+	\end{figure}
+\FloatBarrier
+\clearpage
+
+% \subsection{Additive Effects}
+
+% We depict the sender ($\hat{a}_{i}$) and receiver ($\hat{b}_{j}$) random effects in figure \ref{fig:abEst}. This figure shows which actors are more (and less) violent than would be predicted by just accounting for the exogenous covariates we reviewed in the previous section. We can see, for example, that Boko Haram actually has a random sender effect that is approximately zero, implying that once we account for their high tendency to target civilians and the secular increase in violence that followed their entry into the conflict the model is able to accurately predict the group's tendency towards initiating conflict. On the other hand, actors like the Fulani and Hausa militias have notably positive sender and receiver effects (and the Christian and Muslim Militias have notably negative effects). 
+
+% \begin{figure}[ht]
+% 	\centering
+% 	\includegraphics[width=.8\textwidth]{abEst2}
+% 	\caption{Sender and receiver random effect estimates.}
+% 	\label{fig:abEst}
+% \end{figure}
+% \FloatBarrier
+
+\clearpage
 \subsection{Network Goodness of Fit Assessment}
+
+Figure~\ref{netGOF} presents an assessment of how well our model captures the network attributes of the conflict system in Nigeria on a variety of dimensions. For details on interpreting this diagnostic see \citet{minhas:etal:2016:arxiv}.
 
 \begin{figure}[ht]
 	\centering
@@ -44,7 +85,7 @@ This figure shows which actors are more (and less) violent than would be predict
 	\label{netGOF}
 	\end{figure}
 \FloatBarrier
-\newpage
+\clearpage
 
 % \subsection{Rebel Group Information}
 
