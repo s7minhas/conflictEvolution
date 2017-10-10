@@ -46,11 +46,12 @@
 %CD colors
 \usepackage{color}
 \definecolor{lightaquablue}{rgb}{0.1,0.7,0.9}
-\definecolor{seafoam}{RGB}{ 85, 200, 220}
+\definecolor{seafoam}{RGB}{ 45, 200, 220}
 \definecolor{deepwater}{RGB}{48, 117, 121}
 \definecolor{amaranth}{rgb}{0.9, 0.17, 0.31}
 \definecolor{caribbeangreen}{rgb}{0.0, 0.8, 0.6}
 \definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
+\definecolor{bluejazz}{rgb}{0.13, 0.67, 0.8}
 
 
 % Add some colors
@@ -175,7 +176,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{
-  \frametitle{Conflicts are complex}
+  \frametitle{Conflicts are complex: unpacking social structure}
 
   Roughly a \textbf{third} of all intrastate conflict between 1989 and 2003 have been fought with multiple warring parties (UCDP/PRIO 2007).
   \vspace{.1in}
@@ -228,7 +229,19 @@
 		\begin{enumerate}
 			\item Intrastate conflicts $\rightarrow$ single complex system composed of multiple actors in conflict 
 			\item Armed actors \& battles $=$ nodes and ties in a network
+			\item Novel model captures interdependencies across actors within the conflict system
+		\end{enumerate}  
+
+}
+
+\frame{
+	\frametitle{Our Project}
+	\textbf{Conflict processes are driven by the evolution of relationships overtime. }
+		\begin{enumerate}
+			\item Intrastate conflicts $\rightarrow$ single complex system composed of multiple actors in conflict 
+			\item Armed actors \& battles $=$ nodes and ties in a network
 			\item Novel model captures relationships endogenous to the conflict system 
+			\item Our approach provides unbiased parameter estimates \& out performs standard approaches
 		\end{enumerate}  
 
 }
@@ -241,19 +254,7 @@
 			\item Armed actors \& battles $=$ nodes and ties in a network
 			\item Novel model captures relationships endogenous to the conflict system 
 			\item Our approach provides precise estimates, \& out performs standard approaches
-		\end{enumerate}  
-
-}
-
-\frame{
-	\frametitle{Our Project}
-	\textbf{Conflict processes are driven by the evolution of relationships overtime. }
-		\begin{enumerate}
-			\item Intrastate conflicts $\rightarrow$ single complex system composed of multiple actors in conflict 
-			\item Armed actors \& battles $=$ nodes and ties in a network
-			\item Novel model captures relationships endogenous to the conflict system 
-			\item Our approach provides precise estimates, \& out performs standard approaches
-			\item Uncovers important patterns of conflict with substantive implications for the study of conflict processes
+			\item Uncovers important relational patterns of conflict with substantive implications for the study of conflict processes
 		\end{enumerate}  
 
 }
@@ -403,8 +404,31 @@
 \section{Nigeria}
 
 \frame{
-  \frametitle{Intrastate Conflict Case: Nigerian intrastate conflict system}
+	\frametitle{Intrastate Conflict: Nigeria's intrastate conflict system}
+Complex, multi-actor conflict
+\begin{itemize}
+\item  \textcolor{bluejazz}{Numerous} violent political groups including ethnic militias, militant regional groups and Islamist insurgents
+\item Political violence of \textcolor{bluejazz}{all types} has risen substantially since 2011 with violence against civilians seeing the most dramatic increase.
+\item \textcolor{bluejazz}{Civilians} engage in both violent and nonviolent resistance efforts.
+\end{itemize}
 
+
+}
+
+\frame{
+	\frametitle{Intrastate Conflict: Nigeria's intrastate conflict system}
+Complex, multi-actor conflict
+\begin{itemize}
+\item  \textcolor{bluejazz}{numerous} violent political groups including ethnic militias, militant regional groups and Islamist insurgents
+\item political violence of \textcolor{bluejazz}{all types} has risen substantially since 2011 with violence against civilians seeing the most dramatic increase.
+\item \textcolor{bluejazz}{civilians} engage in both violent and nonviolent resistance efforts.
+\end{itemize}
+  \includegraphics[width=1\textwidth]{actorOvertime}
+
+}
+
+\frame{
+  \frametitle{Intrastate Conflict: Nigeria's intrastate conflict system}
   \begin{center}
   \includegraphics[width=1\textwidth]{nigeria_2000_2016.pdf}
   \end{center}
@@ -720,7 +744,6 @@ Does our \textcolor{blue3}{``key player"} effect matter in other conflict settin
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{
   \frametitle{Additive Sender/Receiver Random Effects}
-
   \centering
   \includegraphics[width=.9\textwidth]{abEst2}
 
@@ -756,13 +779,34 @@ Krackhardt (1998) & Hoa \& Ward (2004) & Athey et al. (2016) \\
 
 }
 
+\frame{
+	\frametitle{ACLED Data - Nigeria}
+	Data collection
+	\begin{itemize}
+	\item Battles are violent clashes between at least two armed groups. 
+	\item Battles make up approximately one third of the dataset.
+	\item Data types: civic society (reports, NGOs), media (newspapers), Analysts (specialists' reports), governing bodies (UN reports), ``Local source project" (ACLED is connected with local sources)
+	\item Analysis of data does not reveal urban bias
+	\end{itemize} 
+	
+	
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{
   \frametitle{Boko Haram's Entrance in Network}
-
   \centering
   \includegraphics[width=1\textwidth]{nigeria_postBK}
+
+}
+
+\frame{
+  \frametitle{ERGMs}
+ERGMs are useful when researchers are interested in the role that a specific list of network statistics have in giving rise to a certian network. (Such as: number of transitive triads in a network, balanced triads, reciprocal pairs, etc.)
+\begin{itemize}
+	\item ERGMs provide a way to find the probability of a network given the patterns it exhibits
+	\item the researcher must specify which network statistics should give rise to a particular network of interest
+\end{itemize}
 
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
