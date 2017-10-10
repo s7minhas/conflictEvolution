@@ -94,7 +94,7 @@
       % {/Users/maxgallop/Dropbox (Netgroup)/conflictEvolutionMex/graphics/}  % paren in path screws stuff up
 }
 
-\title[Nigeria Conflict]{\textsc{Predicting Intrastate Conflict: Evidence from Nigeria}}
+\title[Nigeria Conflict]{\textsc{Predicting Violence: Network Dynamics in Nigeria }}
 \author[Dorff, Gallop, \& Minhas]{Cassy Dorff (University of New Mexico),\\ Max Gallop (University of Strathclyde),\\ and Shahryar Minhas (Michigan State University)\\} 
 
 \date{\textsc{\today}}
@@ -161,7 +161,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \frame{
-  \frametitle{Conflicts are complex}
+  \frametitle{Conflicts are complex: unpacking social structure}
 
   Roughly a \textbf{third} of all intrastate conflict between 1989 and 2003 have been fought with multiple warring parties (UCDP/PRIO 2007).
   \vspace{.1in}
@@ -453,7 +453,7 @@ Additive effects portion of AME (Warner et al. 1979; Li \& Loken 2002):
 
 \begin{align*}
 \begin{aligned}
-      y_{ij} &= \color{red}{\mu} + \color{red}{e_{ij}} \\
+      y_{ij} &= \color{amaranth}{\mu} + \color{amaranth}{e_{ij}} \\
       e_{ij} &= a_{i} + b_{j} + \epsilon_{ij} \\
       \{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \} &\sim N(0,\Sigma_{ab}) \\ 
       \{ (\epsilon_{ij}, \epsilon_{ji}) : \; i \neq j\} &\sim N(0,\Sigma_{\epsilon}), \text{ where } \\
@@ -478,8 +478,8 @@ Additive effects portion of AME (Warner et al. 1979; Li \& Loken 2002):
 \begin{align*}
 \begin{aligned}
       y_{ij} &= \mu + e_{ij} \\
-      e_{ij} &= \color{red}{a_{i} + b_{j}} + \epsilon_{ij} \\
-      \color{red}{\{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \}} &\sim N(0,\Sigma_{ab}) \\ 
+      e_{ij} &= \color{amaranth}{a_{i} + b_{j}} + \epsilon_{ij} \\
+      \color{amaranth}{\{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \}} &\sim N(0,\Sigma_{ab}) \\ 
       \{ (\epsilon_{ij}, \epsilon_{ji}) : \; i \neq j\} &\sim N(0,\Sigma_{\epsilon}), \text{ where } \\
       \Sigma_{ab} = \begin{pmatrix} \sigma_{a}^{2} & \sigma_{ab} \\ \sigma_{ab} & \sigma_{b}^2   \end{pmatrix} \;\;\;\;\; &\Sigma_{\epsilon} = \sigma_{\epsilon}^{2} \begin{pmatrix} 1 & \rho \\ \rho & 1  \end{pmatrix}
 \end{aligned}
@@ -501,9 +501,9 @@ Additive effects portion of AME (Warner et al. 1979; Li \& Loken 2002):
 \begin{aligned}
       y_{ij} &= \mu + e_{ij} \\
       e_{ij} &= a_{i} + b_{j} + \epsilon_{ij} \\
-      \{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \} &\sim N(0,\color{red}{\Sigma_{ab}}) \\ 
+      \{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \} &\sim N(0,\color{amaranth}{\Sigma_{ab}}) \\ 
       \{ (\epsilon_{ij}, \epsilon_{ji}) : \; i \neq j\} &\sim N(0,\Sigma_{\epsilon}), \text{ where } \\
-      \color{red}{\Sigma_{ab}} = \begin{pmatrix} \sigma_{a}^{2} & \sigma_{ab} \\ \sigma_{ab} & \sigma_{b}^2   \end{pmatrix} \;\;\;\;\; &\Sigma_{\epsilon} = \sigma_{\epsilon}^{2} \begin{pmatrix} 1 & \rho \\ \rho & 1  \end{pmatrix}
+      \color{amaranth}{\Sigma_{ab}} = \begin{pmatrix} \sigma_{a}^{2} & \sigma_{ab} \\ \sigma_{ab} & \sigma_{b}^2   \end{pmatrix} \;\;\;\;\; &\Sigma_{\epsilon} = \sigma_{\epsilon}^{2} \begin{pmatrix} 1 & \rho \\ \rho & 1  \end{pmatrix}
 \end{aligned}
 \end{align*}
 
@@ -522,9 +522,9 @@ Additive effects portion of AME (Warner et al. 1979; Li \& Loken 2002):
 \begin{align*}
 \begin{aligned}
       y_{ij} &= \mu + e_{ij} \\
-      e_{ij} &= a_{i} + b_{j} + \color{red}{\epsilon_{ij}} \\
+      e_{ij} &= a_{i} + b_{j} + \color{amaranth}{\epsilon_{ij}} \\
       \{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \} &\sim N(0,\Sigma_{ab}) \\ 
-      \color{red}{\{ (\epsilon_{ij}, \epsilon_{ji}) : \; i \neq j\}} &\sim N(0,\color{red}{\Sigma_{\epsilon}}), \text{ where } \\
+      \color{amaranth}{\{ (\epsilon_{ij}, \epsilon_{ji}) : \; i \neq j\}} &\sim N(0,\color{amaranth}{\Sigma_{\epsilon}}), \text{ where } \\
       \Sigma_{ab} = \begin{pmatrix} \sigma_{a}^{2} & \sigma_{ab} \\ \sigma_{ab} & \sigma_{b}^2   \end{pmatrix} \;\;\;\;\; & \color{red}{\Sigma_{\epsilon}} = \sigma_{\epsilon}^{2} \begin{pmatrix} 1 & \rho \\ \rho & 1  \end{pmatrix}
 \end{aligned}
 \end{align*}
