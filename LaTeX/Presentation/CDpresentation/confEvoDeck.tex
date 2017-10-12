@@ -162,7 +162,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \frame{
-  \frametitle{Conflicts are complex: unpacking social structure}
+  \frametitle{Conflicts are Complex: Unpacking Social Structure}
 
   Roughly a \textbf{third} of all intrastate conflict between 1989 and 2003 have been fought with multiple warring parties (UCDP/PRIO 2007).
   \vspace{.1in}
@@ -176,7 +176,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{
-  \frametitle{Conflicts are complex: unpacking social structure}
+  \frametitle{Conflicts are Complex: Unpacking Social Structure}
 
   Roughly a \textbf{third} of all intrastate conflict between 1989 and 2003 have been fought with multiple warring parties (UCDP/PRIO 2007).
   \vspace{.1in}
@@ -303,7 +303,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \frame{
-  \frametitle{Network Effects}
+  \frametitle{Network Effects \& Social Structure}
+ Missing information in previous work:
  How does evolution in the structure of relationships influence conflict over time?
 \begin{itemize}
 \item 1st-order: Sender effects\\
@@ -316,7 +317,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{
-  \frametitle{Network phenomena: sender heterogeneity}
+  \frametitle{Network Phenomena: Sender Heterogeneity}
 
   Values across a row, say $\{y_{ij},y_{ik},y_{il}\}$, may be more similar to each other than other values in the adjacency matrix because each of these values has a common sender $i$
 
@@ -329,7 +330,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \frame{
-  \frametitle{Network phenomena: receiver heterogeneity}
+  \frametitle{Network Phenomena: Receiver Heterogeneity}
 
   Values across a column, say $\{y_{ji},y_{ki},y_{li}\}$, may be more similar to each other than other values in the adjacency matrix because each of these values has a common receiver $i$
 
@@ -341,7 +342,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{
-  \frametitle{Network phenomena: sender-receiver covariance}
+  \frametitle{Network Phenomena: Sender-receiver Covariance}
 
   Actors who are more likely to send ties in a network may also be more likely to receive them
 
@@ -353,7 +354,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{
-  \frametitle{Network phenomena: reciprocity}
+  \frametitle{Network Phenomena: Second-order effect (Reciprocity)}
 
   Values of $y_{ij}$ and $y_{ji}$ may be statistically dependent
 
@@ -365,7 +366,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \frame{
-  \frametitle{Network phenomena: third order dependencies}
+  \frametitle{Network Phenomena: Third Order Dependencies}
 
   \vspace{-10mm}
 
@@ -383,12 +384,134 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \frame{
-  \frametitle{Network phenomena: changing actor composition}
+  \frametitle{Network Phenomena: Changing Actor Composition}
 \begin{center}
   \includegraphics[width=1\textwidth]{netsOverTmebw}
 \end{center}
 
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Model: The Latent Factor Model}
+
+\frame{
+  \frametitle{Social Relations Model (The ``A'' in AME)}
+
+Additive effects portion of AME (Warner et al. 1979; Li \& Loken 2002):
+
+\begin{align*}
+\begin{aligned}
+      y_{ij} &= \color{amaranth}{\mu} + \color{amaranth}{e_{ij}} \\
+      e_{ij} &= a_{i} + b_{j} + \epsilon_{ij} \\
+      \{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \} &\sim N(0,\Sigma_{ab}) \\ 
+      \{ (\epsilon_{ij}, \epsilon_{ji}) : \; i \neq j\} &\sim N(0,\Sigma_{\epsilon}), \text{ where } \\
+      \Sigma_{ab} = \begin{pmatrix} \sigma_{a}^{2} & \sigma_{ab} \\ \sigma_{ab} & \sigma_{b}^2   \end{pmatrix} \;\;\;\;\; &\Sigma_{\epsilon} = \sigma_{\epsilon}^{2} \begin{pmatrix} 1 & \rho \\ \rho & 1  \end{pmatrix}
+\end{aligned}
+\end{align*}
+
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{
+  \frametitle{Social Relations Model (The ``A'' in AME)}
+
+\begin{align*}
+\begin{aligned}
+      y_{ij} &= \mu + e_{ij} \\
+      e_{ij} &= \color{amaranth}{a_{i} + b_{j}} + \epsilon_{ij} \\
+      \color{amaranth}{\{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \}} &  \sim N(0, \color{amaranth}{\Sigma_{ab})} \\ 
+      \{ (\epsilon_{ij}, \epsilon_{ji}) : \; i \neq j\} &\sim N(0,\Sigma_{\epsilon}), \text{ where } \\
+  \color{amaranth}{\Sigma_{ab}} = \begin{pmatrix} \sigma_{a}^{2} & \sigma_{ab} \\ \sigma_{ab} & \sigma_{b}^2      \end{pmatrix} \;\;\;\;\; &\Sigma_{\epsilon} = \sigma_{\epsilon}^{2} \begin{pmatrix} 1 & \rho \\ \rho & 1  \end{pmatrix}
+\end{aligned}
+\end{align*}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\frame{
+%  \frametitle{Social Relations Model (The ``A'' in AME)}
+%
+%\begin{align*}
+%\begin{aligned}
+%      y_{ij} &= \mu + e_{ij} \\
+%      e_{ij} &= a_{i} + b_{j} + \epsilon_{ij} \\
+%      \{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \} &\sim N(0,\color{amaranth}{\Sigma_{ab}}) \\ 
+%      \{ (\epsilon_{ij}, \epsilon_{ji}) : \; i \neq j\} &\sim N(0,\Sigma_{\epsilon}), \text{ where } \\
+%      \color{amaranth}{\Sigma_{ab}} = \begin{pmatrix} \sigma_{a}^{2} & \sigma_{ab} \\ \sigma_{ab} & \sigma_{b}^2   \end{pmatrix} \;\;\;\;\; &\Sigma_{\epsilon} = \sigma_{\epsilon}^{2} \begin{pmatrix} 1 & \rho \\ \rho & 1  \end{pmatrix}
+%\end{aligned}
+%\end{align*}
+%
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Social Relations Model (The ``A'' in AME)}
+
+\begin{align*}
+\begin{aligned}
+      y_{ij} &= \mu + e_{ij} \\
+      e_{ij} &= a_{i} + b_{j} + \color{amaranth}{\epsilon_{ij}} \\
+      \{ (a_{1}, b_{1}), \ldots, (a_{n}, b_{n}) \} &\sim N(0,\Sigma_{ab}) \\ 
+      \color{amaranth}{\{ (\epsilon_{ij}, \epsilon_{ji}) : \; i \neq j\}} &\sim N(0,\color{amaranth}{\Sigma_{\epsilon}}), \text{ where } \\
+      \Sigma_{ab} = \begin{pmatrix} \sigma_{a}^{2} & \sigma_{ab} \\ \sigma_{ab} & \sigma_{b}^2   \end{pmatrix} \;\;\;\;\; & \color{red}{\Sigma_{\epsilon}} = \sigma_{\epsilon}^{2} \begin{pmatrix} 1 & \rho \\ \rho & 1  \end{pmatrix}
+\end{aligned}
+\end{align*}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Latent Factor Model: The ``M'' in AME}
+
+Each node $i$ has an unknown latent factor
+
+\vspace{-5mm}
+\begin{align*}
+{\textbf{u}_{i},\textbf{v}_{j}} \in \mathbb{R}^{k} \;\; i,j \in \{1, \ldots, n \} \\
+\end{align*}
+
+\vspace{-5mm}
+The probability of a tie from $i$ to $j$ depends on their latent factors
+
+\vspace{-5mm}
+\begin{align*}
+\begin{aligned}
+  \gamma(\textbf{u}_{i}, \textbf{v}_{j}) &= \textbf{u}_{i}^{T} D \textbf{v}_{j} \\
+  &= \sum_{k \in K} d_{k} u_{ik} v_{jk} \\
+  &D \text{ is a  } K \times K \text{ diagonal matrix}
+\end{aligned}
+\end{align*}
+
+Accounts for both stochastic equivalence and homophily (Hoff 2008)
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Additive and Multiplicative Effects (AME) Model}
+
+  \begin{align*}
+    \begin{aligned}
+      y_{ij,t} &= g(\theta_{ij,t}) \\ 
+      &\theta_{ij,t} = \bm\beta^{T} \mathbf{X}_{ij,t} + e_{ij,t} \\
+      % &\theta_{ij,t} = \bm\beta_{d}^{T} \mathbf{X}_{ij,t} + \bm\beta_{s}^{T} \mathbf{X}_{i,t} + \bm\beta_{r}^{T} \mathbf{X}_{j,t} + e_{ij,t} \\      
+      &e_{ij,t} = a_{i} + b_{j}  + \epsilon_{ij} + \alpha(\textbf{u}_{i}, \textbf{v}_{j}) \text{  , where } \\
+      &\qquad \alpha(\textbf{u}_{i}, \textbf{v}_{j}) = \textbf{u}_{i}^{T} \textbf{D} \textbf{v}_{j} = \sum_{k \in K} d_{k} u_{ik} v_{jk} \\ 
+    \end{aligned}
+  \end{align*}
+
+  (Hoff 2005; Hoff 2008; Hoff et al. 2013; Minhas et al. 2016)\\
+   $R$ software: \textsc{AMEN}
+
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %  To account for these patterns we can build on the SRM framework and find an expression for $\gamma$:
@@ -402,33 +525,32 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Nigeria}
+%
+%\frame{
+%	\frametitle{Intrastate Conflict: Nigeria's Intrastate Conflict System}
+%Complex, multi-actor conflict
+%\begin{itemize}
+%\item  \textcolor{bluejazz}{Numerous} violent political groups including ethnic militias, militant regional groups and Islamist insurgents
+%\item Political violence of \textcolor{bluejazz}{all types} has risen substantially since 2011 with violence against civilians seeing the most dramatic increase.
+%\item \textcolor{bluejazz}{Civilians} engage in both violent and nonviolent resistance efforts.
+%\end{itemize}
+%
+%
+%}
 
 \frame{
-	\frametitle{Intrastate Conflict: Nigeria's intrastate conflict system}
-Complex, multi-actor conflict
-\begin{itemize}
-\item  \textcolor{bluejazz}{Numerous} violent political groups including ethnic militias, militant regional groups and Islamist insurgents
-\item Political violence of \textcolor{bluejazz}{all types} has risen substantially since 2011 with violence against civilians seeing the most dramatic increase.
-\item \textcolor{bluejazz}{Civilians} engage in both violent and nonviolent resistance efforts.
-\end{itemize}
-
-
-}
-
-\frame{
-	\frametitle{Intrastate Conflict: Nigeria's intrastate conflict system}
+	\frametitle{Intrastate Conflict: Nigeria's Intrastate Conflict System}
 Complex, multi-actor conflict
 \begin{itemize}
 \item  \textcolor{bluejazz}{numerous} violent political groups including ethnic militias, militant regional groups and Islamist insurgents
 \item political violence of \textcolor{bluejazz}{all types} has risen substantially since 2011 with violence against civilians seeing the most dramatic increase.
-\item \textcolor{bluejazz}{civilians} engage in both violent and nonviolent resistance efforts.
 \end{itemize}
   \includegraphics[width=1\textwidth]{actorOvertime}
 
 }
 
 \frame{
-  \frametitle{Intrastate Conflict: Nigeria's intrastate conflict system}
+  \frametitle{Intrastate Conflict: Nigeria's Intrastate Conflict System}
   \begin{center}
   \includegraphics[width=1\textwidth]{nigeria_2000_2016.pdf}
   \end{center}
@@ -457,6 +579,17 @@ Complex, multi-actor conflict
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\frame{
+\frametitle{Recap: Expectations for the Nigerian Case}
+How do network dynamics influence the likelihood of conflict? 
+\begin{itemize}
+ 	\item Sender/reciever effects
+	\item Reciprocity 
+	\item Homophily \& stochastic equivalence 
+	\item Key Actor entry: aggressive new actors signal government weakness
+\end{itemize}
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\frame{
 %  \frametitle{Boko Haram's Entrance in Network}
@@ -469,7 +602,221 @@ Complex, multi-actor conflict
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Modeling Approach \& Results}
+\section{Data}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Data}
+
+  Armed Conflict Location and Event Data Project (ACLED) developed by Raleigh et al. (2010)
+
+  \begin{itemize}
+    \item ACLED records armed conflict and protest events in over 60 developing countries
+    \item We use ACLED \textit{battles} data for Nigeria to generate a measure of conflict where:
+    \begin{itemize}
+      \item $y_{ij,t} = 1$ indicates that a conflict occurred when actor $i$ attacked actor $j$ at time $t$
+      \item $y_{ij,t} = 0$ if no conflict occurred
+    \end{itemize}
+    \item We focus only on modeling the interactions between armed groups that are engaged in battles for at least 5 years during the 2000-2016 period, which results in a total of 37 armed groups
+  \end{itemize}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Covariates}
+
+  \begin{itemize}
+    \item Country-Level covariates:
+    \begin{itemize}
+      \item Post Boko-Haram
+      \item Neighborhood conflict
+      \item Election year      
+    \end{itemize}
+    \item Sender and Receiver-Level Covariates:
+    \begin{itemize}
+      \item Violence against civilians
+      \item Riots/Protests directed against actor
+      \item Geographic spread
+    \end{itemize}
+  \end{itemize}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Model Results}
+
+  \centering
+  \begin{tabular}{c}
+  \includegraphics[height=.7\textheight]{betaEst} \\
+  \includegraphics[height=.2\textheight]{vcEst} \\  
+  \end{tabular}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Multiplicative Effects}
+
+  \centering
+  \includegraphics[width=1\textwidth]{circPlotSimplev2}  
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Out of Sample Cross-Validation}
+
+  \centering
+  \begin{tabular}{ll}
+  \includegraphics[width=.5\textwidth]{roc_outSample} & 
+  \includegraphics[width=.5\textwidth]{rocPr_outSample}
+  \end{tabular}  
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Out of Sample Forecast}
+
+  \centering
+  \begin{tabular}{ll}
+  \includegraphics[width=.5\textwidth]{roc_outSampleForecast_1} & 
+  \includegraphics[width=.5\textwidth]{rocPr_outSampleForecast_1}
+  \end{tabular}  
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\frame{
+\frametitle{Key Take-Aways }
+  \textbf{\textcolor{seafoam}{\textsc{confirmed}}}: Intrastate conflict is a network process! Structure of relationships influences violence between actors (reciprocity and warring communities characterize social patterns in the data). 
+  \vspace{.08in}
+    
+   \textbf{\textcolor{seafoam}{\textsc{confirmed}}}: Key players alter violence in the conflict system, even in warring dyads that the key player is not directly involved.
+  \vspace{.08in}
+  
+   \textbf{\textcolor{seafoam}{\textsc{confirmed}}}: Network model of conflict out performs standard approaches.
+  
+}
+
+ \frame{
+   \frametitle{Future Work: Conflict Processes Revealed}
+   Are \textcolor{blue3}{``people-power"} movements less effective in multi-actor civil conflicts?
+\vspace{.08in}
+
+Why \textcolor{blue3}{does violence against civilians} increase an actor's conflictual behavior towards armed groups?
+\vspace{.08in}
+
+Does our \textcolor{blue3}{``key player"} effect matter in other conflict settings?
+}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\plain{Thanks!\\
+\small
+\textsc{cassydorff.com}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Network GOF}
+
+  \centering
+  \includegraphics[width=.8\textwidth]{netGOF}  
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Additive Sender/Receiver Random Effects}
+  \centering
+  \includegraphics[width=.9\textwidth]{abEst2}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{
+  \frametitle{Dyadic data assumptions}
+
+GLM: $y_{ij} \sim \beta^{T} X_{ij} + e_{ij}$
+
+Networks typically show evidence against independence of dyadic interactions
+
+Not accounting for dependence can lead to:
+
+\begin{itemize}
+\item biased effects estimation
+\item uncalibrated confidence intervals
+\item poor predictive performance
+\item inaccurate description of network phenomena
+\end{itemize}
+
+We've been hearing this concern for decades now:
+
+\begin{tabular}{lll}
+Thompson \& Walker (1982) & Beck et al. (1998) & Snijders (2011) \\
+Frank \& Strauss (1986) & Signorino (1999) & Erikson et al. (2014) \\
+Kenny (1996) & Li \& Loken (2002) & Aronow et al. (2015) \\
+Krackhardt (1998) & Hoa \& Ward (2004) & Athey et al. (2016) \\
+\end{tabular}
+
+}
+
+\frame{
+	\frametitle{ACLED Data - Nigeria}
+	Data collection
+	\begin{itemize}
+	\item Battles are violent clashes between at least two armed groups. 
+	\item Battles make up approximately one third of the dataset.
+	\item Data types: civic society (reports, NGOs), media (newspapers), Analysts (specialists' reports), governing bodies (UN reports), ``Local source project" (ACLED is connected with local sources)
+	\item Analysis of data does not reveal urban bias
+	\end{itemize} 
+	
+	
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+  \frametitle{Boko Haram's Entrance in Network}
+  \centering
+  \includegraphics[width=1\textwidth]{nigeria_postBK}
+
+}
+
+\frame{
+  \frametitle{ERGMs}
+ERGMs are useful when researchers are interested in the role that a specific list of network statistics have in giving rise to a certian network. (Such as: number of transitive triads in a network, balanced triads, reciprocal pairs, etc.)
+\begin{itemize}
+	\item ERGMs provide a way to find the probability of a network given the patterns it exhibits
+	\item the researcher must specify which network statistics should give rise to a particular network of interest
+\end{itemize}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\end{document}
+
+
+
+
+
 \frame{
   \frametitle{Social Relations Model (The ``A'' in AME)}
 
@@ -606,211 +953,4 @@ Accounts for both stochastic equivalence and homophily (Hoff 2008)
   (Hoff 2005; Hoff 2008; Hoff et al. 2013; Minhas et al. 2016)
 
 }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\frame{
-  \frametitle{Data}
-
-  Armed Conflict Location and Event Data Project (ACLED) developed by Raleigh et al. (2010)
-
-  \begin{itemize}
-    \item ACLED records armed conflict and protest events in over 60 developing countries
-    \item We use ACLED \textit{battles} data for Nigeria to generate a measure of conflict where:
-    \begin{itemize}
-      \item $y_{ij,t} = 1$ indicates that a conflict occurred when actor $i$ attacked actor $j$ at time $t$
-      \item $y_{ij,t} = 0$ if no conflict occurred
-    \end{itemize}
-    \item We focus only on modeling the interactions between armed groups that are engaged in battles for at least 5 years during the 2000-2016 period, which results in a total of 37 armed groups
-  \end{itemize}
-
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\frame{
-  \frametitle{Covariates}
-
-  \begin{itemize}
-    \item Country-Level covariates:
-    \begin{itemize}
-      \item Post Boko-Haram
-      \item Neighborhood conflict
-      \item Election year      
-    \end{itemize}
-    \item Sender and Receiver-Level Covariates:
-    \begin{itemize}
-      \item Violence against civilians
-      \item Riots/Protests directed against actor
-      \item Geographic spread
-    \end{itemize}
-  \end{itemize}
-
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\frame{
-  \frametitle{Model Results}
-
-  \centering
-  \begin{tabular}{c}
-  \includegraphics[height=.7\textheight]{betaEst} \\
-  \includegraphics[height=.2\textheight]{vcEst} \\  
-  \end{tabular}
-
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\frame{
-  \frametitle{Multiplicative Effects}
-
-  \centering
-  \includegraphics[width=1\textwidth]{circPlotSimplev2}  
-
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\frame{
-  \frametitle{Out of Sample Cross-Validation}
-
-  \centering
-  \begin{tabular}{ll}
-  \includegraphics[width=.5\textwidth]{roc_outSample} & 
-  \includegraphics[width=.5\textwidth]{rocPr_outSample}
-  \end{tabular}  
-
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\frame{
-  \frametitle{Out of Sample Forecast}
-
-  \centering
-  \begin{tabular}{ll}
-  \includegraphics[width=.5\textwidth]{roc_outSampleForecast_1} & 
-  \includegraphics[width=.5\textwidth]{rocPr_outSampleForecast_1}
-  \end{tabular}  
-
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \frame{
-   \frametitle{Future work}
-   Are \textcolor{blue3}{``people-power"} movements less effective in multi-actor civil conflicts?
-\vspace{.08in}
-
-Why \textcolor{blue3}{does violence against civilians} increase an actor's conflictual behavior towards armed groups?
-\vspace{.08in}
-
-Does our \textcolor{blue3}{``key player"} effect matter in other conflict settings?
-}
-
-\frame{
-\frametitle{Key Take-aways}
-  \textbf{\textcolor{seafoam}{\textsc{confirmed}}}: Intrastate conflict is a network process! Structure of relationships influences violence between actors (reciprocity and warring communities characterize social patterns in the data) 
-  \vspace{.08in}
-    
-   \textbf{\textcolor{seafoam}{\textsc{confirmed}}}: Key players  alter violence in the conflict system, even in warring dyads the key player is not directly involved in.
-  \vspace{.08in}
-  
-   \textbf{\textcolor{seafoam}{\textsc{confirmed}}}: Network model of conflict out performs standard approaches
-  
-
-}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\plain{Thanks!\\
-\small
-\textsc{cassydorff.com}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\frame{
-  \frametitle{Network GOF}
-
-  \centering
-  \includegraphics[width=.8\textwidth]{netGOF}  
-
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\frame{
-  \frametitle{Additive Sender/Receiver Random Effects}
-  \centering
-  \includegraphics[width=.9\textwidth]{abEst2}
-
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\frame{
-  \frametitle{Dyadic data assumptions}
-
-GLM: $y_{ij} \sim \beta^{T} X_{ij} + e_{ij}$
-
-Networks typically show evidence against independence of dyadic interactions
-
-Not accounting for dependence can lead to:
-
-\begin{itemize}
-\item biased effects estimation
-\item uncalibrated confidence intervals
-\item poor predictive performance
-\item inaccurate description of network phenomena
-\end{itemize}
-
-We've been hearing this concern for decades now:
-
-\begin{tabular}{lll}
-Thompson \& Walker (1982) & Beck et al. (1998) & Snijders (2011) \\
-Frank \& Strauss (1986) & Signorino (1999) & Erikson et al. (2014) \\
-Kenny (1996) & Li \& Loken (2002) & Aronow et al. (2015) \\
-Krackhardt (1998) & Hoa \& Ward (2004) & Athey et al. (2016) \\
-\end{tabular}
-
-}
-
-\frame{
-	\frametitle{ACLED Data - Nigeria}
-	Data collection
-	\begin{itemize}
-	\item Battles are violent clashes between at least two armed groups. 
-	\item Battles make up approximately one third of the dataset.
-	\item Data types: civic society (reports, NGOs), media (newspapers), Analysts (specialists' reports), governing bodies (UN reports), ``Local source project" (ACLED is connected with local sources)
-	\item Analysis of data does not reveal urban bias
-	\end{itemize} 
-	
-	
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\frame{
-  \frametitle{Boko Haram's Entrance in Network}
-  \centering
-  \includegraphics[width=1\textwidth]{nigeria_postBK}
-
-}
-
-\frame{
-  \frametitle{ERGMs}
-ERGMs are useful when researchers are interested in the role that a specific list of network statistics have in giving rise to a certian network. (Such as: number of transitive triads in a network, balanced triads, reciprocal pairs, etc.)
-\begin{itemize}
-	\item ERGMs provide a way to find the probability of a network given the patterns it exhibits
-	\item the researcher must specify which network statistics should give rise to a particular network of interest
-\end{itemize}
-
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-\end{document}
