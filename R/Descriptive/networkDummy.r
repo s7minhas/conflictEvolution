@@ -17,6 +17,7 @@ A = matrix( c(0, 0, 0, 1, 2,
 	4, 5, 0, 0, 1), 
 	nrow=5, ncol=5, byrow = TRUE,
 	dimnames=list(LETTERS[1:5], LETTERS[1:5]))
+
 B = matrix( c(0, 0, 0, 1, 2, 
 			 4, 0, 0, 0, 1,
 			 0, 0, 0, 1, 2,
@@ -37,6 +38,8 @@ C = matrix(c(0, 0, 0, 1, 2,
 	dimnames=list(LETTERS[1:8], LETTERS[1:8]))
 
 # adj mats
+A[A>0] =1 ; B[B>0] =1 ; C[C>0] =1 
+diag(A) = diag(B) = diag(C) = NA
 adjMatL = list(A, B, C)
 ################
 
@@ -56,18 +59,17 @@ matchDim = function(x, y){
 	colnames(x) = rownames(x) = c(orig, missRows)
 	return(x) }
 arr = matchDim(A, C) + matchDim(B, C) + C
-gArr = graph_from_adjacency_matrix(arr, mode='directed', weighted=TRUE, diag=FALSE)
+gArr = graph_from_adjacency_matrix(arr, mode='directed', weighted=NULL, diag=FALSE)
 set.seed(6886)
 lArr = layout_with_fr(gArr) ; rownames(lArr) = rownames(arr)
 ################
 
 ################
 # get ready to plot by setting some attribs
-par(mfrow=c(1,3))
 gL = lapply(1:length(adjMatL), function(ii){
 	# convert adjmat to graph
 	adjMat = adjMatL[[ii]]
-	g = graph_from_adjacency_matrix(adjMat, mode='directed', weighted=TRUE, diag=FALSE)
+	g = graph_from_adjacency_matrix(adjMat, mode='undirected', weighted=NULL, diag=FALSE)
 
 	# define attributes
 	V(g)$nSize = degree(g, mode='total')
@@ -80,8 +82,10 @@ gL = lapply(1:length(adjMatL), function(ii){
 		newNodes = setdiff(tNodes, prevNodes)
 		V(g)$nColor[match(newNodes, names(V(g)))] = 'gray80'
 	}
-	
+
 	# plot
+	fName = paste0(pathGraphics, 'netPanel_',ii,'.pdf')
+	pdf(file=fName)
 	plot(g, 
 		layout=lArr[names(V(g)),],
 		vertex.size=V(g)$nSize*3,
@@ -89,10 +93,58 @@ gL = lapply(1:length(adjMatL), function(ii){
 		vertex.color=V(g)$nColor,
 		vertex.label.color=V(g)$nColor,
 		vertex.label.cex=.1,
-		edge.arrow.size=.4,
+		# edge.arrow.size=.3,
+		# edge.width=E(g)$weight/3,
+		# edge.curved=TRUE,
+		# main=paste0('t=',ii),
 		asp=TRUE
 		)
-	title(paste0('t=',ii))
+	dev.off()
+	system(paste('pdfcrop ', fName, fName))
 })
-par(mfrow=c(1,1))
+################
+
+################
+# get ready to plot by setting some attribs
+gL = lapply(1:length(adjMatL), function(ii){
+	# convert adjmat to graph
+	adjMat = adjMatL[[ii]]
+	g = graph_from_adjacency_matrix(adjMat, mode='directed', weighted=NULL, diag=FALSE)
+
+	# define attributes
+	V(g)$nSize = degree(g, mode='total')
+
+	# color by nodes that are new in that t
+	V(g)$nColor = rep('gray40', length(V(g)))
+	if(ii>1){
+		prevNodes = rownames(adjMatL[[ii-1]])
+		tNodes = rownames(adjMatL[[ii]])
+		newNodes = setdiff(tNodes, prevNodes)
+		V(g)$nColor[match(newNodes, names(V(g)))] = 'gray80'
+	}
+
+	# add shapes to distinguish community
+	V(g)$nShape = rep('circle', length(V(g)))
+	V(g)$nShape[match(c('E','D','A','F'), names(V(g)))] = 'square'
+
+	# plot
+	fName = paste0(pathGraphics, 'netPanel2_',ii,'.pdf')
+	pdf(file=fName)
+	plot(g, 
+		layout=lArr[names(V(g)),],
+		vertex.size=V(g)$nSize*3,
+		vertex.frame.color='black',
+		vertex.color=V(g)$nColor,
+		vertex.label.color=V(g)$nColor,
+		vertex.label.cex=.1,
+		vertex.shape=V(g)$nShape,
+		edge.arrow.size=.7,
+		# edge.width=E(g)$weight/3,
+		# edge.curved=TRUE,
+		# main=paste0('t=',ii),
+		asp=TRUE
+		)
+	dev.off()
+	system(paste('pdfcrop ', fName, fName))
+})
 ################
