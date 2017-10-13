@@ -17,6 +17,7 @@ A = matrix( c(0, 0, 0, 1, 2,
 	4, 5, 0, 0, 1), 
 	nrow=5, ncol=5, byrow = TRUE,
 	dimnames=list(LETTERS[1:5], LETTERS[1:5]))
+
 B = matrix( c(0, 0, 0, 1, 2, 
 			 4, 0, 0, 0, 1,
 			 0, 0, 0, 1, 2,
@@ -36,33 +37,114 @@ C = matrix(c(0, 0, 0, 1, 2,
 	nrow=8, ncol=8, byrow = TRUE,
 	dimnames=list(LETTERS[1:8], LETTERS[1:8]))
 
-# convert to longitudinal edgelist
-longitNetEL = rbind(
-	cbind(reshape2::melt(A), time='t = 1'),
-	cbind(reshape2::melt(B), time='t = 2'),
-	cbind(reshape2::melt(C), time='t = 3') )
-longitNetEL = longitNetEL[longitNetEL$value>0,]
-names(longitNetEL)[1:2] = c('from','to')
+# adj mats
+A[A>0] =1 ; B[B>0] =1 ; C[C>0] =1 
+diag(A) = diag(B) = diag(C) = NA
+adjMatL = list(A, B, C)
+################
+
+################
+# set layout positions of nodes
+	# 'layout_as_bipartite', 'layout_as_star', 'layout_as_tree',
+	# 'layout_in_circle', 'layout_on_grid', 'layout_on_sphere',
+	# 'layout_randomly', 'layout_with_dh', 'layout_with_fr',
+	# 'layout_with_gem', 'layout_with_graphopt', 'layout_with_kk',
+	# 'layout_with_lgl', 'layout_with_mds', 'layout_with_sugiyama',
+	# 'layout_nicely'
+
+# start by creating summary array
+matchDim = function(x, y){
+	orig = rownames(x) ; missRows = setdiff(rownames(y), orig)
+	for(i in 1:length(missRows)){ x = rbind(x, 0) ; x = cbind(x, 0) }
+	colnames(x) = rownames(x) = c(orig, missRows)
+	return(x) }
+arr = matchDim(A, C) + matchDim(B, C) + C
+gArr = graph_from_adjacency_matrix(arr, mode='directed', weighted=NULL, diag=FALSE)
+set.seed(6886)
+lArr = layout_with_fr(gArr) ; rownames(lArr) = rownames(arr)
 ################
 
 ################
 # get ready to plot by setting some attribs
-g = igraph::graph_from_data_frame(longitNetEL, directed = TRUE)
-# V(g)$nSize =  igraph::degree(g, mode='total')
+gL = lapply(1:length(adjMatL), function(ii){
+	# convert adjmat to graph
+	adjMat = adjMatL[[ii]]
+	g = graph_from_adjacency_matrix(adjMat, mode='undirected', weighted=NULL, diag=FALSE)
 
-# plot using ggraph
-set.seed(6886)
-gGG = ggraph(g, layout = 'nicely') + 
-    geom_edge_fan(aes(alpha = ..index..), show.legend = FALSE) + 
-    geom_node_point() + 
-    facet_edges(~time) + 
-    theme_graph(
-    	foreground = "#525252", 
-    	fg_text_colour = 'white'
-    	) + 
-    theme(
-    	legend.position = 'none',
-    	panel.border=element_blank()
-    	)
-ggsave(gGG, file=paste0(pathGraphics, 'dummyNet.pdf'), height=6, width=9)
+	# define attributes
+	V(g)$nSize = degree(g, mode='total')
+
+	# color by nodes that are new in that t
+	V(g)$nColor = rep('gray40', length(V(g)))
+	if(ii>1){
+		prevNodes = rownames(adjMatL[[ii-1]])
+		tNodes = rownames(adjMatL[[ii]])
+		newNodes = setdiff(tNodes, prevNodes)
+		V(g)$nColor[match(newNodes, names(V(g)))] = 'gray80'
+	}
+
+	# plot
+	fName = paste0(pathGraphics, 'netPanel_',ii,'.pdf')
+	pdf(file=fName)
+	plot(g, 
+		layout=lArr[names(V(g)),],
+		vertex.size=V(g)$nSize*3,
+		vertex.frame.color='black',
+		vertex.color=V(g)$nColor,
+		vertex.label.color=V(g)$nColor,
+		vertex.label.cex=.1,
+		# edge.arrow.size=.3,
+		# edge.width=E(g)$weight/3,
+		# edge.curved=TRUE,
+		# main=paste0('t=',ii),
+		asp=TRUE
+		)
+	dev.off()
+	system(paste('pdfcrop ', fName, fName))
+})
+################
+
+################
+# get ready to plot by setting some attribs
+gL = lapply(1:length(adjMatL), function(ii){
+	# convert adjmat to graph
+	adjMat = adjMatL[[ii]]
+	g = graph_from_adjacency_matrix(adjMat, mode='directed', weighted=NULL, diag=FALSE)
+
+	# define attributes
+	V(g)$nSize = degree(g, mode='total')
+
+	# color by nodes that are new in that t
+	V(g)$nColor = rep('gray40', length(V(g)))
+	if(ii>1){
+		prevNodes = rownames(adjMatL[[ii-1]])
+		tNodes = rownames(adjMatL[[ii]])
+		newNodes = setdiff(tNodes, prevNodes)
+		V(g)$nColor[match(newNodes, names(V(g)))] = 'gray80'
+	}
+
+	# add shapes to distinguish community
+	V(g)$nShape = rep('circle', length(V(g)))
+	V(g)$nShape[match(c('E','D','A','F'), names(V(g)))] = 'square'
+
+	# plot
+	fName = paste0(pathGraphics, 'netPanel2_',ii,'.pdf')
+	pdf(file=fName)
+	plot(g, 
+		layout=lArr[names(V(g)),],
+		vertex.size=V(g)$nSize*3,
+		vertex.frame.color='black',
+		vertex.color=V(g)$nColor,
+		vertex.label.color=V(g)$nColor,
+		vertex.label.cex=.1,
+		vertex.shape=V(g)$nShape,
+		edge.arrow.size=.7,
+		# edge.width=E(g)$weight/3,
+		# edge.curved=TRUE,
+		# main=paste0('t=',ii),
+		asp=TRUE
+		)
+	dev.off()
+	system(paste('pdfcrop ', fName, fName))
+})
 ################
