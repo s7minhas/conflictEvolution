@@ -22,6 +22,19 @@ Figure~\ref{betaTrace} below shows trace plots for the parameters summarized in 
 \FloatBarrier
 \clearpage
 
+\subsection{Comparison with GLM Estimates}
+
+Figure~\ref{ameglm} compares parameter estimates returned from the AME and GLM frameworks.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.7\textwidth]{ame_v_glm}
+	\caption{Comparison of AME and GLM estimates for base model.}
+	\label{ameglm}
+	\end{figure}
+\FloatBarrier
+\clearpage
+
 \subsection{Trace plots for parameter estimates when using fatality threshold}
 
  Figure~\ref{betaTrace_fatalities} below shows trace plots for an alternative formulation of the model we presented in the paper. Specifically, here in defining the dependent variable from ACLED, we only set $y_{ij}=1$ when the corresponding battle between $i$ and $j$ led to at least one fatality. 
