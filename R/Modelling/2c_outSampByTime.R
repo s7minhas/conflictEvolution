@@ -118,7 +118,7 @@ ame_glm_outSampTime = foreach(dropFromEnd = pdsToForecast,
 
 	# run calcs
 	ez_Out = Xbeta(x_Out, beta) + outer(a,b,'+') + UVPM
-	yHat_Out = 1/(1+exp(-ez_Out))
+	yHat_Out = 1/(1+exp(-pnorm(ez_Out)))
 	outPerf = data.frame(cbind(reshape2::melt(y_Out), pred=reshape2::melt(yHat_Out)[,3]))
 	outPerf = outPerf[outPerf$Var1 != outPerf$Var2,]
 	aucROC=getAUC(outPerf$pred, outPerf$value)
