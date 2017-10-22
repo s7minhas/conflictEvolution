@@ -53,43 +53,41 @@ glmData$lagRecip[is.na(glmData$lagRecip)] = 0
 ###############
 
 ###############
-# run GLM
-gfitLagDV = glm(value ~ lagDV + lagRecip, data=glmData, family='binomial'(link = "probit"))
-
-summary(glm(value ~ lagDV + lagRecip, data=glmData, family='binomial'(link = "probit"))
-)
+# run GLM with probit link
+# mod specs
 modSpecFull = formula( paste0(paste0('value ~ '), 
 	paste(c(dyadVars, senVars, recVars), collapse=' + ') ) )
 modSpecFullLagDV = formula( paste0(paste0('value ~ lagDV + lagRecip + '), 
 	paste(c(dyadVars, senVars, recVars), collapse=' + ') ) )
 
+# run
+gfitLagDV = glm(value ~ lagDV + lagRecip, data=glmData, family='binomial'(link = "probit"))
 gfitFullSpec = glm(modSpecFull, data=glmData, family='binomial'(link = "probit"))
 gfitFullSpecLagDV = glm(modSpecFullLagDV, data=glmData, family='binomial'(link = "probit"))	
+
+# save
 save(
   gfitLagDV, gfitFullSpec, gfitFullSpecLagDV,
   file=paste0(pathResults, 'glmResultsProbit.rda')
 )
+###############
 
 ###############
-# run GLM
+# run GLM with logit link
+# mod specs
+modSpecFull = formula( paste0(paste0('value ~ '),
+	paste(c(dyadVars, senVars, recVars), collapse=' + ') ) )
+modSpecFullLagDV = formula( paste0(paste0('value ~ lagDV + lagRecip + '),
+	paste(c(dyadVars, senVars, recVars), collapse=' + ') ) )
+
+# run
 gfitLagDV = glm(value ~ lagDV + lagRecip, data=glmData, family='binomial')
-
-summary(glm(value ~ lagDV + lagRecip, data=glmData, family='binomial'(link = "probit"))
-)
-modSpecFull = formula( paste0(paste0('value ~ '), 
-                              paste(c(dyadVars, senVars, recVars), collapse=' + ') ) )
-modSpecFullLagDV = formula( paste0(paste0('value ~ lagDV + lagRecip + '), 
-                                   paste(c(dyadVars, senVars, recVars), collapse=' + ') ) )
-
 gfitFullSpec = glm(modSpecFull, data=glmData, family='binomial')
 gfitFullSpecLagDV = glm(modSpecFullLagDV, data=glmData, family='binomial')	
 
-###############
 # save
 save(
 	gfitLagDV, gfitFullSpec, gfitFullSpecLagDV,
 	file=paste0(pathResults, 'glmResults.rda')
 	)
 ###############
-
-
