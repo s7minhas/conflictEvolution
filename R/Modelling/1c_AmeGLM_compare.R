@@ -15,7 +15,7 @@ source(paste0(fPth, 'postHelpers.R'))
 ################
 # load data
 load(paste0(pathResults, 'ameResults.rda'))
-load(paste0(pathResults, 'glmResults.rda'))
+load(paste0(pathResults, 'glmResultsProbit.rda'))
 ###############
 
 ################
