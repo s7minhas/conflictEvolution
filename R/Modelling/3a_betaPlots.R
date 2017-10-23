@@ -47,7 +47,7 @@ ameBETA = data.frame(ameBETA, stringsAsFactors = FALSE)
 ameBETA$var = rownames(ameBETA) ; rownames(ameBETA) = NULL
 
 # drop extras and unnecessary params
-ameBETA = ameBETA[-which(ameBETA$var %in% c('intercept','govActor.dyad')),]
+ameBETA = ameBETA[-which(ameBETA$var %in% c('intercept')),]
 
 # classify vars by type
 ameBETA$type = unlist(lapply(strsplit(ameBETA$var,'.',fixed=TRUE), function(x){x[2]}))
@@ -61,15 +61,19 @@ ameBETA$varClean = c(
 	'Riots/Protests$_{j,t-1}$',
 	'Violent Events\nAgainst Civilians$_{j,t-1}$',
 	'Geographic Spread$_{j,t-1}$',
+	'Gov-Gov Actors$_{ij}$',
 	'Post-Boko\nHaram Period$_{t}$',
 	'Election Year$_{t}$',
 	'Neighborhood Conflict$_{t}$'
 	)
 ameBETA$typeClean = c(
-	rep('... Sender-Level Covariates',3),
-	rep('... Receiver-Level Covariates',3),
-	rep('Parameter Estimates for Country-Level Covariates',3)
+	rep('... Sender-Level Covariate(s)',3),
+	rep('... Receiver-Level Covariate(s)',3),
+	rep('Parameter Estimates for Country-Level Covariate(s)',4)
 	)
+
+# clean up var labels
+ameBETA$typeClean[ameBETA$var=='govActor'] = '... Dyad-Level Covariate(s)'
 
 # add sig info
 ameBETA = getSigVec(ameBETA)
@@ -78,7 +82,7 @@ ameBETA = getSigVec(ameBETA)
 ################
 # viz
 cleanVars = ameBETA$varClean
-ameBETA$typeClean = factor(ameBETA$typeClean, levels=unique(ameBETA$typeClean)[c(3,1,2)])
+ameBETA$typeClean = factor(ameBETA$typeClean, levels=unique(ameBETA$typeClean)[c(4,3,1,2)])
 ggCoef=ggplot(ameBETA, aes(x=varClean, y=mean, color=sig)) +
 	facet_wrap(~typeClean,ncol=1,scales='free_y') + 
 	geom_hline(aes(yintercept=0), linetype=2, color = "black") + 
@@ -89,16 +93,19 @@ ggCoef=ggplot(ameBETA, aes(x=varClean, y=mean, color=sig)) +
 	scale_x_discrete('', labels=TeX(rev(cleanVars))) +	
 	ylab(TeX('$\\beta_{p} \\times \\frac{\\sigma_{x_{p}}}{\\sigma_{y}}$')) +
 	coord_flip() + 
-	theme_light(base_family="Source Sans Pro") +
+	# theme_light(base_family="Source Sans Pro") +
 	theme(
 		legend.position='none', legend.title=element_blank(),
 		panel.border=element_blank(),
 		axis.ticks=element_blank(),
-		axis.text.x=element_text(family="Source Sans Pro Light"),
-		axis.text.y=element_text(family="Source Sans Pro Light", hjust=0),
+		# axis.text.x=element_text(family="Source Sans Pro Light"),
+		# axis.text.y=element_text(family="Source Sans Pro Light", hjust=0),
 		strip.text.x = element_text(size = 9, color='white',
-			family="Source Sans Pro Semibold", angle=0, hjust=.95),
+			# family="Source Sans Pro Semibold", 
+			angle=0, hjust=.95),
 		strip.background = element_rect(fill = "#525252", color='#525252')				
 	)
-ggsave(ggCoef, file=paste0(pathGraphics,'betaEst.pdf'), width=7, height=6, device=cairo_pdf)
+ggsave(ggCoef, file=paste0(pathGraphics,'betaEst.pdf'), width=7, height=6
+	# , device=cairo_pdf
+	)
 ################
