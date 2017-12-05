@@ -68,6 +68,28 @@ dev.off() ; system(paste('pdfcrop',fName,fName, sep=' '))
 ################
 
 ################
+# plot by fulani
+actorsFulani = c(
+	names(which(yArrSum['Fulani\nMilitia',]==1)),
+	names(which(yArrSum[,'Fulani\nMilitia']==1)),
+	'Fulani\nMilitia'
+	)
+yArrSumFulani = yArrSum[actorsFulani,actorsFulani]
+tmpFulani=getGraphfromMat(mat=yArrSumFulani)
+gArrSumFulani=tmpFulani$g ; gArrPosFulani=tmpFulani$nodePos ; rm(tmpFulani)
+
+fName = paste0(pathGraphics, 'fulani_2000_2016.pdf') ; pdf(file=fName, width=13,height=9)
+vCol = ifelse(names(V(gArrSumFulani)) %in% govActors, 'gray30', 'gray95')
+vLabCol = ifelse(names(V(gArrSumFulani)) %in% govActors, 'white', 'gray30')
+plotGraph(gArrSumFulani, gArrPosFulani, 
+	vShape='circle', vLabCex=gArrSumFulani$labSize+.3, 
+	vLabCol=vLabCol, vertex.label.font=1, vertex.size=gArrSumFulani$vSize, 
+	vFrameCol=vCol, vCol=vCol, vertex.label.family="Helvetica")
+title('Fulani Centered Intra-State Conflict\n(2000-2016)', family='Helvetica', adj=1, line=-4)	
+dev.off() ; system(paste('pdfcrop',fName,fName, sep=' '))
+################
+
+################
 fName = paste0(pathGraphics, 'nigeria_2000_2016_noGov.pdf') ; pdf(file=fName, width=13,height=9)
 vCol = 'gray95' ; vLabCol = 'gray30'
 plotGraph(gArrSumNoGov, gArrPosNoGov, 
