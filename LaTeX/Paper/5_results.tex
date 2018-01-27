@@ -2,28 +2,30 @@
 
 \subsection*{Parameter Estimates}
 
-We report the results for the sender, receiver, and dyadic covariates included in the AME model in figure \ref{betaEst}.\footnote{Excluded from these results is the dyadic variable for ``both are government actors." This is included and has a negative effect in both models, which simply indicates that government actors are unlikely to fight one another. Trace plots for each of these parameter estimates can be found in figure~\ref{betaTrace} of the Appendix.} First, we find little evidence to support the argument that conflict in neighboring countries drives violence between actors in the Nigerian conflict system. We also do not find that actors become particularly more violent during election years. We do, however, find significant evidence for the argument that actors operating across a larger region of Nigeria are likely to come into more conflict with other actors.
-
-We see a non-trivial relationship between violence against civilians and participation in a greater number of battles. Targeting civilians is linked both to a higher likelihood of engaging in violence against other military groups, and a higher likelihood of being targeted by other military groups.\footnote{This effect holds even if we leave government actors out of the network or add in binary sender and receiver controls for government actors. See the appendix for details.} Moving from the 2.5\%ile of violence against civilians to the 97.5\%ile (moving from no violence to 17 attacks), while all other variables are held at their measure of central tendency\footnote{We held whether the dyad was in the Post-Boko Haram period, the presence of neighboring conflicts, whether it was a governmental dyad, and whether it was an election year at their median, all other variables, as well as the random and multiplicative effects at their mean level.}, increases the risk of starting a battle by the perpetrator by a factor of about 1.58, and the risk of being targeted for a battle by about 1.55. We cannot causally say that these are the result of violence against civilians, but the fact that the relationship holds even in a mixed-effects model (and one that accounts for network dependencies) is suggestive. Further, anecdotal evidence maintains a similar story. For example, the \'{O}odua People's Congress (OPC), an organization active in the southwest of Nigeria organized to protect the Yoruba ethnic group, is known to engage in two primary modes of conflict: large-scale ethnic battles that directly result in mass casualties to both rivals and civilians, and smaller-scale episodes wherein the OPC targets the civilian base of rival groups. 
-
-\begin{center}
-\textsc{Figure~\ref{betaEst} here}
-\end{center}
+% \begin{center}
+% \textsc{Figure~\ref{betaEst} here}
+% \end{center}
 
 \begin{figure}[ht]
 	\centering
 	\begin{tabular}{c}
-	\includegraphics[width=1\textwidth]{betaEst} \\
-	\includegraphics[width=1\textwidth]{vcEst} \\
+	\includegraphics[width=.75\textwidth]{betaEst} \\
+	\includegraphics[width=.75\textwidth]{vcEst} \\
 	\end{tabular}
 	\caption{Standardized parameter estimates from AME model. Points represent average value of parameters, thicker line represents the 90\% credible interval, and thinner line the 95\%.}
 	\label{betaEst}
 \end{figure}
 \FloatBarrier
 
-In the case of this Nigerian conflict network, there is no evidence of a link between civilian protests and the occurrence of a conflict event. There are a number of possible reasons for this null finding: the protest data we use might contain uncertainty about the targets of the protest, some protests might agitate towards greater military involvement--such as the ``Bring Back Our Girls" protests pushing for the government to confront Boko Haram--while other protests might be against violence, or different actors might respond to protest in divergent ways.\footnote{We see no consistent effect of protest, whether we focus only on anti-government protest, only on protests against non-government groups, or when we look at all protests.}
+We report the results for the sender, receiver, and dyadic covariates included in the AME model in figure \ref{betaEst}.\footnote{Excluded from these results is the dyadic variable for ``both are government actors." This is included and has a negative effect in both models, which simply indicates that government actors are unlikely to fight one another. Trace plots for each of these parameter estimates can be found in the Appendix.} First, we find little evidence to support the argument that conflict in neighboring countries drives violence between actors in the Nigerian conflict system. We also do not find that actors become particularly more violent during election years. We do, however, find significant evidence for the argument that actors operating across a larger region of Nigeria are likely to come into more conflict with other actors.
 
-Finally, we examine the effect of the Boko Haram insurgency on the level of conflict in the system and find a clear increase in violence in the years that follow Boko Haram's entry. With all other variables held at their measure of central tendency, a battle between any of the dyads in the system is about 2.82 times as likely in the period after the entrance of Boko Haram as it was before their entrance. Again this is not just the effect of Boko Haram's propensity to target and be targeted in battles, as those first order effects are accounted for in the AME model. The Boko Haram Insurgency is associated with an increase in conflicts even in the dyads that \emph{do not contain Boko Haram}.\footnote{One concern about a temporal variable such as this one is that, when relying on event data from ACLED, we might see more stories from Nigeria with Boko Haram's entrance even if there was not an increase in violence. However, when we limit our dependent variable to only those battles causing at least 1 casualty, which are less likely to be subject to this inflation, we see quite similar results, and the greater violence in the post-Boko Haram period remains.}
+We see a non-trivial relationship between violence against civilians and participation in a greater number of battles. Targeting civilians is linked both to a higher likelihood of engaging in violence against other military groups, and a higher likelihood of being targeted by other military groups.\footnote{This effect holds even if we leave government actors out of the network or add in binary sender and receiver controls for government actors. See the appendix for details.} Moving from the 2.5\%ile of violence against civilians to the 97.5\%ile (moving from no violence to 17 attacks), while all other variables are held at their measure of central tendency\footnote{We held whether the dyad was in the Post-Boko Haram period, the presence of neighboring conflicts, whether it was a governmental dyad, and whether it was an election year at their median, all other variables, as well as the random and multiplicative effects at their mean level.}, increases the risk of starting a battle by the perpetrator by a factor of about 1.58, and the risk of being targeted for a battle by about 1.55. We cannot causally say that these are the result of violence against civilians, but the fact that the relationship holds even in a mixed-effects model (and one that accounts for network dependencies) is suggestive. Further, anecdotal evidence maintains a similar story. For example, the \'{O}odua People's Congress (OPC), an organization active in the southwest of Nigeria organized to protect the Yoruba ethnic group, is known to engage in two primary modes of conflict: large-scale ethnic battles that directly result in mass casualties to both rivals and civilians, and smaller-scale episodes wherein the OPC targets the civilian base of rival groups. 
+
+In the case of this Nigerian conflict network, there is no evidence of a link between civilian protests and the occurrence of a conflict event. There are a number of possible reasons for this null finding: the protest data we use might contain uncertainty about the targets of the protest, some protests might agitate towards greater military involvement--such as the ``Bring Back Our Girls" protests pushing for the government to confront Boko Haram--while other protests might be against violence, or different actors might respond to protest in divergent ways.
+% \footnote{We see no consistent effect of protest, whether we focus only on anti-government protest, only on protests against non-government groups, or when we look at all protests.}
+
+Finally, we examine the effect of the Boko Haram insurgency on the level of conflict in the system and find a clear increase in violence in the years that follow Boko Haram's entry. With all other variables held at their measure of central tendency, a battle between any of the dyads in the system is about 2.82 times as likely in the period after the entrance of Boko Haram as it was before their entrance. Again this is not just the effect of Boko Haram's propensity to target and be targeted in battles, as those first order effects are accounted for in the AME model. The Boko Haram Insurgency is associated with an increase in conflicts even in the dyads that \emph{do not contain Boko Haram}.
+% \footnote{One concern about a temporal variable such as this one is that, when relying on event data from ACLED, we might see more stories from Nigeria with Boko Haram's entrance even if there was not an increase in violence. However, when we limit our dependent variable to only those battles causing at least 1 casualty, which are less likely to be subject to this inflation, we see quite similar results, and the greater violence in the post-Boko Haram period remains.}
 
 We plot variance parameters from the SRRM in the bottom of figure \ref{betaEst}. By looking at the sender and receiver heterogeneity estimates ($\sigma^{2}_{a}, \sigma^{2}_{b}$), we see significant first order effects--different actors not only have different baseline levels of conflict, but the variance changes too. We also see a moderate value for $\sigma_{ab}$ indicating that actors which initiate more conflictual links also receive more conflictual links in return. Relatedly, the positive value for $\rho$ indicates that actors whom receive a conflict from a particular sender reciprocate that conflictual behavior. The fact that each of these variance parameters is positive and significantly greater than zero indicates that the assumption of observational independence relied on by standard generalized linear models (GLM) are violated in this dyadic conflict dataset.
 
@@ -38,68 +40,57 @@ An intuitive interpretation suggests that  Boko Haram's conflict with the govern
 The effect of Boko Haram's entrance underscores the need for a networked approach to interstate conflict. A standard approach to interstate conflict, which focuses on the government-rebel dyads, or in particularly ambitious cases, also looks at rebel-rebel dyads, would capture Boko Haram's direct effect on conflict, but it would miss this indirect effect.
 
 
-\begin{center}
-\textsc{Figure~\ref{fig:nigeriaNets} here}
-\end{center}
+% \begin{center}
+% \textsc{Figure~\ref{fig:nigeriaNets} here}
+% \end{center}
 
-%These results might be driven by the process in which Boko Haram's behavior incentivizes other militias to ramp up their levels of violence. This may be because these groups increase their military strength to defend against Boko Haram, and this leads to security dilemmas and spirals of escalation. Alternatively, it could be because Boko Haram, in a quest for widespread territorial control of the northern regions, has dislocated groups and strained resources leading to more violence. We need more finely grained data if we want to adjudicate between these, or potential alternative explanations.
-
-% \begin{sidewaysfigure}
-% 	\centering
-% 	% \begin{tabular}{c}
-% 	% \includegraphics[width=1\textwidth]{nigeria_preBK} \\
-% 	\includegraphics[width=1\textwidth]{nigeria_postBK}
-% 	% \end{tabular}
-% 	\caption{Conflict network 2009-2016. Pairs with more conflict have larger links. Government groups are in black, all other groups are in grey. Blue links indicate more interactions in the 2009-2016 period than in the 2000-2008 period, red indicates less, green no change.}
-% 	\label{fig:nigeriaNets}
-% \end{sidewaysfigure}
-
-\clearpage
+% \clearpage
 \begin{figure}[ht]
-    \includegraphics[width=.9\textwidth]{nigeria_postBK}
+	\centering
+    \includegraphics[width=.75\textwidth]{nigeria_postBK}
 	\caption{Conflict network 2009-2016. Pairs with more conflict have larger links. Government groups are in black, all other groups are in grey. Blue links indicate more interactions in the 2009-2016 period than in the 2000-2008 period, red indicates less, green no change.}
 	\label{fig:nigeriaNets}
 \end{figure}
 
-
-\newpage
+% \newpage
 \subsection*{Network Dependencies}
 
-We use a network model to understand the Nigeria conflict system not just because it can give more precise parameter estimates, but also because it aids in understanding the interdependencies among the actors in the network.\footnote{A comparison of our network model to the GLM approach can be found in the appendix.}  Such an approach allows us to infer actor relationships that are typically unobservable. We depict the sender ($\hat{a}_{i}$) and receiver ($\hat{b}_{j}$) random effects in figure \ref{fig:abEst}. 
+We use a network model to understand the Nigeria conflict system not just because it can give more precise parameter estimates, but also because it aids in understanding the interdependencies among the actors in the network. Such an approach allows us to infer actor relationships that are typically unobservable. We depict the sender ($\hat{a}_{i}$) and receiver ($\hat{b}_{j}$) random effects in figure \ref{fig:abEst}. 
+% \footnote{A comparison of our network model to the GLM approach can be found in the appendix.}
 
-\begin{center}
-\textsc{Figure~\ref{fig:abEst} here}
-\end{center}
+% \begin{center}
+% \textsc{Figure~\ref{fig:abEst} here}
+% \end{center}
 
-\clearpage
+% \clearpage
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth]{abEst2}
+	\includegraphics[width=.75\textwidth]{abEst2}
 	\caption{Sender and receiver random effect estimates.}
 	\label{fig:abEst}
 \end{figure}
 \FloatBarrier
 
- 
-\clearpage
+% \clearpage
 This figure shows which actors are more (and less) violent than would be predicted by just accounting for the exogenous covariates we reviewed in the previous section. We can see, for example, that Boko Haram actually has a random sender effect that is approximately zero, implying that once we account for their high tendency to target civilians and the secular increase in violence that followed their entry into the conflict the model is able to accurately predict the group's tendency towards initiating conflict. On the other hand, actors like the Fulani and Hausa militias have notably positive sender and receiver effects (and the Christian and Muslim Militias have notably negative effects). This gives us cause to believe that our model has done a somewhat worse job capturing the behavior of these groups; it indicates that other unobserved factors drive their tendency to send and receive conflict. 
 
-Figure \ref{circplot} shows the directions of actors' latent factors for both sending, left panel, and receiving violence, right panel. The directions of $\hat{u}_{i}$'s (for sending conflict) and $\hat{v}_{i}$'s (for receiving conflict) are noted in \textcolor{blue}{blue} and \textcolor{red}{red}, respectively. The size of the label assigned to the points is a function of the magnitude of the vectors.\footnote{Figure \ref{netGOF} in the appendix summarizes how well we capture first, second, and third order dependencies using our model.} The purpose of this figure is to discern groups of actors that are more similar to each other in terms of whom they send conflict to (left panel) or receive conflict from (right). Actor similarity here results from third order dependence patterns -- specifically, homophily and stochastic equivalence -- that remain after accounting for the other parameters estimated by the model. 
+Figure \ref{circplot} shows the directions of actors' latent factors for both sending, left panel, and receiving violence, right panel. The directions of $\hat{u}_{i}$'s (for sending conflict) and $\hat{v}_{i}$'s (for receiving conflict) are noted in \textcolor{blue}{blue} and \textcolor{red}{red}, respectively. The size of the label assigned to the points is a function of the magnitude of the vectors. The purpose of this figure is to discern groups of actors that are more similar to each other in terms of whom they send conflict to (left panel) or receive conflict from (right). Actor similarity here results from third order dependence patterns -- specifically, homophily and stochastic equivalence -- that remain after accounting for the other parameters estimated by the model. 
+% \footnote{Figure \ref{netGOF} in the appendix summarizes how well we capture first, second, and third order dependencies using our model.}
 
-\begin{center}
-\textsc{Figure~\ref{circplot} here}
-\end{center}
+% \begin{center}
+% \textsc{Figure~\ref{circplot} here}
+% \end{center}
 
-\clearpage
+% \clearpage
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth]{{circPlotSimplev3}}
+	\includegraphics[width=.8\textwidth]{{circPlotSimplev3}}
 	\caption{Visualization of multiplicative effects.}
 	\label{circplot}
 \end{figure}
 \FloatBarrier
 
-\clearpage
+% \clearpage
 By using an AME approach, we are able to better identify previously unobservable patterns of conflict in Nigeria. For example the cluster involving Boko Haram, MASSOB, and MEND is an example of stochastic equivalence: in particular these parties, though spatially heterogeneous, are each predominantly engaged in fighting with the Nigerian military and police for control of territory (the Niger Delta for MEND, the state of Biafra for MASSOB, and the North West for Boko Haram). We also find certain groups of actors who are not just more likely to fight common third parties, but they are also more likely to fight \emph{each other}: for prominent examples of this we can see the proximity between the Sunni and Shiite militias, or the Christian and Muslim militias. Additionally, groups in the bottom of figure~\ref{circplot} such as the Fulani, Tiv, Berom, and Kuteb militias each tend to predominantly operate in the Middle Belt of Nigeria, and form geographically concentrated conflict clusters in which each group initiates or receives conflict with one another -- this is an example of a set of homophilous relations. 
 
 \subsection*{Out-of-Sample Performance Analysis}
@@ -117,31 +108,32 @@ We set a number of benchmarks for comparison. First we compare the AME model to 
 
 We utilize three performance criterions to compare the models: Receiver Operator Characteristic (ROC) curves, Precision Recall (PR) curves, and separation plots. ROC curves look at the trade-off between true positive rates and false positive rates at different thresholds of classification.ROC curves can be problematic for analyzing conflict because conflict is relatively rare at the dyadic level: in most years only 3\% of possible dyads are in conflict with one another in our data. If peace is common, even a poor model will have a very low False Positive Rate. 
 
-To better assess which models predict the presence of conflict, not just its absence, we look at PR Curves. These examine the trade-offs between the percentage of conflicts a model predicts, and the percentage of predicted conflicts which occur. Lastly, we examine separation plots \citep{greenhill:etal:2011}. These provide an intuitive visualization of the accuracy of our predictions by juxtaposing a line showing the predicted probability of conflict with whether conflict actually occurs for all cases (where the cases are sorted by the predicted probability and then colored to indicate the outcome). Here a perfect model would have all cases where conflict actually exists on the right with a predicted probability of $1$, and would predict $0$ in all other cases. All of the models' performance out-of-sample by these metrics are displayed in figure \ref{fig:roc_ame}. The AME model with covariates is the best performing model out-of-sample in all cases. This model outperforms each of the GLM variants by a notable margin. 
+% \citep{greenhill:etal:2011}
+To better assess which models predict the presence of conflict, not just its absence, we look at PR Curves. These examine the trade-offs between the percentage of conflicts a model predicts, and the percentage of predicted conflicts which occur. Lastly, we examine separation plots. These provide an intuitive visualization of the accuracy of our predictions by juxtaposing a line showing the predicted probability of conflict with whether conflict actually occurs for all cases (where the cases are sorted by the predicted probability and then colored to indicate the outcome). Here a perfect model would have all cases where conflict actually exists on the right with a predicted probability of $1$, and would predict $0$ in all other cases. All of the models' performance out-of-sample by these metrics are displayed in figure \ref{fig:roc_ame}. The AME model with covariates is the best performing model out-of-sample in all cases. This model outperforms each of the GLM variants by a notable margin. 
 
 Typically, conflict scholars are also interested in generating forecasts from their models, and to assess the performance of their model instead of taking a cross-validation approach they often attempt to forecast the last period of data. We perform such an exercise as well by dividing up our sample into a training and test set, where the test set corresponds to the last period in the dataset that we have available. Results for this analysis are shown in Figure~\ref{fig:roc_ameForecast} and here again we find that our network based approach has better out-of-sample predictive performance than the more traditional logistic alternatives.
 
-\begin{center}
-\textsc{Figure~\ref{fig:roc_ame} \& \ref{fig:roc_ameForecast}  here}
-\end{center}
+% \begin{center}
+% \textsc{Figure~\ref{fig:roc_ame} \& \ref{fig:roc_ameForecast}  here}
+% \end{center}
 
-\clearpage
+% \clearpage
 \begin{figure}[ht]
 	\centering
 	\begin{tabular}{cc}
-	\includegraphics[width=.5\textwidth]{roc_outSample} & 
-	\includegraphics[width=.5\textwidth]{rocPr_outSample}
+	\includegraphics[width=.4\textwidth]{roc_outSample} & 
+	\includegraphics[width=.4\textwidth]{rocPr_outSample}
 	\end{tabular}
 	\caption{Assessments of out-of-sample predictive performance using ROC curves, separation plots, and PR curves. AUC statistics are provided as well for both curves. In each curve, the AME model is in blue, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in red.}
 	\label{fig:roc_ame}
 \end{figure}
 
-\clearpage
+% \clearpage
 \begin{figure}[ht]
 	\centering
 	\begin{tabular}{cc}
-	\includegraphics[width=.5\textwidth]{roc_outSampleForecast_1} & 
-	\includegraphics[width=.5\textwidth]{rocPr_outSampleForecast_1}
+	\includegraphics[width=.4\textwidth]{roc_outSampleForecast_1} & 
+	\includegraphics[width=.4\textwidth]{rocPr_outSampleForecast_1}
 	\end{tabular}
 	\caption{Assessments of out-of-sample predictive performance when forecasting out the last period using ROC curves, separation plots, and PR curves. AUC statistics are provided as well for both curves. In each curve, the AME model is in blue, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in red.}
 	\label{fig:roc_ameForecast}
