@@ -1,4 +1,97 @@
-\clearpage
+
+
+\documentclass[12pt,pdflatex,authoryear]{elsarticle} 
+\usepackage[pdftex,hyperref,x11names]{xcolor}
+% load the hyper-references package and set document info
+\usepackage[pdftex]{hyperref}
+
+% Generate some fake text
+\usepackage{blindtext}
+
+% layout control
+\usepackage{geometry}
+\geometry{verbose,tmargin=1.25in,bmargin=1.25in,lmargin=1.1in,rmargin=1.1in}
+\usepackage{parallel}
+\usepackage{parcolumns}
+\usepackage{fancyhdr}
+
+% math typesetting
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{relsize}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage[%
+decimalsymbol=.,
+digitsep=fullstop
+]{siunitx}
+
+\usepackage[section]{placeins}
+
+% tables
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{longtable}
+
+% to adapt caption style
+\usepackage[font={small},labelfont=bf]{caption}
+
+% footnotes at bottom
+\usepackage[bottom]{footmisc}
+   \renewcommand{\footnotelayout}{\doublespacing} % set spacing in footnotes
+   \newlength{\myfootnotesep}
+   \setlength{\myfootnotesep}{\baselineskip}
+   \addtolength{\myfootnotesep}{-\footnotesep}
+   \setlength{\footnotesep}{\myfootnotesep} % set spacing between footnotes
+
+% to change enumeration symbols begin{enumerate}[(a)]
+\usepackage{enumerate}
+
+% to make enumerations and itemizations within paragraphs or
+% lines. f.i. begin{inparaenum} for (a) is (b) and (c)
+\usepackage{paralist}
+
+% graphics stuff
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage[space]{grffile} % allows us to specify directories that have spaces
+\usepackage{placeins} % prevents floats from moving past a \FloatBarrier
+\usepackage{tikz}
+
+% sideway figures
+\usepackage{rotating}
+\usepackage{lscape}
+
+% Spacing
+\usepackage[doublespacing]{setspace}
+
+% remove silly elsevier preprint note
+\makeatletter
+\def\ps@pprintTitle{%
+ \let\@oddhead\@empty
+ \let\@evenhead\@empty
+ \def\@oddfoot{}%
+ \let\@evenfoot\@oddfoot}
+
+\def\input@path{
+	{/Users/janus829/Dropbox/Research/conflictEvolution/graphics/}, 	{/Users/s7m/Dropbox/Research/conflictEvolution/graphics/}, 	{/Users/cassydorff/Dropbox/Research/nothingbutnet/conflictEvolution/graphics/}
+	       {/Users/maxgallop/Dropbox/conflictEvolutionMex/graphics/} 
+}
+
+\graphicspath{
+	{/Users/janus829/Dropbox/Research/conflictEvolution/graphics/}, 	{/Users/s7m/Dropbox/Research/conflictEvolution/graphics/}, 	{/Users/cassydorff/Dropbox/Research/nothingbutnet/conflictEvolution/graphics/}
+	        {/Users/maxgallop/Dropbox/conflictEvolutionMex/graphics/}  
+}
+
+\makeatother
+
+\begin{document}
+
+
 
 \renewcommand{\thefigure}{A\arabic{figure}}
 \setcounter{figure}{0}
@@ -7,11 +100,12 @@
 \renewcommand{\thesection}{A.\arabic{section}}
 \setcounter{section}{0}
 
-\section{\textbf{Appendix}}
+\large{}
+\section{\textbf{Appendix: Network Dynamics in Nigeria}}
 
 \subsection{Trace plots for parameter estimates}
 
-Figure~\ref{betaTrace} below shows trace plots for the parameters summarized in Figure~\ref{betaEst}.
+Figure~\ref{betaTrace} below shows trace plots for the parameters summarized in Figure 4 of the manuscript.
 
 \begin{figure}[ht]
 	\centering
@@ -141,3 +235,9 @@ To estimate, the effects of our exogenous variables and latent attributes we uti
  	\end{itemize}
  \end{itemize}
 \end{itemize}
+
+\newpage
+\section{References}
+\bibliography{/Users/cassydorff/ProjectsGit/whistle/master}
+\bibliographystyle{jpr}
+\end{document}
