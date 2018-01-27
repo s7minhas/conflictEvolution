@@ -9,8 +9,8 @@
 \begin{figure}[ht]
 	\centering
 	\begin{tabular}{c}
-	\includegraphics[width=.6\textwidth, height = 7cm]{betaEst} \\
-	\includegraphics[width=.75\textwidth]{vcEst} \\
+	\includegraphics[width=.7\textwidth]{betaEst} \\
+	\includegraphics[width=.7\textwidth]{vcEst} \\
 	\end{tabular}
 	\caption{Standardized parameter estimates from AME model. Points represent average value of parameters, thicker line represents the 90\% credible interval, and thinner line the 95\%.}
 	\label{betaEst}
@@ -65,11 +65,12 @@ We use a network model to understand the Nigeria conflict system not just becaus
 % \clearpage
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.5\textwidth, height = 6cm]{abEst2}
+	\includegraphics[width=.5\textwidth]{abEst2}
 	\caption{Sender and receiver random effect estimates.}
 	\label{fig:abEst}
 \end{figure}
 \FloatBarrier
+\vspace{-5mm}
 
 % \clearpage
 This figure shows which actors are more (and less) violent than would be predicted by just accounting for the exogenous covariates we reviewed in the previous section. We can see, for example, that Boko Haram actually has a random sender effect that is approximately zero, implying that once we account for their high tendency to target civilians and the secular increase in violence that followed their entry into the conflict the model is able to accurately predict the group's tendency towards initiating conflict. On the other hand, actors like the Fulani and Hausa militias have notably positive sender and receiver effects (and the Christian and Muslim Militias have notably negative effects). This gives us cause to believe that our model has done a somewhat worse job capturing the behavior of these groups; it indicates that other unobserved factors drive their tendency to send and receive conflict. 
@@ -81,17 +82,19 @@ Figure \ref{circplot} shows the directions of actors' latent factors for both se
 % \textsc{Figure~\ref{circplot} here}
 % \end{center}
 
+By using an AME approach, we are able to better identify previously unobservable patterns of conflict in Nigeria. For example the cluster involving Boko Haram, MASSOB, and MEND is an example of stochastic equivalence: in particular these parties, though spatially heterogeneous, are each predominantly engaged in fighting with the Nigerian military and police for control of territory (the Niger Delta for MEND, the state of Biafra for MASSOB, and the North West for Boko Haram).
+
 % \clearpage
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth, height =7cm]{{circPlotSimplev3}}
+	\includegraphics[width=.8\textwidth]{{circPlotSimplev3}}
 	\caption{Visualization of multiplicative effects.}
 	\label{circplot}
 \end{figure}
 \FloatBarrier
 
 % \clearpage
-By using an AME approach, we are able to better identify previously unobservable patterns of conflict in Nigeria. For example the cluster involving Boko Haram, MASSOB, and MEND is an example of stochastic equivalence: in particular these parties, though spatially heterogeneous, are each predominantly engaged in fighting with the Nigerian military and police for control of territory (the Niger Delta for MEND, the state of Biafra for MASSOB, and the North West for Boko Haram). We also find certain groups of actors who are not just more likely to fight common third parties, but they are also more likely to fight \emph{each other}: for prominent examples of this we can see the proximity between the Sunni and Shiite militias, or the Christian and Muslim militias. Additionally, groups in the bottom of figure~\ref{circplot} such as the Fulani, Tiv, Berom, and Kuteb militias each tend to predominantly operate in the Middle Belt of Nigeria, and form geographically concentrated conflict clusters in which each group initiates or receives conflict with one another -- this is an example of a set of homophilous relations. 
+We also find certain groups of actors who are not just more likely to fight common third parties, but they are also more likely to fight \emph{each other}: for prominent examples of this we can see the proximity between the Sunni and Shiite militias, or the Christian and Muslim militias. Additionally, groups in the bottom of figure~\ref{circplot} such as the Fulani, Tiv, Berom, and Kuteb militias each tend to predominantly operate in the Middle Belt of Nigeria, and form geographically concentrated conflict clusters in which each group initiates or receives conflict with one another -- this is an example of a set of homophilous relations. 
 
 \subsection*{Out-of-Sample Performance Analysis}
 
