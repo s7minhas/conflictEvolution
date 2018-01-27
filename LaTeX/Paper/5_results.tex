@@ -1,6 +1,9 @@
+\vspace{-5mm}
 \section*{Results}
 
-\subsection*{Parameter Estimates}
+We report the results for the sender, receiver, and dyadic covariates included in the AME model in figure \ref{betaEst}.\footnote{Excluded from these results is the dyadic variable for ``both are government actors." This is included and has a negative effect in both models, which simply indicates that government actors are unlikely to fight one another. Trace plots for each of these parameter estimates can be found in the Appendix.} First, we find little evidence to support the argument that conflict in neighboring countries drives violence between actors in the Nigerian conflict system. We also do not find that actors become particularly more violent during election years. We do, however, find significant evidence for the argument that actors operating across a larger region of Nigeria are likely to come into more conflict with other actors.
+
+% \subsection*{Parameter Estimates}
 
 % \begin{center}
 % \textsc{Figure~\ref{betaEst} here}
@@ -16,8 +19,6 @@
 	\label{betaEst}
 \end{figure}
 \FloatBarrier
-
-We report the results for the sender, receiver, and dyadic covariates included in the AME model in figure \ref{betaEst}.\footnote{Excluded from these results is the dyadic variable for ``both are government actors." This is included and has a negative effect in both models, which simply indicates that government actors are unlikely to fight one another. Trace plots for each of these parameter estimates can be found in the Appendix.} First, we find little evidence to support the argument that conflict in neighboring countries drives violence between actors in the Nigerian conflict system. We also do not find that actors become particularly more violent during election years. We do, however, find significant evidence for the argument that actors operating across a larger region of Nigeria are likely to come into more conflict with other actors.
 
 We see a non-trivial relationship between violence against civilians and participation in a greater number of battles. Targeting civilians is linked both to a higher likelihood of engaging in violence against other military groups, and a higher likelihood of being targeted by other military groups.\footnote{This effect holds even if we leave government actors out of the network or add in binary sender and receiver controls for government actors. See the appendix for details.} Moving from the 2.5\%ile of violence against civilians to the 97.5\%ile (moving from no violence to 17 attacks), while all other variables are held at their measure of central tendency,\footnote{We held whether the dyad was in the Post-Boko Haram period, the presence of neighboring conflicts, whether it was a governmental dyad, and whether it was an election year at their median, all other variables, as well as the random and multiplicative effects at their mean level.} increases the risk of starting a battle by the perpetrator by a factor of about 1.58, and the risk of being targeted for a battle by about 1.55. We cannot causally say that these are the result of violence against civilians, but the fact that the relationship holds even in a mixed-effects model (and one that accounts for network dependencies) is suggestive. Further, anecdotal evidence maintains a similar story. For example, the \'{O}odua People's Congress (OPC), an organization active in the southwest of Nigeria organized to protect the Yoruba ethnic group, is known to engage in two primary modes of conflict: large-scale ethnic battles that directly result in mass casualties to both rivals and civilians, and smaller-scale episodes wherein the OPC targets the civilian base of rival groups. 
 
@@ -47,7 +48,7 @@ The effect of Boko Haram's entrance underscores the need for a networked approac
 % \clearpage
 \begin{figure}[ht]
 	\centering
-    \includegraphics[width=.7\textwidth, height = 6cm]{nigeria_postBK}
+    \includegraphics[width=.75\textwidth]{nigeria_postBK}
 	\caption{Conflict network 2009-2016. Pairs with more conflict have larger links. Government groups are in black, all other groups are in grey. Blue links indicate more interactions in the 2009-2016 period than in the 2000-2008 period, red indicates less, green no change.}
 	\label{fig:nigeriaNets}
 \end{figure}
@@ -65,7 +66,7 @@ We use a network model to understand the Nigeria conflict system not just becaus
 % \clearpage
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.5\textwidth]{abEst2}
+	\includegraphics[width=.6\textwidth]{abEst2}
 	\caption{Sender and receiver random effect estimates.}
 	\label{fig:abEst}
 \end{figure}
@@ -111,6 +112,17 @@ By accounting for exogenous and network dependent patterns that give rise to con
 
 We set a number of benchmarks for comparison. First we compare the AME model to a GLM model using the same covariates to show the effect of accounting for network dependencies on predicting conflict. We supplement this with an alternative GLM that includes not just these covariates, but also a lagged dependent variable and a lagged reciprocity term. The lagged dependent variable is the equivalent of saying that conflict and peace are relatively likely to persist between dyads, while the inclusion of a lagged reciprocity term in a GLM framework is a simple way to account for retaliatory strikes. 
 
+% \clearpage
+\begin{figure}[ht]
+	\centering
+	\begin{tabular}{cc}
+	\includegraphics[width=.4\textwidth]{roc_outSample} & 
+	\includegraphics[width=.4\textwidth]{rocPr_outSample}
+	\end{tabular}
+	\caption{Assessments of out-of-sample predictive performance using ROC curves, separation plots, and PR curves. AUC statistics are provided as well for both curves. In each curve, the AME model is in blue, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in red.}
+	\label{fig:roc_ame}
+\end{figure}
+
 We utilize three performance criterions to compare the models: Receiver Operator Characteristic (ROC) curves, Precision Recall (PR) curves, and separation plots. ROC curves look at the trade-off between true positive rates and false positive rates at different thresholds of classification. ROC curves can be problematic for analyzing conflict because conflict is relatively rare at the dyadic level. If peace is common, even a poor model will have a very low False Positive Rate. PR curves, on the other hand, examine the trade-offs between the percentage of conflicts a model predicts, and the percentage of predicted conflicts which occur. Lastly, we use separation plots to provide an intuitive visualization of the accuracy of our predictions. All of the models' performance out-of-sample by these metrics are displayed in figure \ref{fig:roc_ame}. The AME model with covariates is the best performing model out-of-sample in all cases. This model outperforms each of the GLM variants by a notable margin.\footnote{We also test model forecasting ability temporally by dividing the data into a training and test set, where the test set corresponds to the last period in the dataset that we have available. Results for this analysis are shown in the appendix and here again we find that our network based approach has better out-of-sample predictive performance than the more traditional logistic alternatives.
 }
 % : in most years only 3\% of possible dyads are in conflict with one another in our data
@@ -122,16 +134,7 @@ We utilize three performance criterions to compare the models: Receiver Operator
 % \textsc{Figure~\ref{fig:roc_ame} \& \ref{fig:roc_ameForecast}  here}
 % \end{center}
 
-% \clearpage
-\begin{figure}[ht]
-	\centering
-	\begin{tabular}{cc}
-	\includegraphics[width=5cm, height = 5cm]{roc_outSample} & 
-	\includegraphics[width=5cm, height = 5cm]{rocPr_outSample}
-	\end{tabular}
-	\caption{Assessments of out-of-sample predictive performance using ROC curves, separation plots, and PR curves. AUC statistics are provided as well for both curves. In each curve, the AME model is in blue, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in red.}
-	\label{fig:roc_ame}
-\end{figure}
+
 
 
 % \clearpage
