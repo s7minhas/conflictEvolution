@@ -104,6 +104,20 @@ Figure~\ref{netGOF} presents an assessment of how well our model captures the ne
 
 % stuff
 
+\subsection{Finally Year Forecasting Performance}
+Scholars of violence are often concerned with models abilities to generated forecasts of future events. To do this, we compare the AME and GLM models' abilities to predict battles in the final year of our data with those in the rest of the data.
+
+\begin{figure}[ht]
+	\centering
+	\begin{tabular}{cc}
+	\includegraphics[width=.4\textwidth]{roc_outSampleForecast_1} & 
+	\includegraphics[width=.4\textwidth]{rocPr_outSampleForecast_1}
+	\end{tabular}
+	\caption{Assessments of out-of-sample predictive performance when forecasting out the last period using ROC curves, separation plots, and PR curves. AUC statistics are provided as well for both curves. In each curve, the AME model is in blue, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in red.}
+	\label{fig:roc_ameForecast}
+\end{figure}
+
+
 \subsection{Additive and Multiplicative Effects Gibbs Sampler}
 
 To estimate, the effects of our exogenous variables and latent attributes we utilize a Bayesian probit model in which we sample from the posterior distribution of the full conditionals until convergence. Specifically, given observed data $\textbf{Y}$ and $\textbf{X}$ -- where $\textbf{X}$ is a design array that includes our sender, receiver, and dyadic covariates -- we estimate our network of binary ties using a probit framework where: $y_{ij,t} = 1(\theta_{ij,t}>0)$ and $\theta_{ij,t} = \bm\beta^{\top}\mathbf{X}_{ij,t} + a_{i} + b_{j} + \textbf{u}_{i}^{\top} \textbf{D} \textbf{v}_{j} + \epsilon_{ij}$. The derivation of the full conditionals is described in detail in \citet{hoff:2005} and \citet{hoff:2008}, thus here we only outline the Markov chain Monte Carlo (MCMC) algorithm for the AME model that we utilize in this paper.
