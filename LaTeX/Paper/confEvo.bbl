@@ -1,20 +1,10 @@
 \begin{thebibliography}{}
 
-\bibitem[\protect\citeauthoryear{Akcinaroglu}{Akcinaroglu}{2012}]{akcinaroglu:2012}
-Akcinaroglu, Seden (2012) Rebel interdependencies and civil war outcomes.
-\newblock {\em Journal of Conflict Resolution} { 56\/}(5): 879--903.
-
 \bibitem[\protect\citeauthoryear{Anderson, Wasserman \& Faust}{Anderson
   et~al.}{1992}]{anderson:etal:1992}
 Anderson, Carolyn~J; Stanley Wasserman  \& Katherine Faust (1992) Building
   stochastic blockmodels.
 \newblock {\em Social Networks} { 14\/}(1): 137--161.
-
-\bibitem[\protect\citeauthoryear{Bakke, Cunningham \& Seymour}{Bakke
-  et~al.}{2012}]{bakke:etal:2012}
-Bakke, Kristin~M; Kathleen~G Cunningham  \& Lee~J Seymour (2012) A plague of
-  initials: {F}ragmentation, cohesion, and infighting in civil wars.
-\newblock {\em Perspectives on Politics} { 10\/}(2): 265--283.
 
 \bibitem[\protect\citeauthoryear{Barab{\'a}si \& R{\'e}ka}{Barab{\'a}si \&
   R{\'e}ka}{1999}]{barabasi:reka:1999}
@@ -59,10 +49,6 @@ Cunningham, David; Kristian~S Gleditsch  \& Idean Salehyan (2009) It takes two:
   {A} dyadic analysis of civil war duration and outcome.
 \newblock {\em Journal of Conflict Resolution} { 53\/}(4): 570--597.
 
-\bibitem[\protect\citeauthoryear{Cunningham}{Cunningham}{2006}]{cunningham:2006}
-Cunningham, David~E (2006) Veto players and civil war duration.
-\newblock {\em American Journal of Political Science} { 50\/}(4): 875--892.
-
 \bibitem[\protect\citeauthoryear{Denny \& Walter}{Denny \&
   Walter}{2014}]{denny:walter:2014}
 Denny, Elaine~K  \& Barbara~F Walter (2014) Ethnicity and civil war.
@@ -85,21 +71,11 @@ Downes, A.B. (2006) Desperate times, desperate measures: {T}he causes of
   civilian victimization in war.
 \newblock {\em International Security} { 30\/}(4): 152--195.
 
-\bibitem[\protect\citeauthoryear{Fearon}{Fearon}{2003}]{fearon:2003}
-Fearon, James~D (2003) Ethnic and cultural diversity by country.
-\newblock {\em Journal of Economic Growth} { 8\/}(2): 195--222.
-
 \bibitem[\protect\citeauthoryear{Fjelde \& Nilsson}{Fjelde \&
   Nilsson}{2012}]{fjelde:nilsson:2012}
 Fjelde, Hanne  \& Desir{\'e}e Nilsson (2012) Rebels against rebels:
   {E}xplaining violence between rebel groups.
 \newblock {\em The Journal of Conflict Resolution} { 56\/}(4): 604--628.
-
-\bibitem[\protect\citeauthoryear{Gleditsch, Wallensteen, Eriksson, Sollenberg
-  \& Strand}{Gleditsch et~al.}{2002}]{gleditsch:etal:2002}
-Gleditsch, Nils~P; Peter Wallensteen; Mikael Eriksson; Margareta Sollenberg  \&
-  Havard Strand (2002) Armed conflict 1946-2001: {A} new dataset.
-\newblock {\em Journal of Peace Research} { 39\/}(5): 615--637.
 
 \bibitem[\protect\citeauthoryear{Harbom, Melander \& Wallensteen}{Harbom
   et~al.}{2008}]{harbom:etal:2008}
@@ -144,16 +120,18 @@ Kinne, Brandon~J (2012) Multilateral trade and militarized conflict:
   {C}entrality, asymmetry, and openness in the global trade network.
 \newblock {\em The Journal of Politics} { 74\/}(1): 308--322.
 
-\bibitem[\protect\citeauthoryear{Lacina}{Lacina}{2014}]{lacina:2014}
-Lacina, Bethany (2014) How governments shape the risk of civil violence:
-  {I}ndia's federal reorganization, 1950-56.
-\newblock {\em American Journal of Political Science} { 58\/}(3): 720--738.
+\bibitem[\protect\citeauthoryear{Metternich, Minhas \& Ward}{Metternich
+  et~al.}{2017}]{metternich:etal:2017}
+Metternich, Nils; Shahryar Minhas  \& Michael Ward (2017) Firewall? {O}r wall
+  on fire? {A} unified framework of conflict contagion and the role of ethnic
+  exclusion.
+\newblock {\em Journal of Conflict Resolution} { 61\/}(6): 1151--1173.
 
 \bibitem[\protect\citeauthoryear{Minhas, Hoff \& Ward}{Minhas
   et~al.}{2016a}]{minhas:etal:2016:arxiv}
 Minhas, Shahryar; Peter~D Hoff  \& Michael~D Ward (2016a) Let's say amen for
   latent factor models.
-\newblock Working paper.
+\newblock Working paper available at \url{https://arxiv.org/abs/1611.00460}.
 \newline\harvardurl{https://arxiv.org/abs/1611.00460}
 
 \bibitem[\protect\citeauthoryear{Minhas, Hoff \& Ward}{Minhas
@@ -171,12 +149,6 @@ Nemeth, Stephen~C (2014) The effect of competition on terrorist group
 Osumah, Oarhe (2013) Boko haram insurgency in northern nigeria and the vicious
   cycle of internal insecurity.
 \newblock {\em Small Wars \& Insurgencies} { 24\/}(3): 536--560.
-
-\bibitem[\protect\citeauthoryear{Pettersson \& Wallensteen}{Pettersson \&
-  Wallensteen}{2015}]{pettersson:wallensteen:2015}
-Pettersson, Ther{\'e}se  \& Peter Wallensteen (2015) Armed conflicts,
-  1946--2014.
-\newblock {\em Journal of Peace Research} { 52\/}(4): 536--550.
 
 \bibitem[\protect\citeauthoryear{Prorok \& Appel}{Prorok \&
   Appel}{2014}]{prorok:appel:2014}
@@ -204,11 +176,6 @@ Reynal-Querol, Marta (2002) Ethnicity, political systems and civil wars.
 \bibitem[\protect\citeauthoryear{Richardson}{Richardson}{1960}]{richardson:1960}
 Richardson, Lewis~F (1960) {\em Arms and Insecurity}.
 \newblock Chicago and Pittsburgh, PA: Quadrangle/Boxwood.
-
-\bibitem[\protect\citeauthoryear{Salehyan}{Salehyan}{2008}]{salehyan:2008}
-Salehyan, Idean (2008) The externalities of civil strife: {R}efugees as a
-  source of international conflict.
-\newblock {\em American Journal of Political Science} { 52\/}(4): 787--801.
 
 \bibitem[\protect\citeauthoryear{Salehyan \& Gleditsch}{Salehyan \&
   Gleditsch}{2007}]{salehyan:gleditsch:2007}
