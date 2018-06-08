@@ -3,12 +3,6 @@
 
 We report the results for the sender, receiver, and dyadic covariates included in the AME model in figure \ref{betaEst}.\footnote{Excluded from these results is the dyadic variable for ``both are government actors." This is included and has a negative effect in both models, which simply indicates that government actors are unlikely to fight one another. Trace plots for each of these parameter estimates can be found in the Appendix.} First, we find little evidence to support the argument that conflict in neighboring countries drives violence between actors in the Nigerian conflict system. We also do not find that actors become particularly more violent during election years. We do, however, find significant evidence for the argument that actors operating across a larger region of Nigeria are likely to come into more conflict with other actors.
 
-% \subsection*{Parameter Estimates}
-
-% \begin{center}
-% \textsc{Figure~\ref{betaEst} here}
-% \end{center}
-
 \begin{figure}[ht]
 	\centering
 	\begin{tabular}{c}
@@ -123,19 +117,6 @@ We set a number of benchmarks for comparison. First we compare the AME model to 
 	\label{fig:roc_ame}
 \end{figure}
 
-We utilize three performance criterions to compare the models: Receiver Operator Characteristic (ROC) curves, Precision Recall (PR) curves, and separation plots. ROC curves look at the trade-off between true positive rates and false positive rates at different thresholds of classification. ROC curves can be problematic for analyzing conflict because conflict is relatively rare at the dyadic level. If peace is common, even a poor model will have a very low False Positive Rate. PR curves, on the other hand, examine the trade-offs between the percentage of conflicts a model predicts, and the percentage of predicted conflicts which occur. Lastly, we use separation plots to provide an intuitive visualization of the accuracy of our predictions. All of the models' performance out-of-sample by these metrics are displayed in figure \ref{fig:roc_ame}. The AME model with covariates is the best performing model out-of-sample in all cases. This model outperforms each of the GLM variants by a notable margin.\footnote{We also test model forecasting ability temporally by dividing the data into a training and test set, where the test set corresponds to the last period in the dataset that we have available. Results for this analysis are shown in the appendix and here again we find that our network based approach has better out-of-sample predictive performance than the more traditional logistic alternatives.
-}
-% : in most years only 3\% of possible dyads are in conflict with one another in our data
+We utilize three performance criterions to compare the models: Receiver Operator Characteristic (ROC) curves, Precision Recall (PR) curves, and separation plots. ROC curves look at the trade-off between true positive rates and false positive rates at different thresholds of classification. ROC curves can be problematic for analyzing conflict because conflict is relatively rare at the dyadic level. If peace is common, even a poor model will have a very low False Positive Rate. PR curves, on the other hand, examine the trade-offs between the percentage of conflicts a model predicts, and the percentage of predicted conflicts which occur. Lastly, we use separation plots to provide an intuitive visualization of the accuracy of our predictions. All of the models' performance out-of-sample by these metrics are displayed in figure \ref{fig:roc_ame}. The AME model with covariates is the best performing model out-of-sample in all cases. This model outperforms each of the GLM variants by a notable margin.\footnote{We also test model forecasting ability temporally by dividing the data into a training and test set, where the test set corresponds to the last period in the dataset that we have available. Results for this analysis are shown in the appendix and here again we find that our network based approach has better out-of-sample predictive performance than the more traditional logistic alternatives.}
 
-% \citep{greenhill:etal:2011}
-% To better assess which models predict the presence of conflict, not just its absence, we look at PR Curves. These examine the trade-offs between the percentage of conflicts a model predicts, and the percentage of predicted conflicts which occur. Lastly, we examine separation plots. These provide an intuitive visualization of the accuracy of our predictions by juxtaposing a line showing the predicted probability of conflict with whether conflict actually occurs for all cases (where the cases are sorted by the predicted probability and then colored to indicate the outcome). Here a perfect model would have all cases where conflict actually exists on the right with a predicted probability of $1$, and would predict $0$ in all other cases. 
-
-% \begin{center}
-% \textsc{Figure~\ref{fig:roc_ame} \& \ref{fig:roc_ameForecast}  here}
-% \end{center}
-
-
-
-
-% \clearpage
 \FloatBarrier
