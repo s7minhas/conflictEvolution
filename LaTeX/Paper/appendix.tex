@@ -168,6 +168,18 @@ Figure~\ref{ameglm} compares parameter estimates returned from the AME and GLM f
 \FloatBarrier
 \clearpage
 
+% \subsection{Additive Effects}
+
+% We depict the sender ($\hat{a}_{i}$) and receiver ($\hat{b}_{j}$) random effects in figure \ref{fig:abEst}. This figure shows which actors are more (and less) violent than would be predicted by just accounting for the exogenous covariates we reviewed in the previous section. We can see, for example, that Boko Haram actually has a random sender effect that is approximately zero, implying that once we account for their high tendency to target civilians and the secular increase in violence that followed their entry into the conflict the model is able to accurately predict the group's tendency towards initiating conflict. On the other hand, actors like the Fulani and Hausa militias have notably positive sender and receiver effects (and the Christian and Muslim Militias have notably negative effects). 
+
+% \begin{figure}[ht]
+% 	\centering
+% 	\includegraphics[width=.8\textwidth]{abEst2}
+% 	\caption{Sender and receiver random effect estimates.}
+% 	\label{fig:abEst}
+% \end{figure}
+% \FloatBarrier
+
 \clearpage
 \subsection{Network Goodness of Fit Assessment}
 
@@ -202,19 +214,7 @@ Scholars of violence are often concerned with models abilities to generated fore
 \end{figure}
 
 \clearpage
-\subsection{TERGM Comparison}
-
-Once I get a non-degenerate specification I will add something in. 
-
-\clearpage
-\subsection{Results when varying rank specified in AME}
-
-Need to pull in and make some pretty chairs.
-
-\clearpage
 \subsection{Additive and Multiplicative Effects Gibbs Sampler}
-
-\textbf{Add discussion about priors}
 
 To estimate, the effects of our exogenous variables and latent attributes we utilize a Bayesian probit model in which we sample from the posterior distribution of the full conditionals until convergence. Specifically, given observed data $\textbf{Y}$ and $\textbf{X}$ -- where $\textbf{X}$ is a design array that includes our sender, receiver, and dyadic covariates -- we estimate our network of binary ties using a probit framework where: $y_{ij,t} = 1(\theta_{ij,t}>0)$ and $\theta_{ij,t} = \bm\beta^{\top}\mathbf{X}_{ij,t} + a_{i} + b_{j} + \textbf{u}_{i}^{\top} \textbf{D} \textbf{v}_{j} + \epsilon_{ij}$. The derivation of the full conditionals is described in detail in \citet{hoff:2005} and \citet{hoff:2008}, thus here we only outline the Markov chain Monte Carlo (MCMC) algorithm for the AME model that we utilize in this paper.
 
