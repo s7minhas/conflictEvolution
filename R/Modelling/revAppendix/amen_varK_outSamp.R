@@ -123,7 +123,6 @@ designArrays = list(
 		)	
 	)
 
-cores = 5
 ranks = seq(0,20,5)
 results = lapply(ranks, function(rank){
 	mod = ameOutSamp(
@@ -133,7 +132,7 @@ results = lapply(ranks, function(rank){
 		xColL=designArrays$base$recCovar,
 		R=rank )
 	return(mod)	
-}
+})
 
 # save
 save(
