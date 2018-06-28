@@ -98,10 +98,10 @@ ggCoef=ggplot(ameBETA, aes(x=varClean, y=mean, color=sig)) +
 		legend.position='none', legend.title=element_blank(),
 		panel.border=element_blank(),
 		axis.ticks=element_blank(),
-		# axis.text.x=element_text(family="Source Sans Pro Light"),
-		# axis.text.y=element_text(family="Source Sans Pro Light", hjust=0),
+		axis.text.x=element_text(family="Source Sans Pro Light"),
+		axis.text.y=element_text(family="Source Sans Pro Light", hjust=0),
 		strip.text.x = element_text(size = 9, color='white',
-			# family="Source Sans Pro Semibold", 
+			family="Source Sans Pro Semibold", 
 			angle=0, hjust=.95),
 		strip.background = element_rect(fill = "#525252", color='#525252')				
 	)
