@@ -148,5 +148,4 @@ gg=ggplot(paramTime, aes(x=factor(pd), y=mean)) +
 		strip.background = element_rect(fill = "#525252", color='#525252')
 		)
 ggsave(gg, file=paste0(pathResults, 'revAppendix/ameTime.pdf'), width=8, height=6, device=cairo_pdf)
-system(paste0('open ',pathResults, 'revAppendix/ameTime.pdf'))
 ################	
