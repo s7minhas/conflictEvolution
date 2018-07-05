@@ -93,3 +93,52 @@ yNets = lapply(1:length(yMats), function(t){
 	#
 	return(yNet) })
 ################
+
+################
+set.seed(6886)
+if( !file.exists(paste0(pathResults, 'revAppendix/tergm.rda')) ){
+	mod = mtergm(
+		yNets ~ edges +
+			edgecov(govDyCovar) + edgecov(bkDyCovar) +
+			edgecov(elecDyCovar) + edgecov(spatDyCovar) +
+			nodeocov('rioPro') + nodeocov('civVio') + nodeocov('geoSpread') +
+			nodeicov('rioPro') + nodeicov('civVio') + nodeicov('geoSpread') +
+			mutual + 
+			gwesp(.5,fixed=TRUE)
+		)
+	save(mod, file=paste0(pathResults, 'revAppendix/tergm.rda')) }
+load(paste0(pathResults, 'revAppendix/tergm.rda'))
+
+# create summary table
+res = cbind(
+	mod@coef, mod@se, mod@pval
+	)
+colnames(res) = c('Estimate', 'Std. Error', 'P-value')
+rownames(res) = c(
+	'Intercept', 
+	'Gov-Gov Actors$_{ij}$',
+	'Post-Boko Haram Period$_{t}$',
+	'Election Year$_{t}$',
+	'Neighborhood Conflict$_{t}$',
+	'Riots/Protests$_{i,t-1}$',
+	'Violent Events Against Civilians$_{i,t-1}$',
+	'Geographic Spread$_{i,t-1}$',	
+	'Riots/Protests$_{j,t-1}$',
+	'Violent Events Against Civilians$_{j,t-1}$',
+	'Geographic Spread$_{j,t-1}$',
+	'Mutuality', 
+	'GWESP (0.5)'
+	)
+res = round(res[,-3], 2)
+print.xtable(
+	xtable(res, 
+		align='lcc',
+		caption='Posterior parameter estimate and standard errors from a TERGM analysis estimated via MCMC-MLE.',
+		label='tab:tergm'		
+		),
+	include.rownames=TRUE, sanitize.text.function = identity,
+	hline.after=c(0,0,1,nrow(res),nrow(res)),
+	size='normalsize',
+	file=paste0(pathResults, 'revAppendix/tergm.tex')
+	)
+################
