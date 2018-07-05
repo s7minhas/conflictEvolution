@@ -13,11 +13,38 @@ Hoff, Peter~D (2008).
   in Neural Information Processing Systems 20 Processing Systems 21 ,
   657--664. Cambridge, MA, USA. MIT Press.
 
+\bibitem[\protect\citeauthoryear{Hunter \& Handcock}{Hunter \&
+  Handcock}{2006}]{hunter:handcock:2006}
+Hunter, David~R  \& Mark~S Handcock (2006) Inference in curved exponential
+  family models for networks.
+\newblock {\em Journal of Computational and Graphical Statistics} { 15\/}(3):
+  565--583.
+
+\bibitem[\protect\citeauthoryear{Lubbers \& Snijders}{Lubbers \&
+  Snijders}{2007}]{lubbers:snijders:2007}
+Lubbers, Miranda~J  \& Tom~A Snijders (2007) A comparison of various approaches
+  to the exponential random graph model: {A} reanalysis of 102 student networks
+  in school classes.
+\newblock {\em Social Networks} { 29\/}(4): 489--507.
+
 \bibitem[\protect\citeauthoryear{Minhas, Hoff \& Ward}{Minhas
   et~al.}{2016}]{minhas:etal:2016:arxiv}
 Minhas, Shahryar; Peter~D Hoff  \& Michael~D Ward (2016) Let's say amen for
   latent factor models.
-\newblock Working paper.
+\newblock Working paper available at \url{https://arxiv.org/abs/1611.00460}.
 \newline\harvardurl{https://arxiv.org/abs/1611.00460}
+
+\bibitem[\protect\citeauthoryear{Morris, Handcock \& Hunter}{Morris
+  et~al.}{2008}]{morris:etal:2008}
+Morris, Martina; Mark~S Handcock  \& David~R Hunter (2008) Specification of
+  exponential-family random graph models: {T}erms and computational aspects.
+\newblock {\em Journal of Statistical Software} { 24\/}(4): 1554--7660.
+
+\bibitem[\protect\citeauthoryear{Van~Duijn, Gile \& Handcock}{Van~Duijn
+  et~al.}{2009}]{vanduijn:etal:2009}
+Van~Duijn, Marijtje~A; Krista~J Gile  \& Mark~S Handcock (2009) A framework for
+  the comparison of maximum pseudo-likelihood and maximum likelihood estimation
+  of exponential family random graph models.
+\newblock {\em Social Networks} { 31\/}(1): 52--62.
 
 \end{thebibliography}
