@@ -226,12 +226,15 @@ tmp = tmp + annotate('text', hjust=0, x=.51, y=seq(.1, .4, .1), label=names(pred
 ggsave(tmp, 
 	file=paste0(pathResults, 'revAppendix/roc_outSample_randForest.pdf'), 
 	width=5, height=5, device=cairo_pdf)
+ggsave(tmp, 
+	file=paste0(pathGraphics, 'roc_outSample_randForest.pdf'), 
+	width=5, height=5, device=cairo_pdf)
 
 tmp=rocPlot(rocPrData, type='pr', legText=12, legPos=c(.25,.35), legSpace=2, linetypes=ggLty, colorManual=ggCols) +
 	guides(linetype=FALSE, color=FALSE) + 
 	# geom_rect(xmin=-.05, ymin=.01, xmax=.45, ymax=.55, color='white', fill='white', size=.5) + 
 	annotate('text', hjust=0, x=c(.4, .69, .88), y=1, 
-		label=c('  ', ' AUC\n(ROC)', 'AUC\n(PR)'), family='Source Sans Pro Black', size=4) + 
+		label=c('  ', ' AUC\n(ROC)', 'AUC\n(PR)'), family='Source Sans Pro', size=4) + 
 	annotate('text', hjust=0, x=.4, y=seq(.5,.9,.13), 
 		label=rev(rownames(aucSumm)), family='Source Sans Pro Light') + 
 	annotate('text', hjust=0, x=.7, y=seq(.5,.9,.13), 
@@ -239,5 +242,8 @@ tmp=rocPlot(rocPrData, type='pr', legText=12, legPos=c(.25,.35), legSpace=2, lin
 		family='Source Sans Pro Light')
 ggsave(tmp, 
 	file=paste0(pathResults, 'revAppendix/rocPR_outSample_randForest.pdf'),
+	width=5, height=5, device=cairo_pdf)	
+ggsave(tmp, 
+	file=paste0(pathGraphics, 'rocPR_outSample_randForest.pdf'),
 	width=5, height=5, device=cairo_pdf)	
 ################################################
