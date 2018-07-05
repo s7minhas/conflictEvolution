@@ -1,6 +1,4 @@
-
-
-\documentclass[12pt,pdflatex,authoryear]{elsarticle} 
+\documentclass[10pt,pdflatex,authoryear]{elsarticle} 
 \usepackage[pdftex,hyperref,x11names]{xcolor}
 % load the hyper-references package and set document info
 \usepackage[pdftex]{hyperref}
@@ -36,6 +34,7 @@ digitsep=fullstop
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{longtable}
+\usepackage{arydshln}
 
 % to adapt caption style
 \usepackage[font={small},labelfont=bf]{caption}
@@ -67,7 +66,7 @@ digitsep=fullstop
 \usepackage{lscape}
 
 % Spacing
-\usepackage[doublespacing]{setspace}
+\usepackage[singlespacing]{setspace}
 
 % remove silly elsevier preprint note
 \makeatletter
@@ -169,7 +168,7 @@ Here we explore variations in out-of-sample performance when varying $K$, the di
 	& AUC (ROC) & AUC (PR) \\ 
 	\hline
 	AME (K=2) & 0.926 & 0.331 \\ 
-	\hline
+	\hdashline
 	AME (K=0) & 0.863 & 0.180 \\ 
 	AME (K=5) & 0.934 & 0.348 \\ 
 	AME (K=10) & 0.934 & 0.348 \\ 
@@ -199,7 +198,7 @@ To provide an alternative test of the predictive performance of AME, we compare 
 	\includegraphics[width=.4\textwidth]{roc_outSample_randForest} & 
 	\includegraphics[width=.4\textwidth]{rocPr_outSample_randForest}
 	\end{tabular}
-	\caption{Assessments of out-of-sample predictive performance using ROC curves, separation plots, and PR curves. AUC statistics are provided as well for both curves. In each curve, the AME model is in blue, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in red.}
+	\caption{Assessments of out-of-sample predictive performance using ROC curves, separation plots, and PR curves. AUC statistics are provided as well for both curves. In each curve, the AME model is in blue, RF is denoted in purple, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in red.}
 	\label{fig:roc_rf}
 \end{figure}
 \FloatBarrier
@@ -290,7 +289,7 @@ We also compare parameter estimates returned from AME, a generalized linear mode
 
 For the TERGM analysis we again include the same exogenous covariates and also include two additional network terms to capture higher order dependencies: reciprocity and a geometric edge-wise shared partner term (GWESP). The reciprocity term captures the likelihood of actors reciprocating a conflictual tie. The GWESP term corresponds to the number of triangles a potential tie between actors $i$ and $j$ would ``close,'' but discounts higher numbers by a factor $\alpha$ \citep{hunter:handcock:2006,morris:etal:2008}.\footnote{We fix $\alpha$ to 0.5 based on goodness-of-fit tests. When $\alpha$ is set to zero, all edges that have at least one shared partner are counted exactly the same.} A positive GWESP coefficient indicates that there is a tendency for multiple indirect ties of length two between actors in conflict. This is essentially just a measure of the level of transitivity in a network. Given concerns with bias and poor coverage in ERGMS estimated via pseudolikelihood, we utilize an MCMC-MLE estimation procedure \citep{lubbers:snijders:2007,vanduijn:etal:2009}. 
 
-Parameter estimates from the three models are presented in Figure~\ref{fig:ameglmtergm}.
+The parameter estimates between the three models, presented in Figure~\ref{fig:ameglmtergm}, are largely similar. The ``Post-Boko Haram'' coefficient is positive and significant across each of the models. Additionally, the ``Geographic Spread'' and ``Violent Events Against Civilians'' coefficients are significant and positive for both sender and receivers. Additionally, the TERGM analysis finds strong evidence for the presence of reciprocity and transitivity in this conflict network, which accords with the findings from the AME.
 
 \begin{figure}[ht]
 	\centering
@@ -299,8 +298,6 @@ Parameter estimates from the three models are presented in Figure~\ref{fig:amegl
 	\label{fig:ameglmtergm}
 	\end{figure}
 \FloatBarrier
-
-The parameter estimates between the three models are largely similar. The ``Post-Boko Haram'' coefficient is positive and significant across each of the models. Additionally, the ``Geographic Spread'' and ``Violent Events Against Civilians'' coefficients are significant and positive for both sender and receivers. Additionally, the TERGM analysis finds strong evidence for the presence of reciprocity and transitivity in this conflict network, which accords with the findings from the AME.
 
 \clearpage
 \section{References}
