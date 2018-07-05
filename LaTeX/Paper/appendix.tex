@@ -236,6 +236,95 @@ To estimate, the effects of our exogenous variables and latent attributes we uti
  \end{itemize}
 \end{itemize}
 
+\clearpage
+\subsection{Performance under varying multiplicative effect ranks}
+
+% k=2, .93 and .33
+
+% latex table generated in R 3.5.0 by xtable 1.8-2 package
+% Wed Jul  4 20:17:06 2018
+\begin{table}[ht]
+\centering
+\begingroup\normalsize
+\begin{tabular}{lcc}
+  & AUC & AUC (PR) \\ 
+  \hline
+\hline
+AME (K=20) & 0.931 & 0.346 \\ 
+   \hline
+AME (K=15) & 0.935 & 0.349 \\ 
+  AME (K=10) & 0.934 & 0.348 \\ 
+  AME (K=5) & 0.934 & 0.348 \\ 
+  AME (K=0) & 0.863 & 0.180 \\ 
+   \hline
+\hline
+\end{tabular}
+\endgroup
+\caption{Out-of-sample performance statistics by varying dimensions of multiplicative effects in AME.} 
+\label{tab:ame_vark}
+\end{table}
+
+
+\clearpage
+\subsection{Parameter estimates over time}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{ameTime}
+	\caption{Parameter estimates when running AME on finer temporal periods.}
+	\label{fig:ameTime}
+\end{figure}
+
+
+\clearpage
+\subsection{Performance comparison with Random Forest}
+
+% \clearpage
+\begin{figure}[ht]
+	\centering
+	\begin{tabular}{cc}
+	\includegraphics[width=.4\textwidth]{roc_outSample_randForest} & 
+	\includegraphics[width=.4\textwidth]{rocPr_outSample_randForest}
+	\end{tabular}
+	\caption{Assessments of out-of-sample predictive performance using ROC curves, separation plots, and PR curves. AUC statistics are provided as well for both curves. In each curve, the AME model is in blue, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in red.}
+	\label{fig:roc_ame}
+\end{figure}
+
+\clearpage
+\subsection{TERGM Comparison}
+
+% latex table generated in R 3.5.0 by xtable 1.8-2 package
+% Fri Jul  29 19:15:11 2018
+\begin{table}[ht]
+\centering
+\begingroup\normalsize
+\begin{tabular}{lcc}
+  & Estimate & Std. Error \\ 
+  \hline
+\hline
+Intercept & -5.25 & 0.17 \\ 
+   \hline
+Gov-Gov Actors$_{ij}$ & 2.35 & 0.81 \\ 
+  Post-Boko Haram Period$_{t}$ & 0.50 & 0.16 \\ 
+  Election Year$_{t}$ & -0.10 & 0.24 \\ 
+  Neighborhood Conflict$_{t}$ & -0.00 & 0.00 \\ 
+  Riots/Protests$_{i,t-1}$ & 0.00 & 0.01 \\ 
+  Violent Events Against Civilians$_{i,t-1}$ & 0.01 & 0.00 \\ 
+  Geographic Spread$_{i,t-1}$ & 0.60 & 0.08 \\ 
+  Riots/Protests$_{j,t-1}$ & -0.00 & 0.02 \\ 
+  Violent Events Against Civilians$_{j,t-1}$ & 0.01 & 0.00 \\ 
+  Geographic Spread$_{j,t-1}$ & 0.47 & 0.10 \\ 
+  Mutuality & 1.97 & 0.40 \\ 
+  GWESP (0.5) & 1.21 & 0.12 \\ 
+   \hline
+\hline
+\end{tabular}
+\endgroup
+\caption{Posterior parameter estimate and standard errors from a TERGM analysis estimated via MCMC-MLE.} 
+\label{tab:tergm}
+\end{table}
+
+
 \newpage
 \section{References}
 \bibliography{/Users/cassydorff/ProjectsGit/whistle/master}

@@ -4,6 +4,7 @@ if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){ source('~/Resear
 loadPkg('devtools')
 if(!'amen' %in% installed.packages()[,1]){
 	devtools::install_github('s7minhas/amen') } ; library(amen)
+source(paste0(fPth, 'binPerfHelpers.R'))	
 ################
 
 ################
@@ -124,19 +125,52 @@ designArrays = list(
 	)
 
 ranks = seq(0,20,5)
-results = lapply(ranks, function(rank){
-	mod = ameOutSamp(
-		yList=yList, 
-		xDyadL=designArrays$base$dyadCovar,
-		xRowL=designArrays$base$senCovar,
-		xColL=designArrays$base$recCovar,
-		R=rank )
-	return(mod)	
-})
+if(!file.exists(paste0(pathResults, 'revAppendix/ameCrossValResults.rda'))){
+	results = lapply(ranks, function(rank){
+		mod = ameOutSamp(
+			yList=yList, 
+			xDyadL=designArrays$base$dyadCovar,
+			xRowL=designArrays$base$senCovar,
+			xColL=designArrays$base$recCovar,
+			R=rank )
+		return(mod)	
+	})
 
-# save
-save(
-	results,
-	file=paste0(pathResults, 'revAppendix/ameCrossValResults.rda')
+	# save
+	save(
+		results,
+		file=paste0(pathResults, 'revAppendix/ameCrossValResults.rda')
+	) }
+################
+
+############################
+# org results
+load(paste0(pathResults, 'revAppendix/ameCrossValResults.rda'))
+predDfs = lapply(1:length(ranks), function(i){
+	out = cbind(
+		results[[i]]$outPerf, 
+		model=paste0('AME (K=',ranks[i],')')) })
+names(predDfs) = paste0('AME (K=', ranks, ')')
+
+# tabular data
+aucSumm=do.call('rbind', lapply(predDfs,function(x){
+	aucROC=getAUC(x$pred,x$actual) ; aucPR=auc_pr(x$actual,x$pred)
+	return( c('AUC'=aucROC,'AUC (PR)'=aucPR) ) }) )
+# aucSumm = aucSumm[order(aucSumm[,2],decreasing=TRUE),]
+aucSumm = trim(format(round(aucSumm, 3), nsmall=2))
+aucSumm = aucSumm[nrow(aucSumm):1,]
+
+# viz results
+print.xtable(
+	xtable(aucSumm, 
+		align='lcc',
+		caption='Out-of-sample performance statistics by varying dimensions of multiplicative effects in AME.',
+		label='tab:ame_vark'		
+		),
+	include.rownames=TRUE, sanitize.text.function = identity,
+	hline.after=c(0,0,1,nrow(aucSumm),nrow(aucSumm)),
+	size='normalsize',
+	file=paste0(pathResults, 'revAppendix/ame_vark.tex')
 	)
 ################
+################################################
