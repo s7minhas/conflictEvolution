@@ -16,6 +16,7 @@ source(paste0(fPth, 'postHelpers.R'))
 # load data
 load(paste0(pathResults, 'ameResults.rda'))
 load(paste0(pathResults, 'glmResultsProbit.rda'))
+load(paste0(pathResults, 'revAppendix/tergm.rda'))
 ###############
 
 ################
@@ -23,8 +24,8 @@ mcmcData = ameFits$base$BETA
 varKey = data.frame(dirty=colnames(mcmcData),stringsAsFactors=FALSE)
 varKey$clean = c(
 	'Intercept',
-	'Riots/Protests Against (Sender)', 'Civilian Attacks (Sender)', 'Geographic Spread (Sender)',
-	'Riots/Protests Against (Receiver)', 'Civilian Attacks (Receiver)', 'Geographic Spread (Receiver)',
+	'Riots/Protests (Sender)', 'Violent Events\nAgainst Civilians (Sender)', 'Geographic Spread (Sender)',
+	'Riots/Protests (Receiver)', 'Violent Events\nAgainst Civilians (Receiver)', 'Geographic Spread (Receiver)',
 	'Gov-Gov Actors','Post-Boko Haram', 'Election Year', 'Neighborhood Conflict')
 ################
 
@@ -43,6 +44,21 @@ glmBETA = glmBETA %>% getCIVecs() %>% getSigVec()
 glmBETA$model = 'GLM'
 # glmBETA = gather(glmBETA[,-2], key='stat', value='glmValue', -var)
 
+# org tergm results
+tergmBETA = data.frame( mean=mod@coef, sd=mod@se )
+tergmBETA$var = c(
+	'intercept', 'govActor.dyad', 'postBoko.dyad', 'elecYear.dyad',
+	'ngbrConfCount.dyad', 
+	'riotsProtestsAgainst.col', 'vioCivEvents.col', 'groupSpread.col',
+	'riotsProtestsAgainst.row', 'vioCivEvents.row', 'groupSpread.row',
+	'Reciprocity', 'GWESP (0.5)'
+	)
+tergmBETA = tergmBETA %>% getCIVecs() %>% getSigVec()
+tergmBETA$model = 'TERGM'
+varKey = rbind(varKey,
+	c('Reciprocity', 'Reciprocity'),
+	c('GWESP (0.5)', 'GWESP') )
+
 # org ame results
 ameBETA = t(apply(ameFits$base$BETA, 2, summStats))
 colnames(ameBETA) = c('mean','lo95','hi95','lo90','hi90')
@@ -53,7 +69,7 @@ ameBETA$model = 'AME'
 # ameBETA = gather(ameBETA, key='stat',value='ameValue', -var)
 
 # merge
-ggBETA = rbind(ameBETA, glmBETA[,names(ameBETA)])
+ggBETA = rbind(ameBETA, glmBETA[,names(ameBETA)], tergmBETA[,names(ameBETA)])
 
 # clean up var names
 ggBETA$varClean = varKey$clean[match(ggBETA$var, varKey$dirty)]
@@ -62,7 +78,7 @@ ggBETA$varClean = factor(ggBETA$varClean, levels=rev(varKey$clean))
 
 ################
 posDodge=.75
-ame_glm_compare = ggplot(ggBETA, aes(x=varClean, y=mean, color=sig, group=model, shape=model)) +
+coefCompare = ggplot(ggBETA, aes(x=varClean, y=mean, color=sig, group=model, shape=model)) +
 	geom_hline(aes(yintercept=0), linetype=2, color = "black") + 
 	geom_linerange(aes(ymin=lo90, ymax=hi90),alpha = 1, size = 1.5,
 		position=position_dodge(width = posDodge)) + 
@@ -78,5 +94,5 @@ ame_glm_compare = ggplot(ggBETA, aes(x=varClean, y=mean, color=sig, group=model,
 		panel.border=element_blank(),
 		axis.ticks=element_blank()
 	)	
-ggsave(ame_glm_compare, file=paste0(pathGraphics, 'ame_v_glm.pdf'), width=5, height=7)
+ggsave(coefCompare, file=paste0(pathGraphics, 'ame_v_glm_v_tergm.pdf'), width=5, height=7)
 ################

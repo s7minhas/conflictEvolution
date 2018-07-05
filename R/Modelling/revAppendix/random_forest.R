@@ -88,7 +88,7 @@ rfOutSamp = function(rfForm, cores=4){
 			rfData = na.omit(rfData)
 			rfData$value = factor(rfData$value)
 			# default 500 trees
-			fit = randomForest(rfForm, data=rfData, na.action=na.omit)
+			fit = randomForest(rfForm, data=rfData, na.action=na.omit, ntree=500)
 			return(fit) }
 	stopCluster(cl)
 
