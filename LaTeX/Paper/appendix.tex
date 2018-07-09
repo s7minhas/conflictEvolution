@@ -117,7 +117,7 @@ Figure~\ref{betaTrace} below shows trace plots for the parameters summarized in 
 \clearpage
 \subsection{Trace plots for parameter estimates when using fatality threshold}
 
- Figure~\ref{betaTrace_fatalities} below shows trace plots for an alternative formulation of the model we presented in the paper. Specifically, here in defining the dependent variable from ACLED, we only set $y_{ij}=1$ when the corresponding battle between $i$ and $j$ led to at least one fatality. The results here are consistent with the model discussed in Figure 4 of the manuscript.
+ Figure~\ref{betaTrace_fatalities} below shows trace plots for an alternative formulation of the model we presented in the paper. Specifically, we only set $y_{ij}=1$ when the corresponding battle between $i$ and $j$ led to at least one fatality. The results here are consistent with the model discussed in Figure 4 of the manuscript.
 
 \begin{figure}[ht]
 	\centering
@@ -130,7 +130,7 @@ Figure~\ref{betaTrace} below shows trace plots for the parameters summarized in 
 \clearpage
 \subsection{Trace plots for parameter estimates when setting battles to be symmetric}
 
- Figure~\ref{betaTrace_symmetric} below shows trace plots for an alternative formulation of the model we presented in the paper. Specifically, here in defining the dependent variable from ACLED, when $y_{ij}=1$ we set $y_{ji}=1$ as well. The results here are consistent with the model discussed in Figure 4 of the manuscript.
+ Figure~\ref{betaTrace_symmetric} below shows trace plots for an alternative formulation of the model we presented in the paper. Specifically, when $y_{ij}=1$ we set also set $y_{ji}=1$. The results here are consistent with the model discussed in Figure 4 of the manuscript.
 
 \begin{figure}[ht]
 	\centering
@@ -198,7 +198,7 @@ To provide an alternative test of the predictive performance of AME, we compare 
 	\includegraphics[width=.4\textwidth]{roc_outSample_randForest} & 
 	\includegraphics[width=.4\textwidth]{rocPr_outSample_randForest}
 	\end{tabular}
-	\caption{Assessments of out-of-sample predictive performance using ROC curves, separation plots, and PR curves. AUC statistics are provided as well for both curves. In each curve, the AME model is in blue, RF is denoted in purple, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in red.}
+	\caption{Assessments of out-of-sample predictive performance using ROC curves, separation plots, and PR curves. AUC statistics are provided for both curves. In each curve, the AME model is in blue, RF is denoted in purple, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in red.}
 	\label{fig:roc_rf}
 \end{figure}
 \FloatBarrier
@@ -208,7 +208,7 @@ We visualize the results of the RF model alongside the results presented in the 
 \clearpage
 \subsection{Temporal Forecasting Performance}
 
-Scholars of violence are often concerned with models abilities to generated forecasts of future events. To do this, we compare the AME and GLM models' abilities to predict battles in the final year of our data with those in the rest of the data.
+Scholars of violence are often concerned with models' abilities to generate forecasts of future events. To do this, we compare the AME and GLM models' abilities to predict battles in the final year of our data with those in the rest of the data.
 
 \begin{figure}[ht]
 	\centering
@@ -236,7 +236,7 @@ Figure~\ref{netGOF} presents an assessment of how well our model captures the ne
 \clearpage
 \subsection{Additive and Multiplicative Effects Gibbs Sampler}
 
-To estimate, the effects of our exogenous variables and latent attributes we utilize a Bayesian probit model in which we sample from the posterior distribution of the full conditionals until convergence. Specifically, given observed data $\textbf{Y}$ and $\textbf{X}$ -- where $\textbf{X}$ is a design array that includes our sender, receiver, and dyadic covariates -- we estimate our network of binary ties using a probit framework where: $y_{ij,t} = 1(\theta_{ij,t}>0)$ and $\theta_{ij,t} = \bm\beta^{\top}\mathbf{X}_{ij,t} + a_{i} + b_{j} + \textbf{u}_{i}^{\top} \textbf{D} \textbf{v}_{j} + \epsilon_{ij}$. 
+To estimate the effects of our exogenous variables and latent attributes we utilize a Bayesian probit model in which we sample from the posterior distribution of the full conditionals until convergence. Specifically, given observed data $\textbf{Y}$ and $\textbf{X}$ -- where $\textbf{X}$ is a design array that includes our sender, receiver, and dyadic covariates -- we estimate our network of binary ties using a probit framework where: $y_{ij,t} = 1(\theta_{ij,t}>0)$ and $\theta_{ij,t} = \bm\beta^{\top}\mathbf{X}_{ij,t} + a_{i} + b_{j} + \textbf{u}_{i}^{\top} \textbf{D} \textbf{v}_{j} + \epsilon_{ij}$. 
 
 Prior distributions for the parameters are specified as follows: 
 
@@ -278,14 +278,14 @@ In this section, we explore how conflict dynamics may vary over time. To do this
 	\label{fig:ameTime}
 \end{figure}
 
-Even though we are not able to include a measure within this model highlighting the effect of Boko Haram's entrance on the Nigerian conflict network, we can somewhat observe the impact that this group's entrance had. Boko Haram entered the network in 2009, and we can see that the estimated Intercept parameter increases notably after that time point. 
+Even though we are not able to include a measure within this model highlighting the effect of Boko Haram's entrance on the Nigerian conflict network, we can somewhat observe the impact of this group's entrance in the network. Boko Haram entered the network in 2009, and we can see that the estimated Intercept parameter increases notably after that time point. 
 
 When running the model in this disaggregated way, we also continue to see little support for the effects of ``Riots/Protests'' at the sender or receiver level. Additionally, we can see that estimates for the effects of ``Violent Events Against Civilians'' and ``Geographic Spread'' both tend to be positive at the various temporal periods, which is also in accordance with the results that we present in the paper.  
 
 \clearpage
 \subsection{Comparison with GLM \& TERGM Estimates}
 
-We also compare parameter estimates returned from AME, a generalized linear model with a probit link, and a temporal exponential random graph model (TERGM). The AME is parameterized as discussed already in the paper with $K=2$. The GLM is estimated with the same covariates as used by the AME. 
+We also compare parameter estimates returned from AME, a generalized linear model with a probit link, and a temporal exponential random graph model (TERGM). The AME is parameterized as discussed already in the paper with $K=2$. The GLM is estimated with the same covariates used by the AME. 
 
 For the TERGM analysis we again include the same exogenous covariates and also include two additional network terms to capture higher order dependencies: reciprocity and a geometric edge-wise shared partner term (GWESP). The reciprocity term captures the likelihood of actors reciprocating a conflictual tie. The GWESP term corresponds to the number of triangles a potential tie between actors $i$ and $j$ would ``close,'' but discounts higher numbers by a factor $\alpha$ \citep{hunter:handcock:2006,morris:etal:2008}.\footnote{We fix $\alpha$ to 0.5 based on goodness-of-fit tests. When $\alpha$ is set to zero, all edges that have at least one shared partner are counted exactly the same.} A positive GWESP coefficient indicates that there is a tendency for multiple indirect ties of length two between actors in conflict. This is essentially just a measure of the level of transitivity in a network. Given concerns with bias and poor coverage in ERGMS estimated via pseudolikelihood, we utilize an MCMC-MLE estimation procedure \citep{lubbers:snijders:2007,vanduijn:etal:2009}. 
 
@@ -301,7 +301,7 @@ The parameter estimates between the three models, presented in Figure~\ref{fig:a
 
 \clearpage
 \section{References}
-\bibliography{/Users/s7m/whistle/master}
-% \bibliography{/Users/cassydorff/ProjectsGit/whistle/master}
+%\bibliography{/Users/s7m/whistle/master}
+ \bibliography{/Users/cassydorff/ProjectsGit/whistle/master}
 \bibliographystyle{jpr}
 \end{document}
