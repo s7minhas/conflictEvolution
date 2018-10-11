@@ -5,7 +5,8 @@ if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){
 if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){
 	source('~/ProjectsGit/conflictEvolution/R/setup.R') }
 if(Sys.info()['user']=='maxgallop'){ source('~/Documents/conflictEvolution/R/setup.R') }
-loadPkg('devtools') ; devtools::install_github('s7minhas/amen') ; library(amen)
+#loadPkg('devtools') ; devtools::install_github('s7minhas/amen')
+library(amen)
 ################
 
 ################
@@ -15,7 +16,6 @@ load(paste0(pathResults, 'ameResults.rda'))
 
 # crossval params
 seed=6886
-folds=30
 
 # data
 yrs = char(2000:2016) ; yList = yList[yrs]
@@ -25,7 +25,7 @@ xColL = designArrays$base$recCovar ; recVars = paste0(dimnames(xColL[[1]])[[2]],
 ################
 
 ################
-glmOutSamp = function(glmForm){
+glmOutSamp = function(glmForm, folds=30){
 	################
 	# divide dataset into folds
 	set.seed(seed)
@@ -145,6 +145,20 @@ glmOutSamp_wFullSpec=glmOutSamp( glmForm=modSpecFull )
 
 # ame full spec + lag DV
 glmOutSamp_wFullSpecLagDV=glmOutSamp( glmForm=modSpecFullLagDV )
+
+# # vary fold size
+# foldSizes = seq(5,30,5)
+# glmOutSamp_varFoldSize=lapply(foldSizes, function(fSize){
+# 	mod=glmOutSamp( glmForm=modSpecFullLagDV,  folds=fSize)
+# 	return(mod) })
+
+# predDfs = lapply(1:length(foldSizes), function(i){
+# 	perf=cbind(
+# 		glmOutSamp_varFoldSize[[i]]$outPerf, 
+# 		model=paste0('k=',foldSizes[i]))
+# 	return(perf)
+# })
+# names(predDfs) = paste0('k=',foldSizes)
 
 # save
 save(
