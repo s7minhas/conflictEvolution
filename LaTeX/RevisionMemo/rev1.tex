@@ -1,0 +1,41 @@
+\section{Reviewer 1}
+
+\subsection{Major Comments}
+
+\begin{enumerate}
+	\item The research objective of this paper should be clarified. I can see four different aims that are addressed at least partially in this paper. The first is to develop the best performing classifier to predict battles in a civil conflict. The second is to understand whether a latent variable network model performs better than GLM in predicting battles, with the intent of interpreting the performance gain as the benefit of accounting for network dependencies. The third is to develop an explanatory model of battles from which we can learn about the factors that serve as indicators of civil conflict. The first is to propose and illustrate the application of a latent variable network model that can incorporate exogenous variation in the vertex set. Once the authors clarify their objective, it would be useful to provide additional analysis that builds toward their aim. For example, if the goal is to develop an effective classifier, it would be valuable to see comparisons to random forests, neural networks, and other learning approaches at are designed to optimize predictive performance.
+	\begin{itemize}
+		\item \textcolor{blue}{ \emph{
+		Thank you for this very useful feedback! We hope that our revisions throughout the paper clarify the contributions of the paper. Specifically, in-line with the editor's comments, we have re-written the front end of the paper to better articulate how interactions between actors help to explain the occurrence of conflict over time and contribute to the broader literature on conflict processes. With this said, we continue to also emphasize the advantages of our approach, in terms of predictive performance and classification. As such we have added a section to the appendix in which we compare the performance of AME with a random forest (RF) model. To evaluate performance, we utilize the same cross-validation procedure as was already presented in the paper and find that AME outperforms RF in terms of both AUC (ROC) and AUC (PR). Results and discussion are included in Section A.1.6 of the Appendix. 
+		}}
+	\end{itemize}	
+	\item Second, the empirical modeling presented in this paper is generally very carefully executed. One aspect of the model specification that I would recommend exploring is the degree to which there is temporal heterogeneity in the parameter values. I am not an expert in civil conflict, but it seems likely that the factors governing battle instances will shift over time throughout the conflict.
+	\begin{itemize}
+		\item \textcolor{blue}{ \emph{
+		To evaluate the temporal heterogeneity in parameter values, we split our sample into a number of temporal buckets. Results and discussion are presented in Section A.1.10 of the Appendix. The results indicate that there is clearly some heterogeneity, but as we discuss in Section A.1.10 they generally accord with the key results that we present in the paper.
+		}}
+	\end{itemize}
+	\item I recommend that the authors add the TERGM as a comparison model, or provide additional justification for not comparing their model to TERGM. For example, perhaps after the goals of the paper are clarified, it would be clear that there would be no need to compare their model to yet another network model that can account for dependence ... it would be great to see a robustness check in which the authors evaluate whether the effects of covariates are robust to modeling with TERGM.
+	\begin{itemize}
+		\item \textcolor{blue}{ \emph{
+		Section A.1.11 presents the results when estimated through a TERGM that includes endogenous terms for reciprocity and a geometrically weighted edgewise shared partners term that enables us to get at transitivty. The results from the TERGM and AME are similar. 
+		}}
+	\end{itemize}	
+\end{enumerate}
+
+\subsection{Minor Comments}
+
+\begin{enumerate}
+	\item I would like to see a discussion of setting the priors used for inference with this model. In particular, how does the specification of the priors relate to the predictive performance of the latent variable model? If the priors make any sort of difference, how should the priors be set to assure that the model performs as well as possible while also assuring that the model is not trained on the test data.
+	\begin{itemize}
+		\item \textcolor{blue}{ \emph{
+		Following this suggestion, we have provided greater details on the priors used in the sampler to Section A.1.9 of the Appendix. In general, we recommend that users employ the default priors utilized in the amen package, unless users actually have some prior knowledge that they want to incorporate into the model -- for this application paper we do not have strong knowledge from the literature about the effects of many of our exogenous covariates. From our experience setting the priors differently, does not have a substantial impact on predictive performance if the chains are given adequate computational time to converge. However, setting strong priors may impact the parameter estimates for small networks. In our application, we have interactions between 37 actors over 17 years, so changing the priors is likely to have a minimal effect. However, this is an important methodological question, and one worth exploring in the future.
+		}}
+	\end{itemize}	
+	\item Second, for the predictive experiment, it would be great to see if the comparison of the AME and GLM is sensitive to k---the number of groups into which the data is split ... it would be great to see if the predictive performance of AME relative to GLM varied between, say k=5 and k=20.
+	\begin{itemize}
+		\item \textcolor{blue}{ \emph{
+		Section A.1.5 of the Appendix highlights differences in out-of-sample performance when varying K from 0 to 20 at increments of five. We also include the results from the analysis presented in the paper that used $K=2$. The results in Section A.1.5 indicate that there is a clear improvement in the model fit when we incorporate the multiplicative effects, but that the improvement in performance does not significantly increase as we go from $K=2$ to $K=5$ or even $K=20$. This is an indication that a model with $K=2$ is sufficient to capture the higher order dependence patterns in our longitudinal conflict network. 
+		}}
+	\end{itemize}	
+\end{enumerate}

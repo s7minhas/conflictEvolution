@@ -1,0 +1,307 @@
+\documentclass[10pt,pdflatex,authoryear]{elsarticle} 
+\usepackage[pdftex,hyperref,x11names]{xcolor}
+% load the hyper-references package and set document info
+\usepackage[pdftex]{hyperref}
+
+% Generate some fake text
+\usepackage{blindtext}
+
+% layout control
+\usepackage{geometry}
+\geometry{verbose,tmargin=1.25in,bmargin=1.25in,lmargin=1.1in,rmargin=1.1in}
+\usepackage{parallel}
+\usepackage{parcolumns}
+\usepackage{fancyhdr}
+
+% math typesetting
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{relsize}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage[%
+decimalsymbol=.,
+digitsep=fullstop
+]{siunitx}
+
+\usepackage[section]{placeins}
+
+% tables
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{arydshln}
+
+% to adapt caption style
+\usepackage[font={small},labelfont=bf]{caption}
+
+% footnotes at bottom
+\usepackage[bottom]{footmisc}
+   \renewcommand{\footnotelayout}{\doublespacing} % set spacing in footnotes
+   \newlength{\myfootnotesep}
+   \setlength{\myfootnotesep}{\baselineskip}
+   \addtolength{\myfootnotesep}{-\footnotesep}
+   \setlength{\footnotesep}{\myfootnotesep} % set spacing between footnotes
+
+% to change enumeration symbols begin{enumerate}[(a)]
+\usepackage{enumerate}
+
+% to make enumerations and itemizations within paragraphs or
+% lines. f.i. begin{inparaenum} for (a) is (b) and (c)
+\usepackage{paralist}
+
+% graphics stuff
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage[space]{grffile} % allows us to specify directories that have spaces
+\usepackage{placeins} % prevents floats from moving past a \FloatBarrier
+\usepackage{tikz}
+
+% sideway figures
+\usepackage{rotating}
+\usepackage{lscape}
+
+% Spacing
+\usepackage[singlespacing]{setspace}
+
+% remove silly elsevier preprint note
+\makeatletter
+\def\ps@pprintTitle{%
+ \let\@oddhead\@empty
+ \let\@evenhead\@empty
+ \def\@oddfoot{}%
+ \let\@evenfoot\@oddfoot}
+
+\def\input@path{
+	{/Users/janus829/Dropbox/Research/conflictEvolution/graphics/}, 	{/Users/s7m/Dropbox/Research/conflictEvolution/graphics/}, 	{/Users/cassydorff/Dropbox/Research/nothingbutnet/conflictEvolution/graphics/}
+	       {/Users/maxgallop/Dropbox/conflictEvolutionMex/graphics/} 
+}
+
+\graphicspath{
+	{/Users/janus829/Dropbox/Research/conflictEvolution/graphics/}, 	{/Users/s7m/Dropbox/Research/conflictEvolution/graphics/}, 	{/Users/cassydorff/Dropbox/Research/nothingbutnet/conflictEvolution/graphics/}
+	        {/Users/maxgallop/Dropbox/conflictEvolutionMex/graphics/}  
+}
+
+\makeatother
+
+\begin{document}
+
+
+
+\renewcommand{\thefigure}{A\arabic{figure}}
+\setcounter{figure}{0}
+\renewcommand{\thetable}{A.\arabic{table}}
+\setcounter{table}{0}
+\renewcommand{\thesection}{A.\arabic{section}}
+\setcounter{section}{0}
+
+\large{}
+\section{\textbf{Appendix: Network of Violence}}
+
+\subsection{Trace plots for parameter estimates}
+
+Figure~\ref{betaTrace} below shows trace plots for the parameters summarized in Figure 4 of the manuscript.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.88\textwidth]{betaTrace}
+	\caption{Trace plots for exogenous parameters.}
+	\label{betaTrace}
+	\end{figure}
+\FloatBarrier
+
+\clearpage
+\subsection{Trace plots for parameter estimates when using fatality threshold}
+
+ Figure~\ref{betaTrace_fatalities} below shows trace plots for an alternative formulation of the model we presented in the paper. Specifically, we only set $y_{ij}=1$ when the corresponding battle between $i$ and $j$ led to at least one fatality. The results here are consistent with the model discussed in Figure 4 of the manuscript.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.88\textwidth]{betaTrace_fatalities}
+	\caption{Trace plots for exogenous parameters.}
+	\label{betaTrace_fatalities}
+	\end{figure}
+\FloatBarrier
+
+\clearpage
+\subsection{Trace plots for parameter estimates when setting battles to be symmetric}
+
+ Figure~\ref{betaTrace_symmetric} below shows trace plots for an alternative formulation of the model we presented in the paper. Specifically, when $y_{ij}=1$ we set also set $y_{ji}=1$. The results here are consistent with the model discussed in Figure 4 of the manuscript.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.88\textwidth]{betaTrace_symmetric}
+	\caption{Trace plots for exogenous parameters.}
+	\label{betaTrace_symmetric}
+	\end{figure}
+\FloatBarrier
+
+\clearpage
+\subsection{Trace plots for parameter estimates when excluding Government actors}
+
+ Figure~\ref{betaTrace_rebelGroup} below shows trace plots for an alternative formulation of the model we presented in the paper. Specifically, here we exclude government actors from the analysis. The results here are mostly consistent with the model discussed in Figure 4 of the manuscript.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.88\textwidth]{betaTrace_rebelGroupOnly}
+	\caption{Trace plots for exogenous parameters.}
+	\label{betaTrace_rebelGroup}
+	\end{figure}
+\FloatBarrier
+
+\clearpage
+\subsection{Performance under varying multiplicative effect dimensions}
+
+Here we explore variations in out-of-sample performance when varying $K$, the dimension of the multiplicative effects. We use the same cross-validation procedure as discussed in the \textit{Out-of-Sample Performance Analysis} section of the paper. Undertaking this type of analysis is a useful way to make sure that $K$ has been set high enough to adequately represent third order dependence patterns in the network. Results are shown below in Table~\ref{tab:ame_vark}. For comparison purposes, the first row of the table below provides results for $K=2$. 
+
+% latex table generated in R 3.5.0 by xtable 1.8-2 package
+% Wed Jul  4 20:17:06 2018
+\begin{table}[ht]
+\centering
+\begingroup\normalsize
+\begin{tabular}{lcc}
+\hline\hline
+	& AUC (ROC) & AUC (PR) \\ 
+	\hline
+	AME (K=2) & 0.926 & 0.331 \\ 
+	\hdashline
+	AME (K=0) & 0.863 & 0.180 \\ 
+	AME (K=5) & 0.934 & 0.348 \\ 
+	AME (K=10) & 0.934 & 0.348 \\ 
+	AME (K=15) & 0.935 & 0.349 \\ 
+	AME (K=20) & 0.931 & 0.346 \\ 
+   \hline \hline
+\end{tabular}
+\endgroup
+\caption{Out-of-sample performance statistics by varying dimensions of multiplicative effects in AME.} 
+\label{tab:ame_vark}
+\end{table}
+\FloatBarrier
+
+The first row in Table~\ref{tab:ame_vark} provides AUC (ROC) and AUC (PR) statistics for $K=2$. The next row provides performance statistics when increasing $K$ from 0 to 20 at increments of five. We can see that setting $K=0$, i.e., not including any multiplicative effects, leads to a model that performs relatively poorly in terms of being able to reproduce the network in an out-of-sample context. The poor performance of the $K=0$ model speaks to the need of accounting for higher order dependence patterns in our longitudinal conflict network.
+
+When we compare the improvement in performance by increasing $K$ from 2 to 5, the results indicate that there are only minor performance benefits to increasing $K$. Users of AME should keep in mind that whenever $K$ increases by just one increment we are adding $2*n$ parameters to the model. Thus $K$ should be set conservatively. When we increase $K$ from 2 to even 15, we see no notable performance increase. This is an indication that setting the dimensions of the multiplicative effects to two is adequate for representing the higher order dependence patterns in this network.
+
+\clearpage
+\subsection{Performance comparison with Random Forest}
+
+To provide an alternative test of the predictive performance of AME, we compare it to a random forest (RF) model. The features that we pass to the random forest model include each of the exogenous covariates included in the AME along with a lagged version of the dependent variable. We run the random forest model with 500 trees, and undertake the same cross-validation procedure as discussed in the paper to assess out-of-sample performance. Results are shown in Figure~\ref{fig:roc_rf} below. 
+
+% \clearpage
+\begin{figure}[ht]
+	\centering
+	\begin{tabular}{cc}
+	\includegraphics[width=.4\textwidth]{roc_outSample_randForest} & 
+	\includegraphics[width=.4\textwidth]{rocPr_outSample_randForest}
+	\end{tabular}
+	\caption{Assessments of out-of-sample predictive performance using ROC curves, separation plots, and PR curves. AUC statistics are provided for both curves. In each curve, the AME model is in blue, RF is denoted in purple, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in red.}
+	\label{fig:roc_rf}
+\end{figure}
+\FloatBarrier
+
+We visualize the results of the RF model alongside the results presented in the paper. Our AME model still outperforms the RF model in terms of both AUC (ROC) and AUC (PR). We would argue that the reason the AME continues to outperform even an RF model is because the AME is estimating additional terms to account for the underlying structure of the longitudinal conflict network. 
+
+\clearpage
+\subsection{Temporal Forecasting Performance}
+
+Scholars of violence are often concerned with models' abilities to generate forecasts of future events. To do this, we compare the AME and GLM models' abilities to predict battles in the final year of our data with those in the rest of the data.
+
+\begin{figure}[ht]
+	\centering
+	\begin{tabular}{cc}
+	\includegraphics[width=.45\textwidth]{roc_outSampleForecast_1} & 
+	\includegraphics[width=.45\textwidth]{rocPr_outSampleForecast_1}
+	\end{tabular}
+	\caption{Assessments of out-of-sample predictive performance when forecasting out the last period using ROC curves, separation plots, and PR curves. AUC statistics are provided as well for both curves. In each curve, the AME model is in blue, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in red.}
+	\label{fig:roc_ameForecast}
+\end{figure}
+
+\clearpage
+\subsection{Network Goodness of Fit Assessment}
+
+Figure~\ref{netGOF} presents an assessment of how well our model captures the network attributes of the conflict system in Nigeria on a variety of dimensions. For details on interpreting this diagnostic see \citet{minhas:etal:2018}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{netGOF}
+	\caption{Network goodness of fit summary.}
+	\label{netGOF}
+	\end{figure}
+\FloatBarrier
+
+\clearpage
+\subsection{Additive and Multiplicative Effects Gibbs Sampler}
+
+To estimate the effects of our exogenous variables and latent attributes we utilize a Bayesian probit model in which we sample from the posterior distribution of the full conditionals until convergence. Specifically, given observed data $\textbf{Y}$ and $\textbf{X}$ -- where $\textbf{X}$ is a design array that includes our sender, receiver, and dyadic covariates -- we estimate our network of binary ties using a probit framework where: $y_{ij,t} = 1(\theta_{ij,t}>0)$ and $\theta_{ij,t} = \bm\beta^{\top}\mathbf{X}_{ij,t} + a_{i} + b_{j} + \textbf{u}_{i}^{\top} \textbf{D} \textbf{v}_{j} + \epsilon_{ij}$. 
+
+Prior distributions for the parameters are specified as follows: 
+
+\begin{itemize}
+  \item $\bm{\beta}$ are drawn from multivariate normals with mean zero and a covariance matrix in which the covariances are set to zero and variances to 10
+  \item $\Sigma_{a,b} \sim \text{ inverse Wishart}(I_{2\times 2}, 4)$
+  \item $\sigma_u^2$, and $\sigma_v^2$ are each drawn from an i.i.d. inverse gamma(1,1).
+\end{itemize}
+
+The derivation of the full conditionals is described in detail in \citet{hoff:2005} and \citet{hoff:2008}, thus here we only outline the Markov chain Monte Carlo (MCMC) algorithm for the AME model that we utilize in this paper.
+
+\begin{itemize}
+ \item Given initial values of $\{\bm\beta, \textbf{a}, \textbf{b}, \textbf{U}, \textbf{V}, \Sigma_{ab}, \rho, \text{ and } \sigma_{\epsilon}^{2}\}$, the algorithm proceeds as follows:
+ \begin{itemize}
+ 	\item sample $\bm\theta \; | \;  \bm\beta, \textbf{X}, \bm\theta, \textbf{a}, \textbf{b}, \textbf{U}, \textbf{V}, \Sigma_{ab}, \rho, \text{ and } \sigma_{\epsilon}^{2}$ (Normal)
+ 	\item sample $\bm\beta \; | \;  \textbf{X}, \bm\theta, \textbf{a}, \textbf{b}, \textbf{U}, \textbf{V}, \Sigma_{ab}, \rho, \text{ and } \sigma_{\epsilon}^{2}$ (Normal)
+ 	\item sample $\textbf{a}, \textbf{b} \; | \; \bm\beta, \textbf{X}, \bm\theta, \textbf{U}, \textbf{V}, \Sigma_{ab}, \rho, \text{ and } \sigma_{\epsilon}^{2}$ (Normal)
+	\item sample $\Sigma_{ab} \; | \; \bm\beta, \textbf{X}, \bm\theta, \textbf{a}, \textbf{b}, \textbf{U}, \textbf{V}, \rho, \text{ and } \sigma_{\epsilon}^{2}$ (Inverse-Wishart)
+ 	\item update $\rho$ using a Metropolis-Hastings step with proposal $p^{*} | p  \sim$ truncated normal$_{[-1,1]}(\rho, \sigma_{\epsilon}^{2})$
+ 	\item sample $\sigma_{\epsilon}^{2} \; | \; \bm\beta, \textbf{X}, \bm\theta, \textbf{a}, \textbf{b}, \textbf{U}, \textbf{V}, \Sigma_{ab}, \text{ and } \rho$ (Inverse-Gamma)
+ 	\item For each $k \in K$:
+ 	\begin{itemize}
+ 		\item Sample $\textbf{U}_{[,k]} \; | \; \bm\beta, \textbf{X}, \bm\theta, \textbf{a}, \textbf{b}, \textbf{U}_{[,-k]}, \textbf{V}, \Sigma_{ab}, \rho, \text{ and } \sigma_{\epsilon}^{2}$ (Normal)
+ 		\item Sample $\textbf{V}_{[,k]} \; | \; \bm\beta, \textbf{X}, \bm\theta, \textbf{a}, \textbf{b}, \textbf{U}, \textbf{V}_{[,-k]}, \Sigma_{ab}, \rho, \text{ and } \sigma_{\epsilon}^{2}$ (Normal)
+ 		\item Sample $\textbf{D}_{[k,k]}  \; | \; \bm\beta, \textbf{X}, \bm\theta, \textbf{a}, \textbf{b}, \textbf{U}, \textbf{V}, \Sigma_{ab}, \rho, \text{ and } \sigma_{\epsilon}^{2}$ (Normal)\footnote{Subsequent to estimation, \textbf{D} matrix is absorbed into the calculation for $\textbf{V}$ as we iterate through $K$. }
+ 	\end{itemize}
+ \end{itemize}
+\end{itemize}
+
+\clearpage
+\subsection{Parameter estimates over time}
+
+In this section, we explore how conflict dynamics may vary over time. To do this we, bucket our longitudinal conflict network into six periods: 2000-2002, 2003-2005, 2006-2008, 2009-2011, 2012-2014, and 2015-2016. We then estimate separate AME models for each time period using a specification that is similar to that reported in the \textbf{Results} section of the paper. We do have to exclude two time-dependent parameters: ``Post-Boko Haram Period$_{t}$'', ``Neighborhood Conflict$_{t}$'', and ``Election Year$_{t}$''. Parameter estimates for the exogenous covariates are shown in Figure~\ref{fig:ameTime} below. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1\textwidth]{ameTime}
+	\caption{Parameter estimates when running AME on finer temporal periods.}
+	\label{fig:ameTime}
+\end{figure}
+
+Even though we are not able to include a measure within this model highlighting the effect of Boko Haram's entrance on the Nigerian conflict network, we can somewhat observe the impact of this group's entrance in the network. Boko Haram entered the network in 2009, and we can see that the estimated Intercept parameter increases notably after that time point. This is a crude indication that the average level of conflict in the system increases over time.
+
+When running the model in this disaggregated way, we also continue to see little support for the effects of ``Riots/Protests'' at the sender or receiver level. Additionally, we can see that estimates for the effects of ``Violent Events Against Civilians'' and ``Geographic Spread'' both tend to be positive at the various temporal periods, which is also in accordance with the results that we present in the paper.  
+
+\clearpage
+\subsection{Comparison with GLM \& TERGM Estimates}
+
+We also compare parameter estimates returned from AME, a generalized linear model with a probit link, and a temporal exponential random graph model (TERGM). The AME is parameterized as discussed already in the paper with $K=2$. The GLM is estimated with the same covariates used by the AME. 
+
+For the TERGM analysis we again include the same exogenous covariates and also include two additional network terms to capture higher order dependencies: reciprocity and a geometric edge-wise shared partner term (GWESP). The reciprocity term captures the likelihood of actors reciprocating a conflictual tie. The GWESP term corresponds to the number of triangles a potential tie between actors $i$ and $j$ would ``close,'' but discounts higher numbers by a factor $\alpha$ \citep{hunter:handcock:2006,morris:etal:2008}.\footnote{We fix $\alpha$ to 0.5 based on goodness-of-fit tests. When $\alpha$ is set to zero, all edges that have at least one shared partner are counted exactly the same.} A positive GWESP coefficient indicates that there is a tendency for multiple indirect ties of length two between actors in conflict. This is essentially just a measure of the level of transitivity in a network. We estimate the TERGM via MCMC-MLE. 
+
+The parameter estimates between the three models, presented in Figure~\ref{fig:ameglmtergm}, are largely similar. The ``Post-Boko Haram'' coefficient is positive and significant across each of the models. Additionally, the ``Geographic Spread'' and ``Violent Events Against Civilians'' coefficients are significant and positive for both sender and receivers. Additionally, the TERGM analysis finds strong evidence for the presence of reciprocity and transitivity in this conflict network, which accords with the findings from the AME.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.7\textwidth]{ame_v_glm_v_tergm}
+	\caption{Comparison of AME, GLM, and TERGM estimates. Dark red and dark blue lines denote coefficients that are significant at a 95\% level, and those in light red or blue are significant at a 90\% level.}
+	\label{fig:ameglmtergm}
+	\end{figure}
+\FloatBarrier
+
+\clearpage
+\section{References}
+\bibliography{/Users/s7m/whistle/master}
+ % \bibliography{/Users/cassydorff/ProjectsGit/whistle/master}
+\bibliographystyle{jpr}
+\end{document}
