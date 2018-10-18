@@ -5,11 +5,7 @@ if(Sys.info()['user']=='janus829' | Sys.info()['user']=='s7m'){
 if(Sys.info()['user']=='cassydorff' | Sys.info()['user']=='cassydorff'){
 	source('~/ProjectsGit/conflictEvolution/R/setup.R') }
 if(Sys.info()['user']=='maxgallop'){ source('~/Documents/conflictEvolution/R/setup.R') }
-<<<<<<< HEAD
 loadPkg('devtools') ; devtools::install_github('s7minhas/amen') ; library(amen)
-=======
-library(amen)
->>>>>>> refs/remotes/origin/master
 ################
 
 ################
@@ -19,10 +15,7 @@ load(paste0(pathResults, 'ameResults.rda'))
 
 # crossval params
 seed=6886
-<<<<<<< HEAD
 folds=30
-=======
->>>>>>> refs/remotes/origin/master
 
 # data
 yrs = char(2000:2016) ; yList = yList[yrs]
@@ -32,11 +25,7 @@ xColL = designArrays$base$recCovar ; recVars = paste0(dimnames(xColL[[1]])[[2]],
 ################
 
 ################
-<<<<<<< HEAD
-glmOutSamp = function(glmForm){
-=======
 glmOutSamp = function(glmForm, folds=30){
->>>>>>> refs/remotes/origin/master
 	################
 	# divide dataset into folds
 	set.seed(seed)
