@@ -47,7 +47,7 @@ names(ameFits) = names(designArrays)
 # save
 save(
 	ameFits, designArrays,
-	file=paste0(pathResults, 'ameResults.rda')
+	file='ameResults.rda'
 	)
 ################
 
@@ -73,6 +73,9 @@ varKey = varKey[c(9,2,5,3,6,4,7,10,11,8,1),]
 ################
 
 ################
+# bring in covar data in rect format
+load('glmResults.rda')
+
 # calc standardized reg coefs
 sdY = sd(gfitFullSpec$data$value)
 xVars = colnames(ameFits$base$BETA) %>% gsub('.dyad','',.) %>% .[-1]
@@ -147,5 +150,51 @@ ggCoef=ggplot(ameBETA, aes(x=varClean, y=mean, color=sig)) +
 			angle=0, hjust=.95),
 		strip.background = element_rect(fill = "#525252", color='#525252')				
 	)
-ggsave( ggCoef, file='figure4.pdf', width=7, height=6 )
+ggsave( ggCoef, file='figure4_top.pdf', width=7, height=6 )
+################
+
+################
+# labs
+vcKey = data.frame(dirty=colnames(ameFits$base$VC)[-ncol(ameFits$base$VC)], stringsAsFactors = FALSE) 
+vcKey$clean = c(
+	'Within-Sender\nVariance ($\\sigma_{a]^{2}$)',
+	'Sender-Receiver\nCovariance ($\\sigma_{ab]$)',
+	'Within-Receiver\nVariance ($\\sigma_{b]^{2}$)',
+	'Reciprocity ($\\rho$)'
+	)
+################
+
+################
+# org data
+vc = t(apply(ameFits$base$VC[,-ncol(ameFits$base$VC)], 2, summStats))
+colnames(vc) = c('mean','lo95','hi95','lo90','hi90')
+vc = data.frame(vc, stringsAsFactors = FALSE)
+vc$var = rownames(vc) ; rownames(vc) = NULL
+vc$varClean = vcKey$clean[match(vc$var, vcKey$dirty)]
+vc$varClean = factor(vc$varClean, levels=rev(vcKey$clean[c(1,3,2,4)]))
+################
+
+################
+# plot
+vc$varClean = factor(vc$varClean, levels=vcKey$clean[c(1,3,2,4)])
+vc$sig = 'Positive'
+vc$bigLab = 'SRRM Parameters'
+ggVC = ggplot(vc, aes(x=varClean, y=mean, color=sig)) + 
+	geom_hline(aes(yintercept=0), linetype=2, color = "black") + 
+	geom_point(size=2.5) + 
+	geom_linerange(aes(ymin=lo95,ymax=hi95), linetype=1, size=.5) + 
+	geom_linerange(aes(ymin=lo90,ymax=hi90), linetype=1, size=1.5) + 
+	scale_color_manual(values=coefp_colors) + 
+	facet_wrap(~bigLab) + 
+	scale_x_discrete('',labels=TeX(levels(rev(vc$varClean)))) + ylab('') +
+	theme(
+		legend.position = 'none',
+		axis.ticks=element_blank(),
+		panel.border=element_blank(),
+		axis.text.x=element_text(vjust=-1),
+		strip.text.x = element_text(size = 10, color='white',
+			angle=0, hjust=.03),
+		strip.background = element_rect(fill = "#525252", color='#525252')
+		)
+ggsave(ggVC, file='figure4_bottom.pdf', width=8, height=2)
 ################
