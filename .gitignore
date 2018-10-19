@@ -13,7 +13,6 @@
 *.xls
 *.xlsx
 *.csv
-*.rda
 *.Rdata
 *.pyc
 *.DS_Store
