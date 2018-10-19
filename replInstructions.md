@@ -9,7 +9,7 @@ Replicating the figures and tables in the **main** text will take only a few min
 
 #### Setup information
 
-All of the analyses reported in the manuscript and the appendix were run on a Macbook 15" Pro with the following session information for R (further information on packages used in the analysis is included at the end of the README): 
+All of the analyses reported in the manuscript and the appendix were run on a Macbook 15" Pro with the following R session information (further information on packages used in the analysis is included at the end of the README): 
 
 ```
 R version 3.5.0 (2018-04-23)
@@ -34,14 +34,14 @@ loaded via a namespace (and not attached):
 
 Scripts should be run in the following order (each script assumes that the working directory matches the directory in which the script is stored): 
 
-- figure2.R: Create longitudinal, spatial visualization of conflict and stores results in `main/floats/figure2.pdf`
-- figure3.R: Network visualization of conflict in Nigeria from 2000-2016.
+- figure2.R: Creates longitudinal, spatial visualization of conflict and stores results in `main/floats/figure2.pdf`
+- figure3.R: Creates network visualization of conflict in Nigeria from 2000-2016.
 - figure4.R: Estimates parameters using AME in the paper.
     + Original results from the authors are already included, if the relevant files are deleted, then this script will take approximately one hour to run. 
-- figure5.R: Network visualization of conflict in Nigeria from 2000-2016 highlighting pre and post Boko Haram changes in relationships.
-- figure6.R: Visualization of additive sender/receiver effects from AME framework.
-- figure7.R: Visualization of multiplicative effects from AME framework.
-- figure8.R: Cross-validation based performance comparison. 
+- figure5.R: Creates network visualization of conflict in Nigeria from 2000-2016 highlighting pre and post Boko Haram changes in relationships.
+- figure6.R: Visualizes additive sender/receiver effects from AME framework.
+- figure7.R: Visualizes multiplicative effects from AME framework.
+- figure8.R: Conducts cross-validation based performance comparison. 
     + Original results from the authors are already included, if the relevant files are deleted, then this script will take approximately one hour to run assuming that the script is run in parallel using six cores.
 
 We have also included all the analysis necessary to generate the results in the appendix. The appendix related scripts are labeled as `figureA[...].R` and `tableA1.R`. All the results from the appendix scripts will be stored in the `appendix/floats/` directory.
