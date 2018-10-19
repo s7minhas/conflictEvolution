@@ -9,7 +9,7 @@ Replicating the figures and tables in the **main** text will take only a few min
 
 #### Setup information
 
-All of the analyses reported in the manuscript and the appendix were run on a Macbook 15" Pro with the following R session information (further information on packages used in the analysis is included at the end of the README): 
+All of the analyses reported in the manuscript and the appendix are run with the following specification (further information on packages used in the analysis is included at the end of the README): 
 
 ```
 R version 3.5.0 (2018-04-23)
@@ -34,15 +34,15 @@ loaded via a namespace (and not attached):
 
 Scripts should be run in the following order (each script assumes that the working directory matches the directory in which the script is stored): 
 
-- figure2.R: Creates longitudinal, spatial visualization of conflict and stores results in `main/floats/figure2.pdf`
-- figure3.R: Creates network visualization of conflict in Nigeria from 2000-2016.
-- figure4.R: Estimates parameters using AME in the paper.
-    + Original results from the authors are already included, if the relevant files are deleted, then this script will take approximately one hour to run. 
-- figure5.R: Creates network visualization of conflict in Nigeria from 2000-2016 highlighting pre and post Boko Haram changes in relationships.
-- figure6.R: Visualizes additive sender/receiver effects from AME framework.
-- figure7.R: Visualizes multiplicative effects from AME framework.
-- figure8.R: Conducts cross-validation based performance comparison. 
-    + Original results from the authors are already included, if the relevant files are deleted, then this script will take approximately one hour to run assuming that the script is run in parallel using six cores.
+- figure2.R: Creates longitudinal, spatial visualization of conflict and stores resulting figure in `main/floats/figure2.pdf`.
+- figure3.R: Creates network visualization of conflict in Nigeria from 2000-2016 and stores resulting figure in `main/floats/figure3.pdf`.
+- figure4.R: Estimates parameters using AME in the paper and saves resulting model to `main/ameResults.rda`. Visualizations of model results are stored in `main/floats/figure4_top.pdf` and `main/floats/figure4_bottom.pdf`.
+    + Original results from the authors are already included, if `main/ameResults.rda` is deleted, then this script will take approximately one hour to run. 
+- figure5.R: Creates network visualization of conflict in Nigeria from 2000-2016 highlighting pre and post Boko Haram changes in relationships  and stores resulting figure in `main/floats/figure5.pdf`
+- figure6.R: Visualizes additive sender/receiver effects from AME framework  and stores resulting figure in `main/floats/figure6.pdf`. For this script to run `main/ameResults.rda` must be present.
+- figure7.R: Visualizes multiplicative effects from AME framework and stores resulting figure in `main/floats/figure7.pdf`. For this script to run `main/ameResults.rda` must be present.
+- figure8.R: Conducts cross-validation to compare model performance and saves resulting model to `main/ameCrossValResults.rda` and `glmCrossValResults.rda`. Visualization of performance between AME and GLM models are stored in `main/floats/figure8a.pdf` and `main/floats/figure8b.pdf`. 
+    + Original results from the authors are already included, if `main/ameCrossValResults.rda` is deleted, then this script will take approximately one hour to run assuming that the script is run in parallel using six cores.
 
 We have also included all the analysis necessary to generate the results in the appendix. The appendix related scripts are labeled as `figureA[...].R` and `tableA1.R`. All the results from the appendix scripts will be stored in the `appendix/floats/` directory.
 
@@ -56,7 +56,7 @@ Last, please note the version of each of the libraries that our project relies o
 |caTools: 1.17.1     |countrycode: 0.16    |cshapes: 0.6    |doParallel: 1.0.11 |
 |foreach: 1.4.4      |ggmap: 2.6.1         |ggplot2: 3.0.0  |igraph: 1.2.1      |
 |latex2exp: 0.4.0    |lmtest: 0.9-36       |magrittr: 1.5   |network: 1.13.0.1  |
-|plyr: 1.8.4         |randomForest: 4.6-14 |reshape2: 1.4.3 |tidyr: 0.8.0       |
-|xtable: 1.8-2       |                     |                |                   |
+|plyr: 1.8.4         |qgraph: 1.5 |randomForest: 4.6-14 |reshape2: 1.4.3       |
+|tidyr: 0.8.0       |xtable: 1.8-2                     |                |                   |
 
 If you find any errors or have any further questions, please address them to me via email at minhassh@msu.edu.
