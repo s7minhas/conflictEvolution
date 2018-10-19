@@ -44,7 +44,7 @@ Scripts should be run in the following order (each script assumes that the worki
 - **figure8.R**: Conducts cross-validation to compare model performance and saves resulting model to `main/ameCrossValResults.rda` and `glmCrossValResults.rda`. Visualization of performance between AME and GLM models are stored in `main/floats/figure8a.pdf` and `main/floats/figure8b.pdf`. 
     + Original results from the authors are already included, if `main/ameCrossValResults.rda` is deleted, then this script will take approximately one hour to run assuming that the script is run in parallel using six cores.
 
-We have also included all the analysis necessary to generate the results in the appendix. The appendix related scripts are labeled as `figureA[...].R` and `tableA1.R`. All the results from the appendix scripts will be stored in the `appendix/floats/` directory.
+We have also included all the analysis necessary to generate the results in the appendix. The appendix related scripts are labeled as `figureA[...].R` and `tableA1.R`. Relevant graphics from the appendix scripts will be stored in the `appendix/floats/` directory.
 
 #### R package build notes
 
