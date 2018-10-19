@@ -1055,7 +1055,7 @@ body .markdown-body
 .codehilite .vi{color:teal}
 .codehilite .il{color:#009999}
 .codehilite .gc{color:#999;background-color:#EAF2F5}
-</style><title>replInstructions</title></head><body><article class="markdown-body"><h2 id="replication-instructions-for-the-paper">Replication instructions for the paper<a class="headerlink" href="#replication-instructions-for-the-paper" title="Permanent link"></a></h2>
+</style><title>README</title></head><body><article class="markdown-body"><h2 id="replication-instructions-for-the-paper">Replication instructions for the paper<a class="headerlink" href="#replication-instructions-for-the-paper" title="Permanent link"></a></h2>
 <p>The replication archive is organized into two directories (note that these files are also available on Github at <a href="https://github.com/s7minhas/conflictEvolution">https://github/s7minhas/conflictEvolution</a>):</p>
 <ul>
 <li><strong>main</strong>: contains the data files and scripts necessary to reproduce the main results in the paper</li>
@@ -1101,7 +1101,7 @@ loaded via a namespace (and not attached):
 </ul>
 <p>We have also included all the analysis necessary to generate the results in the appendix. The appendix related scripts are labeled as <code>figureA[...].R</code> and <code>tableA1.R</code>. All the results from the appendix scripts will be stored in the <code>appendix/floats/</code> directory.</p>
 <h4 id="r-package-build-notes">R package build notes<a class="headerlink" href="#r-package-build-notes" title="Permanent link"></a></h4>
-<p>Last, please note the version of each of the libraries that our project relies on (each library was built using R 3.5.0). </p>
+<p>Below we provide the version of each of the libraries that our project relies on (each library was built using R 3.5.0). Additionally, please note that we use a tailored version of <a href="http://pdhoff.github.io/amen/">Peter Hoff&rsquo;s AMEN package</a>. Installing the version of AMEN that is used in this paper can be done  with the <code>devtools</code> package by running the following command in an R session: <code>devtools::install_github('s7minhas/amen', ref='pa2018_version')</code>.</p>
 <table>
 <thead>
 <tr>
