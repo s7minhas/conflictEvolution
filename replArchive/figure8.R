@@ -261,6 +261,13 @@ glmOutSamp_wFullSpec=glmOutSamp( glmForm=modSpecFull )
 
 # ame full spec + lag DV
 glmOutSamp_wFullSpecLagDV=glmOutSamp( glmForm=modSpecFullLagDV )
+
+# save
+save(
+	glmOutSamp_wFullSpec, 
+	glmOutSamp_wFullSpecLagDV, 
+	file='glmCrossValResults.rda'
+	)
 ################
 
 ################

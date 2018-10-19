@@ -135,8 +135,6 @@ ggCoef=ggplot(ameBETA, aes(x=varClean, y=mean, color=sig)) +
 	geom_linerange(aes(ymin=lo90, ymax=hi90),alpha = 1, size = 1.5) + 
 	geom_linerange(aes(ymin=lo95,ymax=hi95),alpha = 1, size = .5) +	
 	scale_colour_manual(values = coefp_colors, guide=FALSE) +
-	scale_x_discrete('', labels=TeX(rev(cleanVars))) +	
-	ylab(TeX('$\\beta_{p} \\times \\frac{\\sigma_{x_{p}}}{\\sigma_{y}}$')) +
 	coord_flip() + 
 	theme(
 		legend.position='none', legend.title=element_blank(),
@@ -183,12 +181,11 @@ ggVC = ggplot(vc, aes(x=varClean, y=mean, color=sig)) +
 	geom_linerange(aes(ymin=lo90,ymax=hi90), linetype=1, size=1.5) + 
 	scale_color_manual(values=coefp_colors) + 
 	facet_wrap(~bigLab) + 
-	scale_x_discrete('',labels=TeX(levels(rev(vc$varClean)))) + ylab('') +
+	ylab('') + xlab('') + 
 	theme(
 		legend.position = 'none',
 		axis.ticks=element_blank(),
 		panel.border=element_blank(),
-		axis.text.x=element_text(vjust=-1),
 		strip.text.x = element_text(size = 10, color='white',
 			angle=0, hjust=.03),
 		strip.background = element_rect(fill = "#525252", color='#525252')
