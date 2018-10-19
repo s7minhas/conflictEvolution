@@ -30,25 +30,25 @@ designArrays = list(
 	)
 
 # run base model
-ameFits = lapply(1:length(designArrays), function(i){
-	fit = ame_repL(
-		Y=yList, Xdyad=designArrays[[i]]$dyadCovar,
-		Xrow=designArrays[[i]]$senCovar, Xcol=designArrays[[i]]$recCovar,
-		symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
-		model='bin', intercept=TRUE, seed=6886,
-		burn=10000, nscan=50000, odens=25,
-		plot=FALSE, gof=TRUE, periodicSave=FALSE )
-	return(fit)
-})
-names(ameFits) = names(designArrays)
-################
+if(!file.exists('ameResults.rda')){
+	ameFits = lapply(1:length(designArrays), function(i){
+		fit = ame_repL(
+			Y=yList, Xdyad=designArrays[[i]]$dyadCovar,
+			Xrow=designArrays[[i]]$senCovar, Xcol=designArrays[[i]]$recCovar,
+			symmetric=FALSE, rvar=TRUE, cvar=TRUE, R=2, 
+			model='bin', intercept=TRUE, seed=6886,
+			burn=10000, nscan=50000, odens=25,
+			plot=FALSE, gof=TRUE, periodicSave=FALSE )
+		return(fit)
+	})
+	names(ameFits) = names(designArrays)
 
-################
-# save
-save(
-	ameFits, designArrays,
-	file='ameResults.rda'
-	)
+	# save
+	save(
+		ameFits, designArrays,
+		file='ameResults.rda'
+		)
+} else { load('ameResults.rda') }
 ################
 
 ################
@@ -145,7 +145,7 @@ ggCoef=ggplot(ameBETA, aes(x=varClean, y=mean, color=sig)) +
 			angle=0, hjust=.95),
 		strip.background = element_rect(fill = "#525252", color='#525252')				
 	)
-ggsave( ggCoef, file='figure4_top.pdf', width=7, height=6 )
+ggsave( ggCoef, file='floats/figure4_top.pdf', width=7, height=6 )
 ################
 
 ################
@@ -190,5 +190,5 @@ ggVC = ggplot(vc, aes(x=varClean, y=mean, color=sig)) +
 			angle=0, hjust=.03),
 		strip.background = element_rect(fill = "#525252", color='#525252')
 		)
-ggsave(ggVC, file='figure4_bottom.pdf', width=8, height=2)
+ggsave(ggVC, file='floats/figure4_bottom.pdf', width=8, height=2)
 ################

@@ -1,14 +1,14 @@
 ################
 # workspace
-source('../setup.R')
+source('../main/setup.R')
 detach("package:igraph", unload=TRUE)
 loadPkg(c('btergm','xtable'))
 ################
 
 ################
 # load data
-load('../nigeriaMatList_acled_v7.rda') # loads yList object
-load('../exoVars.rda') # load xNodeL, xDyadL
+load('../main/nigeriaMatList_acled_v7.rda') # loads yList object
+load('../main/exoVars.rda') # load xNodeL, xDyadL
 
 # focus on post 2000 data [few actors beforehand]
 yrs = char(2000:2016)
@@ -104,12 +104,12 @@ mod = mtergm(
 
 ################
 # load other models
-load('../ameResults.rda')
-load('../glmResultsProbit.rda')
+load('../main/ameResults.rda')
+load('../main/glmResultsProbit.rda')
 
 # bring in some helpers
 loadPkg(c('lmtest', 'tidyr'))
-source('../postHelpers.R')
+source('../main/postHelpers.R')
 ################
 
 ################
@@ -186,5 +186,5 @@ coefCompare = ggplot(ggBETA, aes(x=varClean, y=mean, color=sig, group=model, sha
 		axis.ticks=element_blank()
 	)	
 ggsave(coefCompare, 
-	file='figureA9.pdf', width=5, height=7)
+	file='floats/figureA9.pdf', width=5, height=7)
 ################

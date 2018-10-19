@@ -47,6 +47,6 @@ circPlot=ggCirc(
 		)
 
 ggsave(circPlot, 
-	file='figure7.pdf',
+	file='floats/figure7.pdf',
 	width=12, height=6)
 ################

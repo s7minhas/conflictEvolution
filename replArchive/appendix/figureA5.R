@@ -1,14 +1,14 @@
 ################
 # workspace
-source('../setup.R')
-source('../binPerfHelpers.R')
+source('../main/setup.R')
+source('../main/binPerfHelpers.R')
 loadPkg(c('randomForest'))
 ################
 
 ################
 # load data
-load('../nigeriaMatList_acled_v7.rda') # loads yList object
-load('../ameResults.rda')
+load('../main/nigeriaMatList_acled_v7.rda') # loads yList object
+load('../main/ameResults.rda')
 
 # crossval params
 seed=6886
@@ -109,7 +109,7 @@ rfOutSamp = function(rfForm, cores=4, folds=30, seed=6886){
 		
 	# get binperfhelpers
 	loadPkg(c('ROCR', 'RColorBrewer', 'caTools'))
-	source('../binPerfHelpers.R')
+	source('../main/binPerfHelpers.R')
 
 	# get perf stats
 	aucByFold=do.call('rbind', lapply(1:folds, function(f){
@@ -147,8 +147,8 @@ rfOutSamp_wFullSpecLagDV=rfOutSamp( rfForm=modSpecFullLagDV, cores=4 )
 
 ############################
 # org results
-load('../ameCrossValResults.rda') # ameOutSamp_NULL, ameOutSamp_wFullSpec
-load('../glmCrossValResults.rda') # glmOutSamp_wFullSpec, glmOutSamp_wLagDV, glmOutSamp_wFullSpecLagDV
+load('../main/ameCrossValResults.rda') # ameOutSamp_NULL, ameOutSamp_wFullSpec
+load('../main/glmCrossValResults.rda') # glmOutSamp_wFullSpec, glmOutSamp_wLagDV, glmOutSamp_wFullSpecLagDV
 predDfs = list(
 	cbind(glmOutSamp_wFullSpec$outPerf,model='GLM (Covars)'), 
 	cbind(glmOutSamp_wFullSpecLagDV$outPerf,model='GLM (Lag DV + Covars)'),
@@ -213,7 +213,7 @@ for(ii in 1:length(sepPngList)){
 	yLo = yLo + .1 ; yHi = yHi + .1 }
 tmp = tmp + annotate('text', hjust=0, x=.51, y=seq(.1, .4, .1), label=names(predDfs))
 ggsave(tmp, 
-	file='figureA5a.pdf', 
+	file='floats/figureA5a.pdf', 
 	width=5, height=5)
 
 tmp=rocPlot(rocPrData, type='pr', legText=12, legPos=c(.25,.35), 
@@ -226,6 +226,6 @@ tmp=rocPlot(rocPrData, type='pr', legText=12, legPos=c(.25,.35),
 	annotate('text', hjust=0, x=.7, y=seq(.5,.9,.13), 
 		label=rev(apply(aucSumm, 1, function(x){paste(x, collapse='               ')})) )
 ggsave(tmp, 
-	file='figureA5b.pdf',
+	file='floats/figureA5b.pdf',
 	width=5, height=5)	
 ################################################

@@ -52,6 +52,6 @@ ggNigConfMap = ggplot(nData, aes(map_id = id, x=LONGITUDE,y=LATITUDE)) +
 		strip.text.x = element_text(color='white'),
 		strip.background = element_rect(fill = "#525252", color='#525252')		
 		)
-fName = paste0('figure2.pdf') ; h=8 ; w=8
+fName = paste0('floats/figure2.pdf') ; h=8 ; w=8
 ggsave(ggNigConfMap, file=fName, width=w, height=h)
 ################

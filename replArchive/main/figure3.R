@@ -39,7 +39,7 @@ rm(tmp)
 
 ################
 # plot by full, pre and post bh periods
-fName = paste0('figure3.pdf')
+fName = paste0('floats/figure3.pdf')
 pdf(file=fName, width=13,height=9)
 vCol = ifelse(names(V(gArrSum)) %in% govActors, 'gray30', 'gray95')
 vLabCol = ifelse(names(V(gArrSum)) %in% govActors, 'white', 'gray30')

@@ -63,7 +63,7 @@ E(gArrSumPostBH)$weight = E(gArrSumPostBH)$weight*3
 # define v cols by actor type
 vCol = ifelse(names(V(gArrSumPostBH)) %in% govActors, 'gray30', 'gray95')
 vLabCol = ifelse(names(V(gArrSumPostBH)) %in% govActors, 'white', 'gray30')
-fName = 'figure5.pdf'
+fName = 'floats/figure5.pdf'
 pdf(file=fName, width=13,height=9)
 plotGraph(gArrSumPostBH, gArrPosPostBH, 
 	edge.color=edgePostBH$edgeCol, vShape='circle', vLabCex=gArrSumPostBH$labSize+.3, 

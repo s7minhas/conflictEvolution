@@ -41,6 +41,6 @@ srPlot = addEffPlot(addEffData=srData,row=FALSE) +
 		strip.background = element_rect(fill = "#525252", color='#525252')
 		)	
 ggsave(srPlot, 
-	file='figure6.pdf', 
+	file='floats/figure6.pdf', 
 	width=7, height=6)
 ################

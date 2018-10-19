@@ -1,15 +1,15 @@
 ################
 # workspace
-source('../setup.R')
+source('../main/setup.R')
 library(amen)
 loadPkg(c('ROCR', 'RColorBrewer', 'caTools'))
-source('../binPerfHelpers.R')
+source('../main/binPerfHelpers.R')
 ################
 
 ################
 # load data
-load('../nigeriaMatList_acled_v7.rda') # loads yList object
-load('../ameResults.rda')
+load('../main/nigeriaMatList_acled_v7.rda') # loads yList object
+load('../main/ameResults.rda')
 
 # construct dyadic design array from list data
 yrs = char(2000:2016) ; yList = yList[yrs]
@@ -108,7 +108,7 @@ ame_glm_outSampTime = lapply(pdsToForecast, function(dropFromEnd){
 
 	# run calcs
 	ez_Out = Xbeta(x_Out, beta) + outer(a,b,'+') + UVPM
-	yHat_Out = 1/(1+exp(-pnorm(ez_Out)))
+	yHat_Out = pnorm(ez_Out)
 	outPerf = data.frame(cbind(reshape2::melt(y_Out), pred=reshape2::melt(yHat_Out)[,3]))
 	outPerf = outPerf[outPerf$Var1 != outPerf$Var2,]
 	aucROC=getAUC(outPerf$pred, outPerf$value)
@@ -135,7 +135,7 @@ predDF = predList[
 	-which(names(predList) %in% c('Var1','Var2','L3','variable'))]
 
 # load in actual data
-load('../nigeriaMatList_acled_v7.rda') # loads yList object
+load('../main/nigeriaMatList_acled_v7.rda') # loads yList object
 yrs = char(2000:2016) ; yList = yList[yrs]
 y_Out = yList[[ length(yList) - (dropFromEnd - 1) ]]
 act = reshape2::melt(y_Out) ; act = act[act$Var1 != act$Var2,]
@@ -207,7 +207,7 @@ for(ii in 1:length(sepPngList)){
 	tmp = tmp + annotation_custom(sepPngList[[ii]], xmin=.5, xmax=1.05, ymin=yLo, ymax=yHi)
 	yLo = yLo + .1 ; yHi = yHi + .1 }
 tmp = tmp + annotate('text', hjust=0, x=.51, y=seq(0.05,0.25,.1), label=modOrder)
-ggsave(tmp, file='figureA6a.pdf', width=5, height=5)
+ggsave(tmp, file='floats/figureA6a.pdf', width=5, height=5)
 
 tmp=rocPlot(rocPrData, type='pr', legText=12, 
 	legPos=c(.25,.35), legSpace=2, linetypes=ggLty, colorManual=ggCols) +
@@ -218,5 +218,5 @@ tmp=rocPlot(rocPrData, type='pr', legText=12,
 		label=rev(rownames(aucSumm))) + 
 	annotate('text', hjust=0, x=.7, y=seq(.63,.9,.13), 
 		label=rev(apply(aucSumm, 1, function(x){paste(x, collapse='     ')})) )
-ggsave(tmp, file='figureA6b.pdf', width=5, height=5)
+ggsave(tmp, file='floats/figureA6b.pdf', width=5, height=5)
 ################################################
