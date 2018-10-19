@@ -1061,9 +1061,9 @@ body .markdown-body
 <li><strong>main</strong>: contains the data files and scripts necessary to reproduce the main results in the paper</li>
 <li><strong>appendix</strong>: contains the data files and scripts necessary to reproduce the results in the appendix</li>
 </ul>
-<p>Replicating the figures and tables in the <strong>main</strong> text will take only a few minutes on a standard laptop if the provided <code>.rda</code> files are used. If the provided results are deleted, the running time for the <strong>main</strong> text figures and tables is detailed below. We recommend replicating the figures and tables in the appendix with use of an EC2 instance (setup details provided in the next section). </p>
+<p>Replicating the figures and tables in the <strong>main</strong> text will take only a few minutes on a standard laptop if the provided <code>.rda</code> files are used.  </p>
 <h4 id="setup-information">Setup information<a class="headerlink" href="#setup-information" title="Permanent link"></a></h4>
-<p>All of the analyses reported in the manuscript and the appendix were run on a Macbook 15&rdquo; Pro with the following session information for R (further information on packages used in the analysis is included at the end of the README): </p>
+<p>All of the analyses reported in the manuscript and the appendix are run with the following specification (further information on packages used in the analysis is included at the end of the README): </p>
 <div class="codehilite"><pre>R version 3.5.0 (2018-04-23)
 Platform: x86_64-apple-darwin15.6.0 (64-bit)
 Running under: macOS High Sierra 10.13.6
@@ -1085,17 +1085,17 @@ loaded via a namespace (and not attached):
 <h4 id="running-the-scripts">Running the scripts<a class="headerlink" href="#running-the-scripts" title="Permanent link"></a></h4>
 <p>Scripts should be run in the following order (each script assumes that the working directory matches the directory in which the script is stored): </p>
 <ul>
-<li>figure2.R: Create longitudinal, spatial visualization of conflict and stores results in <code>main/floats/figure2.pdf</code></li>
-<li>figure3.R: Network visualization of conflict in Nigeria from 2000-2016.</li>
-<li>figure4.R: Estimates parameters using AME in the paper.<ul>
-<li>Original results from the authors are already included, if the relevant files are deleted, then this script will take approximately one hour to run. </li>
+<li>figure2.R: Creates longitudinal, spatial visualization of conflict and stores resulting figure in <code>main/floats/figure2.pdf</code>.</li>
+<li>figure3.R: Creates network visualization of conflict in Nigeria from 2000-2016 and stores resulting figure in <code>main/floats/figure3.pdf</code>.</li>
+<li>figure4.R: Estimates parameters using AME in the paper and saves resulting model to <code>main/ameResults.rda</code>. Visualizations of model results are stored in <code>main/floats/figure4_top.pdf</code> and <code>main/floats/figure4_bottom.pdf</code>.<ul>
+<li>Original results from the authors are already included, if <code>main/ameResults.rda</code> is deleted, then this script will take approximately one hour to run. </li>
 </ul>
 </li>
-<li>figure5.R: Network visualization of conflict in Nigeria from 2000-2016 highlighting pre and post Boko Haram changes in relationships.</li>
-<li>figure6.R: Visualization of additive sender/receiver effects from AME framework.</li>
-<li>figure7.R: Visualization of multiplicative effects from AME framework.</li>
-<li>figure8.R: Cross-validation based performance comparison. <ul>
-<li>Original results from the authors are already included, if the relevant files are deleted, then this script will take approximately one hour to run assuming that the script is run in parallel using six cores.</li>
+<li>figure5.R: Creates network visualization of conflict in Nigeria from 2000-2016 highlighting pre and post Boko Haram changes in relationships  and stores resulting figure in <code>main/floats/figure5.pdf</code></li>
+<li>figure6.R: Visualizes additive sender/receiver effects from AME framework  and stores resulting figure in <code>main/floats/figure6.pdf</code>. For this script to run <code>main/ameResults.rda</code> must be present.</li>
+<li>figure7.R: Visualizes multiplicative effects from AME framework and stores resulting figure in <code>main/floats/figure7.pdf</code>. For this script to run <code>main/ameResults.rda</code> must be present.</li>
+<li>figure8.R: Conducts cross-validation to compare model performance and saves resulting model to <code>main/ameCrossValResults.rda</code> and <code>glmCrossValResults.rda</code>. Visualization of performance between AME and GLM models are stored in <code>main/floats/figure8a.pdf</code> and <code>main/floats/figure8b.pdf</code>. <ul>
+<li>Original results from the authors are already included, if <code>main/ameCrossValResults.rda</code> is deleted, then this script will take approximately one hour to run assuming that the script is run in parallel using six cores.</li>
 </ul>
 </li>
 </ul>
@@ -1138,13 +1138,13 @@ loaded via a namespace (and not attached):
 </tr>
 <tr>
 <td align="left">plyr: 1.8.4</td>
+<td align="left">qgraph: 1.5</td>
 <td align="left">randomForest: 4.6-14</td>
 <td align="left">reshape2: 1.4.3</td>
-<td align="left">tidyr: 0.8.0</td>
 </tr>
 <tr>
+<td align="left">tidyr: 0.8.0</td>
 <td align="left">xtable: 1.8-2</td>
-<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
