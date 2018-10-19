@@ -58,9 +58,6 @@ source('paramPlot2.R')
 ################
 
 ################
-# load data
-load('ameResults.rda') # load AME mod results
-
 # quick trace plot
 mcmcData = ameFits$base$BETA
 varKey = data.frame(dirty=colnames(mcmcData),stringsAsFactors=FALSE)

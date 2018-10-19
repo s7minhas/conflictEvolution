@@ -52,5 +52,5 @@ varKey$clean = c(
 	'Gov-Gov Actors','Post-Boko Haram', 'Election Year', 'Neighborhood Conflict')
 varKey = varKey[c(9,2,5,3,6,4,7,10,11,8,1),]
 ggsave(paramPlot2(mcmcData, varKey), 
-	file='../figureA2.pdf', width=8,height=9)
+	file='figureA2.pdf', width=8,height=9)
 ################
