@@ -105,7 +105,7 @@ mod = mtergm(
 ################
 # load other models
 load('../ameResults.rda')
-load('glmResultsProbit.rda')
+load('../glmResultsProbit.rda')
 
 # bring in some helpers
 loadPkg(c('lmtest', 'tidyr'))
