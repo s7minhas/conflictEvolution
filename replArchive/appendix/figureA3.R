@@ -59,5 +59,5 @@ varKey$clean = c(
 varKey = varKey[c(6,2,3,4,7,8,5,1),]
 ggsave(
 	paramPlot2(mcmcData, varKey), 
-	file='../figureA3.pdf', width=8,height=9)
+	file='figureA3.pdf', width=8,height=9)
 ################
