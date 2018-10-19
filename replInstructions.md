@@ -5,7 +5,7 @@ The replication archive is organized into two directories (note that these files
 - **main**: contains the data files and scripts necessary to reproduce the main results in the paper
 - **appendix**: contains the data files and scripts necessary to reproduce the results in the appendix
 
-Replicating the figures and tables in the **main** text will take only a few minutes on a standard laptop if the provided `.rda` files are used. If the provided results are deleted, the running time for the **main** text figures and tables is detailed below. 
+Replicating the figures and tables in the **main** text will take only a few minutes on a standard laptop if the provided `.rda` files are used.  
 
 #### Setup information
 
