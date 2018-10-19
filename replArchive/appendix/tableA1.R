@@ -130,12 +130,6 @@ results = lapply(ranks, function(rank){
 		xColL=designArrays$base$recCovar,
 		R=rank )
 	return(mod)	})
-
-# save
-save(
-	results,
-	file='../ameCrossValResults.rda'
-)
 ################
 
 ############################
@@ -150,7 +144,6 @@ names(predDfs) = paste0('AME (K=', ranks, ')')
 aucSumm=do.call('rbind', lapply(predDfs,function(x){
 	aucROC=getAUC(x$pred,x$actual) ; aucPR=auc_pr(x$actual,x$pred)
 	return( c('AUC'=aucROC,'AUC (PR)'=aucPR) ) }) )
-# aucSumm = aucSumm[order(aucSumm[,2],decreasing=TRUE),]
 aucSumm = trim(format(round(aucSumm, 3), nsmall=2))
 aucSumm = aucSumm[nrow(aucSumm):1,]
 
@@ -164,6 +157,6 @@ print.xtable(
 	include.rownames=TRUE, sanitize.text.function = identity,
 	hline.after=c(0,0,1,nrow(aucSumm),nrow(aucSumm)),
 	size='normalsize',
-	file=paste0(pathResults, '../tableA1.tex')
+	file='tableA1.tex'
 	)
 ################
