@@ -1,14 +1,14 @@
 ################
 # workspace
-source('../setup.R')
-source('../paramPlot2.R')
+source('../main/setup.R')
+source('../main/paramPlot2.R')
 library(amen)
 ################
 
 ################
 # load data
-load('../nigeriaMatList_acled_v7.rda') # loads yListFatal object
-load('../exoVars.rda') # load xNodeL, xDyadL
+load('../main/nigeriaMatList_acled_v7.rda') # loads yListFatal object
+load('../main/exoVars.rda') # load xNodeL, xDyadL
 
 # focus on post 2000 data [few actors beforehand]
 yrs = char(2000:2016)
@@ -52,5 +52,5 @@ varKey$clean = c(
 	'Gov-Gov Actors','Post-Boko Haram', 'Election Year', 'Neighborhood Conflict')
 varKey = varKey[c(9,2,5,3,6,4,7,10,11,8,1),]
 ggsave(paramPlot2(mcmcData, varKey), 
-	file='figureA2.pdf', width=8,height=9)
+	file='floats/figureA2.pdf', width=8,height=9)
 ################

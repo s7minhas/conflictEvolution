@@ -1,14 +1,14 @@
 ################
 # workspace
-source('../setup.R')
+source('../main/setup.R')
 library(amen)
-source('../binPerfHelpers.R')
+source('../main/binPerfHelpers.R')
 ################
 
 ################
 # load data
-load('../nigeriaMatList_acled_v7.rda') # loads yList object
-load('../ameResults.rda')
+load('../main/nigeriaMatList_acled_v7.rda') # loads yList object
+load('../main/ameResults.rda')
 ################
 
 ################
@@ -67,12 +67,12 @@ ameOutSamp = function(
 			foldID[foldID!=f]=NA ; foldID[!is.na(foldID)] = 1
 			y=y*foldID*covarMissInfo ; predT=predT*foldID
 			res=na.omit(data.frame(actual=c(y), pred=c(predT), fold=f, stringsAsFactors=FALSE))
-			res$pred = 1/(1+exp(-res$pred))
+			res$pred = pnorm(res$pred)
 			return(res) }) ) }) )
 	
 	# get binperfhelpers
 	loadPkg(c('ROCR', 'RColorBrewer', 'caTools'))
-	source('../binPerfHelpers.R')
+	source('../main/binPerfHelpers.R')
 	
 	# get perf stats
 	aucByFold=do.call('rbind', lapply(1:folds, function(f){
@@ -100,8 +100,8 @@ ameOutSamp = function(
 
 ################
 # load data
-load('../nigeriaMatList_acled_v7.rda') # loads yList object
-load('../exoVars.rda') # load xNodeL, xDyadL
+load('../main/nigeriaMatList_acled_v7.rda') # loads yList object
+load('../main/exoVars.rda') # load xNodeL, xDyadL
 
 # focus on post 2000 data [few actors beforehand]
 yrs = char(2000:2016)
@@ -157,6 +157,6 @@ print.xtable(
 	include.rownames=TRUE, sanitize.text.function = identity,
 	hline.after=c(0,0,1,nrow(aucSumm),nrow(aucSumm)),
 	size='normalsize',
-	file='tableA1.tex'
+	file='floats/tableA1.tex'
 	)
 ################

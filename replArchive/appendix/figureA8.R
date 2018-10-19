@@ -1,14 +1,14 @@
 ################
 # workspace
-source('../setup.R')
+source('../main/setup.R')
 library(amen)
-source('../postHelpers.R')
+source('../main/postHelpers.R')
 ################
 
 ################
 # load data
-load('../nigeriaMatList_acled_v7.rda') # loads yList object
-load('../exoVars.rda') # load xNodeL, xDyadL
+load('../main/nigeriaMatList_acled_v7.rda') # loads yList object
+load('../main/exoVars.rda') # load xNodeL, xDyadL
 
 # focus on post 2000 data [few actors beforehand]
 yrs = char(2000:2016)
@@ -42,7 +42,6 @@ pds = list(
 pds = lapply(pds, char)
 
 # parallelize model run
-loadPkg(c('parallel','foreach'))
 cores=min(length(pds),5) ; cl=makeCluster(cores) ; registerDoParallel(cl)
 ameFits = foreach(i = 1:length(pds), .packages=c('amen')) %dopar% {
 
@@ -129,5 +128,5 @@ gg=ggplot(paramTime, aes(x=factor(pd), y=mean)) +
 			angle=0, hjust=.05),
 		strip.background = element_rect(fill = "#525252", color='#525252')
 		)
-ggsave(gg, file='figureA8.pdf', width=8, height=6)
+ggsave(gg, file='floats/figureA8.pdf', width=8, height=6)
 ################	
