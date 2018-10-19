@@ -48,7 +48,7 @@ We have also included all the analysis necessary to generate the results in the 
 
 #### R package build notes
 
-Last, please note the version of each of the libraries that our project relies on (each library was built using R 3.5.0). 
+Below we provide the version of each of the libraries that our project relies on (each library was built using R 3.5.0). Additionally, please note that we use a tailored version of [Peter Hoff's AMEN package](http://pdhoff.github.io/amen/). Installing the version of AMEN that is used in this paper can be done  with the `devtools` package by running the following command in an R session: `devtools::install_github('s7minhas/amen', ref='pa2018_version')`.
 
 |                    |                     |                |                   |
 |:-------------------|:--------------------|:---------------|:------------------|
