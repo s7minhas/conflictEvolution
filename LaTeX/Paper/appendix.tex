@@ -285,7 +285,7 @@ When running the model in this disaggregated way, we also continue to see little
 \clearpage
 \subsection{Comparison with GLM \& TERGM Estimates}
 
-We also compare parameter estimates returned from AME, a generalized linear model with a probit link, and a temporal exponential random graph model (TERGM). The AME is parameterized as discussed already in the paper with $K=2$. The GLM is estimated with the same covariates used by the AME. 
+We also compare parameter estimates returned from AME, a generalized linear model with a probit link, and a temporal exponential random graph model (TERGM). The btergm package developed by \citet{leifeld:etal:2017} was used for the analysis. The AME is parameterized as discussed already in the paper with $K=2$. The GLM is estimated with the same covariates used by the AME. 
 
 For the TERGM analysis we again include the same exogenous covariates and also include two additional network terms to capture higher order dependencies: reciprocity and a geometric edge-wise shared partner term (GWESP). The reciprocity term captures the likelihood of actors reciprocating a conflictual tie. The GWESP term corresponds to the number of triangles a potential tie between actors $i$ and $j$ would ``close,'' but discounts higher numbers by a factor $\alpha$ \citep{hunter:handcock:2006,morris:etal:2008}.\footnote{We fix $\alpha$ to 0.5 based on goodness-of-fit tests. When $\alpha$ is set to zero, all edges that have at least one shared partner are counted exactly the same.} A positive GWESP coefficient indicates that there is a tendency for multiple indirect ties of length two between actors in conflict. This is essentially just a measure of the level of transitivity in a network. We estimate the TERGM via MCMC-MLE. 
 
