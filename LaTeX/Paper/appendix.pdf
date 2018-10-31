@@ -17,7 +17,7 @@ endobj
 /Type /XObject
 /Subtype /Form
 /FormType 1
-/PTEX.FileName (/Users/s7m/Dropbox/Research/conflictEvolution/graphics/figureA1.pdf)
+/PTEX.FileName (/Users/s7m/Research/conflictEvolution/LaTeX/Paper/figureA1.pdf)
 /PTEX.PageNumber 1
 /PTEX.InfoDict 73 0 R
 /BBox [0 0 576 648]
@@ -2512,7 +2512,7 @@ endobj
 /Type /XObject
 /Subtype /Form
 /FormType 1
-/PTEX.FileName (/Users/s7m/Dropbox/Research/conflictEvolution/graphics/figureA2.pdf)
+/PTEX.FileName (/Users/s7m/Research/conflictEvolution/LaTeX/Paper/figureA2.pdf)
 /PTEX.PageNumber 1
 /PTEX.InfoDict 92 0 R
 /BBox [0 0 576 648]
@@ -4880,7 +4880,7 @@ endobj
 /Type /XObject
 /Subtype /Form
 /FormType 1
-/PTEX.FileName (/Users/s7m/Dropbox/Research/conflictEvolution/graphics/figureA3.pdf)
+/PTEX.FileName (/Users/s7m/Research/conflictEvolution/LaTeX/Paper/figureA3.pdf)
 /PTEX.PageNumber 1
 /PTEX.InfoDict 109 0 R
 /BBox [0 0 576 648]
@@ -6138,7 +6138,7 @@ endobj
 /Type /XObject
 /Subtype /Form
 /FormType 1
-/PTEX.FileName (/Users/s7m/Dropbox/Research/conflictEvolution/graphics/figureA4.pdf)
+/PTEX.FileName (/Users/s7m/Research/conflictEvolution/LaTeX/Paper/figureA4.pdf)
 /PTEX.PageNumber 1
 /PTEX.InfoDict 126 0 R
 /BBox [0 0 576 648]
@@ -7697,7 +7697,7 @@ endobj
 /Type /XObject
 /Subtype /Form
 /FormType 1
-/PTEX.FileName (/Users/s7m/Dropbox/Research/conflictEvolution/graphics/figureA5_a.pdf)
+/PTEX.FileName (/Users/s7m/Research/conflictEvolution/LaTeX/Paper/figureA5_a.pdf)
 /PTEX.PageNumber 1
 /PTEX.InfoDict 153 0 R
 /BBox [0 0 360 360]
@@ -8736,7 +8736,7 @@ endobj
 /Type /XObject
 /Subtype /Form
 /FormType 1
-/PTEX.FileName (/Users/s7m/Dropbox/Research/conflictEvolution/graphics/figureA5_b.pdf)
+/PTEX.FileName (/Users/s7m/Research/conflictEvolution/LaTeX/Paper/figureA5_b.pdf)
 /PTEX.PageNumber 1
 /PTEX.InfoDict 163 0 R
 /BBox [0 0 360 360]
@@ -8905,7 +8905,7 @@ endobj
 /Type /XObject
 /Subtype /Form
 /FormType 1
-/PTEX.FileName (/Users/s7m/Dropbox/Research/conflictEvolution/graphics/figureA6_a.pdf)
+/PTEX.FileName (/Users/s7m/Research/conflictEvolution/LaTeX/Paper/figureA6_a.pdf)
 /PTEX.PageNumber 1
 /PTEX.InfoDict 176 0 R
 /BBox [0 0 360 360]
@@ -9532,7 +9532,7 @@ endobj
 /Type /XObject
 /Subtype /Form
 /FormType 1
-/PTEX.FileName (/Users/s7m/Dropbox/Research/conflictEvolution/graphics/figureA6_b.pdf)
+/PTEX.FileName (/Users/s7m/Research/conflictEvolution/LaTeX/Paper/figureA6_b.pdf)
 /PTEX.PageNumber 1
 /PTEX.InfoDict 184 0 R
 /BBox [0 0 360 360]
@@ -9591,7 +9591,7 @@ endobj
 /Type /XObject
 /Subtype /Form
 /FormType 1
-/PTEX.FileName (/Users/s7m/Dropbox/Research/conflictEvolution/graphics/figureA7.pdf)
+/PTEX.FileName (/Users/s7m/Research/conflictEvolution/LaTeX/Paper/figureA7.pdf)
 /PTEX.PageNumber 1
 /PTEX.InfoDict 198 0 R
 /BBox [0 0 576 432]
@@ -9715,7 +9715,7 @@ endobj
 /Type /XObject
 /Subtype /Form
 /FormType 1
-/PTEX.FileName (/Users/s7m/Dropbox/Research/conflictEvolution/graphics/figureA8.pdf)
+/PTEX.FileName (/Users/s7m/Research/conflictEvolution/LaTeX/Paper/figureA8.pdf)
 /PTEX.PageNumber 1
 /PTEX.InfoDict 233 0 R
 /BBox [0 0 576 432]
@@ -9805,7 +9805,7 @@ endobj
 /Type /XObject
 /Subtype /Form
 /FormType 1
-/PTEX.FileName (/Users/s7m/Dropbox/Research/conflictEvolution/graphics/figureA9.pdf)
+/PTEX.FileName (/Users/s7m/Research/conflictEvolution/LaTeX/Paper/figureA9.pdf)
 /PTEX.PageNumber 1
 /PTEX.InfoDict 266 0 R
 /BBox [0 0 360 504]
@@ -10735,8 +10735,8 @@ endobj
 340 0 obj
 <<
 /Author()/Title()/Subject()/Creator(LaTeX with hyperref package)/Producer(pdfTeX-1.40.19)/Keywords()
-/CreationDate (D:20181031051812-04'00')
-/ModDate (D:20181031051812-04'00')
+/CreationDate (D:20181031052753-04'00')
+/ModDate (D:20181031052753-04'00')
 /Trapped /False
 /PTEX.Fullbanner (This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) kpathsea version 6.3.0)
 >>
@@ -10783,19 +10783,16 @@ endobj
 /W [1 3 1]
 /Root 339 0 R
 /Info 340 0 R
-/ID [<9653718C4581C7B10FA618FB3D5BA321> <9653718C4581C7B10FA618FB3D5BA321>]
-/Length 878       
+/ID [<80CDF97E4D77FE155516C9B5712FC687> <80CDF97E4D77FE155516C9B5712FC687>]
+/Length 877       
 /Filter /FlateDecode
 >>
 stream
-xÚÕ=lSgÆñ÷8	8_„8æ;‰!‰àÜëkR¨	vá+”Ï 	)i¥H vê@EÕ¡]Š*µ¢í‘*@ì0#&ÄĞ©C+$#	Pëÿ³ütÎñ{¯ï}ïsíBø/‚/À"œ¯Ó¬˜4ªm©`ÙO¨R0Äl7U4Â8³]TM°f˜MR5ÃJ8Él‚j´À³Tihå2š™}LÛíÌº™Óv@'³­ÌvĞ®†.f£ÌÊ´k ›™®/¡Í@³}ÌJ´YXËì³˜v¬‡0`!•Ó–ä-„UÁ Gl†h6LÕÚ«åƒ°	6C/ôA?ä`lµôÍ÷ú²¥ïÜV¥*XúÏïÔîà¤9ĞÚ«Ğm‡"ŒAº-İobÙ©:KÍ²sgTí‡	Ëú^í4ì=A=Z=s…¡{`
-öBÕú†véØãÖW¾¤ê4ÌZ_üHí	8à ‚Ãpæà(|
-Ç,?˜Ñ±gà,(¢ó–ûMœctç‹TÃ<Æ&ËW®×S<“f‰+kK–ŸhVK:]qü.Xáğ|°‘óÁF—‚m_¾¬3/³®~–É«ÁâÉªå5p^'üŞhÅ‡õ%]]=¥%
-W‹Ÿ<WK=Ã¥ñPœŒ{«ÿ6öåË:¯~Ñ:‚îí}õX-weœd{—E×èòâäÅsıü‡f¤Î³İ¨©%> 
-5Qv¢ìDÙ	¡B'„ŞkÑÓEÆû6íd
- «´èå-ázAï`ôk¡ByxÜÎ>{Ù¢÷3:–({Ñ¢7=jy ;auÂê„Õ	«'·¼Õ:Bèg¾UK08:qtâèÄÑ‰£W¡Ó÷·é2î»-Î&jg`È©._òçäÏg-î­hñ·Ååd×É®“]'»~ÄâÂ­;Ç,.ßU{.À2'V¹¨RĞ Ğ+@¿+a´@Z¡ÍâÚN¥İâ¯ï«ê°øæOª:-¾ÿ«ªÕ?Ë©ê²Rç7ªÖX)©©ê¶ÒÑUe¬tíª+ıı»ª¬•^ßPµÖ’áÏU­³äÒ?ªÖ[òÃª6Xrç–ª–¼¾§jŒAØS°ªPƒiĞ…~÷Ã,€ƒV.Të»V¹ş~Â'
+xÚÕËoTeÇñ÷™¶\:í´”…Ò¡RK;fÎe@Z`(í …–"-B[iLp#;.îX¸01®X<€‘-—¸ráÊ˜WVÙH7&:ßßæ“çyæ=gÎyÏïÌ„Â™ü&¬Àj›®`µd#PÊ+œ¤2ÈÀ³TĞ	G™§ê‚-p†Ù4ÕVØ×˜MQm‡n¸ÉìUz¸Œ­ÌŞ¢í…³AfGiû ŸÙAfGhwÀ ³*³íNd¦ëKió°‹ÙYf	mv3»Ê,¦İC°Æ,dFµ%%¡OÕ›0Îû¡šMR íÕTù`Ã~"€QxZöÑ?ú†eŸ<V¥*[ö›OÔá¤£ #´WĞ†Ô!İ–î7µÂÌkeÎ
+KKªÎÁ”>VÛ‚³ '¨G«g®04áÌÀi˜µâDUÇ^±bcMÕ»0oÅø;µWá8`á",Á%x.[iÜtìuxÑe+Õêƒìî|…j’ÇØe¥æ½vŠ[³Ä•µ5+ÓM;étÅñ}¸eåÅf°ÊjO°êêF°Ãë×uæuÖµÏ2};X<İ«cyœ×À	¿wZíùÉö’ŸƒEŸ&Z¢pu[íÇÔBÏsi<'ãŞcµ_óÁê·_¶yu_ëºç,ºû­Z2îÊ8Éö‹~©È‹“µèëš‘:/XôÕ°Zác Pe'ÊN”:!tBè#ıV×al±‚	ĞN– ºúq‹6jq…;½ƒ%Ğ¯…^]ä5àq;ûì‹şÒ±DÙkmş¡–÷×	°V'¬NX°zjq÷­#„>eq^‰u‚éÄÑ‰£G'N}æ eqñAÆı„Å…µg`È©._òçäÏç-Éiñ·Ååd×É®“]'»~ÑâÒ_Zw.[Ü¸«ö
+Ü‚uN¬QYTè€Nè‚- ß¿m°º!=Ğkñ\‡Î’³øŞgªú,~´¢ªßâï?PµÃâßÿT5`IKÕNKÒœªAK.-«Ê[òù3U»,ùùCUK6WUí¶t²¢j¥w«²ô‹ªª½–>ùHÕ>K7ï«†:DĞ„S0§aæ ú¯Ğò9˜‡ópÁåŞö®5‡ÿ.gÀİ
 endstream
 endobj
 startxref
-3555444
+3555389
 %%EOF
