@@ -47,8 +47,6 @@ cols = brewer.pal(3,'Set1')[1:2] ; names(cols)=c('Yes',"No")
 
 # viz
 ggNigConfMap = ggplot(nData, aes(map_id = id, x=LONGITUDE,y=LATITUDE)) + 
-# ggNigConfMap = ggplot(nData[nData$YEAR<2009,], aes(map_id = id, x=LONGITUDE,y=LATITUDE)) + 
-# ggNigConfMap = ggplot(nData[nData$YEAR>=2009,], aes(map_id = id, x=LONGITUDE,y=LATITUDE)) + 
 	geom_map( map=nigShape, fill='white', linetype=1, colour='grey30') +
 	inset_ggmap(ngaLines) +
 	geom_point(aes(color=factor(invBoko)),alpha=.7) + 
@@ -66,9 +64,8 @@ ggNigConfMap = ggplot(nData, aes(map_id = id, x=LONGITUDE,y=LATITUDE)) +
 		strip.text.x = element_text(color='white',family="Source Sans Pro Bold"),
 		strip.background = element_rect(fill = "#525252", color='#525252')		
 		)
-fName = paste0(pathGraphics,'nigConfMap.pdf') ; h=8 ; w=8
-# fName = paste0(pathGraphics,'nigConfMap_preBH.pdf') ; h=6 ; w=8
-# fName = paste0(pathGraphics,'nigConfMap_postBH.pdf') ; h=6 ; w=8
+# fName = paste0(pathGraphics,'nigConfMap.pdf') ; h=8 ; w=8
+fName = paste0(pathGraphics,'figure2.pdf') ; h=8 ; w=8
 ggsave(ggNigConfMap, file=fName, width=w, height=h, device=cairo_pdf)
 system( paste('pdfcrop', fName, fName, sep=' ') )
 ################

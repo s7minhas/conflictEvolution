@@ -31,6 +31,7 @@ vSimp = ameFits$base$V
 
 uvCols = brewer.pal(11, 'RdBu')[c(11-2, 3)]
 facet_labeller = function(string){ TeX(string) }
+set.seed(6886)
 circPlot=ggCirc(
 	Y=ySimp, U=uSimp, V=vSimp, vscale=1, force=5,
 	uLabel='Groups with Common Sending Patterns ($u_{i}$)',

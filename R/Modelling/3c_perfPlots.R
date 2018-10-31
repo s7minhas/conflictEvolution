@@ -66,7 +66,8 @@ for(ii in 1:length(sepPngList)){
 	tmp = tmp + annotation_custom(sepPngList[[ii]], xmin=.5, xmax=1.05, ymin=yLo, ymax=yHi)
 	yLo = yLo + .1 ; yHi = yHi + .1 }
 tmp = tmp + annotate('text', hjust=0, x=.51, y=seq(0.05,0.25,.1), label=names(predDfs), family="Source Sans Pro Light")
-ggsave(tmp, file=paste0(pathGraphics, 'roc_outSample.pdf'), width=5, height=5, device=cairo_pdf)
+# ggsave(tmp, file=paste0(pathGraphics, 'roc_outSample.pdf'), width=5, height=5, device=cairo_pdf)
+ggsave(tmp, file=paste0(pathGraphics, 'figure8_a.pdf'), width=5, height=5, device=cairo_pdf)
 
 tmp=rocPlot(rocPrData, type='pr', legText=12, legPos=c(.25,.35), legSpace=2, linetypes=ggLty, colorManual=ggCols) +
 	guides(linetype=FALSE, color=FALSE) + 
@@ -78,5 +79,6 @@ tmp=rocPlot(rocPrData, type='pr', legText=12, legPos=c(.25,.35), legSpace=2, lin
 	annotate('text', hjust=0, x=.7, y=seq(.63,.9,.13), 
 		label=rev(apply(aucSumm, 1, function(x){paste(x, collapse='     ')})),
 		family='Source Sans Pro Light')
-ggsave(tmp, file=paste0(pathGraphics, 'rocPr_outSample.pdf'), width=5, height=5, device=cairo_pdf)
+# ggsave(tmp, file=paste0(pathGraphics, 'rocPr_outSample.pdf'), width=5, height=5, device=cairo_pdf)
+ggsave(tmp, file=paste0(pathGraphics, 'figure8_b.pdf'), width=5, height=5, device=cairo_pdf)
 ################################################

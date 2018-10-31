@@ -43,6 +43,7 @@ fName = paste0('floats/figure3.pdf')
 pdf(file=fName, width=13,height=9)
 vCol = ifelse(names(V(gArrSum)) %in% govActors, 'gray30', 'gray95')
 vLabCol = ifelse(names(V(gArrSum)) %in% govActors, 'white', 'gray30')
+set.seed(6886)
 plotGraph(gArrSum, gArrPos, 
 	vShape='circle', vLabCex=gArrSum$labSize+.3, 
 	vLabCol=vLabCol, vertex.label.font=1, vertex.size=gArrSum$vSize, 

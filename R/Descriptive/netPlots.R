@@ -56,9 +56,11 @@ gArrSumNoGov=tmp$g ; gArrPosNoGov=tmp$nodePos ; rm(tmp)
 
 ################
 # plot by full, pre and post bh periods
-fName = paste0(pathGraphics, 'nigeria_2000_2016.pdf') ; pdf(file=fName, width=13,height=9)
+# fName = paste0(pathGraphics, 'nigeria_2000_2016.pdf') ; pdf(file=fName, width=13,height=9)
+fName = paste0(pathGraphics, 'figure3.pdf') ; pdf(file=fName, width=13,height=9)
 vCol = ifelse(names(V(gArrSum)) %in% govActors, 'gray30', 'gray95')
 vLabCol = ifelse(names(V(gArrSum)) %in% govActors, 'white', 'gray30')
+set.seed(6886)
 plotGraph(gArrSum, gArrPos, 
 	vShape='circle', vLabCex=gArrSum$labSize+.3, 
 	vLabCol=vLabCol, vertex.label.font=1, vertex.size=gArrSum$vSize, 
@@ -141,7 +143,9 @@ E(gArrSumPostBH)$weight = E(gArrSumPostBH)$weight*3
 # define v cols by actor type
 vCol = ifelse(names(V(gArrSumPostBH)) %in% govActors, 'gray30', 'gray95')
 vLabCol = ifelse(names(V(gArrSumPostBH)) %in% govActors, 'white', 'gray30')
-fName = paste0(pathGraphics, 'nigeria_postBK.pdf') ; pdf(file=fName, width=13,height=9)
+# fName = paste0(pathGraphics, 'nigeria_postBK.pdf') ; pdf(file=fName, width=13,height=9)
+fName = paste0(pathGraphics, 'figure5.pdf') ; pdf(file=fName, width=13,height=9)
+set.seed(6886)
 plotGraph(gArrSumPostBH, gArrPosPostBH, 
 	edge.color=edgePostBH$edgeCol, vShape='circle', vLabCex=gArrSumPostBH$labSize+.3, 
 	vLabCol=vLabCol, vertex.label.font=1, vertex.size=gArrSumPostBH$vSize, 
