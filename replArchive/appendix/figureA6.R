@@ -207,7 +207,7 @@ for(ii in 1:length(sepPngList)){
 	tmp = tmp + annotation_custom(sepPngList[[ii]], xmin=.5, xmax=1.05, ymin=yLo, ymax=yHi)
 	yLo = yLo + .1 ; yHi = yHi + .1 }
 tmp = tmp + annotate('text', hjust=0, x=.51, y=seq(0.05,0.25,.1), label=modOrder)
-ggsave(tmp, file='floats/figureA6a.pdf', width=5, height=5)
+ggsave(tmp, file='floats/figureA6_a.pdf', width=5, height=5)
 
 tmp=rocPlot(rocPrData, type='pr', legText=12, 
 	legPos=c(.25,.35), legSpace=2, linetypes=ggLty, colorManual=ggCols) +
@@ -218,5 +218,5 @@ tmp=rocPlot(rocPrData, type='pr', legText=12,
 		label=rev(rownames(aucSumm))) + 
 	annotate('text', hjust=0, x=.7, y=seq(.63,.9,.13), 
 		label=rev(apply(aucSumm, 1, function(x){paste(x, collapse='     ')})) )
-ggsave(tmp, file='floats/figureA6b.pdf', width=5, height=5)
+ggsave(tmp, file='floats/figureA6_b.pdf', width=5, height=5)
 ################################################

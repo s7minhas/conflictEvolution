@@ -41,7 +41,7 @@ Scripts should be run in the following order (each script assumes that the worki
 - **figure5.R**: Creates network visualization of conflict in Nigeria from 2000-2016 highlighting pre and post Boko Haram changes in relationships  and stores resulting figure in `main/floats/figure5.pdf`
 - **figure6.R**: Visualizes additive sender/receiver effects from AME framework  and stores resulting figure in `main/floats/figure6.pdf`. For this script to run `main/ameResults.rda` must be present.
 - **figure7.R**: Visualizes multiplicative effects from AME framework and stores resulting figure in `main/floats/figure7.pdf`. For this script to run `main/ameResults.rda` must be present.
-- **figure8.R**: Conducts cross-validation to compare model performance and saves resulting model to `main/ameCrossValResults.rda` and `glmCrossValResults.rda`. Visualization of performance between AME and GLM models are stored in `main/floats/figure8a.pdf` and `main/floats/figure8b.pdf`. 
+- **figure8.R**: Conducts cross-validation to compare model performance and saves resulting model to `main/ameCrossValResults.rda` and `glmCrossValResults.rda`. Visualization of performance between AME and GLM models are stored in `main/floats/figure8_a.pdf` and `main/floats/figure8_b.pdf`. 
     + Original results from the authors are already included, if `main/ameCrossValResults.rda` is deleted, then this script will take approximately one hour to run assuming that the script is run in parallel using six cores.
 
 We have also included all the analysis necessary to generate the results in the appendix. The appendix related scripts are labeled as `figureA[1-9].R` and `tableA1.R`. Relevant graphics from the appendix scripts will be stored in the `appendix/floats/` directory.
