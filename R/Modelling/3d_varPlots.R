@@ -63,7 +63,8 @@ ggVC = ggplot(vc, aes(x=varClean, y=mean, color=sig)) +
 			family="Source Sans Pro Semibold", angle=0, hjust=.03),
 		strip.background = element_rect(fill = "#525252", color='#525252')
 		)
-ggsave(ggVC, file=paste0(pathGraphics,'vcEst.pdf'), width=8, height=2, device=cairo_pdf)
+# ggsave(ggVC, file=paste0(pathGraphics,'vcEst.pdf'), width=8, height=2, device=cairo_pdf)
+ggsave(ggVC, file=paste0(pathGraphics,'figure4_bottom.pdf'), width=8, height=2, device=cairo_pdf)
 ################
 
 ################
@@ -157,6 +158,7 @@ srPlot = addEffPlot(addEffData=srData,row=FALSE) +
 		strip.background = element_rect(fill = "#525252", color='#525252')
 		)	
 ggsave(srPlot, 
-	file=paste0(pathGraphics, 'abEst2.pdf'), 
+	# file=paste0(pathGraphics, 'abEst2.pdf'), 
+	file=paste0(pathGraphics, 'figure6.pdf'), 
 	width=7, height=6, device=cairo_pdf)
 ################

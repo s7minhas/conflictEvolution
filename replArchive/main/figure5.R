@@ -65,6 +65,7 @@ vCol = ifelse(names(V(gArrSumPostBH)) %in% govActors, 'gray30', 'gray95')
 vLabCol = ifelse(names(V(gArrSumPostBH)) %in% govActors, 'white', 'gray30')
 fName = 'floats/figure5.pdf'
 pdf(file=fName, width=13,height=9)
+set.seed(6886)
 plotGraph(gArrSumPostBH, gArrPosPostBH, 
 	edge.color=edgePostBH$edgeCol, vShape='circle', vLabCex=gArrSumPostBH$labSize+.3, 
 	vLabCol=vLabCol, vertex.label.font=1, vertex.size=gArrSumPostBH$vSize, 

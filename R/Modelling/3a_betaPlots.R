@@ -93,7 +93,7 @@ ggCoef=ggplot(ameBETA, aes(x=varClean, y=mean, color=sig)) +
 	scale_x_discrete('', labels=TeX(rev(cleanVars))) +	
 	ylab(TeX('$\\beta_{p} \\times \\frac{\\sigma_{x_{p}}}{\\sigma_{y}}$')) +
 	coord_flip() + 
-	# theme_light(base_family="Source Sans Pro") +
+	theme_light(base_family="Source Sans Pro") +
 	theme(
 		legend.position='none', legend.title=element_blank(),
 		panel.border=element_blank(),
@@ -105,7 +105,8 @@ ggCoef=ggplot(ameBETA, aes(x=varClean, y=mean, color=sig)) +
 			angle=0, hjust=.95),
 		strip.background = element_rect(fill = "#525252", color='#525252')				
 	)
-ggsave(ggCoef, file=paste0(pathGraphics,'betaEst.pdf'), width=7, height=6
-	# , device=cairo_pdf
+# ggsave(ggCoef, file=paste0(pathGraphics,'betaEst.pdf'), width=7, height=6
+ggsave(ggCoef, file=paste0(pathGraphics,'figure4_top.pdf'), width=7, height=6	
+	, device=cairo_pdf
 	)
 ################
