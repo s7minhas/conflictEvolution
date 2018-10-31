@@ -108,7 +108,7 @@ Figure~\ref{betaTrace} below shows trace plots for the parameters summarized in 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.88\textwidth]{betaTrace}
+	\includegraphics[width=.88\textwidth]{figureA1}
 	\caption{Trace plots for exogenous parameters.}
 	\label{betaTrace}
 	\end{figure}
@@ -121,7 +121,7 @@ Figure~\ref{betaTrace} below shows trace plots for the parameters summarized in 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.88\textwidth]{betaTrace_fatalities}
+	\includegraphics[width=.88\textwidth]{figureA2}
 	\caption{Trace plots for exogenous parameters.}
 	\label{betaTrace_fatalities}
 	\end{figure}
@@ -134,7 +134,7 @@ Figure~\ref{betaTrace} below shows trace plots for the parameters summarized in 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.88\textwidth]{betaTrace_symmetric}
+	\includegraphics[width=.88\textwidth]{figureA3}
 	\caption{Trace plots for exogenous parameters.}
 	\label{betaTrace_symmetric}
 	\end{figure}
@@ -147,7 +147,7 @@ Figure~\ref{betaTrace} below shows trace plots for the parameters summarized in 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.88\textwidth]{betaTrace_rebelGroupOnly}
+	\includegraphics[width=.88\textwidth]{figureA4}
 	\caption{Trace plots for exogenous parameters.}
 	\label{betaTrace_rebelGroup}
 	\end{figure}
@@ -167,13 +167,13 @@ Here we explore variations in out-of-sample performance when varying $K$, the di
 \hline\hline
 	& AUC (ROC) & AUC (PR) \\ 
 	\hline
-	AME (K=2) & 0.926 & 0.331 \\ 
+	AME (K=2) & 0.923 & 0.332 \\ 
 	\hdashline
-	AME (K=0) & 0.863 & 0.180 \\ 
-	AME (K=5) & 0.934 & 0.348 \\ 
-	AME (K=10) & 0.934 & 0.348 \\ 
-	AME (K=15) & 0.935 & 0.349 \\ 
-	AME (K=20) & 0.931 & 0.346 \\ 
+	AME (K=0) & 0.863 & 0.181 \\ 
+	AME (K=5) & 0.931 & 0.347 \\ 
+	AME (K=10) & 0.933 & 0.347 \\ 
+	AME (K=15) & 0.937 & 0.346 \\ 
+	AME (K=20) & 0.935 & 0.345 \\ 
    \hline \hline
 \end{tabular}
 \endgroup
@@ -195,8 +195,8 @@ To provide an alternative test of the predictive performance of AME, we compare 
 \begin{figure}[ht]
 	\centering
 	\begin{tabular}{cc}
-	\includegraphics[width=.4\textwidth]{roc_outSample_randForest} & 
-	\includegraphics[width=.4\textwidth]{rocPr_outSample_randForest}
+	\includegraphics[width=.4\textwidth]{figureA5_a} & 
+	\includegraphics[width=.4\textwidth]{figureA5_b}
 	\end{tabular}
 	\caption{Assessments of out-of-sample predictive performance using ROC curves, separation plots, and PR curves. AUC statistics are provided for both curves. In each curve, the AME model is in blue, RF is denoted in purple, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in red.}
 	\label{fig:roc_rf}
@@ -213,8 +213,8 @@ Scholars of violence are often concerned with models' abilities to generate fore
 \begin{figure}[ht]
 	\centering
 	\begin{tabular}{cc}
-	\includegraphics[width=.45\textwidth]{roc_outSampleForecast_1} & 
-	\includegraphics[width=.45\textwidth]{rocPr_outSampleForecast_1}
+	\includegraphics[width=.45\textwidth]{figureA6_a} & 
+	\includegraphics[width=.45\textwidth]{figureA6_b}
 	\end{tabular}
 	\caption{Assessments of out-of-sample predictive performance when forecasting out the last period using ROC curves, separation plots, and PR curves. AUC statistics are provided as well for both curves. In each curve, the AME model is in blue, the GLM with lagged DV and covariates is in green, the GLM with only covariates is in red.}
 	\label{fig:roc_ameForecast}
@@ -227,7 +227,7 @@ Figure~\ref{netGOF} presents an assessment of how well our model captures the ne
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth]{netGOF}
+	\includegraphics[width=1\textwidth]{figureA7}
 	\caption{Network goodness of fit summary.}
 	\label{netGOF}
 	\end{figure}
@@ -273,7 +273,7 @@ In this section, we explore how conflict dynamics may vary over time. To do this
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=1\textwidth]{ameTime}
+	\includegraphics[width=1\textwidth]{figureA8}
 	\caption{Parameter estimates when running AME on finer temporal periods.}
 	\label{fig:ameTime}
 \end{figure}
@@ -293,7 +293,7 @@ The parameter estimates between the three models, presented in Figure~\ref{fig:a
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[width=.7\textwidth]{ame_v_glm_v_tergm}
+	\includegraphics[width=.7\textwidth]{figureA9}
 	\caption{Comparison of AME, GLM, and TERGM estimates. Dark red and dark blue lines denote coefficients that are significant at a 95\% level, and those in light red or blue are significant at a 90\% level.}
 	\label{fig:ameglmtergm}
 	\end{figure}

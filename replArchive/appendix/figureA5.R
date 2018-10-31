@@ -213,7 +213,7 @@ for(ii in 1:length(sepPngList)){
 	yLo = yLo + .1 ; yHi = yHi + .1 }
 tmp = tmp + annotate('text', hjust=0, x=.51, y=seq(.1, .4, .1), label=names(predDfs))
 ggsave(tmp, 
-	file='floats/figureA5a.pdf', 
+	file='floats/figureA5_a.pdf', 
 	width=5, height=5)
 
 tmp=rocPlot(rocPrData, type='pr', legText=12, legPos=c(.25,.35), 
@@ -226,6 +226,6 @@ tmp=rocPlot(rocPrData, type='pr', legText=12, legPos=c(.25,.35),
 	annotate('text', hjust=0, x=.7, y=seq(.5,.9,.13), 
 		label=rev(apply(aucSumm, 1, function(x){paste(x, collapse='               ')})) )
 ggsave(tmp, 
-	file='floats/figureA5b.pdf',
+	file='floats/figureA5_b.pdf',
 	width=5, height=5)	
 ################################################
