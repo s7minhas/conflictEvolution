@@ -39,6 +39,14 @@ Bloom, Mia~M (2004) Palestinian suicide bombing: {P}ublic support, market
   share, and outbidding.
 \newblock {\em Political Science Quarterly} { 119\/}(1): 61--88.
 
+\bibitem[\protect\citeauthoryear{Boccaletti, Bianconi, Criado, Del~Genio,
+  G{\'o}mez-Garde{\~n}es, Romance, Sendina-Nadal, Wang \& Zanin}{Boccaletti
+  et~al.}{2014}]{boccaletti:etal:2014}
+Boccaletti, Stefano; G. Bianconi; R. Criado; Charo~I.~D Genio; J.
+  G{\'o}mez-Garde{\~n}es; M. Romance; I. Sendina-Nadal; Z. Wang  \& M Zanin
+  (2014) The structure and dynamics of multilayer networks.
+\newblock {\em Physics Reports} { 544\/}(1): 1--122.
+
 \bibitem[\protect\citeauthoryear{Bodea \& Elbadawi}{Bodea \&
   Elbadawi}{2007}]{bodea:elbadawi:2007}
 Bodea, Cristina  \& Ibrahim Elbadawi (2007)
@@ -200,6 +208,12 @@ Metternich, Nils; Shahryar Minhas  \& Michael Ward (2017) Firewall? {O}r wall
 \newblock {\em Journal of Conflict Resolution} { 61\/}(6): 1151--1173.
 
 \bibitem[\protect\citeauthoryear{Minhas, Hoff \& Ward}{Minhas
+  et~al.}{2016}]{minhas:etal:2016}
+Minhas, Shahryar; Peter~D Hoff  \& Michael~D Ward (2016) A new approach to
+  analyzing coevolving longitudinal networks in international relations.
+\newblock {\em Journal of Peace Research} { 53\/}(3): 491--505.
+
+\bibitem[\protect\citeauthoryear{Minhas, Hoff \& Ward}{Minhas
   et~al.}{2018}]{minhas:etal:2018}
 Minhas, Shahryar; Peter~D Hoff  \& Michael~D Ward (2018) Inferential approaches
   for network analysis: {AMEN} for latent factor models.
@@ -265,6 +279,14 @@ Ross, Michael (2004) How do natural resources influence civil war? {E}vidence
 Salehyan, Idean  \& Kristian~S Gleditsch (2007) Refugees and the spread of
   civil war.
 \newblock {\em International Organization} { 60\/}(2): 335--366.
+
+\bibitem[\protect\citeauthoryear{Schein, Paisley, Blei \& Wallach}{Schein
+  et~al.}{2015}]{schein:etal:2015}
+Schein, Aaron; John Paisley; David~M Blei  \& Hanna Wallach (2015).
+\newblock Bayesian poisson tensor factorization for inferring multilateral
+  relations from sparse dyadic event counts.
+\newblock In: Proceedings of the 21th ACM SIGKDD International Conference on
+  Knowledge Discovery and Data Mining ,  1045--1054. ACM.
 
 \bibitem[\protect\citeauthoryear{Schmitt}{Schmitt}{2018}]{schmitt:2018}
 Schmitt, Eric (2018) Battle to stamp out isis in syria gains new momentum, but
