@@ -1,0 +1,56 @@
+\section*{Reviewer 1 Comments}
+
+\begin{enumerate}
+	\item First, I think the new framing of the paper is very effective. The objective is clearly to make a case for a complex networks approach to understanding civil conflicts, and to provide an application of this approach through the use of AME for the analysis of the Nigerian conflict. I recommend that the authors add a paragraph in the discussion section that addresses any limitations that readers should consider given that the results are from an empirical case study of a single conflict ... Are there limits (e.g., geographic, demographic, temporal) regarding the types of civil conflicts to which the results are generalizable? Should researchers extend the analysis to include more cases in the future?
+	\begin{itemize}
+		\item \textcolor{blue}{ \emph{
+		Thank you to the reviewer for her/his comments. We have added a paragraph to the end of the discussion section addressing the limitations of our study. 
+		}}
+	\end{itemize}	
+	\item Second, I recommend mentioning somewhere in the main body of the paper that (1) TERGM has been used to model conflict in the past, and (2) the appendix presents a robustness analysis using TERGM. Also, the authors should note which software was used for the TERGM analysis.
+	\begin{itemize}
+		\item \textcolor{blue}{ \emph{
+		We have added in citations referencing past usages of TERGM to model conflict and noted that an additional analysis was conducted using a TERGM in the appendix. We have also added a citation to the software that was used.
+		}}
+	\end{itemize}
+	\item Third, it appears that my point on evaluating robustness to `k' was not clearly communicated. I was asking the authors to vary `k' for what it represents in their own notation -- the number of groups into which the data was split for the cross-validation.
+	\begin{itemize}
+		\item \textcolor{blue}{ \emph{
+		Apologies for our misunderstanding. Below we show results when varying by the size of the fold. The performance of AME remains high across each k, particularly, in terms of the model's ability to actually predict instances of conflict.
+		}}
+			% latex table generated in R 3.5.0 by xtable 1.8-2 package
+			% Wed Oct 10 02:45:45 2018
+			\begin{table}[ht]
+			\centering
+			\begingroup\normalsize
+			\begin{tabular}{lcc}
+			  & AUC & AUC (PR) \\ 
+			  \hline
+			\hline
+			30 folds & 0.926 & 0.331 \\ 
+			25 folds & 0.924 & 0.334 \\ 
+			  20 folds & 0.924 & 0.330 \\ 
+			  15 folds & 0.925 & 0.332 \\ 
+			  10 folds & 0.919 & 0.322 \\ 
+			  5 folds & 0.908 & 0.328 \\ 
+			   \hline
+			\hline
+			\end{tabular}
+			\endgroup
+			\caption{Out-of-sample performance statistics for an AME model with a rank 2 by varying the size of folds in cross-validation.} 
+			\label{tab:ame_varFoldSize}
+			\end{table}			
+	\end{itemize}	
+\end{enumerate}
+
+\clearpage
+\section*{Reviewer 3 Comments}
+
+\begin{enumerate}
+	\item I have one small comment, which is that I would encourage the authors to add a discussion of Fotini Christia's book to the section on ``Third Order Dependencies.'' Otherwise, I am happy to recommend publication in JOP.
+	\begin{itemize}
+		\item \textcolor{blue}{ \emph{
+		Thank you to the reviewer for her/his comments. We have added in a mention of this chapter by Christia in the ``Third Order Dependencies'' subsection of the paper.
+		}}	
+	\end{itemize}
+\end{enumerate}
