@@ -1,4 +1,4 @@
-\begin{thebibliography}{63}
+\begin{thebibliography}{62}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
@@ -75,10 +75,6 @@ Christia, F., 2012. Alliance formation in civil wars. Cambridge University
 Collier, P., Hoeffler, A., 2004. Greed and grievance in civil war. Oxford
   Economic Papers 56, 563--595.
 
-\bibitem[{Condra and Shapiro(2010)}]{condra:shapiro:2010}
-Condra, L., Shapiro, J., 2010. Who takes the blame? {T}he strategic effects of
-  collateral damage. American Journal of Political Science.
-
 \bibitem[{Condra and Shapiro(2012)}]{condra:shapiro:2012}
 Condra, L.~N., Shapiro, J.~N., 2012. Who takes the blame? {T}he strategic
   effects of collateral damage. American Journal of Political Science 56~(1),
@@ -100,11 +96,11 @@ Cunningham, D.~E., 2006. Veto players and civil war duration. American Journal
 
 \bibitem[{de~Soysa(2000)}]{soysa:2000}
 de~Soysa, I., 2000. The resource curse: {A}re civil wars driven by rapacity or
-  paucity? In:  (Ed.), Greed and Grievance: {E}conomic Agendas in
-  Civil Wars. Lynne Rienner, Boulder, Colorado, USA.
+  paucity? In: PLEASE, F. (Ed.), Greed and Grievance: {E}conomic Agendas in
+  Civil Wars. Lynne Rienner, Boulder, Colorado, USA, Ch. FINDIT, p. FINDIT.
 
 \bibitem[{Dorff and Minhas(2017)}]{dorff:minhas:2017}
-Dorff, C., Minhas, S., 2017. When do states say uncle? network dependence and
+Dorff, C., Minhas, S., 2017. When do states say uncle? {N}etwork dependence and
   sanction compliance. International Interactions 43~(4), 563--588.
 
 \bibitem[{Downes(2006)}]{downes:2006}
@@ -184,8 +180,8 @@ Minhas, S., Hoff, P.~D., Ward, M.~D., 2018. Inferential approaches for network
 \newline\urlprefix\url{https://arxiv.org/abs/1611.00460}
 
 \bibitem[{Moore(1995)}]{moore:1995}
-Moore, W.~H., 1995. Action-reaction or rational expectations? reciprocity and
-  the domestic-international conflict nexus during the ``rhodesia problem".
+Moore, W.~H., 1995. Action-reaction or rational expectations? {R}eciprocity and
+  the domestic-international conflict nexus during the ``{R}hodesia problem".
   Journal of Conflict Resolution 39~(1), 129--167.
 
 \bibitem[{Nemeth(2014)}]{nemeth:2014}
@@ -239,7 +235,7 @@ Schein, A., Paisley, J., Blei, D.~M., Wallach, H., 2015. Bayesian poisson
   on Knowledge Discovery and Data Mining. ACM, pp. 1045--1054.
 
 \bibitem[{Schmitt(2018)}]{schmitt:2018}
-Schmitt, E., {May 30} 2018. Battle to stamp out isis in syria gains new
+Schmitt, E., {May 30} 2018. Battle to stamp out {ISIS} in {S}yria gains new
   momentum, but threats remain, \textit{New York Times}: 30 May
   (\url{https://www.nytimes.com/2018/05/30/world/middleeast/isis-syria-battle-kurds-united-states.html}).
 
@@ -280,7 +276,7 @@ Weinstein, J.~M., 2007. Inside rebellion: {T}he politics of insurgent violence.
 \bibitem[{Wucherpfennig et~al.(2012)Wucherpfennig, Metternich, Cederman, and
   Gleditsch}]{wucherpfennig:etal:2012}
 Wucherpfennig, J., Metternich, N., Cederman, L.-E., Gleditsch, K.~S., 2012.
-  Ethnicity, the state, and the duration of civil war. World Politics 64~(1),
+  Ethnicity, the state, and the duration of civil wars. World Politics 64~(1),
   79--115.
 
 \bibitem[{Zeigler(2016)}]{zeigler:2015}
