@@ -33,7 +33,10 @@ nData$invBoko = apply(nData[,c('a1','a2')], 1, function(x){ ifelse('Boko Haram' 
 nData$invBoko = factor(nData$invBoko, levels=c('Yes','No'))
 nData$yearLab = ifelse(nData$YEAR>=2009, nData$YEAR, paste0(nData$YEAR, ' (Pre Boko Haram)'))
 nData$yearLab = factor(nData$yearLab, levels=sort(unique(nData$yearLab)))
-cols = brewer.pal(3,'Set1')[1:2] ; names(cols)=c('Yes',"No")
+cols = brewer.pal(3,'Set1')[1:2] # default
+cols = c('gray60', 'gray20') # bw colors
+names(cols)=c('Yes',"No")
+
 
 # viz
 ggNigConfMap = ggplot(nData, aes(map_id = id, x=LONGITUDE,y=LATITUDE)) + 
@@ -52,6 +55,7 @@ ggNigConfMap = ggplot(nData, aes(map_id = id, x=LONGITUDE,y=LATITUDE)) +
 		strip.text.x = element_text(color='white'),
 		strip.background = element_rect(fill = "#525252", color='#525252')		
 		)
-fName = paste0('floats/figure2.pdf') ; h=8 ; w=8
+# fName = paste0('floats/figure2.pdf') ; h=8 ; w=8
+fName = paste0('floats/figure2_bw.pdf') ; h=8 ; w=8
 ggsave(ggNigConfMap, file=fName, width=w, height=h)
 ################
