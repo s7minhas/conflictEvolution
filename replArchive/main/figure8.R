@@ -3,6 +3,13 @@ setwd('~/Research/conflictEvolution/replArchive/main/')
 # workspace
 source('setup.R')
 library(amen)
+loadPkg(
+	c(
+		'doParallel', 'foreach',
+		'ROCR', 'RColorBrewer', 'caTools'
+		)
+	)
+source('binPerfHelpers.R')
 ################
 
 ################
@@ -41,7 +48,6 @@ ameOutSamp = function(
 		return(yListMiss) }) ; names(yCrossValTrain) = char(1:folds)
 	
 	# run ame by fold
-	loadPkg(c('doParallel', 'foreach'))
 	cl=makeCluster(cores) ; registerDoParallel(cl)
 	fitCrossVal <- foreach(ii=1:length(yCrossValTrain), 
 		.packages=c('amen')) %dopar%{
@@ -68,10 +74,6 @@ ameOutSamp = function(
 			res=na.omit(data.frame(actual=c(y), pred=c(predT), fold=f, stringsAsFactors=FALSE))
 			res$pred = pnorm(res$pred)
 			return(res) }) ) }) )
-	
-	# get binperfhelpers
-	loadPkg(c('ROCR', 'RColorBrewer', 'caTools'))
-	source('binPerfHelpers.R')
 	
 	# get perf stats
 	aucByFold=do.call('rbind', lapply(1:folds, function(f){
@@ -223,10 +225,6 @@ glmOutSamp = function(glmForm, folds=30, seed=6886){
 		if(any(grepl('lagDV',glmForm))){res=na.omit(res)}
 		return(res)
 	}))
-		
-	# get binperfhelpers
-	loadPkg(c('ROCR', 'RColorBrewer', 'caTools'))
-	source('binPerfHelpers.R')
 
 	# get perf stats
 	aucByFold=do.call('rbind', lapply(1:folds, function(f){
@@ -259,18 +257,22 @@ modSpecFull = formula( paste0(paste0('value ~ '),
 modSpecFullLagDV = formula( paste0(paste0('value ~ lagDV + lagRecip + '), 
 	paste(c(dyadVars, senVars, recVars), collapse=' + ') ) )
 
-# run with ame full spec
-glmOutSamp_wFullSpec=glmOutSamp( glmForm=modSpecFull )
+if(!file.exists('glmCrossValResults.rda')){
+	# run with ame full spec
+	glmOutSamp_wFullSpec=glmOutSamp( glmForm=modSpecFull )
 
-# ame full spec + lag DV
-glmOutSamp_wFullSpecLagDV=glmOutSamp( glmForm=modSpecFullLagDV )
+	# ame full spec + lag DV
+	glmOutSamp_wFullSpecLagDV=glmOutSamp( glmForm=modSpecFullLagDV )
 
-# save
-save(
-	glmOutSamp_wFullSpec, 
-	glmOutSamp_wFullSpecLagDV, 
-	file='glmCrossValResults.rda'
-	)
+	# save
+	save(
+		glmOutSamp_wFullSpec, 
+		glmOutSamp_wFullSpecLagDV, 
+		file='glmCrossValResults.rda'
+		)
+} else {
+	load('glmCrossValResults.rda')
+}
 ################
 
 ################
@@ -305,15 +307,16 @@ rocPrData=do.call('rbind',
 
 # model col/lty
 ggCols = brewer.pal(length(levels(rocData$model)), 'Set1')[c(1,3,2)]
+ggCols = brewer.pal(9, 'Greys')[c(4,6,8)]
 ggLty = c('dashed', 'dotdash', 'solid')
 
 # Separation plots
 loadPkg(c('png','grid'))
 sepPngList = lapply(1:length(predDfs), function(ii){
-	fSepPath = paste0('sep_',names(predDfs)[ii],'_outSample.png')
+	fSepPath = paste0('sep_',names(predDfs)[ii],'_outSample_bw.png')
 	# save as pngs for potential use outside of roc
 	tmp = data.frame(act=predDfs[[ii]]$actual, proba=predDfs[[ii]]$'pred')
-	ggSep(actual=tmp$act, proba=tmp$proba, 
+	ggSep(actual=tmp$act, proba=tmp$proba+.01, 
 		color=ggCols[ii], lty=ggLty[ii], fPath=fSepPath, save=TRUE )
 	sepG = rasterGrob(readPNG(fSepPath), interpolate=TRUE)
 	return(sepG) })
@@ -321,24 +324,35 @@ sepPngList = lapply(1:length(predDfs), function(ii){
 # get rid of null model
 rocData$model = factor(rocData$model, levels=levels(rocData$model))
 rocPrData$model = factor(rocPrData$model, levels=levels(rocPrData$model))
-rownames(aucSumm)[grep('Lag DV + Covars', rownames(aucSumm), fixed=TRUE)]="GLM (Lag DV\n  + Covars)"
+rownames(aucSumm)[
+	grep('Lag DV + Covars', 
+		rownames(aucSumm), fixed=TRUE)
+	]="GLM (Lag DV\n  + Covars)"
 
 tmp = rocPlot(rocData, linetypes=ggLty, colorManual=ggCols) +
 	guides(linetype = FALSE, color = FALSE) ; yLo = -.04 ; yHi = .14
 for(ii in 1:length(sepPngList)){
 	tmp = tmp + annotation_custom(sepPngList[[ii]], xmin=.5, xmax=1.05, ymin=yLo, ymax=yHi)
 	yLo = yLo + .1 ; yHi = yHi + .1 }
-tmp = tmp + annotate('text', hjust=0, x=.51, y=seq(0.05,0.25,.1), label=names(predDfs))
-ggsave(tmp, file='floats/figure8_a.pdf', width=5, height=5)
+tmp = tmp + annotate(
+	'text', 
+	hjust=0, x=.51, y=seq(0.05,0.25,.1), label=names(predDfs),
+	family="Source Sans Pro Light")
+ggsave(tmp, file='floats/figure8_a_bw.pdf', width=5, height=5,
+	device=cairo_pdf)
 
 tmp=rocPlot(rocPrData, type='pr', legText=12, legPos=c(.25,.35), 
 	legSpace=2, linetypes=ggLty, colorManual=ggCols) +
 	guides(linetype=FALSE, color=FALSE) + 
-	annotate('text', hjust=0, x=c(.4, .69, .88), y=1, 
-		label=c('  ', ' AUC\n(ROC)', 'AUC\n(PR)'), size=4) + 
+	annotate('text', hjust=0, x=c(.4, .69, .81), y=1, 
+		label=c('  ', ' AUC\n(ROC)', 'AUC\n(PR)'), family='Source Sans Pro', size=3) + 
 	annotate('text', hjust=0, x=.4, y=seq(.63,.9,.13), 
-		label=rev(rownames(aucSumm))) + 
+		label=rev(rownames(aucSumm)), family='Source Sans Pro Light') + 
 	annotate('text', hjust=0, x=.7, y=seq(.63,.9,.13), 
-		label=rev(apply(aucSumm, 1, function(x){paste(x, collapse='     ')})))
-ggsave(tmp, file='floats/figure8_b.pdf', width=5, height=5)
+		label=rev(apply(aucSumm, 1, function(x){paste(x, collapse='     ')})),
+		family='Source Sans Pro Light')
+ggsave(tmp, file='floats/figure8_b_bw.pdf', width=5, height=5,
+	device=cairo_pdf)
 ################
+system('open floats/figure8_a_bw.pdf')
+system('open floats/figure8_b_bw.pdf')
