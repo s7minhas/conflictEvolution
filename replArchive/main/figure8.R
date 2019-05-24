@@ -1,3 +1,4 @@
+setwd('~/Research/conflictEvolution/replArchive/main/')
 ################
 # workspace
 source('setup.R')
