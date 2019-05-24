@@ -1,3 +1,4 @@
+setwd('~/Research/conflictEvolution/replArchive/main/')
 ################
 # workspace
 source('setup.R')
@@ -79,6 +80,6 @@ plotGraph(gArrSumPostBH, gArrPosPostBH,
 	vFrameCol=vCol, vCol=vCol, vertex.label.family="Helvetica")
 title(
 	'Nigerian Intra-State Conflict Post-Boko Haram\n(2009-2016)', 
-	family='Helvetica', adj=1, line=-4)
+	family='Helvetica', adj=1, line=-3)
 dev.off()
 ################	
