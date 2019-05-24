@@ -30,12 +30,14 @@ uSimp = ameFits$base$U
 vSimp = ameFits$base$V
 
 uvCols = brewer.pal(11, 'RdBu')[c(11-2, 3)]
+uvCols = c('grey40', 'grey40') # bw colors
 facet_labeller = function(string){ TeX(string) }
 set.seed(6886)
 circPlot=ggCirc(
 	Y=ySimp, U=uSimp, V=vSimp, vscale=1, force=5,
 	uLabel='Groups with Common Sending Patterns ($u_{i}$)',
 	vLabel='Groups with Common Receiving Patterns ($v_{j}$)',
+	family="Source Sans Pro Light", 
 	removeIsolates=FALSE, showActLinks=FALSE) +
 	scale_color_manual(values=uvCols) +
 	facet_wrap(~eff, 
@@ -43,11 +45,11 @@ circPlot=ggCirc(
 		labeller=as_labeller(facet_labeller, default = label_parsed) ) +
 	theme(
 		strip.text.x = element_text(size = 16, color='white',
-			angle=0, hjust=.2),
+			family="Source Sans Pro Semibold", angle=0, hjust=.2),
 		strip.background = element_rect(fill = "#525252", color='#525252')
 		)
-
 ggsave(circPlot, 
-	file='floats/figure7.pdf',
-	width=12, height=6)
+	# file='floats/figure7.pdf',
+	file='floats/figure7_bw.pdf',	
+	width=12, height=6, device=cairo_pdf)
 ################

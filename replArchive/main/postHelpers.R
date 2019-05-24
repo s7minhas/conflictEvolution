@@ -55,7 +55,12 @@ getAddEffData = function(fit, row=TRUE, addDegree=FALSE, yList=NULL, orderByDegr
 	return(addEffData)
 }
 
-addEffPlot = function(fit, row=TRUE, addDegree=FALSE, yList=NULL, orderByDegree=FALSE, addEffData=NULL){
+addEffPlot = function(
+	fit, row=TRUE, 
+	addDegree=FALSE, yList=NULL, 
+	orderByDegree=FALSE, addEffData=NULL,
+	bw=FALSE
+	){
 	if(is.null(addEffData)){
 		addEffData = getAddEffData(fit, row, addDegree, yList, orderByDegree)
 	}
@@ -63,8 +68,14 @@ addEffPlot = function(fit, row=TRUE, addDegree=FALSE, yList=NULL, orderByDegree=
 	if(!row){ yLabel='Receiver Effects'}		
 	gg = ggplot(addEffData, aes(x=actor, y=addEff)) +
 		geom_point() + geom_linerange(aes(ymax=max,ymin=min)) +
-		ylab(yLabel) + xlab('') + 
-		geom_hline(yintercept=0,color='red') + 
+		ylab(yLabel) + xlab('')
+	if(!bw){
+		gg = gg + geom_hline(yintercept=0,color='red')
+	}
+	if(bw){
+		gg = gg + geom_hline(yintercept=0,color='gray40', linetype='dashed')
+	}
+	gg = gg + 
 		theme(
 			panel.border=element_blank(), axis.ticks=element_blank(),
 			# axis.text.x=element_text(angle=45, hjust=1, size=4)
