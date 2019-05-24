@@ -17,7 +17,10 @@ getAUC = function(prediction, actual){
 
 # Plot roc curves, depends RColorBrewer
 # plot_type is "roc" or "pr"
-rocPlot = function(rocData, type='roc', legPos=c(.56,.25), colorPal = 'Set1', colorManual=NULL, linetypes, legText=6, legSpace=3){
+rocPlot = function(
+  rocData, type='roc', legPos=c(.56,.25), 
+  colorPal = 'Set1', colorManual=NULL, 
+  linetypes, legText=6, legSpace=3){
 
   if(type=='roc'){ 
     tmp=ggplot(rocData, aes(x=FPR, y=TPR, color=model, linetype=model)) + 
@@ -41,12 +44,14 @@ rocPlot = function(rocData, type='roc', legPos=c(.56,.25), colorPal = 'Set1', co
     geom_line(lwd=1) +
     ylim(0,1) + 
     scale_linetype_manual(values=linetypes) + 
-    theme_light() + 
+    theme_light(base_family="Source Sans Pro") + 
     theme(
       legend.position=legPos, legend.title=element_blank(),
       legend.background=element_blank(), 
       legend.text.align = 0, legend.text=element_text(size=legText),
       legend.key=element_rect(colour = NA, fill = NA), legend.key.size=unit(legSpace,'lines'),
+      axis.text.x=element_text(family="Source Sans Pro Light"),
+      axis.text.y=element_text(family="Source Sans Pro Light"),    
       axis.ticks=element_blank(),    
       panel.border=element_blank()
     )
@@ -62,14 +67,15 @@ ggSep = function(actual, proba, color, lty, actLineSize=2, fPath, save=TRUE){
   tmp=ggplot(sepData) + 
     geom_rect(aes(xmin = 0, xmax = seq(length.out = length(actual)), ymin = 0, ymax = 1), fill = "transparent") +
     geom_linerange(aes(size=factor(actual), color = factor(actual), ymin = 0, ymax = 1, x = seq(length.out = length(actual))), alpha = 0.5) +
-    geom_line(aes(y = proba, x = seq(length.out = length(actual)), linetype=lty), lwd = 4) + 
+    geom_line(aes(y = proba, x = seq(length.out = length(actual)), linetype=lty), lwd = 2) + 
     scale_linetype_manual(values=lty) +
     scale_size_manual(values=c(1,actLineSize)) + 
     scale_color_manual(values=color) + 
     scale_x_continuous(expand=c(0,0)) + scale_y_continuous(expand=c(0,0), breaks=seq(0,1,.25)) + 
     theme(
       legend.position='none', 
-      panel.grid=element_blank(), panel.border=element_rect(colour = "grey13"),
+      panel.grid=element_blank(), #panel.border=element_rect(colour = "grey13"),
+      panel.border=element_blank(),
       axis.ticks=element_blank(),
       axis.text=element_blank(),
       axis.title=element_blank()
