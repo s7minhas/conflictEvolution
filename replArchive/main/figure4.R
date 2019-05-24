@@ -126,6 +126,7 @@ ameBETA = getSigVec(ameBETA)
 
 ################
 # viz
+# for grey shading
 greys = brewer.pal(9, 'Greys')
 coefp_colors[1:2] = greys[8] # grey
 coefp_colors[3:4] = greys[6] # grey
@@ -155,11 +156,9 @@ ggCoef=ggplot(ameBETA, aes(x=varClean, y=mean, color=sig)) +
 			angle=0, hjust=.95),
 		strip.background = element_rect(fill = "#525252", color='#525252')				
 	)
-ggCoef
 # ggsave( ggCoef, file='floats/figure4_top.pdf', width=7, height=6 )
 ggsave( ggCoef, file='floats/figure4_top_bw.pdf', width=7, height=6, 
 	device=cairo_pdf )
-system('open floats/figure4_top_bw.pdf')
 ################
 
 ################
@@ -195,14 +194,20 @@ ggVC = ggplot(vc, aes(x=varClean, y=mean, color=sig)) +
 	geom_linerange(aes(ymin=lo90,ymax=hi90), linetype=1, size=1.5) + 
 	scale_color_manual(values=coefp_colors) + 
 	facet_wrap(~bigLab) + 
-	ylab('') + xlab('') + 
+	scale_x_discrete('',labels=TeX(levels(rev(vc$varClean)))) + ylab('') +
 	theme(
 		legend.position = 'none',
 		axis.ticks=element_blank(),
 		panel.border=element_blank(),
+		axis.text.x=element_text(vjust=-1, family='Source Sans Pro Light'),
+		axis.text.y=element_text(family='Source Sans Pro Light'),
 		strip.text.x = element_text(size = 10, color='white',
-			angle=0, hjust=.03),
+			family="Source Sans Pro Semibold", angle=0, hjust=.03),
 		strip.background = element_rect(fill = "#525252", color='#525252')
 		)
-ggsave(ggVC, file='floats/figure4_bottom.pdf', width=8, height=2)
+# ggsave(ggVC, file='floats/figure4_bottom.pdf', width=8, height=2)
+ggsave(ggVC, file='floats/figure4_bottom_bw.pdf', 
+	width=8, height=2,
+	device=cairo_pdf
+	)	
 ################
