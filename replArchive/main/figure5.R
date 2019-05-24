@@ -60,18 +60,25 @@ edgePostBH$edgeCol = ifelse(
 edgePostBH$edgeCol[edgePostBH$edgeWgt==edgePostBH$wgtPreBH]=edgePal[3]
 E(gArrSumPostBH)$weight = E(gArrSumPostBH)$weight*3
 
+# add line types
+edgePostBH$edgeType = 1 # solid = more interaction
+edgePostBH$edgeType[edgePostBH$edgeCol=="#4DAF4A"] = 2 # dashed = same interaction
+edgePostBH$edgeType[edgePostBH$edgeCol=="#E41A1C"] = 3 # dotted = less interaction
+
 # define v cols by actor type
 vCol = ifelse(names(V(gArrSumPostBH)) %in% govActors, 'gray30', 'gray95')
 vLabCol = ifelse(names(V(gArrSumPostBH)) %in% govActors, 'white', 'gray30')
-fName = 'floats/figure5.pdf'
+# fName = 'floats/figure5.pdf'
+fName = 'floats/figure5_bw.pdf'
 pdf(file=fName, width=13,height=9)
 set.seed(6886)
 plotGraph(gArrSumPostBH, gArrPosPostBH, 
-	edge.color=edgePostBH$edgeCol, vShape='circle', vLabCex=gArrSumPostBH$labSize+.3, 
+	edge.lty=edgePostBH$edgeType, edge.color='grey50', 
+	vShape='circle', vLabCex=gArrSumPostBH$labSize+.3, 
 	vLabCol=vLabCol, vertex.label.font=1, vertex.size=gArrSumPostBH$vSize, 
 	vFrameCol=vCol, vCol=vCol, vertex.label.family="Helvetica")
 title(
 	'Nigerian Intra-State Conflict Post-Boko Haram\n(2009-2016)', 
 	family='Helvetica', adj=1, line=-4)
 dev.off()
-################
+################	
