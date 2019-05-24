@@ -126,6 +126,11 @@ ameBETA = getSigVec(ameBETA)
 
 ################
 # viz
+greys = brewer.pal(9, 'Greys')
+coefp_colors[1:2] = greys[8] # grey
+coefp_colors[3:4] = greys[6] # grey
+coefp_colors[5] = greys[4] # grey
+
 cleanVars = ameBETA$varClean
 ameBETA$typeClean = factor(ameBETA$typeClean, levels=unique(ameBETA$typeClean)[c(4,3,1,2)])
 ggCoef=ggplot(ameBETA, aes(x=varClean, y=mean, color=sig)) +
@@ -135,17 +140,26 @@ ggCoef=ggplot(ameBETA, aes(x=varClean, y=mean, color=sig)) +
 	geom_linerange(aes(ymin=lo90, ymax=hi90),alpha = 1, size = 1.5) + 
 	geom_linerange(aes(ymin=lo95,ymax=hi95),alpha = 1, size = .5) +	
 	scale_colour_manual(values = coefp_colors, guide=FALSE) +
+	scale_x_discrete('', labels=TeX(rev(cleanVars))) +	
+	ylab(TeX('$\\beta_{p} \\times \\frac{\\sigma_{x_{p}}}{\\sigma_{y}}$')) +
 	coord_flip() + 
+	theme_light(base_family="Source Sans Pro") +
 	theme(
 		legend.position='none', legend.title=element_blank(),
 		panel.border=element_blank(),
 		axis.ticks=element_blank(),
-		axis.text.y=element_text(hjust=0),
+		axis.text.x=element_text(family="Source Sans Pro Light"),
+		axis.text.y=element_text(family="Source Sans Pro Light", hjust=0),
 		strip.text.x = element_text(size = 9, color='white',
+			family="Source Sans Pro Semibold", 
 			angle=0, hjust=.95),
 		strip.background = element_rect(fill = "#525252", color='#525252')				
 	)
-ggsave( ggCoef, file='floats/figure4_top.pdf', width=7, height=6 )
+ggCoef
+# ggsave( ggCoef, file='floats/figure4_top.pdf', width=7, height=6 )
+ggsave( ggCoef, file='floats/figure4_top_bw.pdf', width=7, height=6, 
+	device=cairo_pdf )
+system('open floats/figure4_top_bw.pdf')
 ################
 
 ################

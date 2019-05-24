@@ -15,7 +15,7 @@ toLoad = c(
 	'foreach', 'doParallel', 
 	'network', 'igraph', 'ggplot2', 'RColorBrewer',
 	'reshape2', 'plyr', 'magrittr', 'latex2exp', 
-	'amen', 'xtable'
+	'amen', 'xtable', 'Cairo'
 	)
 loadPkg(toLoad)
 
