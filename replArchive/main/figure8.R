@@ -1,3 +1,4 @@
+setwd('~/Research/conflictEvolution/replArchive/main/')
 ################
 # workspace
 source('setup.R')
@@ -307,7 +308,7 @@ rocPrData=do.call('rbind',
 # model col/lty
 ggCols = brewer.pal(length(levels(rocData$model)), 'Set1')[c(1,3,2)]
 ggCols = brewer.pal(9, 'Greys')[c(4,6,8)]
-ggLty = c('dashed', 'dotdash', 'solid')
+ggLty = c('dashed', 'dotted', 'solid')
 
 # Separation plots
 loadPkg(c('png','grid'))
@@ -353,5 +354,3 @@ tmp=rocPlot(rocPrData, type='pr', legText=12, legPos=c(.25,.35),
 ggsave(tmp, file='floats/figure8_b_bw.pdf', width=5, height=5,
 	device=cairo_pdf)
 ################
-system('open floats/figure8_a_bw.pdf')
-system('open floats/figure8_b_bw.pdf')
