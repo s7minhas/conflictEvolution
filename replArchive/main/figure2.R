@@ -37,15 +37,18 @@ cols = brewer.pal(3,'Set1')[1:2] # default
 cols = c('gray60', 'gray20') # bw colors
 names(cols)=c('Yes',"No")
 
-
 # viz
+nData$invBoko = factor(nData$invBoko)
 ggNigConfMap = ggplot(nData, aes(map_id = id, x=LONGITUDE,y=LATITUDE)) + 
 	geom_map( map=nigShape, fill='white', linetype=1, colour='grey30') +
 	inset_ggmap(ngaLines) +
-	geom_point(aes(color=factor(invBoko)),alpha=.7) + 
+	geom_point(aes(color=invBoko, shape=invBoko),alpha=.7) + 
 	facet_wrap(~yearLab, nrow=4, ncol=4) + 
 	xlab('') + ylab('') + 
-	scale_color_manual('Confict Involving Boko Haram?', values=cols) + 
+	scale_color_manual('Confict Involving Boko Haram?', 
+		labels=c('Yes','No'), values=cols) + 
+	scale_shape_manual('Confict Involving Boko Haram?', 
+		labels=c('Yes','No'), values=c(19, 17)) + 
 	theme(
 		legend.position = 'bottom',
 		panel.border=element_blank(),
